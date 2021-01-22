@@ -49,7 +49,7 @@ void telaInicial(void) {
     printf("|                                                                          |\n");
     printf("|               = = = = =  MoneyDomestic  = = = = =                        |\n");
     printf("|                                                                          |\n");
-    printf("| Organizacaoo financeira? Fugir do aperto? Nada de gastos essecivos?      |\n");
+    printf("| Organizacaoo financeira? Fugir do aperto? Nada de gastos excessivos?     |\n");
     printf("| Conheca o MoneyDomestic, o mais novo software de organizacao financeira. |\n");
     printf("| Se organize com a gente e alcance a tao sonhada                          |\n");
     printf("| BOA VIDA FINANCEIRA                                                      |\n");
