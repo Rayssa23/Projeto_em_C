@@ -6,8 +6,4 @@
  Projeto Sistema de Gestao de Financas Domesticas       
     Developed by  @AlmeidaRayssa - Jan, 2021 
     
-              = = = = =  MoneyDomestic  = = = = = 
-  | Organizacaoo financeira? Fugir do aperto? Nada de gastos excessivos?     |
-  | Conheca o MoneyDomestic, o mais novo software de organizacao financeira.| 
-  | Se organize com a gente e alcance a tao sonhada                         |
-  | BOA VIDA FINANCEIRA                                                     |
+  Projeto do MoneyDomestic
