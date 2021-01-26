@@ -70,15 +70,15 @@ void menuPrincipal(){
     printf("|/////                       Menu Principal                                /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Entradas                                             /////|\n");
-    printf("|/////            2 - Saídas                                               /////|\n");
+    printf("|/////            2 - Saidas                                               /////|\n");
     printf("|/////            3 - Investimentos                                        /////|\n");
     printf("|/////            4 - Contribuintes                                        /////|\n");
     printf("|/////            5 - Dependentes                                          /////|\n");
-    printf("|/////            6 - Relatório                                            /////|\n");
-    printf("|/////            7 - Informações sobre o sistema                          /////|\n");
+    printf("|/////            6 - Relatorio                                            /////|\n");
+    printf("|/////            7 - Informacoes sobre o sistema                          /////|\n");
     printf("|/////            0 - Sair                                                 /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("|/////            Escolha sua opção:                                       /////|\n");
+    printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
 
