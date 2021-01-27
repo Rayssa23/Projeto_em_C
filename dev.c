@@ -172,7 +172,7 @@ void infoSistema(){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
     printf("|/////                Modulo Informacoes sobre o Sistema                   /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|///// MoneyDomestic um software projetado para facilitar a gerencia e     /////|\n");                                                    /////\n");
+    printf("|///// MoneyDomestic um software projetado para facilitar a gerencia e     /////|\n");                                                   
     printf("|///// o fluxo de uma residencia.                                          /////|\n");
     printf("|///// Desenvolvido por @AlmeidaRayssa                                     /////|\n");
     printf("|///// Jan 2021                                                            /////|\n");
