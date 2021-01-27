@@ -83,7 +83,7 @@ void menuPrincipal(){
     printf("|/////            3 - Investimentos                                        /////|\n");
     printf("|/////            4 - Contribuintes                                        /////|\n");
     printf("|/////            5 - Dependentes                                          /////|\n");
-    printf("|/////            6 - Relatorio                                            /////|\n");
+    printf("|/////            6 - Relatório                                            /////|\n");
     printf("|/////            7 - Informacoes sobre o sistema                          /////|\n");
     printf("|/////            0 - Sair                                                 /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
