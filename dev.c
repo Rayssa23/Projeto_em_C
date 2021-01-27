@@ -20,7 +20,7 @@ void menuPrincipal(void);
 int main(void) {
     setlocale(LC_ALL, "Portuguese");
     printf("Utilizando caracteres e acentuação da língua portuguesa!\n\n");
-    system("pause");
+    system("PAUSE");
     menuSobre();
     telaInicial();
     menuPrincipal();
