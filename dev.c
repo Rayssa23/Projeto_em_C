@@ -8,8 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
+
 
 
 void menuSobre(void);
@@ -18,9 +17,6 @@ void menuPrincipal(void);
 
 
 int main(void) {
-    setlocale(LC_ALL, "Portuguese");
-    printf("Utilizando caracteres e acentuação da língua portuguesa!\n\n");
-    system("PAUSE");
     menuSobre();
     telaInicial();
     menuPrincipal();
@@ -83,7 +79,7 @@ void menuPrincipal(){
     printf("|/////            3 - Investimentos                                        /////|\n");
     printf("|/////            4 - Contribuintes                                        /////|\n");
     printf("|/////            5 - Dependentes                                          /////|\n");
-    printf("|/////            6 - Relatório                                            /////|\n");
+    printf("|/////            6 - Relatorio                                            /////|\n");
     printf("|/////            7 - Informacoes sobre o sistema                          /////|\n");
     printf("|/////            0 - Sair                                                 /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
