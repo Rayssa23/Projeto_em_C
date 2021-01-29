@@ -12,8 +12,15 @@
 
 
 void menuSobre(void);
-void telaInicial();
+void telaInicial(void);
 void menuPrincipal(void);
+void moduloEntradas(void);
+void moduloSaidas(void);
+void moduloInvestimentos(void);
+void moduloContribuintes(void);
+void moduloDependentes(void);
+void moduloRelatorio(void);
+void infoSistema(void);
 
 
 int main(void) {
@@ -131,9 +138,8 @@ void moduloContribuintes(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
     printf("|/////                       Modulo Contribuintes                          /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Nome                                                 /////|\n");
-    printf("|/////            2 - Profissao/Servico                                    /////|\n");
-    printf("|/////            3 - Salario                                              /////|\n");
+    printf("|/////            1 - Cadastro                                             /////|\n");
+    printf("|/////            2 - Pesquisa                                             /////|\n");
     printf("|/////            0 - Sair                                                 /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("|/////            Escolha sua opcao:                                       /////|\n");
@@ -145,14 +151,15 @@ void moduloDepedentes(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
     printf("|/////                       Modulo Dependentes                            /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Nome                                                 /////|\n");
-    printf("|/////            2 - Idade                                                /////|\n");
+    printf("|/////            1 - Cadastro                                             /////|\n");
+    printf("|/////            2 - Pesquisa                                             /////|\n");
     printf("|/////            0 - Sair                                                 /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
 }
+
 
 void moduloRelatorio(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
