@@ -8,6 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
+#include <stdlib.h>
 
 
 
@@ -62,6 +63,8 @@ void menuSobre(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+   printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar(); 
 }
 void telaInicial(void) {
     printf("\n");
@@ -76,6 +79,8 @@ void telaInicial(void) {
     printf("|                                                                          |\n");
     printf("---------------------------------------------------------------------------|\n");
     printf("\n");
+  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
 
 void menuPrincipal(void){
@@ -100,6 +105,8 @@ void menuPrincipal(void){
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
 void moduloEntradas(void){
@@ -113,6 +120,8 @@ void moduloEntradas(void){
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
 
 void moduloSaidas(void){
@@ -126,6 +135,8 @@ void moduloSaidas(void){
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
 
 void moduloInvestimentos(void){
@@ -139,6 +150,8 @@ void moduloInvestimentos(void){
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
 
 void moduloContribuintes(void){
@@ -152,6 +165,8 @@ void moduloContribuintes(void){
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
 
 void moduloDependentes(void){
@@ -165,6 +180,8 @@ void moduloDependentes(void){
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
 
 
@@ -180,6 +197,8 @@ void moduloRelatorio(void){
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
 
 void infoSistema(void){
@@ -191,4 +210,6 @@ void infoSistema(void){
     printf("|///// Desenvolvido por @AlmeidaRayssa                                     /////|\n");
     printf("|///// Jan 2021                                                            /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
