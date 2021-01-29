@@ -27,6 +27,13 @@ int main(void) {
     menuSobre();
     telaInicial();
     menuPrincipal();
+    moduloEntradas();
+    moduloSaidas();
+    moduloInvestimentos();
+    moduloContribuintes();
+    moduloDependentes();
+    moduloRelatorio();
+    infoSistema();
     return 0;
 
 }
