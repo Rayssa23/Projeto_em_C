@@ -17,9 +17,21 @@ void telaInicial(void);
 void menuPrincipal(void);
 void moduloEntradas(void);
 void moduloSaidas(void);
+void despesasFixas(void);
+void despesasExtras(void);
 void moduloInvestimentos(void);
+void curtoPrazo(void);
+void medioPrazo(void);
+void longoPrazo(void);
 void moduloContribuintes(void);
+void cadastroContrib(void);
 void moduloDependentes(void);
+void cadastroDependt(void);
+void moduloPesquisa(void);
+void pesqEstrada(void);
+void pesqSaida(void);
+void pesqDependt(void);
+void pesqContrib(void);
 void moduloRelatorio(void);
 void infoSistema(void);
 
@@ -30,9 +42,21 @@ int main(void) {
     menuPrincipal();
     moduloEntradas();
     moduloSaidas();
+    despesasFixas();
+    despesasExtras();
     moduloInvestimentos();
+    curtoPrazo();
+    medioPrazo();
+    longoPrazo();
     moduloContribuintes();
+    cadastroContrib();
     moduloDependentes();
+    cadastroDependt();
+    moduloPesquisa();
+    pesqEstrada();
+    pesqSaida();
+    pesqDependt();
+    pesqContrib();
     moduloRelatorio();
     infoSistema();
     return 0;
@@ -84,22 +108,23 @@ void telaInicial(void) {
 }
 
 void menuPrincipal(void){
-    printf("---------------------------------------------------------------------------------\n");
-    printf("|-------------------------------------------------------------------------------|\n");
-    printf("|----------------------------MoneyDomestic--------------------------------------|\n");
-    printf("|-------------------------------------------------------------------------------|\n");
-    printf("|                 Developed for AlmeidaRayssa jan, 2021                         |\n");
-    printf("---------------------------------------------------------------------------------\n");
+    printf(".................................................................................\n");
+    printf(".................................................................................\n");
+    printf("..........................   MoneyDomestic  .....................................\n");
+    printf(".................................................................................\n");
+    printf(".---------------    Developed for AlmeidaRayssa jan, 2021    -------------------.\n");
+    printf(".................................................................................\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
     printf("|/////                       Menu Principal                                /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Entradas                                             /////|\n");
-    printf("|/////            2 - Saidas                                               /////|\n");
-    printf("|/////            3 - Investimentos                                        /////|\n");
-    printf("|/////            4 - Contribuintes                                        /////|\n");
-    printf("|/////            5 - Dependentes                                          /////|\n");
+    printf("|/////            1 - Registrar Entradas                                   /////|\n");
+    printf("|/////            2 - Registrar Saidas                                     /////|\n");
+    printf("|/////            3 - Registrar Investimentos                              /////|\n");
+    printf("|/////            4 - Cadastrar Contribuintes                              /////|\n");
+    printf("|/////            5 - Cadastrar Dependentes                                /////|\n");
     printf("|/////            6 - Relatorio                                            /////|\n");
-    printf("|/////            7 - Informacoes sobre o sistema                          /////|\n");
+    printf("|/////            7 - Pesquisar                                            /////|\n");
+    printf("|/////            8 - Informacoes sobre o sistema                          /////|\n");
     printf("|/////            0 - Sair                                                 /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("|/////            Escolha sua opcao:                                       /////|\n");
@@ -111,14 +136,13 @@ void menuPrincipal(void){
 
 void moduloEntradas(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                       Modulo Entradas                                /////|\n");
+    printf("|/////                  Modulo Cadastrar Entradas                          /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Salario                                              /////|\n");
-    printf("|/////            2 - Extras                                               /////|\n");
+    printf("|/////            1 - Valor:                                               /////|\n");
+    printf("|/////            2 - Tipo (Salário/Extras):                               /////|\n");
     printf("|/////            0 - Sair                                                 /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("|/////            Escolha sua opcao:                                       /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
@@ -126,7 +150,7 @@ void moduloEntradas(void){
 
 void moduloSaidas(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                       Modulo Saidas                                 /////|\n");
+    printf("|/////                   Modulo Cadastrar Saidas                           /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Despesas Fixas                                       /////|\n");
     printf("|/////            2 - Despesas Extras                                      /////|\n");
@@ -134,21 +158,84 @@ void moduloSaidas(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void despesasFixas(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                       Despesas Fixas                                /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            1 - Valor:                                               /////|\n");
+    printf("|/////            2 - Destino:                                             /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+    printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
 
+
+void despesasExtras(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                       Despesas Extras                               /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            1 - Valor:                                               /////|\n");
+    printf("|/////            2 - Destino:                                             /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+    printf("|/////            Escolha sua opcao:                                       /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
 void moduloInvestimentos(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                       Modulo Investimentos                          /////|\n");
+    printf("|/////                  Modulo Cadastrar Investimentos                     /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Cuto prazo                                           /////|\n");
+    printf("|/////            1 - Curto prazo                                          /////|\n");
     printf("|/////            2 - Medio prazo                                          /////|\n");
     printf("|/////            0 - Longo prazo                                          /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void curtoPrazo(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                       Curto Prazo                                   /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            1 - Valor:                                               /////|\n");
+    printf("|/////            2 - Objetivo:                                            /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+    printf("|/////            Escolha sua opcao:                                       /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void medioPrazo(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                       Medio Prazo                                   /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            1 - Valor:                                               /////|\n");
+    printf("|/////            2 - Objetivo:                                            /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+    printf("|/////            Escolha sua opcao:                                       /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void longoPrazo(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                       Longo Prazo                                   /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            1 - Valor:                                               /////|\n");
+    printf("|/////            2 - Objetivo:                                            /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+    printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
@@ -169,21 +256,86 @@ void moduloContribuintes(void){
 	getchar();
 }
 
-void moduloDependentes(void){
+void cadastroContrib(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                       Modulo Dependentes                            /////|\n");
+    printf("|/////                       Cadastro Contribuintes                        /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Cadastro                                             /////|\n");
-    printf("|/////            2 - Pesquisa                                             /////|\n");
-    printf("|/////            0 - Sair                                                 /////|\n");
+    printf("|/////            Nome:                                                    /////|\n");
+    printf("|/////            Profissao:                                               /////|\n");
+    printf("|/////            Valor:                                                   /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("|/////            Escolha sua opcao:                                       /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
 
+void cadastroDependt(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                       Cadastro Dependentes                          /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            Nome:                                                    /////|\n");
+    printf("|/////            Profissao:                                               /////|\n");
+    printf("|/////            Valor:                                                   /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void moduloPesquisa(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                       Modulo Pesquisar                              /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            1 - Entrada                                              /////|\n");
+    printf("|/////            2 - Saida                                                /////|\n");
+    printf("|/////            3 - Contribuintes                                        /////|\n");
+    printf("|/////            4 - Dependentes                                          /////|\n");
+    printf("|/////            0 - Sair                                                 /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void pesqEntrada(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                       Pesquisar Entradas                            /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            Valor:                                                   /////|\n");
+    printf("|/////            Tipo:                                                    /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void pesqSaida(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                       Pesquisar Saidas                              /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            Valor:                                                   /////|\n");
+    printf("|/////            Destino:                                                 /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+void pesqDependt(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                       Pesquisar Dependentes                         /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            Nome:                                                    /////|\n");
+    printf("|/////            Idade:                                                   /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void pesqContrib(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+    printf("|/////                     Pesquisar Contribuintes                         /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("|/////            Nome:                                                    /////|\n");
+    printf("|/////            Profissao:                                               /////|\n");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+ printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
 
 void moduloRelatorio(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
