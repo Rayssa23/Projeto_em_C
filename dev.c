@@ -16,22 +16,30 @@ void menuSobre(void);
 void telaInicial(void);
 void menuPrincipal(void);
 void moduloEntradas(void);
+void cadastroEntradas(void);
+void consultaEntradas(void);
+void excluiEntradas(void);
+void atualizaEntradas(void);
 void moduloSaidas(void);
-void despesasFixas(void);
-void despesasExtras(void);
+void cadastroSaidas(void);
+void consultaSaidas(void);
+void excluiSaidas(void);
+void atualizaSaidas(void);
 void moduloInvestimentos(void);
-void curtoPrazo(void);
-void medioPrazo(void);
-void longoPrazo(void);
-void moduloContribuintes(void);
-void cadastroContrib(void);
-void moduloDependentes(void);
-void cadastroDependt(void);
-void moduloPesquisa(void);
-void pesqEstrada(void);
-void pesqSaida(void);
-void pesqDependt(void);
-void pesqContrib(void);
+void cadastroInvest(void);
+void consultaInvest(void);
+void excluiInvest(void);
+void atualizaInvest(void);
+void moduloContribuinte(void);
+void cadastroContribuinte(void);
+void consutaContribuinte(void);
+void excluiContribuinte(void);
+void atualizaContribuinte(void);
+void moduloDependente(void);
+void cadastroDependente(void);
+void consultaDependente(void);
+void excluiDependente(void);
+void atualizaDependente(void);
 void moduloRelatorio(void);
 void infoSistema(void);
 
@@ -40,23 +48,31 @@ int main(void) {
     menuSobre();
     telaInicial();
     menuPrincipal();
-    moduloEntradas();
+    moduloEntradas();   
+    cadastroEntradas();
+    consultaEntradas();
+    excluiEntradas();
+    atualizaEntradas();
     moduloSaidas();
-    despesasFixas();
-    despesasExtras();
+    cadastroSaidas();
+    consultaSaidas();
+    excluiSaidas();
+    atualizaSaidas();
     moduloInvestimentos();
-    curtoPrazo();
-    medioPrazo();
-    longoPrazo();
-    moduloContribuintes();
-    cadastroContrib();
-    moduloDependentes();
-    cadastroDependt();
-    moduloPesquisa();
-    pesqEstrada();
-    pesqSaida();
-    pesqDependt();
-    pesqContrib();
+    cadastroInvest();
+    consultaInvest();
+    excluiInvest();
+    atualizaInvest();
+    moduloContribuinte();
+    cadastroContribuinte();
+    consutaContribuinte();
+    excluiContribuinte();
+    atualizaContribuinte();
+    moduloDependente();
+    cadastroDependente();
+    consultaDependente();
+    excluiDependente();
+    atualizaDependente();
     moduloRelatorio();
     infoSistema();
     return 0;
@@ -317,7 +333,7 @@ void cadastroContrubuinte(void){
 
 void consultaContribuinte(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Consultar Saidas                            /////|\n");
+    printf("|/////                  Modulo Consultar Contribuintes                     /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Nome                                                 /////|\n");
     printf("|/////            2 - Profissao                                            /////|\n");
@@ -358,19 +374,19 @@ void atualizaContribuinte(void){
 }
 
 
-void moduloContribuinte(void){
+void moduloDependente(void){
     printf(".................................................................................\n");
     printf(".................................................................................\n");
     printf("..........................   MoneyDomestic  .....................................\n");
     printf(".................................................................................\n");
     printf(".................................................................................\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Contribuintes                               /////|\n");
+    printf("|/////                  Modulo Dependentes                                 /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Cadastrar Contribuinte                               /////|\n");
-    printf("|/////            2 - Consultar Contribuintes                              /////|\n");
-    printf("|/////            3 - Excluir Contribuinte                                 /////|\n");
-    printf("|/////            4 - Atualizar Contribuinte                               /////|\n");
+    printf("|/////            1 - Cadastrar Dependente                                 /////|\n");
+    printf("|/////            2 - Consultar Dependentes                                /////|\n");
+    printf("|/////            3 - Excluir Dependente                                   /////|\n");
+    printf("|/////            4 - Atualizar Dependente                                 /////|\n");
     printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("|/////            Escolha sua opcao:                                       /////|\n");
@@ -378,39 +394,36 @@ void moduloContribuinte(void){
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
-void cadastroContrubuinte(void){
+void cadastroDependente(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
+    printf("|/////                  Modulo Cadastrar Dependente                        /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Nome:                                                /////|\n");
-    printf("|/////            2 - Profissao:                                           /////|\n");
-    printf("|/////            3 - Valor                                                /////|\n");
+    printf("|/////            2 - Idade:                                               /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
 
-void consultaContribuinte(void){
+void consultaDependente(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Consultar Saidas                            /////|\n");
+    printf("|/////                  Modulo Consultar Dependente                        /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Nome                                                 /////|\n");
-    printf("|/////            2 - Profissao                                            /////|\n");
-    printf("|/////            3 - Valor                                                /////|\n");
+    printf("|/////            2 - Idade                                                /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("|/////            Escolha sua opcao:                                       /////|\n");
+    printf("|/////            Escolha sua opcao de consulta:                            /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
 
-void excluiContribuinte(void){
+void excluiDependente(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
     printf("|/////                  Modulo Excluir Contribuinte                        /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Nome                                                 /////|\n");
-    printf("|/////            2 - Profissao                                            /////|\n");
-    printf("|/////            3 - Valor                                                /////|\n");
+    printf("|/////            2 - Idade                                                /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            Escolha sua opcao de exclusao:                           /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
@@ -418,13 +431,12 @@ void excluiContribuinte(void){
 	getchar();
 }
 
-void atualizaContribuinte(void){
+void atualizaDependente(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Aualizar Contribuinte                       /////|\n");
+    printf("|/////                  Modulo Aualizar Dependente                         /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Nome                                                 /////|\n");
-    printf("|/////            2 - Profissao                                            /////|\n");
-    printf("|/////            3 - Valor                                                /////|\n");
+    printf("|/////            2 - Idade                                                /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            Escolha o que deseja Atualizar:                          /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
@@ -468,7 +480,7 @@ void cadastroInvest(void){
 
 void consultaInvest(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Consultar Saidas                            /////|\n");
+    printf("|/////                  Modulo Consultar Investimentos                     /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Objetivo                                             /////|\n");
     printf("|/////            2 - Prazo                                                /////|\n");
@@ -496,7 +508,7 @@ void excluiInvest(void){
 
 void atualizaInvest(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Aualizar Contribuinte                       /////|\n");
+    printf("|/////                  Modulo Aualizar Investimento                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Objetivo:                                            /////|\n");
     printf("|/////            2 - Prazo:                                               /////|\n");
