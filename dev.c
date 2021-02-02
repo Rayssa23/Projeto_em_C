@@ -32,7 +32,7 @@ void excluiInvest(void);
 void atualizaInvest(void);
 void moduloContribuinte(void);
 void cadastroContribuinte(void);
-void consutaContribuinte(void);
+void consultaContribuinte(void);
 void excluiContribuinte(void);
 void atualizaContribuinte(void);
 void moduloDependente(void);
@@ -65,7 +65,7 @@ int main(void) {
     atualizaInvest();
     moduloContribuinte();
     cadastroContribuinte();
-    consutaContribuinte();
+    consultaContribuinte();
     excluiContribuinte();
     atualizaContribuinte();
     moduloDependente();
