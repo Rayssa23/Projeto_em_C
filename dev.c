@@ -465,7 +465,7 @@ void moduloInvestimentos(void){
 
 void cadastroInvest(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
+    printf("|/////                  Modulo Cadastrar Investimento                      /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Objetivo:                                            /////|\n");
     printf("|/////            2 - Prazo:                                               /////|\n");
@@ -491,7 +491,7 @@ void consultaInvest(void){
 
 void excluiInvest(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Excluir Contribuinte                        /////|\n");
+    printf("|/////                  Modulo Excluir Investimento                        /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("|/////            1 - Objetivo:                                            /////|\n");
     printf("|/////            2 - Prazo:                                               /////|\n");
