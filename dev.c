@@ -319,7 +319,7 @@ void moduloContribuinte(void){
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
-void cadastroContrubuinte(void){
+void cadastroContribuinte(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
     printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
