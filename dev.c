@@ -45,9 +45,11 @@ void infoSistema(void);
 
 
 int main(void) {
+    int opcao;
     menuSobre();
     telaInicial();
     menuPrincipal();
+    scannf("%d", opcao);
     moduloEntradas();   
     cadastroEntradas();
     consultaEntradas();
@@ -124,7 +126,6 @@ void telaInicial(void) {
 }
 
 void menuPrincipal(void){
-    int opcao;
     printf(".................................................................................\n");
     printf(".................................................................................\n");
     printf("..........................   MoneyDomestic  .....................................\n");
@@ -145,8 +146,6 @@ void menuPrincipal(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    scannf("%d", opcao);
-    printf(opcao);
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
 }
