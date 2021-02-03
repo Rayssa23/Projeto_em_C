@@ -49,7 +49,7 @@ int main(void) {
     menuSobre();
     telaInicial();
     menuPrincipal();
-        printf("Informe sua escolha: ");
+        printf("|/////            Escolha sua opcao:                                       /////|\n");
         scanf("%d", opcao);
     moduloEntradas();   
     cadastroEntradas();
@@ -145,7 +145,6 @@ void menuPrincipal(void){
     printf("|/////            7 - Informacoes sobre o sistema                          /////|\n");
     printf("|/////            0 - Sair                                                 /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("|/////            Escolha sua opcao:                                       /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
