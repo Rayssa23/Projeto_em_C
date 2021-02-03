@@ -45,9 +45,12 @@ void infoSistema(void);
 
 
 int main(void) {
+    int opcao;
     menuSobre();
     telaInicial();
     menuPrincipal();
+        printf("Informe sua escolha: ");
+        scanf("%d", opcao);
     moduloEntradas();   
     cadastroEntradas();
     consultaEntradas();
