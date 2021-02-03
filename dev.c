@@ -45,11 +45,9 @@ void infoSistema(void);
 
 
 int main(void) {
-    int opcao;
     menuSobre();
     telaInicial();
     menuPrincipal();
-    scannf("%d", opcao);
     moduloEntradas();   
     cadastroEntradas();
     consultaEntradas();
