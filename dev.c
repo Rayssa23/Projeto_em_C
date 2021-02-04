@@ -17,50 +17,52 @@
 void menuSobre(void);
 void telaInicial(void);
 char menuPrincipal(void);
-void moduloEntradas(void);
+char moduloEntradas(void);
 void cadastroEntradas(void);
 void consultaEntradas(void);
 void excluiEntradas(void);
 void atualizaEntradas(void);
-void moduloSaidas(void);
+char moduloSaidas(void);
 void cadastroSaidas(void);
 void consultaSaidas(void);
 void excluiSaidas(void);
 void atualizaSaidas(void);
-void moduloContribuinte(void);
+char moduloContribuinte(void);
 void cadastroContribuinte(void);
 void consultaContribuinte(void);
 void excluiContribuinte(void);
 void atualizaContribuinte(void);
-void moduloDependente(void);
+char moduloDependente(void);
 void cadastroDependente(void);
 void consultaDependente(void);
 void excluiDependente(void);
 void atualizaDependente(void);
-void moduloRelatorio(void);
-void infoSistema(void);
+char moduloRelatorio(void);
+char infoSistema(void);
 
 
 int main(void) {
+        char opcao;
+
     menuSobre();
     telaInicial();
-    menuPrincipal();
-    moduloEntradas();   
+    opcao = menuPrincipal();
+    opcao = moduloEntradas();   
     cadastroEntradas();
     consultaEntradas();
     excluiEntradas();
     atualizaEntradas();
-    moduloSaidas();
+    opcao = moduloSaidas();
     cadastroSaidas();
     consultaSaidas();
     excluiSaidas();
     atualizaSaidas();
-    moduloContribuinte();
+    opcao = moduloContribuinte();
     cadastroContribuinte();
     consultaContribuinte();
     excluiContribuinte();
     atualizaContribuinte();
-    moduloDependente();
+    opcao = moduloDependente();
     cadastroDependente();
     consultaDependente();
     excluiDependente();
@@ -143,7 +145,7 @@ char menuPrincipal(void){
         return resp;
 }
 
-void moduloEntradas(void){
+char moduloEntradas(void){
     printf(".................................................................................\n");
     printf(".................................................................................\n");
     printf("..........................   MoneyDomestic  .....................................\n");
@@ -219,7 +221,7 @@ void atualizaEntradas(void){
 
 
 
-void moduloSaidas(void){
+char moduloSaidas(void){
     printf(".................................................................................\n");
     printf(".................................................................................\n");
     printf("..........................   MoneyDomestic  .....................................\n");
@@ -290,7 +292,7 @@ void atualizaSaidas(void){
 	getchar();
 }
 
-void moduloContribuinte(void){
+char moduloContribuinte(void){
     printf(".................................................................................\n");
     printf(".................................................................................\n");
     printf("..........................   MoneyDomestic  .....................................\n");
@@ -365,7 +367,7 @@ void atualizaContribuinte(void){
 }
 
 
-void moduloDependente(void){
+char moduloDependente(void){
     printf(".................................................................................\n");
     printf(".................................................................................\n");
     printf("..........................   MoneyDomestic  .....................................\n");
@@ -436,7 +438,7 @@ void atualizaDependente(void){
 }
 
 
-void moduloRelatorio(void){
+char moduloRelatorio(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
     printf("|/////                       Modulo Relatorio                              /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -452,7 +454,7 @@ void moduloRelatorio(void){
 	getchar();
 }
 
-void infoSistema(void){
+char infoSistema(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
     printf("|/////                Modulo Informacoes sobre o Sistema                   /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
