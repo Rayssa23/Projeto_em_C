@@ -137,7 +137,7 @@ char menuPrincipal(void){
         printf("|/////            6 - Informacoes sobre o sistema                          /////|\n");
         printf("|/////            0 - Sair                                                 /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("///           Escolha a opção desejada: ");
+        printf("///           Escolha a opcao desejada:                                    /////|");
 	    scanf("%c", &resp); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
