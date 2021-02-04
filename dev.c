@@ -10,11 +10,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+///
+///Assinatura das funcoes
+///
 
 void menuSobre(void);
 void telaInicial(void);
-void menuPrincipal(void);
+char menuPrincipal(void);
 void moduloEntradas(void);
 void cadastroEntradas(void);
 void consultaEntradas(void);
@@ -113,27 +115,32 @@ void telaInicial(void) {
 	getchar();
 }
 
-void menuPrincipal(void){
-    printf(".................................................................................\n");
-    printf(".................................................................................\n");
-    printf("..........................   MoneyDomestic  .....................................\n");
-    printf(".................................................................................\n");
-    printf(".---------------    Developed for AlmeidaRayssa jan, 2021    -------------------.\n");
-    printf(".................................................................................\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                       Menu Principal                                /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Modulo Entradas                                      /////|\n");
-    printf("|/////            2 - Modulo Saidas                                        /////|\n");
-    printf("|/////            3 - Modulo Contribuintes                                 /////|\n");
-    printf("|/////            4 - Modulo Dependentes                                   /////|\n");
-    printf("|/////            5 - Modulo Relatorio                                     /////|\n");
-    printf("|/////            6 - Informacoes sobre o sistema                          /////|\n");
-    printf("|/////            0 - Sair                                                 /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
- printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
+char menuPrincipal(void){
+    char resp;
+    system("clear");
+        printf(".................................................................................\n");
+        printf(".................................................................................\n");
+        printf("..........................   MoneyDomestic  .....................................\n");
+        printf(".................................................................................\n");
+        printf(".---------------    Developed for AlmeidaRayssa jan, 2021    -------------------.\n");
+        printf(".................................................................................\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+        printf("|/////                       Menu Principal                                /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("|/////            1 - Modulo Entradas                                      /////|\n");
+        printf("|/////            2 - Modulo Saidas                                        /////|\n");
+        printf("|/////            3 - Modulo Contribuintes                                 /////|\n");
+        printf("|/////            4 - Modulo Dependentes                                   /////|\n");
+        printf("|/////            5 - Modulo Relatorio                                     /////|\n");
+        printf("|/////            6 - Informacoes sobre o sistema                          /////|\n");
+        printf("|/////            0 - Sair                                                 /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("///           Escolha a opção desejada: ");
+	    scanf("%c", &resp); 
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+        return resp;
 }
 
 void moduloEntradas(void){
