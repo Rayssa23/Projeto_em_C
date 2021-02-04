@@ -250,15 +250,30 @@ char moduloSaidas(void){
         return resp;
 }
 void cadastroSaidas(void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Cadastrar Saidas                            /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Responsavel:                                         /////|\n");
-    printf("|/////            2 - Valor:                                               /////|\n");
-    printf("|/////            3 - Tipo (Despesas Extras/ Despesas Fixas):              /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
- printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
+    char nome[51];
+    int valor[12];
+    char tipo[20];
+    char dest[51];
+
+    system("clear");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+        printf("|/////                  Modulo Cadastrar Saidas                            /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("|/////            Responsavel:                                             /////|\n");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	        getchar();
+        printf("|/////            Valor(apenas numeros):                                   /////|\n");
+        scanf("%[0-9]", valor);
+        getchar();            
+        printf("|/////            Tipo (Despesas Extras/ Despesas Fixas):                  /////|\n");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
+	        getchar();
+        printf("|/////              Destino:                                               /////|\n");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", dest);
+	        getchar();    
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	    getchar();
 }
 
 void consultaSaidas(void){
@@ -325,15 +340,24 @@ char moduloContribuinte(void){
         return resp;
 }
 void cadastroContribuinte(void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Nome:                                                /////|\n");
-    printf("|/////            2 - Profissao:                                           /////|\n");
-    printf("|/////            3 - Valor                                                /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
- printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
+    char nome[51];
+    char profissao[51];
+    int valor[12];
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+        printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("///           Nome completo:                                               /////|\n");
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	    getchar();        
+        printf("|/////        Profissao:                                                   /////|\n");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
+        getchar();        
+        printf("|/////         Valor(apenas numeros):                                      /////|\n");
+        scanf("%[0-9]", valor);
+        getchar();        
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	    getchar();
 }
 
 void consultaContribuinte(void){
@@ -404,14 +428,19 @@ char moduloDependente(void){
         return resp;
 }
 void cadastroDependente(void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Cadastrar Dependente                        /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Nome:                                                /////|\n");
-    printf("|/////            2 - Idade:                                               /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
- printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
+    char nome[51];
+    char idade[2];
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+        printf("|/////                  Modulo Cadastrar Dependente                        /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("///           Nome completo:                                               /////|\n");
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	    getchar();    
+        printf("|/////        Idade(apenas números):                                       /////|\n");
+	    scanf("%[0-9]", idade);                                              
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	    getchar();
 }
 
 void consultaDependente(void){
@@ -486,3 +515,21 @@ char infoSistema(void){
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	    getchar();
 }
+
+
+//printf("///           Matrícula (apenas números): ");
+	//scanf("%[0-9]", matr);
+	//getchar();
+	//printf("///           Nome completo: ");
+	//scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	//getchar();
+	//printf("///           E-mail: ");
+	//scanf("%[a-z@.]", email);
+	//getchar();
+	//printf("///           Data de Nascimento (dd/mm/aaaa):  ");
+	//scanf("%[0-9/]", nasc);
+	//getchar();
+	//printf("///           Celular  (apenas números): ");
+	//scanf("%[0-9]", celular);
+	//getchar();
+	//printf("///                                                                       ///\n");
