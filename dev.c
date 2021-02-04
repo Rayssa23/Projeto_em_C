@@ -25,11 +25,6 @@ void cadastroSaidas(void);
 void consultaSaidas(void);
 void excluiSaidas(void);
 void atualizaSaidas(void);
-void moduloInvestimentos(void);
-void cadastroInvest(void);
-void consultaInvest(void);
-void excluiInvest(void);
-void atualizaInvest(void);
 void moduloContribuinte(void);
 void cadastroContribuinte(void);
 void consultaContribuinte(void);
@@ -45,12 +40,9 @@ void infoSistema(void);
 
 
 int main(void) {
-    int opcao;
     menuSobre();
     telaInicial();
     menuPrincipal();
-        printf("|/////            Escolha sua opcao:                                       /////|\n");
-        scanf("%d", opcao);
     moduloEntradas();   
     cadastroEntradas();
     consultaEntradas();
@@ -61,11 +53,6 @@ int main(void) {
     consultaSaidas();
     excluiSaidas();
     atualizaSaidas();
-    moduloInvestimentos();
-    cadastroInvest();
-    consultaInvest();
-    excluiInvest();
-    atualizaInvest();
     moduloContribuinte();
     cadastroContribuinte();
     consultaContribuinte();
@@ -140,9 +127,8 @@ void menuPrincipal(void){
     printf("|/////            2 - Modulo Saidas                                        /////|\n");
     printf("|/////            3 - Modulo Contribuintes                                 /////|\n");
     printf("|/////            4 - Modulo Dependentes                                   /////|\n");
-    printf("|/////            5 - Modulo Investimentos                                 /////|\n");
-    printf("|/////            6 - Modulo Relatorio                                     /////|\n");
-    printf("|/////            7 - Informacoes sobre o sistema                          /////|\n");
+    printf("|/////            5 - Modulo Relatorio                                     /////|\n");
+    printf("|/////            6 - Informacoes sobre o sistema                          /////|\n");
     printf("|/////            0 - Sair                                                 /////|\n");
     printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -441,83 +427,6 @@ void atualizaDependente(void){
  printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
-
-void moduloInvestimentos(void){
-    printf(".................................................................................\n");
-    printf(".................................................................................\n");
-    printf("..........................   MoneyDomestic  .....................................\n");
-    printf(".................................................................................\n");
-    printf(".................................................................................\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Investimentos                               /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Cadastrar Investimento                               /////|\n");
-    printf("|/////            2 - Consultar Investimento                               /////|\n");
-    printf("|/////            3 - Excluir Investimento                                 /////|\n");
-    printf("|/////            4 - Atualizar Investimento                               /////|\n");
-    printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("|/////            Escolha sua opcao:                                       /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
- printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-   
-}
-
-void cadastroInvest(void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Cadastrar Investimento                      /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Objetivo:                                            /////|\n");
-    printf("|/////            2 - Prazo:                                               /////|\n");
-    printf("|/////            3 - Valor:                                               /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
- printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-}
-
-void consultaInvest(void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Consultar Investimentos                     /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Objetivo                                             /////|\n");
-    printf("|/////            2 - Prazo                                                /////|\n");
-    printf("|/////            3 - Valor                                                /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("|/////            Escolha sua opcao de consulta:                           /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
- printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-}
-
-void excluiInvest(void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Excluir Investimento                        /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Objetivo:                                            /////|\n");
-    printf("|/////            2 - Prazo:                                               /////|\n");
-    printf("|/////            3 - Valor                                                /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            Escolha sua opcao de exclusao:                           /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
- printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-}
-
-void atualizaInvest(void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Aualizar Investimento                       /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Objetivo:                                            /////|\n");
-    printf("|/////            2 - Prazo:                                               /////|\n");
-    printf("|/////            3 - Valor                                                /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            Escolha o que deseja Atualizar:                          /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
- printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-}
-
 
 
 void moduloRelatorio(void){
