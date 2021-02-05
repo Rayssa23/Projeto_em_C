@@ -17,29 +17,38 @@
 void menuSobre(void);
 void telaInicial(void);
 char menuPrincipal(void);
+
 char moduloEntradas(void);
 void cadastroEntradas(void);
 void consultaEntradas(void);
 void excluiEntradas(void);
 void atualizaEntradas(void);
+
 char moduloSaidas(void);
 void cadastroSaidas(void);
 void consultaSaidas(void);
 void excluiSaidas(void);
 void atualizaSaidas(void);
+
 char moduloContribuinte(void);
 void cadastroContribuinte(void);
 void consultaContribuinte(void);
 void excluiContribuinte(void);
 void atualizaContribuinte(void);
+
 char moduloDependente(void);
 void cadastroDependente(void);
 void consultaDependente(void);
 void excluiDependente(void);
 void atualizaDependente(void);
+
 char moduloRelatorio(void);
+
 char infoSistema(void);
 
+///
+///Programa Principal
+///
 
 int main(void) {
         char opcao;
@@ -47,27 +56,33 @@ int main(void) {
     menuSobre();
     telaInicial();
     opcao = menuPrincipal();
-    opcao = moduloEntradas();   
+    opcao = moduloEntradas();
+
     cadastroEntradas();
     consultaEntradas();
     excluiEntradas();
     atualizaEntradas();
+
     opcao = moduloSaidas();
     cadastroSaidas();
     consultaSaidas();
     excluiSaidas();
     atualizaSaidas();
+
     opcao = moduloContribuinte();
     cadastroContribuinte();
     consultaContribuinte();
     excluiContribuinte();
     atualizaContribuinte();
+
     opcao = moduloDependente();
     cadastroDependente();
     consultaDependente();
     excluiDependente();
     atualizaDependente();
+
     opcao = moduloRelatorio();
+
     opcao = infoSistema();
     return 0;
 
