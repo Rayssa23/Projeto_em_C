@@ -11,7 +11,7 @@
 #include <stdlib.h>
 
 ///
-///Assinatura das funcoes
+///Assinatura das funções
 ///
 
 void menuSobre(void);
@@ -88,7 +88,7 @@ int main(void) {
 
 }
 
-
+// Menu e Tela inicial
 void menuSobre(void) {
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -132,8 +132,10 @@ void telaInicial(void) {
 	getchar();
 }
 
+//Modulos e telas CRUD
+
 char menuPrincipal(void){
-    char resp;
+        char resp;
     system("clear");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
@@ -177,9 +179,12 @@ char moduloEntradas(void){
         printf("|/////            4 - Atualizar Entradas                                   /////|\n");
         printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao:                                       /////|\n");
-        scanf("%c", &resp); 
+        printf("|/////            Escolha sua opcao: ");
+        scanf("%c", &resp);
+        getchar(); 
+        printf("|/////                                                                     /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         return resp;
@@ -257,9 +262,12 @@ char moduloSaidas(void){
         printf("|/////            4 - Atualizar Saidas                                     /////|\n");
         printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao:                                       /////|\n");
-        scanf("%c", &resp); 
+        printf("|/////            Escolha sua opcao: ");
+        scanf("%c", &resp);
+        getchar(); 
+        printf("|/////                                                                     /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         return resp;
@@ -347,9 +355,12 @@ char moduloContribuinte(void){
         printf("|/////            4 - Atualizar Contribuinte                               /////|\n");
         printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao:                                       /////|\n");
-        scanf("%c", &resp); 
+        printf("|/////            Escolha sua opcao: ");
+        scanf("%c", &resp);
+        getchar(); 
+        printf("|/////                                                                     /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         return resp;
@@ -435,9 +446,12 @@ char moduloDependente(void){
         printf("|/////            4 - Atualizar Dependente                                 /////|\n");
         printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao:                                       /////|\n");
-       scanf("%c", &resp); 
+        printf("|/////            Escolha sua opcao: ");
+        scanf("%c", &resp);
+        getchar(); 
+        printf("|/////                                                                     /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         return resp;
@@ -509,9 +523,12 @@ char moduloRelatorio(void){
         printf("|/////            3 - Anual                                                /////|\n");
         printf("|/////            0 - Sair                                                 /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao:                                       /////|\n");
-       scanf("%c", &resp); 
+        printf("|/////            Escolha sua opcao: ");
+        scanf("%c", &resp);
+        getchar(); 
+        printf("|/////                                                                     /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         return resp;
