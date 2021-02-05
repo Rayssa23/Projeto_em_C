@@ -246,6 +246,7 @@ void excluiEntradas(void){
         printf("|/////            2 - Valor                                                /////|\n");
         printf("|/////            3 - Tipo (Salario/Extras)                                /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("|/////            Escolha sua opcao de exclusao: ");
         scanf("%c", &resp);
         printf("|/////                                                                     /////|\n");
             getchar(); 
@@ -340,7 +341,7 @@ void consultaSaidas(void){
         printf("|/////            3 - Tipo(Despesas Extras/Despesas Fixas)                 /////|\n");
         printf("|/////            4 - Destino                                              /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao de consulta:                           /////|\n");
+        printf("|/////            Escolha sua opcao de consulta: ");
         scanf("%c", &resp);
         printf("|/////                                                                     /////|\n");
             getchar(); 
@@ -361,7 +362,7 @@ void excluiSaidas(void){
         printf("|/////            3 - Tipo(Despesas Extras/Despesas Fixas)                 /////|\n");
         printf("|/////            4 - Destino                                              /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao de exclusao:                           /////|\n");
+        printf("|/////            Escolha sua opcao de exclusao: ");
         scanf("%c", &resp);
         printf("|/////                                                                     /////|\n");
             getchar(); 
@@ -382,7 +383,7 @@ void atualizaSaidas(void){
         printf("|/////            3 - Tipo(Despesas Extras/Despesas Fixas)                 /////|\n");
         printf("|/////            4 - Destino                                              /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha o que deseja atualizar:                          /////|\n");
+        printf("|/////            Escolha o que deseja atualizar: ");
         scanf("%c", &resp);
         printf("|/////                                                                     /////|\n");
             getchar(); 
@@ -435,7 +436,7 @@ void cadastroContribuinte(void){
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
         printf("///                                                                        /////|\n");        
         getchar();        
-        printf("|/////         Valor(apenas numeros): ");
+        printf("|/////        Valor(apenas numeros): ");
         scanf("%[0-9]", valor);
         printf("///                                                                        /////|\n");        
         getchar();        
@@ -493,7 +494,7 @@ void atualizaContribuinte(void){
         printf("|/////            2 - Profissao                                            /////|\n");
         printf("|/////            3 - Valor                                                /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Escolha o que deseja Atualizar:                          /////|\n");
+        printf("|/////            Escolha o que deseja Atualizar: ");
         scanf("%c", &resp);
         getchar(); 
         printf("|/////                                                                     /////|\n");
@@ -542,7 +543,7 @@ void cadastroDependente(void){
 	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
         printf("|/////                                                                     /////|\n");
 	    getchar();    
-        printf("|/////        Idade(apenas números): ");
+        printf("|/////        Idade(apenas numeros): ");
 	    scanf("%[0-9]", idade);
         printf("|/////                                                                     /////|\n");
         getchar();                                                  
