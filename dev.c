@@ -17,33 +17,33 @@
 void menuSobre(void);
 void telaInicial(void);
 char menuPrincipal(void);
-
+    //Módulo de Entradas
 char moduloEntradas(void);
 void cadastroEntradas(void);
 void consultaEntradas(void);
 void excluiEntradas(void);
 void atualizaEntradas(void);
-
+    //Módulo de Saídas
 char moduloSaidas(void);
 void cadastroSaidas(void);
 void consultaSaidas(void);
 void excluiSaidas(void);
 void atualizaSaidas(void);
-
+    //Módulo Contribuinte
 char moduloContribuinte(void);
 void cadastroContribuinte(void);
 void consultaContribuinte(void);
 void excluiContribuinte(void);
 void atualizaContribuinte(void);
-
+    //Módulo Dpendente
 char moduloDependente(void);
 void cadastroDependente(void);
 void consultaDependente(void);
 void excluiDependente(void);
 void atualizaDependente(void);
-
+    //Módulo Relatório
 char moduloRelatorio(void);
-
+    //Módulo de Informações do Sistema
 char infoSistema(void);
 
 ///
@@ -56,8 +56,8 @@ int main(void) {
     menuSobre();
     telaInicial();
     opcao = menuPrincipal();
-    opcao = moduloEntradas();
 
+    opcao = moduloEntradas();
     cadastroEntradas();
     consultaEntradas();
     excluiEntradas();
@@ -132,14 +132,14 @@ void telaInicial(void) {
 	getchar();
 }
 
-//Modulos e telas CRUD
+//Módulos e telas CRUD
 
 char menuPrincipal(void){
         char resp;
     system("clear");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
-        printf("..........................   MoneyDomestic  .....................................\n");
+        printf(".........................$   MoneyDomestic  $....................................\n");
         printf(".................................................................................\n");
         printf(".---------------    Developed for AlmeidaRayssa jan, 2021    -------------------.\n");
         printf(".................................................................................\n");
@@ -171,7 +171,7 @@ char moduloEntradas(void){
     system("clear");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
-        printf("..........................   MoneyDomestic  .....................................\n");
+        printf(".........................$   MoneyDomestic  $....................................\n");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -212,9 +212,14 @@ void cadastroEntradas(void){
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
         printf("|/////                                                                     /////|\n");
 	        getchar();    
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	    getchar();
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
+    printf("Responsavel: %s\n", nome);
+    printf("Valor: %d\n", valor);
+    printf("Tipo: %s\n", tipo);
+	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar(); 
+    
 }
 
 void consultaEntradas(void){
@@ -326,9 +331,13 @@ void cadastroSaidas(void){
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", dest);
         printf("|/////                                                                     /////|\n");
 	        getchar();    
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	    getchar();
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+    printf("Responsavel: %s\n", nome);
+    printf("Valor: %d\n", valor);
+    printf("Tipo: %s\n", tipo);
+    printf("Destino: %s\n", dest);
+	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar();  
 }
 
 void consultaSaidas(void){
@@ -441,8 +450,11 @@ void cadastroContribuinte(void){
         printf("///                                                                        /////|\n");        
         getchar();        
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	    getchar();
+    printf("Nome: %s\n", nome);
+    printf("Profissao: %s\n", profissao);
+    printf("Valor: %d\n", valor);
+	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar(); 
 }
 
 void consultaContribuinte(void){
@@ -548,8 +560,10 @@ void cadastroDependente(void){
         printf("|/////                                                                     /////|\n");
         getchar();                                                  
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	    getchar();
+    printf("Nome: %s\n", nome);
+    printf("Idade: %d\n", idade);
+	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar();
 }
 
 void consultaDependente(void){
