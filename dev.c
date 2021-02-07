@@ -195,7 +195,7 @@ char moduloEntradas(void){
 }
 void cadastroEntradas(void){
     char nome[51];
-    int valor[12];
+    char valor[12];
     char tipo[20];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Entradas                          /////|\n");
@@ -215,7 +215,7 @@ void cadastroEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("Responsavel: %s\n", nome);
-    printf("Valor: %d\n", valor);
+    printf("Valor: %s\n", valor);
     printf("Tipo: %s\n", tipo);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
             getchar(); 
@@ -307,7 +307,7 @@ char moduloSaidas(void){
 }
 void cadastroSaidas(void){
     char nome[51];
-    int valor[12];
+    char valor[12];
     char tipo[20];
     char dest[51];
 
@@ -327,13 +327,13 @@ void cadastroSaidas(void){
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
         printf("|/////                                                                     /////|\n");
 	        getchar();
-        printf("|/////              Destino: ");
+        printf("|/////            Destino: ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", dest);
         printf("|/////                                                                     /////|\n");
 	        getchar();    
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("Responsavel: %s\n", nome);
-    printf("Valor: %d\n", valor);
+    printf("Valor: %s\n", valor);
     printf("Tipo: %s\n", tipo);
     printf("Destino: %s\n", dest);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -433,7 +433,7 @@ char moduloContribuinte(void){
 void cadastroContribuinte(void){
     char nome[51];
     char profissao[51];
-    int valor[12];
+    char valor[12];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -452,7 +452,7 @@ void cadastroContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("Nome: %s\n", nome);
     printf("Profissao: %s\n", profissao);
-    printf("Valor: %d\n", valor);
+    printf("Valor: %s\n", valor);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
             getchar(); 
 }
@@ -561,7 +561,7 @@ void cadastroDependente(void){
         getchar();                                                  
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("Nome: %s\n", nome);
-    printf("Idade: %d\n", idade);
+    printf("Idade: %s\n", idade);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
             getchar();
 }
