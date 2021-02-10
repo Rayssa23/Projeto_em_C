@@ -51,14 +51,14 @@ void infoSistema(void);
 ///
 
 int main(void) {
-        char resp;
+        char op;
 
     menuSobre();
     telaInicial();
 
     do{
-        resp = menuPrincipal();
-        switch (resp){
+        op = menuPrincipal();
+        switch (op){
         case 1:     moduloEntradas();
             break;
         case 2:     moduloSaidas();
@@ -72,7 +72,7 @@ int main(void) {
         case 6:     infoSistema();
             break;                
         }
-        } while (resp != '0');
+        } while (op != '0');
             printf("The End\n");
 
 
@@ -147,7 +147,7 @@ void telaInicial(void) {
 //Módulos e telas CRUD
 
 char menuPrincipal(void){
-        char resp;
+        char op;
     system("clear");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
@@ -167,14 +167,14 @@ char menuPrincipal(void){
         printf("|/////            0 - Sair                                                 /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Escolha sua opcao: ");
-        scanf("%c", &resp);
+        scanf("%c", &op);
         getchar(); 
         printf("|/////                                                                     /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        return op;
 }
 
 
