@@ -75,6 +75,7 @@ int main(void) {
         } while (resp != '0');
             printf("The End\n");
 
+
     cadastroEntradas();
     consultaEntradas();
     excluiEntradas();
