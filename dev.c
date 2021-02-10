@@ -51,39 +51,50 @@ char infoSistema(void);
 ///
 
 int main(void) {
-        char opcao;
+        char resp;
 
     menuSobre();
     telaInicial();
-    opcao = menuPrincipal();
 
-    opcao = moduloEntradas();
+    do{
+        resp = menuPrincipal();
+        switch (resp){
+        case 1:     moduloEntradas();
+            break;
+        case 2:     moduloSaidas();
+            break;
+        case 3:     moduloContribuinte();
+            break;
+        case 4:     moduloDependente();
+            break;
+        case 5:     moduloRelatorio();
+            break;
+        case 6:     infoSistema();
+            break;                
+        }
+        } while (resp != '0');
+            printf("The End\n");
+
     cadastroEntradas();
     consultaEntradas();
     excluiEntradas();
     atualizaEntradas();
 
-    opcao = moduloSaidas();
     cadastroSaidas();
     consultaSaidas();
     excluiSaidas();
     atualizaSaidas();
-
-    opcao = moduloContribuinte();
+  
     cadastroContribuinte();
     consultaContribuinte();
     excluiContribuinte();
     atualizaContribuinte();
 
-    opcao = moduloDependente();
     cadastroDependente();
     consultaDependente();
     excluiDependente();
     atualizaDependente();
 
-    opcao = moduloRelatorio();
-
-    opcao = infoSistema();
     return 0;
 
 }
