@@ -18,33 +18,33 @@ void menuSobre(void);
 void telaInicial(void);
 char menuPrincipal(void);
     //Módulo de Entradas
-void moduloEntradas(void);
+char moduloEntradas(void);
 void cadastroEntradas(void);
 void consultaEntradas(void);
 void excluiEntradas(void);
 void atualizaEntradas(void);
     //Módulo de Saídas
-void moduloSaidas(void);
+char moduloSaidas(void);
 void cadastroSaidas(void);
 void consultaSaidas(void);
 void excluiSaidas(void);
 void atualizaSaidas(void);
     //Módulo Contribuinte
-void moduloContribuinte(void);
+char moduloContribuinte(void);
 void cadastroContribuinte(void);
 void consultaContribuinte(void);
 void excluiContribuinte(void);
 void atualizaContribuinte(void);
     //Módulo Dpendente
-void moduloDependente(void);
+char moduloDependente(void);
 void cadastroDependente(void);
 void consultaDependente(void);
 void excluiDependente(void);
 void atualizaDependente(void);
     //Módulo Relatório
-void moduloRelatorio(void);
+char moduloRelatorio(void);
     //Módulo de Informações do Sistema
-void infoSistema(void);
+char infoSistema(void);
 
 ///
 ///Programa Principal
@@ -55,6 +55,7 @@ int main(void) {
 
     menuSobre();
     telaInicial();
+    getchar();
 
     do{
         op = menuPrincipal();
@@ -178,7 +179,7 @@ char menuPrincipal(void){
 }
 
 
-void moduloEntradas(void){
+char moduloEntradas(void){
      char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -288,9 +289,25 @@ void atualizaEntradas(void){
 	getchar();
 }
 
+void menuEntradas(void) {
+	char opcao;
+	do {
+		opcao = menuEntradas();
+		switch (opcao) {
+			case '1' : 	cadastrarEntradas();
+						break;
+			case '2' : 	consultarEntradas();
+						break;
+			case '3' : 	excluiEntradas();
+						break;
+			case '4' : 	atualizarEntradas();
+						break;
+		}
+	} while (opcao != '0');
+}
 
 
-void moduloSaidas(void){
+char moduloSaidas(void){
         char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -415,7 +432,24 @@ void atualizaSaidas(void){
         return resp;
 }
 
-void moduloContribuinte(void){
+
+void menuSaidas(void) {
+	char opcao;
+	do {
+		opcao = menuSaidas();
+		switch (opcao) {
+			case '1' : 	cadastrarSaidas();
+						break;
+			case '2' : 	consultarSaidas();
+						break;
+			case '3' : 	excluiSaidas();
+						break;
+			case '4' : 	atualizarSaidas();
+						break;
+		}
+	} while (opcao != '0');
+}
+char moduloContribuinte(void){
         char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -530,7 +564,24 @@ void atualizaContribuinte(void){
 }
 
 
-void moduloDependente(void){
+void menuContribuinte(void) {
+	char opcao;
+	do {
+		opcao = menuContribuinte();
+		switch (opcao) {
+			case '1' : 	cadastroContribuinte();
+						break;
+			case '2' : 	consultaContribuinte();
+						break;
+			case '3' : 	excluiContribuinte();
+						break;
+			case '4' : 	atualizaContribuinte();
+						break;
+		}
+	} while (opcao != '0');
+}
+
+char moduloDependente(void){
     char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -635,8 +686,24 @@ void atualizaDependente(void){
         return resp;
 }
 
+void menuDependente(void) {
+	char opcao;
+	do {
+		opcao = menuDependente();
+		switch (opcao) {
+			case '1' : 	cadastroDependente();
+						break;
+			case '2' : 	consultaDependente();
+						break;
+			case '3' : 	excluiDependente();
+						break;
+			case '4' : 	atualizaDependente();
+						break;
+		}
+	} while (opcao != '0');
+}
 
-void moduloRelatorio(void){
+char moduloRelatorio(void){
     char resp;
     system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -658,7 +725,7 @@ void moduloRelatorio(void){
         return resp;
 }
 
-void infoSistema(void){
+char infoSistema(void){
     system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////              $Modulo Informacoes sobre o Sistema$                   /////|\n");
