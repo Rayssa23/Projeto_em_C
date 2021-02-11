@@ -289,7 +289,7 @@ void atualizaEntradas(void){
 	getchar();
 }
 
-void menuEntradas(void) {
+char menuEntradas(void) {
 	char opcao;
 	do {
 		opcao = menuEntradas();
@@ -433,7 +433,7 @@ void atualizaSaidas(void){
 }
 
 
-void menuSaidas(void) {
+char menuSaidas(void) {
 	char opcao;
 	do {
 		opcao = menuSaidas();
@@ -564,7 +564,7 @@ void atualizaContribuinte(void){
 }
 
 
-void menuContribuinte(void) {
+char menuContribuinte(void) {
 	char opcao;
 	do {
 		opcao = menuContribuinte();
@@ -686,7 +686,7 @@ void atualizaDependente(void){
         return resp;
 }
 
-void menuDependente(void) {
+char menuDependente(void) {
 	char opcao;
 	do {
 		opcao = menuDependente();
