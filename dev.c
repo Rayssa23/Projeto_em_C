@@ -18,33 +18,33 @@ void menuSobre(void);
 void telaInicial(void);
 char menuPrincipal(void);
     //Módulo de Entradas
-char moduloEntradas(void);
+void moduloEntradas(void);
 void cadastroEntradas(void);
 void consultaEntradas(void);
 void excluiEntradas(void);
 void atualizaEntradas(void);
     //Módulo de Saídas
-char moduloSaidas(void);
+void moduloSaidas(void);
 void cadastroSaidas(void);
 void consultaSaidas(void);
 void excluiSaidas(void);
 void atualizaSaidas(void);
     //Módulo Contribuinte
-char moduloContribuinte(void);
+void moduloContribuinte(void);
 void cadastroContribuinte(void);
 void consultaContribuinte(void);
 void excluiContribuinte(void);
 void atualizaContribuinte(void);
     //Módulo Dpendente
-char moduloDependente(void);
+void moduloDependente(void);
 void cadastroDependente(void);
 void consultaDependente(void);
 void excluiDependente(void);
 void atualizaDependente(void);
     //Módulo Relatório
-char moduloRelatorio(void);
+void moduloRelatorio(void);
     //Módulo de Informações do Sistema
-char infoSistema(void);
+void infoSistema(void);
 
 ///
 ///Programa Principal
@@ -179,7 +179,7 @@ char menuPrincipal(void){
 }
 
 
-char moduloEntradas(void){
+void moduloEntradas(void){
      char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -307,7 +307,7 @@ char menuEntradas(void) {
 }
 
 
-char moduloSaidas(void){
+void moduloSaidas(void){
         char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -449,7 +449,7 @@ char menuSaidas(void) {
 		}
 	} while (opcao != '0');
 }
-char moduloContribuinte(void){
+void moduloContribuinte(void){
         char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -581,7 +581,7 @@ char menuContribuinte(void) {
 	} while (opcao != '0');
 }
 
-char moduloDependente(void){
+void moduloDependente(void){
     char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -703,7 +703,7 @@ char menuDependente(void) {
 	} while (opcao != '0');
 }
 
-char moduloRelatorio(void){
+void moduloRelatorio(void){
     char resp;
     system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -725,7 +725,7 @@ char moduloRelatorio(void){
         return resp;
 }
 
-char infoSistema(void){
+void infoSistema(void){
     system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////              $Modulo Informacoes sobre o Sistema$                   /////|\n");
