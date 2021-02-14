@@ -18,33 +18,33 @@ void menuSobre(void);
 void telaInicial(void);
 char menuPrincipal(void);
     //Módulo de Entradas
-void moduloEntradas(void);
+char moduloEntradas(void);
 void cadastroEntradas(void);
 void consultaEntradas(void);
 void excluiEntradas(void);
 void atualizaEntradas(void);
     //Módulo de Saídas
-void moduloSaidas(void);
+char moduloSaidas(void);
 void cadastroSaidas(void);
 void consultaSaidas(void);
 void excluiSaidas(void);
 void atualizaSaidas(void);
     //Módulo Contribuinte
-void moduloContribuinte(void);
+char moduloContribuinte(void);
 void cadastroContribuinte(void);
 void consultaContribuinte(void);
 void excluiContribuinte(void);
 void atualizaContribuinte(void);
     //Módulo Dpendente
-void moduloDependente(void);
+char moduloDependente(void);
 void cadastroDependente(void);
 void consultaDependente(void);
 void excluiDependente(void);
 void atualizaDependente(void);
     //Módulo Relatório
-void moduloRelatorio(void);
+char moduloRelatorio(void);
     //Módulo de Informações do Sistema
-void infoSistema(void);
+char infoSistema(void);
 
 ///
 ///Programa Principal
@@ -178,7 +178,7 @@ char menuPrincipal(void){
 }
 
 
-void moduloEntradas(void){
+char moduloEntradas(void){
      char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -291,7 +291,7 @@ void atualizaEntradas(void){
 char menuEntradas(void) {
 	char opcao;
 	do {
-		opcao = menuEntradas();
+		opcao = moduloEntradas();
 		switch (opcao) {
 			case '1' : 	cadastroEntradas();
 						break;
@@ -306,7 +306,7 @@ char menuEntradas(void) {
 }
 
 
-void moduloSaidas(void){
+char moduloSaidas(void){
         char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -435,7 +435,7 @@ void atualizaSaidas(void){
 char menuSaidas(void) {
 	char opcao;
 	do {
-		opcao = menuSaidas();
+		opcao = moduloSaidas();
 		switch (opcao) {
 			case '1' : 	cadastroSaidas();
 						break;
@@ -448,7 +448,7 @@ char menuSaidas(void) {
 		}
 	} while (opcao != '0');
 }
-void moduloContribuinte(void){
+char moduloContribuinte(void){
         char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -566,7 +566,7 @@ void atualizaContribuinte(void){
 char menuContribuinte(void) {
 	char opcao;
 	do {
-		opcao = menuContribuinte();
+		opcao = moduloContribuinte();
 		switch (opcao) {
 			case '1' : 	cadastroContribuinte();
 						break;
@@ -580,7 +580,7 @@ char menuContribuinte(void) {
 	} while (opcao != '0');
 }
 
-void moduloDependente(void){
+char moduloDependente(void){
     char resp;
     system("clear");
         printf(".................................................................................\n");
@@ -688,7 +688,7 @@ void atualizaDependente(void){
 char menuDependente(void) {
 	char opcao;
 	do {
-		opcao = menuDependente();
+		opcao = moduloDependente();
 		switch (opcao) {
 			case '1' : 	cadastroDependente();
 						break;
@@ -702,7 +702,7 @@ char menuDependente(void) {
 	} while (opcao != '0');
 }
 
-void moduloRelatorio(void){
+char moduloRelatorio(void){
     char resp;
     system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -724,7 +724,7 @@ void moduloRelatorio(void){
         return resp;
 }
 
-void infoSistema(void){
+char infoSistema(void){
     system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////              $Modulo Informacoes sobre o Sistema$                   /////|\n");
