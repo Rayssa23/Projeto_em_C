@@ -60,41 +60,19 @@ int main(void) {
         op = menuPrincipal();
         switch (op){
         case '1':     moduloEntradas();
-            break;
+                                break;
         case '2':     moduloSaidas();
-            break;
+                                break;
         case '3':     moduloContribuinte();
-            break;
+                                break;
         case '4':     moduloDependente();
-            break;
+                                break;
         case '5':     moduloRelatorio();
-            break;
+                                break;
         case '6':     infoSistema();
-            break;                
+                                break;                
         }
         } while (op != '0');
-            printf("The End\n");
-
-
-    //cadastroEntradas();
-    //consultaEntradas();
-    //excluiEntradas();
-    //atualizaEntradas();
-
-    //cadastroSaidas();
-    //consultaSaidas();
-    //excluiSaidas();
-    //atualizaSaidas();
-  
-    //cadastroContribuinte();
-    //consultaContribuinte();
-    //excluiContribuinte();
-    //atualizaContribuinte();
-
-    //cadastroDependente();
-    //consultaDependente();
-    //excluiDependente();
-    //atualizaDependente();
 
     return 0;
 
@@ -288,7 +266,7 @@ void atualizaEntradas(void){
 	getchar();
 }
 
-char menuEntradas(void) {
+void menuEntradas(void) {
 	char op;
 	do {
 		op = moduloEntradas();
@@ -432,7 +410,7 @@ void atualizaSaidas(void){
 }
 
 
-char menuSaidas(void) {
+void menuSaidas(void) {
 	char op;
 	do {
 		op = moduloSaidas();
@@ -563,7 +541,7 @@ void atualizaContribuinte(void){
 }
 
 
-char menuContribuinte(void) {
+void menuContribuinte(void) {
 	char op;
 	do {
 		op = moduloContribuinte();
@@ -685,7 +663,7 @@ void atualizaDependente(void){
         return resp;
 }
 
-char menuDependente(void) {
+void menuDependente(void) {
 	char op;
 	do {
 		op = moduloDependente();
