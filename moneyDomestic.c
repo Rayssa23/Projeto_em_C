@@ -266,22 +266,6 @@ void atualizaEntradas(void){
 	getchar();
 }
 
-void menuEntradas(void) {
-	char opcao;
-	    do {
-		    opcao = moduloEntradas();
-		    switch (opcao) {
-			    case '1' : 	cadastroEntradas();
-						    break;
-			    case '2' : 	consultaEntradas();
-						    break;
-			    case '3' : 	excluiEntradas();
-						    break;
-			    case '4' : 	atualizaEntradas();
-						    break;
-	    	}
-	    } while (opcao != '0');
-}
 
 
 char moduloSaidas(void){
@@ -410,22 +394,6 @@ void atualizaSaidas(void){
 }
 
 
-void menuSaidas(void) {
-	char opcao ;
-	    do {
-		    opcao = moduloSaidas();
-		    switch (opcao) {
-			    case '1' : 	cadastroSaidas();
-						    break;
-			    case '2' : 	consultaSaidas();
-						    break;
-			    case '3' : 	excluiSaidas();
-						    break;
-			    case '4' : 	atualizaSaidas();
-						    break;
-		    }
-	    } while (opcao != '0');
-}
 
 char moduloContribuinte(void){
         char resp;
@@ -542,22 +510,7 @@ void atualizaContribuinte(void){
 }
 
 
-void menuContribuinte(void) {
-	char opcao;
-	    do {
-		    opcao = moduloContribuinte();
-		    switch (opcao) {
-			    case '1' : 	cadastroContribuinte();
-						    break;
-			    case '2' : 	consultaContribuinte();
-						    break;
-			    case '3' : 	excluiContribuinte();
-						    break;
-			    case '4' : 	atualizaContribuinte();
-						    break;
-		    }
-	    } while (opcao != '0');
-}
+
 
 char moduloDependente(void){
     char resp;
@@ -662,6 +615,59 @@ void atualizaDependente(void){
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         return resp;
+}
+
+
+
+void menuEntradas(void) {
+	char opcao;
+	    do {
+		    opcao = moduloEntradas();
+		    switch (opcao) {
+			    case '1' : 	cadastroEntradas();
+						    break;
+			    case '2' : 	consultaEntradas();
+						    break;
+			    case '3' : 	excluiEntradas();
+						    break;
+			    case '4' : 	atualizaEntradas();
+						    break;
+	    	}
+	    } while (opcao != '0');
+}
+
+void menuSaidas(void) {
+	char opcao ;
+	    do {
+		    opcao = moduloSaidas();
+		    switch (opcao) {
+			    case '1' : 	cadastroSaidas();
+						    break;
+			    case '2' : 	consultaSaidas();
+						    break;
+			    case '3' : 	excluiSaidas();
+						    break;
+			    case '4' : 	atualizaSaidas();
+						    break;
+		    }
+	    } while (opcao != '0');
+}
+
+void menuContribuinte(void) {
+	char opcao;
+	    do {
+		    opcao = moduloContribuinte();
+		    switch (opcao) {
+			    case '1' : 	cadastroContribuinte();
+						    break;
+			    case '2' : 	consultaContribuinte();
+						    break;
+			    case '3' : 	excluiContribuinte();
+						    break;
+			    case '4' : 	atualizaContribuinte();
+						    break;
+		    }
+	    } while (opcao != '0');
 }
 
 void menuDependente(void) {
