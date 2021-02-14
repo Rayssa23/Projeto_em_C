@@ -55,18 +55,17 @@ int main(void) {
 
     menuSobre();
     telaInicial();
-    getchar();
 
     do{
         op = menuPrincipal();
         switch (op){
-        case '1':     menuEntradas();
+        case '1':     moduloEntradas();
             break;
-        case '2':     menuSaidas();
+        case '2':     moduloSaidas();
             break;
-        case '3':     menuContribuinte();
+        case '3':     moduloContribuinte();
             break;
-        case '4':     menuDependente();
+        case '4':     moduloDependente();
             break;
         case '5':     moduloRelatorio();
             break;
@@ -77,25 +76,25 @@ int main(void) {
             printf("The End\n");
 
 
-    cadastroEntradas();
-    consultaEntradas();
-    excluiEntradas();
-    atualizaEntradas();
+    //cadastroEntradas();
+    //consultaEntradas();
+    //excluiEntradas();
+    //atualizaEntradas();
 
-    cadastroSaidas();
-    consultaSaidas();
-    excluiSaidas();
-    atualizaSaidas();
+    //cadastroSaidas();
+    //consultaSaidas();
+    //excluiSaidas();
+    //atualizaSaidas();
   
-    cadastroContribuinte();
-    consultaContribuinte();
-    excluiContribuinte();
-    atualizaContribuinte();
+    //cadastroContribuinte();
+    //consultaContribuinte();
+    //excluiContribuinte();
+    //atualizaContribuinte();
 
-    cadastroDependente();
-    consultaDependente();
-    excluiDependente();
-    atualizaDependente();
+    //cadastroDependente();
+    //consultaDependente();
+    //excluiDependente();
+    //atualizaDependente();
 
     return 0;
 
