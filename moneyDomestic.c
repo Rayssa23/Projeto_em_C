@@ -16,7 +16,7 @@
 
 void menuSobre(void);
 void telaInicial(void);
-char menuPrincipal(void);
+char menuPrincipal();
     //Módulo de Entradas
 char moduloEntradas(void);
 void cadastroEntradas(void);
@@ -146,7 +146,7 @@ void telaInicial(void) {
 
 //Módulos e telas CRUD
 
-char menuPrincipal(void){
+char menuPrincipal(){
         char op;
     system("clear");
         printf(".................................................................................\n");
