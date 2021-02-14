@@ -60,17 +60,17 @@ int main(void) {
     do{
         op = menuPrincipal();
         switch (op){
-        case 1:     moduloEntradas();
+        case '1':     moduloEntradas();
             break;
-        case 2:     moduloSaidas();
+        case '2':     moduloSaidas();
             break;
-        case 3:     moduloContribuinte();
+        case '3':     moduloContribuinte();
             break;
-        case 4:     moduloDependente();
+        case '4':     moduloDependente();
             break;
-        case 5:     moduloRelatorio();
+        case '5':     moduloRelatorio();
             break;
-        case 6:     infoSistema();
+        case '6':     infoSistema();
             break;                
         }
         } while (op != '0');
