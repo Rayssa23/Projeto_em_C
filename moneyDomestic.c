@@ -289,10 +289,10 @@ void atualizaEntradas(void){
 }
 
 char menuEntradas(void) {
-	char opcao;
+	char op;
 	do {
-		opcao = moduloEntradas();
-		switch (opcao) {
+		op = moduloEntradas();
+		switch (op) {
 			case '1' : 	cadastroEntradas();
 						break;
 			case '2' : 	consultaEntradas();
@@ -302,7 +302,7 @@ char menuEntradas(void) {
 			case '4' : 	atualizaEntradas();
 						break;
 		}
-	} while (opcao != '0');
+	} while (op != '0');
 }
 
 
@@ -433,10 +433,10 @@ void atualizaSaidas(void){
 
 
 char menuSaidas(void) {
-	char opcao;
+	char op;
 	do {
-		opcao = moduloSaidas();
-		switch (opcao) {
+		op = moduloSaidas();
+		switch (op) {
 			case '1' : 	cadastroSaidas();
 						break;
 			case '2' : 	consultaSaidas();
@@ -446,7 +446,7 @@ char menuSaidas(void) {
 			case '4' : 	atualizaSaidas();
 						break;
 		}
-	} while (opcao != '0');
+	} while (op != '0');
 }
 char moduloContribuinte(void){
         char resp;
@@ -564,10 +564,10 @@ void atualizaContribuinte(void){
 
 
 char menuContribuinte(void) {
-	char opcao;
+	char op;
 	do {
-		opcao = moduloContribuinte();
-		switch (opcao) {
+		op = moduloContribuinte();
+		switch (op) {
 			case '1' : 	cadastroContribuinte();
 						break;
 			case '2' : 	consultaContribuinte();
@@ -577,7 +577,7 @@ char menuContribuinte(void) {
 			case '4' : 	atualizaContribuinte();
 						break;
 		}
-	} while (opcao != '0');
+	} while (op != '0');
 }
 
 char moduloDependente(void){
@@ -686,10 +686,10 @@ void atualizaDependente(void){
 }
 
 char menuDependente(void) {
-	char opcao;
+	char op;
 	do {
-		opcao = moduloDependente();
-		switch (opcao) {
+		op = moduloDependente();
+		switch (op) {
 			case '1' : 	cadastroDependente();
 						break;
 			case '2' : 	consultaDependente();
@@ -699,7 +699,7 @@ char menuDependente(void) {
 			case '4' : 	atualizaDependente();
 						break;
 		}
-	} while (opcao != '0');
+	} while (op != '0');
 }
 
 char moduloRelatorio(void){
