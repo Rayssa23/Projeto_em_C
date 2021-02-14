@@ -294,13 +294,13 @@ char menuEntradas(void) {
 	do {
 		opcao = menuEntradas();
 		switch (opcao) {
-			case '1' : 	cadastrarEntradas();
+			case '1' : 	cadastroEntradas();
 						break;
-			case '2' : 	consultarEntradas();
+			case '2' : 	consultaEntradas();
 						break;
 			case '3' : 	excluiEntradas();
 						break;
-			case '4' : 	atualizarEntradas();
+			case '4' : 	atualizaEntradas();
 						break;
 		}
 	} while (opcao != '0');
@@ -438,13 +438,13 @@ char menuSaidas(void) {
 	do {
 		opcao = menuSaidas();
 		switch (opcao) {
-			case '1' : 	cadastrarSaidas();
+			case '1' : 	cadastroSaidas();
 						break;
-			case '2' : 	consultarSaidas();
+			case '2' : 	consultaSaidas();
 						break;
 			case '3' : 	excluiSaidas();
 						break;
-			case '4' : 	atualizarSaidas();
+			case '4' : 	atualizaSaidas();
 						break;
 		}
 	} while (opcao != '0');
