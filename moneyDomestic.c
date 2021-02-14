@@ -60,13 +60,13 @@ int main(void) {
     do{
         op = menuPrincipal();
         switch (op){
-        case '1':     moduloEntradas();
+        case '1':     menuEntradas();
             break;
-        case '2':     moduloSaidas();
+        case '2':     menuSaidas();
             break;
-        case '3':     moduloContribuinte();
+        case '3':     menuContribuinte();
             break;
-        case '4':     moduloDependente();
+        case '4':     menuDependente();
             break;
         case '5':     moduloRelatorio();
             break;
