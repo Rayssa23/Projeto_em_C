@@ -51,14 +51,14 @@ char infoSistema(void);
 ///
 
 int main(void) {
-        char op;
+        char opcao;
 
     menuSobre();
     telaInicial();
 
     do{
-        op = menuPrincipal();
-        switch (op){
+        opcao = menuPrincipal();
+        switch (opcao){
         case '1':     moduloEntradas();
                                 break;
         case '2':     moduloSaidas();
@@ -72,7 +72,7 @@ int main(void) {
         case '6':     infoSistema();
                                 break;                
         }
-        } while (op != '0');
+        } while (opcao != '0');
 
     return 0;
 
@@ -125,7 +125,7 @@ void telaInicial(void) {
 //Módulos e telas CRUD
 
 char menuPrincipal(void){
-        char op;
+        char resp;
     system("clear");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
@@ -145,14 +145,14 @@ char menuPrincipal(void){
         printf("|/////            0 - Sair                                                 /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Escolha sua opcao: ");
-        scanf("%c", &op);
+        scanf("%c", &resp);
         getchar(); 
         printf("|/////                                                                     /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return op;
+        return resp;
 }
 
 
@@ -267,20 +267,20 @@ void atualizaEntradas(void){
 }
 
 void menuEntradas(void) {
-	char op;
-	do {
-		op = moduloEntradas();
-		switch (op) {
-			case '1' : 	cadastroEntradas();
-						break;
-			case '2' : 	consultaEntradas();
-						break;
-			case '3' : 	excluiEntradas();
-						break;
-			case '4' : 	atualizaEntradas();
-						break;
-		}
-	} while (op != '0');
+	char opcao;
+	    do {
+		    opcao = moduloEntradas();
+		    switch (opcao) {
+			    case '1' : 	cadastroEntradas();
+						    break;
+			    case '2' : 	consultaEntradas();
+						    break;
+			    case '3' : 	excluiEntradas();
+						    break;
+			    case '4' : 	atualizaEntradas();
+						    break;
+	    	}
+	    } while (opcao != '0');
 }
 
 
@@ -411,21 +411,22 @@ void atualizaSaidas(void){
 
 
 void menuSaidas(void) {
-	char op;
-	do {
-		op = moduloSaidas();
-		switch (op) {
-			case '1' : 	cadastroSaidas();
-						break;
-			case '2' : 	consultaSaidas();
-						break;
-			case '3' : 	excluiSaidas();
-						break;
-			case '4' : 	atualizaSaidas();
-						break;
-		}
-	} while (op != '0');
+	char opcao ;
+	    do {
+		    opcao = moduloSaidas();
+		    switch (opcao) {
+			    case '1' : 	cadastroSaidas();
+						    break;
+			    case '2' : 	consultaSaidas();
+						    break;
+			    case '3' : 	excluiSaidas();
+						    break;
+			    case '4' : 	atualizaSaidas();
+						    break;
+		    }
+	    } while (opcao != '0');
 }
+
 char moduloContribuinte(void){
         char resp;
     system("clear");
@@ -542,20 +543,20 @@ void atualizaContribuinte(void){
 
 
 void menuContribuinte(void) {
-	char op;
-	do {
-		op = moduloContribuinte();
-		switch (op) {
-			case '1' : 	cadastroContribuinte();
-						break;
-			case '2' : 	consultaContribuinte();
-						break;
-			case '3' : 	excluiContribuinte();
-						break;
-			case '4' : 	atualizaContribuinte();
-						break;
-		}
-	} while (op != '0');
+	char opcao;
+	    do {
+		    opcao = moduloContribuinte();
+		    switch (opcao) {
+			    case '1' : 	cadastroContribuinte();
+						    break;
+			    case '2' : 	consultaContribuinte();
+						    break;
+			    case '3' : 	excluiContribuinte();
+						    break;
+			    case '4' : 	atualizaContribuinte();
+						    break;
+		    }
+	    } while (opcao != '0');
 }
 
 char moduloDependente(void){
@@ -664,20 +665,20 @@ void atualizaDependente(void){
 }
 
 void menuDependente(void) {
-	char op;
-	do {
-		op = moduloDependente();
-		switch (op) {
-			case '1' : 	cadastroDependente();
-						break;
-			case '2' : 	consultaDependente();
-						break;
-			case '3' : 	excluiDependente();
-						break;
-			case '4' : 	atualizaDependente();
-						break;
-		}
-	} while (op != '0');
+	char opcao;
+	    do {
+		opcao = moduloDependente();
+		    switch (opcao) {
+			    case '1' : 	cadastroDependente();
+						    break;
+			    case '2' : 	consultaDependente();
+						    break;
+			    case '3' : 	excluiDependente();
+						    break;
+			    case '4' : 	atualizaDependente();
+						    break;
+	    	}
+	    } while (opcao != '0');
 }
 
 char moduloRelatorio(void){
