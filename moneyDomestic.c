@@ -14,7 +14,6 @@
 ///Assinatura das funções
 ///
 
-void menuSobre(void);
 void telaInicial(void);
 char menuPrincipal(void);
     //Módulo de Entradas
@@ -41,10 +40,12 @@ void cadastroDependente(void);
 void consultaDependente(void);
 void excluiDependente(void);
 void atualizaDependente(void);
+char menuSobre(void);
+
     //Módulo Relatório
 char moduloRelatorio(void);
     //Módulo de Informações do Sistema
-char infoSistema(void);
+char menuSobre(void);    
 
 ///
 ///Programa Principal
@@ -53,7 +54,6 @@ char infoSistema(void);
 int main(void) {
         char opcao;
 
-    menuSobre();
     telaInicial();
 
     do{
@@ -69,7 +69,7 @@ int main(void) {
                                 break;
         case '5':     moduloRelatorio();
                                 break;
-        case '6':     infoSistema();
+        case '6':     menuSobre();
                                 break;                
         }
         } while (opcao != '0');
@@ -79,7 +79,7 @@ int main(void) {
 }
 
 // Menu e Tela inicial
-void menuSobre(void) {
+char menuSobre(void) {
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -709,19 +709,7 @@ char moduloRelatorio(void){
         return resp;
 }
 
-char infoSistema(void){
-    system("clear");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////              $Modulo Informacoes sobre o Sistema$                   /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|///// MoneyDomestic um software projetado para facilitar a gerencia e     /////|\n");                                                   
-        printf("|///// o fluxo de uma residencia.                                          /////|\n");
-        printf("|///// Desenvolvido por @AlmeidaRayssa                                     /////|\n");
-        printf("|///// Jan 2021                                                            /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	    getchar();
-}
+
 
 // Para utilizar nos cadastros
 //printf("///           Matrícula (apenas números): ");
