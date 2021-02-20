@@ -724,20 +724,20 @@ void menuDependente(void) {
 	    } while (opcao != '0');
 }
 
-void menuRelatorio(void) {
-	char opcao;
-	    do {
-		opcao = moduloRelatorio;
-		    switch (opcao) {
-			    case '1' : 	semanal();
-						    break;
-			    case '2' : 	mensal();
-						    break;
-			    case '3' : 	anual();
-						    break;
-	        } 
-        }while (opcao != '0');
-}
+//void menuRelatorio(void) {
+	//char opcao;
+	    //do {
+		//opcao = moduloRelatorio;
+		    //switch (opcao) {
+			    //case '1' : 	semanal();
+				//		    break;
+			    //case '2' : 	mensal();
+				//		    break;
+			    //case '3' : 	anual();
+				//		    break;
+	        //} 
+        //}while (opcao != '0');
+//}
 
 char moduloRelatorio(void){
     char resp;
