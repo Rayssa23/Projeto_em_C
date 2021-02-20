@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 ///
 ///Assinatura das funções
@@ -17,24 +18,28 @@
 void telaInicial(void);
 char menuPrincipal(void);
     //Módulo de Entradas
+void menuEntradas(void);
 char moduloEntradas(void);
 void cadastroEntradas(void);
 void consultaEntradas(void);
 void excluiEntradas(void);
 void atualizaEntradas(void);
     //Módulo de Saídas
+void menuSaidas(void);
 char moduloSaidas(void);
 void cadastroSaidas(void);
 void consultaSaidas(void);
 void excluiSaidas(void);
 void atualizaSaidas(void);
     //Módulo Contribuinte
+void menuContribuinte(void);
 char moduloContribuinte(void);
 void cadastroContribuinte(void);
 void consultaContribuinte(void);
 void excluiContribuinte(void);
 void atualizaContribuinte(void);
     //Módulo Dpendente
+void menuDependente(void);
 char moduloDependente(void);
 void cadastroDependente(void);
 void consultaDependente(void);
@@ -43,10 +48,15 @@ void atualizaDependente(void);
 char menuSobre(void);
 
     //Módulo Relatório
+void menuRelatorio(void);
 char moduloRelatorio(void);
+void semanal (void);
+void mensal (void);
+void anual (void);
+
     //Módulo de Informações do Sistema
 char menuSobre(void);    
-
+void delay (int);
 ///
 ///Programa Principal
 ///
@@ -152,7 +162,16 @@ char menuPrincipal(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
+        delay(1);
         return resp;
+}
+
+void delay(int segundos) {
+    int tempo = 500000 * segundos;
+    clock_t inicio = clock();
+    while (clock() < inicio + tempo) {
+        // não faz nada, apenas gasta tempo
+  }
 }
 
 
@@ -213,57 +232,66 @@ void cadastroEntradas(void){
 }
 
 void consultaEntradas(void){
-    char resp;
+    char nome[51];
+    char valor[12];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Responsavel                                          /////|\n");
-        printf("|/////            2 - Valor                                                /////|\n");
-        printf("|/////            3 - Tipo (Salario/Extras)                                /////|\n");
+        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
+        printf("|/////            Informe o Valor:                                         /////|\n");
+        scanf("%[0-9]", valor);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao de consulta: ");
-        scanf("%c", &resp);
-        printf("|/////                                                                     /////|\n");
-            getchar(); 
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1);
 }
 
 void excluiEntradas(void){
-    char resp;
+    char nome[51];
+    char valor[12];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Entradas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Responsavel                                          /////|\n");
-        printf("|/////            2 - Valor                                                /////|\n");
-        printf("|/////            3 - Tipo (Salario/Extras)                                /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Escolha sua opcao de exclusao: ");
-        scanf("%c", &resp);
-        printf("|/////                                                                     /////|\n");
-            getchar(); 
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
+        printf("|/////            Informe o Valor:                                         /////|\n");
+        scanf("%[0-9]", valor);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1);
 }
 
 void atualizaEntradas(void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-    printf("|/////                  Modulo Aualizar Entradas                           /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            1 - Responsavel                                          /////|\n");
-    printf("|/////            2 - Valor                                                /////|\n");
-    printf("|/////            3 - Tipo (Salario/Extras)                                /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("|/////            Escolha o que deseja Atualizar:                          /////|\n");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
- printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
+    char nome[51];
+    char valor[12];
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+        printf("|/////                  Modulo Aturalizar Entradas                         /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
+        printf("|/////            Informe o Valor:                                         /////|\n");
+        scanf("%[0-9]", valor);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+        delay(1);
 }
 
 
@@ -307,20 +335,20 @@ void cadastroSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Responsavel(Nome completo): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	        getchar();    
         printf("|/////                                                                     /////|\n");
-	        getchar();
         printf("|/////            Valor(apenas numeros): ");
         scanf("%[0-9]", valor);
+	        getchar();    
         printf("|/////                                                                     /////|\n");
-        getchar();            
         printf("|/////            Tipo (Despesas Extras/ Despesas Fixas): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
+	        getchar();    
         printf("|/////                                                                     /////|\n");
-	        getchar();
         printf("|/////            Destino: ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", dest);
-        printf("|/////                                                                     /////|\n");
 	        getchar();    
+        printf("|/////                                                                     /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("Responsavel: %s\n", nome);
     printf("Valor: %s\n", valor);
@@ -331,66 +359,66 @@ void cadastroSaidas(void){
 }
 
 void consultaSaidas(void){
-    char resp;
+    char nome[51];
+    char valor[12];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Responsavel                                          /////|\n");
-        printf("|/////            2 - Valor                                                /////|\n");
-        printf("|/////            3 - Tipo(Despesas Extras/Despesas Fixas)                 /////|\n");
-        printf("|/////            4 - Destino                                              /////|\n");
+        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
+        printf("|/////            Informe o Valor:                                         /////|\n");
+        scanf("%[0-9]", valor);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao de consulta: ");
-        scanf("%c", &resp);
-        printf("|/////                                                                     /////|\n");
-            getchar(); 
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1);
 }
 
 void excluiSaidas(void){
-    char resp;
+    char nome[51];
+    char valor[12];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Saidas                              /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Responsavel                                          /////|\n");
-        printf("|/////            2 - Valor                                                /////|\n");
-        printf("|/////            3 - Tipo(Despesas Extras/Despesas Fixas)                 /////|\n");
-        printf("|/////            4 - Destino                                              /////|\n");
+        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
+        printf("|/////            Informe o Valor:                                         /////|\n");
+        scanf("%[0-9]", valor);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao de exclusao: ");
-        scanf("%c", &resp);
-        printf("|/////                                                                     /////|\n");
-            getchar(); 
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1);
 }
 
 void atualizaSaidas(void){
-    char resp;
+    char nome[51];
+    char valor[12];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Aualizar Saidas                             /////|\n");
+        printf("|/////                  Modulo Atualizar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Responsavel                                          /////|\n");
-        printf("|/////            2 - Valor                                                /////|\n");
-        printf("|/////            3 - Tipo(Despesas Extras/Despesas Fixas)                 /////|\n");
-        printf("|/////            4 - Destino                                              /////|\n");
+        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
+        printf("|/////            Informe o Valor:                                         /////|\n");
+        scanf("%[0-9]", valor);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha o que deseja atualizar: ");
-        scanf("%c", &resp);
-        printf("|/////                                                                     /////|\n");
-            getchar(); 
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1);
 }
 
 
@@ -450,63 +478,66 @@ void cadastroContribuinte(void){
 }
 
 void consultaContribuinte(void){
-    char resp;
+    char nome[51];
+    char profissao[51];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Consultar Contribuintes                     /////|\n");
+        printf("|/////                  Modulo Consultar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Nome                                                 /////|\n");
-        printf("|/////            2 - Profissao                                            /////|\n");
-        printf("|/////            3 - Valor                                                /////|\n");
+        printf("///           Nome completo: ");
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        printf("///                                                                        /////|\n");        
+	    getchar();
+        printf("|/////        Profissao: ");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
+        printf("///                                                                        /////|\n");        
+        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao: ");
-        scanf("%c", &resp);
-        getchar(); 
-        printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1);        
 }
 
 void excluiContribuinte(void){
-    char resp;
+    char nome[51];
+    char profissao[51];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Excluir Contribuinte                        /////|\n");
+        printf("|/////                  Modulo Excluirr Contribuinte                       /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Nome                                                 /////|\n");
-        printf("|/////            2 - Profissao                                            /////|\n");
-        printf("|/////            3 - Valor                                                /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Escolha sua opcao de exclusao: ");
-        scanf("%c", &resp);
-        getchar(); 
-        printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("///           Nome completo: ");
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        printf("///                                                                        /////|\n");        
+	    getchar();
+        printf("|/////        Profissao: ");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
+        printf("///                                                                        /////|\n");        
+        getchar();
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1);     
 }
 
 void atualizaContribuinte(void){
-    char resp;
+   char nome[51];
+   char profissao[51];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Aualizar Contribuinte                       /////|\n");
+        printf("|/////                  Modulo Atualizar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Nome                                                 /////|\n");
-        printf("|/////            2 - Profissao                                            /////|\n");
-        printf("|/////            3 - Valor                                                /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Escolha o que deseja Atualizar: ");
-        scanf("%c", &resp);
-        getchar(); 
-        printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("///           Nome completo: ");
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        printf("///                                                                        /////|\n");        
+	    getchar();
+        printf("|/////        Profissao: ");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
+        printf("///                                                                        /////|\n");        
+        getchar();
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1);     
 }
 
 
@@ -561,60 +592,66 @@ void cadastroDependente(void){
 }
 
 void consultaDependente(void){
-    char resp;
+    char nome[51];
+    char idade[2];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Nome                                                 /////|\n");
-        printf("|/////            2 - Idade                                                /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao de consulta: ");
-        scanf("%c", &resp);
-        getchar(); 
+        printf("///           Nome completo: ");
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
         printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+	    getchar();    
+        printf("|/////        Idade(apenas numeros): ");
+	    scanf("%[0-9]", idade);
+        printf("|/////                                                                     /////|\n");
+        getchar(); 
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1);                                                 
 }
 
 void excluiDependente(void){
-    char resp;
+    char nome[51];
+    char idade[2];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Excluir Contribuinte                        /////|\n");
+        printf("|/////                  Modulo Excluir Dependente                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Nome                                                 /////|\n");
-        printf("|/////            2 - Idade                                                /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Escolha sua opcao de exclusao: ");
-       scanf("%c", &resp);
-        getchar(); 
+        printf("///           Nome completo: ");
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
         printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+	    getchar();    
+        printf("|/////        Idade(apenas numeros): ");
+	    scanf("%[0-9]", idade);
+        printf("|/////                                                                     /////|\n");
+        getchar(); 
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1); 
 }
 
 void atualizaDependente(void){
-    char resp;
+    char nome[51];
+    char idade[2];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Aualizar Dependente                         /////|\n");
+        printf("|/////                  Modulo Atualizar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Nome                                                 /////|\n");
-        printf("|/////            2 - Idade                                                /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Escolha o que deseja Atualizar: ");
-        scanf("%c", &resp);
-        getchar(); 
+        printf("///           Nome completo: ");
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
         printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+	    getchar();    
+        printf("|/////        Idade(apenas numeros): ");
+	    scanf("%[0-9]", idade);
+        printf("|/////                                                                     /////|\n");
+        getchar(); 
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
+        delay(1); 
 }
 
 
@@ -687,6 +724,21 @@ void menuDependente(void) {
 	    } while (opcao != '0');
 }
 
+void menuRelatorio(void) {
+	char opcao;
+	    do {
+		opcao = moduloRelatorio;
+		    switch (opcao) {
+			    case '1' : 	semanal();
+						    break;
+			    case '2' : 	mensal();
+						    break;
+			    case '3' : 	anual();
+						    break;
+	        } 
+        }while (opcao != '0');
+}
+
 char moduloRelatorio(void){
     char resp;
     system("clear");
@@ -708,7 +760,27 @@ char moduloRelatorio(void){
         getchar();
         return resp;
 }
-
+void semanal(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
+    printf("                                Em construcao                                      ");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+      printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar();
+}
+void mensal (void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
+    printf("                                Em construcao                                      ");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+}
+void anual (void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
+    printf("                                Em construcao                                      ");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar(); 
+}
 
 
 // Para utilizar nos cadastros
