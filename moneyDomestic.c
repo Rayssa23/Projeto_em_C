@@ -724,20 +724,20 @@ void menuDependente(void) {
 	    } while (opcao != '0');
 }
 
-//void menuRelatorio(void) {
-	//char opcao;
-	    //do {
-		//opcao = moduloRelatorio;
-		    //switch (opcao) {
-			    //case '1' : 	semanal();
-				//		    break;
-			    //case '2' : 	mensal();
-				//		    break;
-			    //case '3' : 	anual();
-				//		    break;
-	        //} 
-        //}while (opcao != '0');
-//}
+void menuRelatorio(void) {
+	char opcao;
+	    do {
+		opcao = moduloRelatorio;
+		    switch (opcao) {
+			    case '1' : 	semanal();
+						    break;
+			    case '2' : 	mensal();
+						    break;
+			    case '3' : 	anual();
+						    break;
+	        } 
+        }while (opcao != '0');
+}
 
 char moduloRelatorio(void){
     char resp;
@@ -760,43 +760,26 @@ char moduloRelatorio(void){
         getchar();
         return resp;
 }
-//void semanal(void){
-    //printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
-    //printf("                                Em construcao                                      ");
-    //printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-      //printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            //getchar();
-//}
-//void mensal (void){
-    //printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
-    //printf("                                Em construcao                                      ");
-    //printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-     //printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //getchar();
-//}
-//void anual (void){
-    //printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
-    //printf("                                Em construcao                                      ");
-    //printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-     //printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //getchar(); 
-//}
+void semanal(void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
+    printf("                                Em construcao                                      ");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+      printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+            getchar();
+}
+void mensal (void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
+    printf("                                Em construcao                                      ");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+}
+void anual (void){
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
+    printf("                                Em construcao                                      ");
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar(); 
+}
 
 
-// Para utilizar nos cadastros
-//printf("///           Matrícula (apenas números): ");
-	//scanf("%[0-9]", matr);
-	//getchar();
-	//printf("///           Nome completo: ");
-	//scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
-	//getchar();
-	//printf("///           E-mail: ");
-	//scanf("%[a-z@.]", email);
-	//getchar();
-	//printf("///           Data de Nascimento (dd/mm/aaaa):  ");
-	//scanf("%[0-9/]", nasc);
-	//getchar();
-	//printf("///           Celular  (apenas números): ");
-	//scanf("%[0-9]", celular);
-	//getchar();
-	//printf("///                                                                       ///\n");
