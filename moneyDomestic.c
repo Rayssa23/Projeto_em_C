@@ -209,16 +209,16 @@ void cadastroEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Responsavel: ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
-        printf("|/////                                                                     /////|\n");
 	        getchar();
+        printf("|/////                                                                     /////|\n");    
         printf("|/////            Valor(apenas numeros): ");
         scanf("%[0-9]", valor);
-        printf("|/////                                                                     /////|\n");
-        getchar();            
+        getchar(); 
+        printf("|/////                                                                     /////|\n");           
         printf("|/////            Tipo (Salario/Extras): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
-        printf("|/////                                                                     /////|\n");
-	        getchar();    
+	        getchar(); 
+        printf("|/////                                                                     /////|\n");   
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("Responsavel: %s\n", nome);
@@ -701,7 +701,7 @@ void menuDependente(void) {
 void menuRelatorio(void) {
 	char opcao;
 	    do {
-		opcao = moduloRelatorio;
+		opcao = moduloRelatorio();
 		    switch (opcao) {
 			    case '1' : 	semanal();
 						    break;
