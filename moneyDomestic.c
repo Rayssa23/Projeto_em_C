@@ -294,7 +294,22 @@ void atualizaEntradas(void){
         delay(1);
 }
 
-
+void menuEntradas(void) {
+	char opcao;
+	    do {
+		    opcao = moduloEntradas();
+		    switch (opcao) {
+			    case '1' : 	cadastroEntradas();
+						    break;
+			    case '2' : 	consultaEntradas();
+						    break;
+			    case '3' : 	excluiEntradas();
+						    break;
+			    case '4' : 	atualizaEntradas();
+						    break;
+	    	}
+	    } while (opcao != '0');
+}
 
 char moduloSaidas(void){
         char resp;
@@ -421,6 +436,22 @@ void atualizaSaidas(void){
         delay(1);
 }
 
+void menuSaidas(void) {
+	char opcao ;
+	    do {
+		    opcao = moduloSaidas();
+		    switch (opcao) {
+			    case '1' : 	cadastroSaidas();
+						    break;
+			    case '2' : 	consultaSaidas();
+						    break;
+			    case '3' : 	excluiSaidas();
+						    break;
+			    case '4' : 	atualizaSaidas();
+						    break;
+		    }
+	    } while (opcao != '0');
+}
 
 
 char moduloContribuinte(void){
@@ -540,6 +571,22 @@ void atualizaContribuinte(void){
         delay(1);     
 }
 
+void menuContribuinte(void) {
+	char opcao;
+	    do {
+		    opcao = moduloContribuinte();
+		    switch (opcao) {
+			    case '1' : 	cadastroContribuinte();
+						    break;
+			    case '2' : 	consultaContribuinte();
+						    break;
+			    case '3' : 	excluiContribuinte();
+						    break;
+			    case '4' : 	atualizaContribuinte();
+						    break;
+		    }
+	    } while (opcao != '0');
+}
 
 
 
@@ -654,59 +701,6 @@ void atualizaDependente(void){
         delay(1); 
 }
 
-
-
-void menuEntradas(void) {
-	char opcao;
-	    do {
-		    opcao = moduloEntradas();
-		    switch (opcao) {
-			    case '1' : 	cadastroEntradas();
-						    break;
-			    case '2' : 	consultaEntradas();
-						    break;
-			    case '3' : 	excluiEntradas();
-						    break;
-			    case '4' : 	atualizaEntradas();
-						    break;
-	    	}
-	    } while (opcao != '0');
-}
-
-void menuSaidas(void) {
-	char opcao ;
-	    do {
-		    opcao = moduloSaidas();
-		    switch (opcao) {
-			    case '1' : 	cadastroSaidas();
-						    break;
-			    case '2' : 	consultaSaidas();
-						    break;
-			    case '3' : 	excluiSaidas();
-						    break;
-			    case '4' : 	atualizaSaidas();
-						    break;
-		    }
-	    } while (opcao != '0');
-}
-
-void menuContribuinte(void) {
-	char opcao;
-	    do {
-		    opcao = moduloContribuinte();
-		    switch (opcao) {
-			    case '1' : 	cadastroContribuinte();
-						    break;
-			    case '2' : 	consultaContribuinte();
-						    break;
-			    case '3' : 	excluiContribuinte();
-						    break;
-			    case '4' : 	atualizaContribuinte();
-						    break;
-		    }
-	    } while (opcao != '0');
-}
-
 void menuDependente(void) {
 	char opcao;
 	    do {
@@ -724,20 +718,20 @@ void menuDependente(void) {
 	    } while (opcao != '0');
 }
 
-//void menuRelatorio(void) {
-//	char opcao;
-//	    do {
-//		opcao = moduloRelatorio;
-//		    switch (opcao) {
-//			    case '1' : 	semanal();
-//						    break;
-//			    case '2' : 	mensal();
-//						    break;
-//			    case '3' : 	anual();
-//						    break;
-//	        } 
-//        }while (opcao != '0');
-//}
+void menuRelatorio(void) {
+	char opcao;
+	    do {
+		opcao = moduloRelatorio;
+		    switch (opcao) {
+			    case '1' : 	semanal();
+						    break;
+			    case '2' : 	mensal();
+						    break;
+			    case '3' : 	anual();
+						    break;
+	        } 
+        }while (opcao != '0');
+}
 
 char moduloRelatorio(void){
     char resp;
