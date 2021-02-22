@@ -161,7 +161,6 @@ char menuPrincipal(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);
         return resp;
 }
@@ -199,7 +198,6 @@ char moduloEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         return resp;
 }
 void cadastroEntradas(void){
@@ -227,7 +225,6 @@ void cadastroEntradas(void){
     printf("Valor: %s\n", valor);
     printf("Tipo: %s\n", tipo);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            getchar(); 
     
 }
 
@@ -248,7 +245,6 @@ void consultaEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);
 }
 
@@ -269,7 +265,6 @@ void excluiEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);
 }
 
@@ -335,7 +330,6 @@ char moduloSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         return resp;
 }
 void cadastroSaidas(void){
@@ -370,7 +364,6 @@ void cadastroSaidas(void){
     printf("Tipo: %s\n", tipo);
     printf("Destino: %s\n", dest);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            getchar();  
 }
 
 void consultaSaidas(void){
@@ -390,7 +383,6 @@ void consultaSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);
 }
 
@@ -411,7 +403,6 @@ void excluiSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);
 }
 
@@ -432,7 +423,6 @@ void atualizaSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);
 }
 
@@ -478,7 +468,6 @@ char moduloContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         return resp;
 }
 void cadastroContribuinte(void){
@@ -505,7 +494,6 @@ void cadastroContribuinte(void){
     printf("Profissao: %s\n", profissao);
     printf("Valor: %s\n", valor);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            getchar(); 
 }
 
 void consultaContribuinte(void){
@@ -525,7 +513,6 @@ void consultaContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);        
 }
 
@@ -546,7 +533,6 @@ void excluiContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);     
 }
 
@@ -567,7 +553,6 @@ void atualizaContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);     
 }
 
@@ -614,7 +599,6 @@ char moduloDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         return resp;
 }
 void cadastroDependente(void){
@@ -635,7 +619,6 @@ void cadastroDependente(void){
     printf("Nome: %s\n", nome);
     printf("Idade: %s\n", idade);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            getchar();
 }
 
 void consultaDependente(void){
@@ -655,7 +638,6 @@ void consultaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);                                                 
 }
 
@@ -676,7 +658,6 @@ void excluiDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1); 
 }
 
@@ -697,7 +678,6 @@ void atualizaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1); 
 }
 
@@ -751,7 +731,6 @@ char moduloRelatorio(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         return resp;
 }
 void semanal(void){
