@@ -69,15 +69,15 @@ int main(void) {
     do{
         opcao = menuPrincipal();
         switch (opcao){
-        case '1':     moduloEntradas();
+        case '1':     menuEntradas();
                                 break;
-        case '2':     moduloSaidas();
+        case '2':     menuSaidas();
                                 break;
-        case '3':     moduloContribuinte();
+        case '3':     menuContribuinte();
                                 break;
-        case '4':     moduloDependente();
+        case '4':     menuDependente();
                                 break;
-        case '5':     moduloRelatorio();
+        case '5':     menuRelatorio();
                                 break;
         case '6':     menuSobre();
                                 break;                
