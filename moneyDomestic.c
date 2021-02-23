@@ -45,7 +45,6 @@ void cadastroDependente(void);
 void consultaDependente(void);
 void excluiDependente(void);
 void atualizaDependente(void);
-char menuSobre(void);
 
     //Módulo Relatório
 void menuRelatorio(void);
@@ -55,7 +54,7 @@ void mensal (void);
 void anual (void);
 
     //Módulo de Informações do Sistema
-char menuSobre(void);    
+void menuSobre(void);    
 void delay (int);
 ///
 ///Programa Principal
@@ -89,7 +88,7 @@ int main(void) {
 }
 
 // Menu e Tela inicial
-char menuSobre(void) {
+void menuSobre(void) {
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
