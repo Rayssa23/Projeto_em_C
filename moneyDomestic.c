@@ -160,17 +160,17 @@ char menuPrincipal(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);
+        //delay(1);
         return resp;
 }
 
-void delay(int segundos) {
-    int tempo = 500000 * segundos;
-    clock_t inicio = clock();
-    while (clock() < inicio + tempo) {
+//void delay(int segundos) {
+    //int tempo = 500000 * segundos;
+    //clock_t inicio = clock();
+    //while (clock() < inicio + tempo) {
         // não faz nada, apenas gasta tempo
-  }
-}
+  //}
+//}
 
 
 char moduloEntradas(void){
