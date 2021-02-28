@@ -156,7 +156,6 @@ char menuPrincipal(void){
         printf("|/////            Escolha sua opcao: ");
         scanf("%c", &resp);
         getchar(); 
-        printf("|/////                                                                     /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
