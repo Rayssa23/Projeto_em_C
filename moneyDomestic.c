@@ -244,7 +244,7 @@ void consultaEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);
+        //delay(1);
 }
 
 void excluiEntradas(void){
@@ -264,7 +264,7 @@ void excluiEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);
+        //delay(1);
 }
 
 void atualizaEntradas(void){
@@ -285,7 +285,7 @@ void atualizaEntradas(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        delay(1);
+        //delay(1);
 }
 
 void menuEntradas(void) {
@@ -382,7 +382,7 @@ void consultaSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);
+        //delay(1);
 }
 
 void excluiSaidas(void){
@@ -402,7 +402,7 @@ void excluiSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);
+        //delay(1);
 }
 
 void atualizaSaidas(void){
@@ -422,7 +422,7 @@ void atualizaSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);
+        //delay(1);
 }
 
 void menuSaidas(void) {
@@ -512,7 +512,7 @@ void consultaContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);        
+        //delay(1);        
 }
 
 void excluiContribuinte(void){
@@ -532,7 +532,7 @@ void excluiContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);     
+        //delay(1);     
 }
 
 void atualizaContribuinte(void){
@@ -552,7 +552,7 @@ void atualizaContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);     
+        //delay(1);     
 }
 
 void menuContribuinte(void) {
@@ -637,7 +637,7 @@ void consultaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);                                                 
+        //delay(1);                                                 
 }
 
 void excluiDependente(void){
@@ -657,7 +657,7 @@ void excluiDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1); 
+        //delay(1); 
 }
 
 void atualizaDependente(void){
@@ -677,7 +677,7 @@ void atualizaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1); 
+        //delay(1); 
 }
 
 void menuDependente(void) {
