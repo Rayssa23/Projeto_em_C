@@ -20,34 +20,22 @@
 
 void telaInicial(void);
 char menuPrincipal(void);
+
     //Módulo de Entradas
 void menuEntradas(void);
 char moduloEntradas(void);
-//void cadastroEntradas(void);
-//void consultaEntradas(void);
-//void excluiEntradas(void);
-//void atualizaEntradas(void);
+
     //Módulo de Saídas
 void menuSaidas(void);
 char moduloSaidas(void);
-//void cadastroSaidas(void);
-//void consultaSaidas(void);
-//void excluiSaidas(void);
-//void atualizaSaidas(void);
+
     //Módulo Contribuinte
 void menuContribuinte(void);
 char moduloContribuinte(void);
-//void cadastroContribuinte(void);
-//void consultaContribuinte(void);
-//void excluiContribuinte(void);
-//void atualizaContribuinte(void);
+
     //Módulo Dpendente
 void menuDependente(void);
 char moduloDependente(void);
-//void cadastroDependente(void);
-//void consultaDependente(void);
-//void excluiDependente(void);
-//void atualizaDependente(void);
 
     //Módulo Relatório
 void menuRelatorio(void);
@@ -162,17 +150,17 @@ char menuPrincipal(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1);
+        delay(1);
         return resp;
 }
 
-//void delay(int segundos) {
-    //int tempo = 500000 * segundos;
-    //clock_t inicio = clock();
-    //while (clock() < inicio + tempo) {
+void delay(int segundos) {
+    int tempo = 500000 * segundos;
+    clock_t inicio = clock();
+    while (clock() < inicio + tempo) {
         // não faz nada, apenas gasta tempo
-  //}
-//}
+  }
+}
 
 
 char moduloEntradas(void){

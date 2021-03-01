@@ -47,7 +47,7 @@ void consultaEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1);
+        delay(1);
 }
 
 void excluiEntradas(void){
@@ -67,7 +67,7 @@ void excluiEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1);
+        delay(1);
 }
 
 void atualizaEntradas(void){
@@ -88,6 +88,6 @@ void atualizaEntradas(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        //delay(1);
+        delay(1);
 }
 

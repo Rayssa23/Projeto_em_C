@@ -39,7 +39,7 @@ void consultaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1);                                                 
+        delay(1);                                                 
 }
 
 void excluiDependente(void){
@@ -59,7 +59,7 @@ void excluiDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1); 
+        delay(1); 
 }
 
 void atualizaDependente(void){
@@ -79,5 +79,5 @@ void atualizaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1); 
+        delay(1); 
 }

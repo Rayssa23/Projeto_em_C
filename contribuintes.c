@@ -64,7 +64,7 @@ void excluiContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1);     
+        delay(1);     
 }
 
 void atualizaContribuinte(void){
@@ -84,5 +84,5 @@ void atualizaContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1);     
+        delay(1);     
 }

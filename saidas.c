@@ -52,7 +52,7 @@ void consultaSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1);
+        delay(1);
 }
 
 void excluiSaidas(void){
@@ -72,7 +72,7 @@ void excluiSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1);
+        delay(1);
 }
 
 void atualizaSaidas(void){
@@ -92,5 +92,5 @@ void atualizaSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1);
+        delay(1);
 }
