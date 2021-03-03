@@ -183,8 +183,7 @@ char moduloEntradas(void){
         printf("|/////            Escolha sua opcao: ");
         scanf("%c", &resp);
         getchar(); 
-        printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         return resp;
@@ -227,8 +226,7 @@ char moduloSaidas(void){
         printf("|/////            Escolha sua opcao: ");
         scanf("%c", &resp);
         getchar(); 
-        printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         return resp;
@@ -272,8 +270,7 @@ char moduloContribuinte(void){
         printf("|/////            Escolha sua opcao: ");
         scanf("%c", &resp);
         getchar(); 
-        printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         return resp;
@@ -318,8 +315,7 @@ char moduloDependente(void){
         printf("|/////            Escolha sua opcao: ");
         scanf("%c", &resp);
         getchar(); 
-        printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         return resp;
@@ -372,8 +368,7 @@ char moduloRelatorio(void){
         printf("|/////            Escolha sua opcao: ");
         scanf("%c", &resp);
         getchar(); 
-        printf("|/////                                                                     /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         return resp;
