@@ -9,11 +9,8 @@
 
 ////////// Funções de Validação ////////////
 
-int validarResponsavel(char* nome){
-    if (*nome == [A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ])  {
-        return 1
-    };
-    else{
-        return 0
+int validarNomes(char* nome){
+    if (*nome == ['A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ'])  {
+        return 1;
     };
 }
