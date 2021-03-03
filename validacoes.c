@@ -9,8 +9,12 @@
 
 ////////// Funções de Validação ////////////
 
-int validarNomes(char* nome){
-    if (*nome == ['A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ'])  {
+int validarNomes(char nome){
+    if (len(nome) <= 3){
+        return 0;
+
+    }else {
         return 1;
-    };
+    }
+
 }
