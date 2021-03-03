@@ -8,9 +8,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 ////////// Funções de Validação ////////////
+#include <string.h>
 
 int validarNomes(char nome){
-    if (len(nome) <= 3){
+    if ((strlen(nome) == 0 )|| (strlen(nome) <= 5)){
         return 0;
 
     }else {
@@ -18,3 +19,6 @@ int validarNomes(char nome){
     }
 
 }
+
+//http://linguagemc.com.br/a-biblioteca-string-h/
+//Usado apenas para saber como é a função len em C
