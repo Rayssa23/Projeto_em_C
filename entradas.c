@@ -1,6 +1,6 @@
 //Modulo entradas
 //Subprograma
-
+#include "validacoes.h"
 
 void cadastroEntradas(void){
     char nome[51];
