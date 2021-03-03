@@ -24,18 +24,34 @@ char menuPrincipal(void);
     //Módulo de Entradas
 void menuEntradas(void);
 char moduloEntradas(void);
+void cadastroEntradas(void);
+void consultaEntradas(void);
+void excluiEntradas(void);
+void atualizaEntradas(void);
 
     //Módulo de Saídas
 void menuSaidas(void);
 char moduloSaidas(void);
+void cadastroSaidas(void);
+void consultaSaidas(void);
+void excluiSaidas(void);
+void atualizaSaidas(void);
 
     //Módulo Contribuinte
 void menuContribuinte(void);
 char moduloContribuinte(void);
+void cadastroContribuinte(void);
+void consultaContribuinte(void);
+void excluiContribuinte(void);
+void atualizaContribuinte(void);
 
     //Módulo Dpendente
 void menuDependente(void);
 char moduloDependente(void);
+void cadastroDependente(void);
+void consultaDependente(void);
+void excluiDependente(void);
+void atualizaDependente(void);
 
     //Módulo Relatório
 void menuRelatorio(void);
