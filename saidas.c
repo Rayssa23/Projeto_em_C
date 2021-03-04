@@ -2,6 +2,8 @@
 //Subprograma
 #include <stdio.h>
 #include "saidas.h"
+#include "passaTempo.h"
+#include "validacoes.h"
 void cadastroSaidas(void){
     char nome[51];
     char valor[12];
@@ -14,7 +16,14 @@ void cadastroSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Responsavel(Nome completo): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
-	        getchar();    
+	        getchar();
+            int valida;
+            valida = validarNomes(nome);
+            while (valida == 1){
+                printf("|/////            Responsavel: ");
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	            getchar();
+            }    
         printf("|/////                                                                     /////|\n");
         printf("|/////            Valor(apenas numeros): ");
         scanf("%[0-9]", valor);

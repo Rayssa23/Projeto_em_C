@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include "passaTempo.h"
 #include "entradas.h"
 #include "saidas.h"
 #include "contribuinte.h"
@@ -170,13 +170,7 @@ char menuPrincipal(void){
         return resp;
 }
 
-void delay(int segundos) {
-    int tempo = 500000 * segundos;
-    clock_t inicio = clock();
-    while (clock() < inicio + tempo) {
-        // não faz nada, apenas gasta tempo
-  }
-}
+
 
 
 char moduloEntradas(void){

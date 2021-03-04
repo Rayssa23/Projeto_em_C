@@ -3,6 +3,7 @@
 #include "validacoes.h"
 #include <stdio.h>
 #include "entradas.h"
+#include "passaTempo.h"
 void cadastroEntradas(void){
     char nome[51];
     char valor[12];

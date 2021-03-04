@@ -12,7 +12,7 @@
 ////////// Assinaturas ////////////
 
 //Valida Nomes
-int validarNomes(char nome);
+int validarNomes(char *nome);
 
 //Valida Valores
 int validaValor (char valor);
