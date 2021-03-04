@@ -10,4 +10,9 @@
 ////////// Funções de Validação ////////////
 
 ////////// Assinaturas ////////////
+
+//Valida Nomes
 int validarNomes(char nome);
+
+//Valida Valores
+int validaValor (char valor);

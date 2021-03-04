@@ -12,13 +12,19 @@
 
 int validarNomes(char nome){
     if ((strlen(nome) == 0 )|| (strlen(nome) <= 5)){
-        return 0;
+        return 1;
 
     }else {
+        return 0;
+    }
+}
+int validaValor (char valor){
+    if (valor <= 0){
         return 1;
     }
-
+    return 0;
 }
+
 
 //http://linguagemc.com.br/a-biblioteca-string-h/
 //Usado apenas para saber como é a função len em C

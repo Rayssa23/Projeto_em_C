@@ -1,6 +1,7 @@
 //Modulo saidas
 //Subprograma
-
+#include <stdio.h>
+#include "saidas.h"
 void cadastroSaidas(void){
     char nome[51];
     char valor[12];

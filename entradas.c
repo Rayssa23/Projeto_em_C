@@ -1,7 +1,8 @@
 //Modulo entradas
 //Subprograma
 #include "validacoes.h"
-
+#include <stdio.h>
+#include "entradas.h"
 void cadastroEntradas(void){
     char nome[51];
     char valor[12];
@@ -12,6 +13,13 @@ void cadastroEntradas(void){
         printf("|/////            Responsavel: ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	        getchar();
+            int valida;
+            valida = validarNomes(nome);
+            while (valida == 1){
+                printf("|/////            Responsavel: ");
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	            getchar();
+            }
         printf("|/////                                                                     /////|\n");    
         printf("|/////            Valor(apenas numeros): ");
         scanf("%[0-9]", valor);
@@ -23,7 +31,7 @@ void cadastroEntradas(void){
         printf("|/////                                                                     /////|\n");   
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
-    printf("Responsavel: %s\n", nome);
+    printf("Responsavel: %s\n",nome);
     printf("Valor: %s\n", valor);
     printf("Tipo: %s\n", tipo);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -51,14 +59,17 @@ void consultaEntradas(void){
 }
 
 void excluiEntradas(void){
+    char valida;
     char nome[51];
     char valor[12];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Entradas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+
         printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
+            valida = validarNomes(nome); 
         printf("|/////                                                                     /////|\n"); 
         printf("|/////            Informe o Valor:                                         /////|\n");
         scanf("%[0-9]", valor);

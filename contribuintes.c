@@ -1,6 +1,8 @@
 //Módulo Contribuinte
 //Subprograma
 
+#include <stdio.h>
+#include "contribuinte.h"
 void cadastroContribuinte(void){
     char nome[51];
     char profissao[51];

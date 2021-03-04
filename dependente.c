@@ -1,6 +1,7 @@
 //Módulo Dependente
 //Subprograma
-
+#include <stdio.h>
+#include "dependente.h"
 void cadastroDependente(void){
     char nome[51];
     char idade[2];
