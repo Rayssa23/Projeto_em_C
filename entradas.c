@@ -2,8 +2,9 @@
 //Subprograma
 #include "validacoes.h"
 #include <stdio.h>
-#include "entradas.h"
 #include "passaTempo.h"
+#include "entradas.h"
+
 void cadastroEntradas(void){
     char nome[51];
     char valor[12];

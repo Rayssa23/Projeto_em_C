@@ -1,16 +1,16 @@
 //Modulo saidas
 //Subprograma
 #include <stdio.h>
-#include "saidas.h"
 #include "passaTempo.h"
 #include "validacoes.h"
+#include "saidas.h"
+
 void cadastroSaidas(void){
     char nome[51];
     char valor[12];
     char tipo[20];
     char dest[51];
 
-    system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");

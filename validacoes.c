@@ -9,7 +9,6 @@
 
 ////////// Funções de Validação ////////////
 #include <string.h>
-#include "validacoes.h"
 
 int validarNomes(char *nome){
     if ((strlen(nome) == 0 )|| (strlen(nome) <= 5)){

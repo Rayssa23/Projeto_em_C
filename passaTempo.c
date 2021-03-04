@@ -1,5 +1,6 @@
 #include <time.h>
 #include "passaTempo.h"
+
 void delay(int segundos) {
     int tempo = 500000 * segundos;
     clock_t inicio = clock();

@@ -2,7 +2,7 @@
 //Subprograma
 
 #include <stdio.h>
-#include "contribuinte.h"
+#include "passaTempo.h"
 void cadastroContribuinte(void){
     char nome[51];
     char profissao[51];
