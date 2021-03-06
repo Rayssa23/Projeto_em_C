@@ -43,11 +43,12 @@ void cadastroContribuinte(void){
                 getchar();
              }
         printf("///                                                                        /////|\n");        
-        getchar();        
+        getchar();
+        getint();        
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("Nome: %s\n", nome);
     printf("Profissao: %s\n", profissao);
-    printf("Valor: %s\n", valor);
+    printf("Valor: %d\n", valor);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 }
 
@@ -68,7 +69,7 @@ void consultaContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        //delay(1);        
+        delay(1);        
 }
 
 void excluiContribuinte(void){
