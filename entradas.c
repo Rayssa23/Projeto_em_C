@@ -27,13 +27,14 @@ void cadastroEntradas(void){
 	            getchar();
             }   
         printf("|/////            Valor(apenas numeros): ");
-        getint();
+        scanf("%d", valor);
+        getchar();
             valida2 = validaValor(valor);
             while (valida2 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
                 scanf("%d", valor);
-                getint();
+                getchar();
              }
         printf("|/////            Tipo (Salario - S/Extras - E): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
@@ -44,11 +45,12 @@ void cadastroEntradas(void){
                 printf("\n Tipo Invalido! Tente novamente!\n");
                 scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
                 getchar();
-            }   
+            } 
+        printf("|/////                                                                     /////|\n");   
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("Responsavel: %s\n",nome);
-    printf("Valor: %d\n", valor);
+    printf("Valor: %s\n", valor);
     printf("Tipo: %s\n", tipo);
             delay(1);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -57,16 +59,18 @@ void cadastroEntradas(void){
 
 void consultaEntradas(void){
     char nome[51];
-    int valor;
+    char valor[12];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
+        printf("|/////                                                                     /////|\n"); 
         printf("|/////            Informe o Valor:                                         /////|\n");
-        scanf("%d", valor);
-           getint();
+        scanf("%[0-9]", valor);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -75,17 +79,19 @@ void consultaEntradas(void){
 
 void excluiEntradas(void){
     char nome[51];
-    int valor;
+    char valor[12];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Entradas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
 
         printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
-            getchar(); 
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
         printf("|/////            Informe o Valor:                                         /////|\n");
-        scanf("%d", valor);
-            getint();
+        scanf("%[0-9]", valor);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -94,16 +100,18 @@ void excluiEntradas(void){
 
 void atualizaEntradas(void){
     char nome[51];
-    int valor;
+    char valor[12];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
+        printf("|/////                                                                     /////|\n"); 
         printf("|/////            Informe o Valor:                                         /////|\n");
-        scanf("%d", valor);
-            getint();
+        scanf("%[0-9]", valor);
+            getchar();
+        printf("|/////                                                                     /////|\n"); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");

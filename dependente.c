@@ -24,33 +24,35 @@ void cadastroDependente(void){
             }    
         printf("|/////        Idade(apenas numeros): ");
 	    scanf("%d", idade);
-        getint();                                                 
+        getchar();                                                  
         valida2 = validaValor(idade);
             while (valida2 == 1){
                 printf("\n Idade Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
                 scanf("%d", idade);
-                getint();
+                getchar();
              }
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("Nome: %s\n", nome);
-    printf("Idade: %d\n", idade);
+    printf("Idade: %s\n", idade);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 }
 
 
 void consultaDependente(void){
     char nome[51];
-    int idade;
+    char idade[2];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
 	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        printf("|/////                                                                     /////|\n");
 	    getchar();    
         printf("|/////        Idade(apenas numeros): ");
-	    scanf("%d", idade);
-        getint();
+	    scanf("%[0-9]", idade);
+        printf("|/////                                                                     /////|\n");
+        getchar(); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -59,16 +61,18 @@ void consultaDependente(void){
 
 void excluiDependente(void){
     char nome[51];
-    int idade;
+    char idade[2];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Dependente                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
 	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        printf("|/////                                                                     /////|\n");
 	    getchar();    
         printf("|/////        Idade(apenas numeros): ");
-	    scanf("%d", idade);
-        getint();
+	    scanf("%[0-9]", idade);
+        printf("|/////                                                                     /////|\n");
+        getchar(); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -77,16 +81,18 @@ void excluiDependente(void){
 
 void atualizaDependente(void){
     char nome[51];
-    int idade;
+    char idade[2];
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
 	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        printf("|/////                                                                     /////|\n");
 	    getchar();    
         printf("|/////        Idade(apenas numeros): ");
-	    scanf("%d", idade);
-        getint();
+	    scanf("%[0-9]", idade);
+        printf("|/////                                                                     /////|\n");
+        getchar(); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
