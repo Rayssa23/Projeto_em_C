@@ -6,20 +6,42 @@
 void cadastroContribuinte(void){
     char nome[51];
     char profissao[51];
-    char valor[12];
+    int valor;
+    int valida;
+    int valida2;
+    int valida3;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
-        printf("///                                                                        /////|\n");        
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
 	    getchar();
+            valida = validarNomes(nome);
+            while (valida == 1){
+                printf("\n Nome Invalido! Tente novamente!\n");
+                printf("|/////            Nome Completo: ");
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
+	            getchar();
+            }
         printf("|/////        Profissao: ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
-        printf("///                                                                        /////|\n");        
-        getchar();        
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &profissao);
+        getchar();
+        valida2 = validarNomes(profissao);
+            while (valida2 == 1){
+                printf("\n Profissao Invalida! Tente novamente!\n");
+                printf("|/////        Profissao: ");
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &profissao);
+	            getchar();
+            }        
         printf("|/////        Valor(apenas numeros): ");
-        scanf("%[0-9]", valor);
+        scanf("%d", &valor);
+        valida3 = validaValor(valor);
+            while (valida3 == 1){
+                printf("\n Valor Invalido! Tente novamente!\n");
+                printf("|/////            Valor (apenas numeros): ");
+                scanf("%d", &valor);
+                getchar();
+             }
         printf("///                                                                        /////|\n");        
         getchar();        
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 

@@ -9,17 +9,36 @@
 
 ////////// Funções de Validação ////////////
 #include <string.h>
+#include <ctype.h>
 
-int validarNomes(char *nome){
+//Valida Nomes
+int validaNomes(char nome){
     if ((strlen(nome) == 0 )|| (strlen(nome) <= 5)){
+         char teste ['1, 2, 3, 4, 5, 6, 7, 8, 9, 0'];
+         for (int i = 0; i < 10; i++ ){
+            if (teste[i] == nome){
+                return 1;
+            } 
+         }
         return 1;
-
     }else {
         return 0;
     }
-}
-int validaValor (char valor){
+    }
+
+//Valida Valores
+int validaValor (int valor){
     if (valor <= 0){
+        return 1;
+    }
+    return 0;
+}
+
+//Valida Tipos
+int validaTipo (char tipo){
+    if ((toupper(tipo)) != 'S' || (toupper(tipo)) != 'E'){ 
+    return 1;
+    }else if((toupper(tipo)) != 'DE' || (toupper(tipo)) != 'DF'){
         return 1;
     }
     return 0;

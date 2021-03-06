@@ -7,41 +7,66 @@
 
 void cadastroSaidas(void){
     char nome[51];
-    char valor[12];
+    int valor;
     char tipo[20];
     char dest[51];
+    int valida;
+    int valida2;
+    int valida3;
+    int valida4;
 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Responsavel(Nome completo): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
 	        getchar();
-            int valida;
-            valida = validarNomes(nome);
+            valida = validaNomes(nome);
             while (valida == 1){
-                printf("|/////            Responsavel: ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+                printf("\n Nome Invalido! Tente novamente!\n");
+                printf("|/////            Responsavel(Nome Completo): ");
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
 	            getchar();
             }    
-        printf("|/////                                                                     /////|\n");
         printf("|/////            Valor(apenas numeros): ");
-        scanf("%[0-9]", valor);
-	        getchar();    
+        scanf("%d", &valor);
+        getchar();
+            valida2 = validaValor(valor);
+            while (valida2 == 1){
+                printf("\n Valor Invalido! Tente novamente!\n");
+                printf("|/////            Valor (apenas numeros): ");
+                scanf("%d", &valor);
+                getchar();
+             }
         printf("|/////                                                                     /////|\n");
-        printf("|/////            Tipo (Despesas Extras/ Despesas Fixas): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
-	        getchar();    
+        printf("|/////            Tipo (Despesas Extras - DE/ Despesas Fixas - DF): ");
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &tipo);
+	        getchar();
+             valida3 = validaTipo(tipo);
+            while (valida3 == 1){
+                printf("\n Valor Invalido! Tente novamente!\n");
+                printf("|/////            Tipo (Despesas Extras - DE/ Despesas Fixas - DF): ");
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &tipo);
+                getchar();
+            }     
         printf("|/////                                                                     /////|\n");
         printf("|/////            Destino: ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", dest);
-	        getchar();    
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &dest);
+	        getchar();
+            valida4 = validaNomes(dest);
+            while (valida4 == 1){
+                printf("\n Destino Invalido! Tente novamente!\n");
+                printf("|/////            Destino: ");
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &dest);
+	            getchar();
+            }    
         printf("|/////                                                                     /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("Responsavel: %s\n", nome);
     printf("Valor: %s\n", valor);
     printf("Tipo: %s\n", tipo);
     printf("Destino: %s\n", dest);
+            delay(1);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 }
 

@@ -6,18 +6,32 @@
 
 void cadastroDependente(void){
     char nome[51];
-    char idade[2];
+    int idade;
+    int valida;
+    int valida2;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
-        printf("|/////                                                                     /////|\n");
-	    getchar();    
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
+	    getchar();
+            valida = validarNomes(nome);
+            while (valida == 1){
+                printf("\n Nome Invalido! Tente novamente!\n");
+                printf("|/////            Nome Completo: ");
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
+                getchar();                                                  
+            }    
         printf("|/////        Idade(apenas numeros): ");
-	    scanf("%[0-9]", idade);
-        printf("|/////                                                                     /////|\n");
+	    scanf("%d", &idade);
         getchar();                                                  
+        valida2 = validaValor(idade);
+            while (valida2 == 1){
+                printf("\n Idade Invalido! Tente novamente!\n");
+                printf("|/////            Valor (apenas numeros): ");
+                scanf("%d", &idade);
+                getchar();
+             }
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("Nome: %s\n", nome);
     printf("Idade: %s\n", idade);
