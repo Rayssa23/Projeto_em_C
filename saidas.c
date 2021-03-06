@@ -29,14 +29,12 @@ void cadastroSaidas(void){
 	            getchar();
             }    
         printf("|/////            Valor(apenas numeros): ");
-        scanf("%d", valor);
-        getint();
+        scanf("%d", &valor);
             valida2 = validaValor(valor);
             while (valida2 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
-                scanf("%d", valor);
-                getint();
+                scanf("%d", &valor);
              }
         printf("|/////                                                                     /////|\n");
         printf("|/////            Tipo (Despesas Extras - DE/ Despesas Fixas - DF): ");
@@ -80,8 +78,7 @@ void consultaSaidas(void){
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
         printf("|/////            Informe o Valor:                                         /////|\n");
-        scanf("%d", valor);
-            getint();
+        scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -99,8 +96,7 @@ void excluiSaidas(void){
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
         printf("|/////            Informe o Valor:                                         /////|\n");
-        scanf("%d", valor);
-            getint();
+        scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -118,8 +114,7 @@ void atualizaSaidas(void){
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
         printf("|/////            Informe o Valor:                                         /////|\n");
-        scanf("%d", valor);
-            getint();
+        scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");

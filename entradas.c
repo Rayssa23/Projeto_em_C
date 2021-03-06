@@ -27,13 +27,12 @@ void cadastroEntradas(void){
 	            getchar();
             }   
         printf("|/////            Valor(apenas numeros): ");
-        getint();
+        scanf("%d", &valor);
             valida2 = validaValor(valor);
             while (valida2 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
-                scanf("%d", valor);
-                getint();
+                scanf("%d", &valor);
              }
         printf("|/////            Tipo (Salario - S/Extras - E): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
@@ -65,8 +64,7 @@ void consultaEntradas(void){
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
         printf("|/////            Informe o Valor:                                         /////|\n");
-        scanf("%d", valor);
-           getint();
+        scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -84,8 +82,7 @@ void excluiEntradas(void){
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar(); 
         printf("|/////            Informe o Valor:                                         /////|\n");
-        scanf("%d", valor);
-            getint();
+        scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -102,8 +99,7 @@ void atualizaEntradas(void){
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
         printf("|/////            Informe o Valor:                                         /////|\n");
-        scanf("%d", valor);
-            getint();
+        scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");

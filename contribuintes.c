@@ -39,12 +39,10 @@ void cadastroContribuinte(void){
             while (valida3 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
-                scanf("%d", valor);
-                getchar();
+                scanf("%d", &valor);
              }
         printf("///                                                                        /////|\n");        
-        getchar();
-        getint();        
+        getchar();      
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("Nome: %s\n", nome);
     printf("Profissao: %s\n", profissao);
