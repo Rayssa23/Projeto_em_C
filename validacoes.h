@@ -12,10 +12,10 @@
 ////////// Assinaturas ////////////
 
 //Valida Nomes
-int validarNomes(char nome);
+int validarNomes(char []);
 
 //Valida Valores
 int validaValor (char valor);
 
 //Valida Tipos
-int validaTipo (char tipo)
+int validaTipo (char [])

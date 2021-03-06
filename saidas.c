@@ -8,7 +8,7 @@
 void cadastroSaidas(void){
     char nome[51];
     int valor;
-    char tipo[20];
+    char tipo[2];
     char dest[51];
     int valida;
     int valida2;
@@ -19,45 +19,45 @@ void cadastroSaidas(void){
         printf("|/////                  Modulo Cadastrar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Responsavel(Nome completo): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	        getchar();
             valida = validaNomes(nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("|/////            Responsavel(Nome Completo): ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	            getchar();
             }    
         printf("|/////            Valor(apenas numeros): ");
-        scanf("%d", &valor);
+        scanf("%d", valor);
         getchar();
             valida2 = validaValor(valor);
             while (valida2 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
-                scanf("%d", &valor);
+                scanf("%d", valor);
                 getchar();
              }
         printf("|/////                                                                     /////|\n");
         printf("|/////            Tipo (Despesas Extras - DE/ Despesas Fixas - DF): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &tipo);
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
 	        getchar();
              valida3 = validaTipo(tipo);
             while (valida3 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Tipo (Despesas Extras - DE/ Despesas Fixas - DF): ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &tipo);
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
                 getchar();
             }     
         printf("|/////                                                                     /////|\n");
         printf("|/////            Destino: ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &dest);
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", dest);
 	        getchar();
             valida4 = validaNomes(dest);
             while (valida4 == 1){
                 printf("\n Destino Invalido! Tente novamente!\n");
                 printf("|/////            Destino: ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &dest);
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", dest);
 	            getchar();
             }    
         printf("|/////                                                                     /////|\n");

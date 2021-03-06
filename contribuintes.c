@@ -14,32 +14,32 @@ void cadastroContribuinte(void){
         printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
+	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	    getchar();
             valida = validarNomes(nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("|/////            Nome Completo: ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	            getchar();
-            }
+            } 
         printf("|/////        Profissao: ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &profissao);
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
         getchar();
         valida2 = validarNomes(profissao);
             while (valida2 == 1){
                 printf("\n Profissao Invalida! Tente novamente!\n");
                 printf("|/////        Profissao: ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &profissao);
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
 	            getchar();
             }        
         printf("|/////        Valor(apenas numeros): ");
-        scanf("%d", &valor);
+        scanf("%d", valor);
         valida3 = validaValor(valor);
             while (valida3 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
-                scanf("%d", &valor);
+                scanf("%d", valor);
                 getchar();
              }
         printf("///                                                                        /////|\n");        

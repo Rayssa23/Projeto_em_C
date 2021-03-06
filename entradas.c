@@ -8,7 +8,7 @@
 void cadastroEntradas(void){
     char nome[51];
     int valor;
-    char tipo[20];            
+    char tipo[2];            
     int valida;
     int valida2;
     int valida3;
@@ -17,33 +17,33 @@ void cadastroEntradas(void){
         printf("|/////                  Modulo Cadastrar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Responsavel(Nome Completo): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	        getchar();
             valida = validaNomes(nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("|/////            Responsavel(Nome Completo): ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &nome);
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	            getchar();
             }   
         printf("|/////            Valor(apenas numeros): ");
-        scanf("%d", &valor);
+        scanf("%d", valor);
         getchar();
             valida2 = validaValor(valor);
             while (valida2 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
-                scanf("%d", &valor);
+                scanf("%d", valor);
                 getchar();
              }
         printf("|/////            Tipo (Salario - S/Extras - E): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &tipo);
+        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
 	        getchar();
             valida3 = validaTipo(tipo);
             while (valida3 == 1){
                 printf("|/////            Tipo (Salario - S/Extras - E): ");
                 printf("\n Tipo Invalido! Tente novamente!\n");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &tipo);
+                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", tipo);
                 getchar();
             } 
         printf("|/////                                                                     /////|\n");   
