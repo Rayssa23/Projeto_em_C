@@ -18,4 +18,4 @@ int validarNomes(char []);
 int validaValor (char valor);
 
 //Valida Tipos
-int validaTipo (char [])
+int validaTipo (char []);
