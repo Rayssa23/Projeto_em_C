@@ -8,7 +8,7 @@
 void cadastroSaidas(void){
     char nome[51];
     int valor;
-    char tipo[2];
+    char tipo;
     char dest[51];
     int valida;
     int valida2;
@@ -38,13 +38,13 @@ void cadastroSaidas(void){
              }
         printf("|/////                                                                     /////|\n");
         printf("|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &tipo);
+        scanf("%c", &tipo);
 	        getchar();
              valida3 = validaTipo(tipo);
             while (valida3 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", &tipo);
+                scanf("%c", &tipo);
                 getchar();
             }     
         printf("|/////                                                                     /////|\n");
