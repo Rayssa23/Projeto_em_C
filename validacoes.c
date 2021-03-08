@@ -18,12 +18,13 @@ int validarNomes(char nome[]){
     teste[1] = ('0','1','2','3','4','5','6','7','8','9','10');
     tam = strlen (nome);
     if ((tam == 0 )|| (tam <= 5)){
-         for (int i = 0; i < 10; i++ ){
+        return 1;
+    else{     
+     for (int i = 0; i < tam; i++ ){
             if (teste[i] == nome){
                 return 1;
             } 
-         }
-        return 1;
+         }    
     }else {
         return 0;
     }
@@ -38,10 +39,10 @@ int validaValor (int valor){
 }
 
 //Valida Tipos
-int validaTipo (char tipo[]){
+int validaTipo (char tipo){
     if ((toupper(tipo)) != 'S' || (toupper(tipo)) != 'E'){ 
-    return 1;
-    }else if((toupper(tipo)) != 'DE' || (toupper(tipo)) != 'DF'){
+        return 1;
+    }else if((toupper(tipo)) != 'F'){
         return 1;
     }
     return 0;
