@@ -38,13 +38,13 @@ void cadastroSaidas(void){
              }
         printf("|/////                                                                     /////|\n");
         printf("|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
-        scanf("%c", &tipo);
+        scanf("%c", tipo);
 	        getchar();
              valida3 = validaTipo(tipo);
             while (valida3 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
-                scanf("%c", &tipo);
+                scanf("%c", tipo);
                 getchar();
             }     
         printf("|/////                                                                     /////|\n");
