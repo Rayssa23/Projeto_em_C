@@ -15,7 +15,7 @@
 int validarNomes(char nome[]){
     int tam;
     char teste [1];
-    teste[1] = ('0','1','2','3','4','5','6','7','8','9','10');
+    teste[1] = ("0","1","2","3","4","5","6","7","8","9","10");
     tam = strlen (nome);
     if ((tam == 0 )|| (tam <= 5)){
         return 1;}     
