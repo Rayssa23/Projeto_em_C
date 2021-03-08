@@ -14,11 +14,9 @@
 //Valida Nomes
 int validarNomes(char nome[]){
     int tam;
-    char teste [10] = ["0","1","2","3","4","5","6","7","8","9","10"];
-    tam = strlen (nome);
-     /// essa parte é para ver se o usuário digitou algum número     
+    tam = strlen (nome);     
     for (int i = 0; i < tam; i++ ){
-           if (teste[i] == nome[i]){
+           if (nome[i] != "[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]"){
                return 1;
             } 
          }    

@@ -47,7 +47,7 @@ void cadastroEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("Responsavel: %s\n",nome);
-    printf("Valor: %d\n", valor);
+    printf("Valor: %f\n", valor);
     printf("Tipo: %c\n", tipo);
             delay(1);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");

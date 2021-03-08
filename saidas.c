@@ -60,7 +60,7 @@ void cadastroSaidas(void){
             }    
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("Responsavel: %s\n", nome);
-    printf("Valor: %d\n", valor);
+    printf("Valor: %f\n", valor);
     printf("Tipo: %c\n", tipo);
     printf("Destino: %s\n", dest);
             delay(1);
