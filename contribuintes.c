@@ -7,7 +7,7 @@
 void cadastroContribuinte(void){
     char nome[51];
     char profissao[51];
-    int valor;
+    float valor;
     int valida;
     int valida2;
     int valida3;
@@ -23,6 +23,7 @@ void cadastroContribuinte(void){
                 printf("|/////            Nome Completo: ");
                 scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	            getchar();
+                valida = validarNomes(nome);
             } 
         printf("|/////        Profissao: ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
@@ -33,21 +34,23 @@ void cadastroContribuinte(void){
                 printf("|/////        Profissao: ");
                 scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
 	            getchar();
+                valida2 = validarNomes(profissao);
             }        
         printf("|/////        Valor(apenas numeros): ");
-        scanf("%d", &valor);        
+        scanf("%f", &valor);        
         valida3 = validaValor(valor);
             while (valida3 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
-                scanf("%d", &valor);
+                scanf("%f", &valor);
+                valida3 = validaValor(valor);
              }
         printf("///                                                                        /////|\n");        
         getchar();      
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("Nome: %s\n", nome);
     printf("Profissao: %s\n", profissao);
-    printf("Valor: %d\n", valor);
+    printf("Valor: %f\n", valor);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 }
 
