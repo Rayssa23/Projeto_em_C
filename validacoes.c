@@ -18,16 +18,13 @@ int validarNomes(char nome[]){
     teste[1] = ('0','1','2','3','4','5','6','7','8','9','10');
     tam = strlen (nome);
     if ((tam == 0 )|| (tam <= 5)){
-        return 1;
-    else{     
+        return 1;}     
      for (int i = 0; i < tam; i++ ){
             if (teste[i] == nome){
                 return 1;
             } 
          }    
-    }else {
-        return 0;
-    }
+    return 0;
     }
 
 //Valida Valores
