@@ -35,13 +35,13 @@ void cadastroEntradas(void){
                 scanf("%d", &valor);
              }
         printf("|/////            Tipo (Salario - S/Extras - E): ");
-        scanf("%c", &tipo);
+        scanf("%c", tipo);
 	        getchar();
             valida3 = validaTipo(tipo);
             while (valida3 == 1){
                 printf("|/////            Tipo (Salario - S/Extras - E): ");
                 printf("\n Tipo Invalido! Tente novamente!\n");
-                scanf("%c", &tipo);
+                scanf("%c", tipo);
                 getchar();
             }   
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
