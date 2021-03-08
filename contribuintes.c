@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "passaTempo.h"
+#include "validacoes.h"
 void cadastroContribuinte(void){
     char nome[51];
     char profissao[51];

@@ -8,7 +8,7 @@
 void cadastroEntradas(void){
     char nome[51];
     int valor;
-    char tipo[2];            
+    char tipo;            
     int valida;
     int valida2;
     int valida3;
@@ -19,7 +19,7 @@ void cadastroEntradas(void){
         printf("|/////            Responsavel(Nome Completo): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	        getchar();
-            valida = validaNomes(nome);
+            valida = validarNomes(nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("|/////            Responsavel(Nome Completo): ");

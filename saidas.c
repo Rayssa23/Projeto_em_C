@@ -21,7 +21,7 @@ void cadastroSaidas(void){
         printf("|/////            Responsavel(Nome completo): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	        getchar();
-            valida = validaNomes(nome);
+            valida = validarNomes(nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("|/////            Responsavel(Nome Completo): ");

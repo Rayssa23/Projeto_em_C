@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "passaTempo.h"
 #include "dependente.h"
+#include "validacoes.h"
 
 void cadastroDependente(void){
     char nome[51];
@@ -23,8 +24,7 @@ void cadastroDependente(void){
                 getchar();                                                  
             }    
         printf("|/////        Idade(apenas numeros): ");
-	    scanf("%d", &idade);
-        getint();                                                 
+	    scanf("%d", &idade);                                            
         valida2 = validaValor(idade);
             while (valida2 == 1){
                 printf("\n Idade Invalido! Tente novamente!\n");

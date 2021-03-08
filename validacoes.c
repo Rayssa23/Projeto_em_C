@@ -12,11 +12,12 @@
 #include <ctype.h>
 
 //Valida Nomes
-int validaNomes(char nome){
-    if ((strlen(nome) == 0 )|| (strlen(nome) <= 5)){
-         char teste ['1, 2, 3, 4, 5, 6, 7, 8, 9, 0'];
+int validarNomes(char nome[]){
+    int tam;
+    tam = strlen (nome);
+    if ((tam == 0 )|| (tam <= 5)){
          for (int i = 0; i < 10; i++ ){
-            if (teste[i] == nome){
+            if (i == nome){
                 return 1;
             } 
          }
@@ -35,7 +36,7 @@ int validaValor (int valor){
 }
 
 //Valida Tipos
-int validaTipo (char tipo){
+int validaTipo (char tipo[]){
     if ((toupper(tipo)) != 'S' || (toupper(tipo)) != 'E'){ 
     return 1;
     }else if((toupper(tipo)) != 'DE' || (toupper(tipo)) != 'DF'){
