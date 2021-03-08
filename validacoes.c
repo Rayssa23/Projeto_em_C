@@ -18,7 +18,7 @@ int validarNomes(char nome[]){
     tam = strlen (nome);
      /// essa parte é para ver se o usuário digitou algum número     
     for (int i = 0; i < tam; i++ ){
-           if (teste[i] == nome){
+           if (teste[i] == nome[i]){
                return 1;
             } 
          }    
@@ -35,7 +35,9 @@ int validaValor (float valor){
     if (valor <= 0){
         return 1;
     }
-    return 0;
+    else{
+        return 0;
+    }
 }
 
 //Valida Tipos
@@ -45,7 +47,9 @@ int validaTipo (char tipo){
     }else if((toupper(tipo)) != 'F'){
         return 1;
     }
-    return 0;
+    else{
+        return 0;
+    }
 }
 
 
