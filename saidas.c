@@ -38,13 +38,13 @@ void cadastroSaidas(void){
              }
         printf("|/////                                                                     /////|\n");
         printf("|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
-        scanf("%c", tipo);
+        scanf("%c", &tipo);
 	        getchar();
              valida3 = validaTipo(tipo);
             while (valida3 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
-                scanf("%c", tipo);
+                scanf("%c", &tipo);
                 getchar();
             }     
         printf("|/////                                                                     /////|\n");
@@ -61,7 +61,7 @@ void cadastroSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("Responsavel: %s\n", nome);
     printf("Valor: %d\n", valor);
-    printf("Tipo: %s\n", tipo);
+    printf("Tipo: %c\n", tipo);
     printf("Destino: %s\n", dest);
             delay(1);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
