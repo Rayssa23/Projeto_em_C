@@ -14,22 +14,24 @@
 //Valida Nomes
 int validarNomes(char nome[]){
     int tam;
-    //char teste [10];
-    //teste[10] = ("0","1","2","3","4","5","6","7","8","9","10");
+    char teste [10] = ["0","1","2","3","4","5","6","7","8","9","10"];
     tam = strlen (nome);
+     /// essa parte é para ver se o usuário digitou algum número     
+    for (int i = 0; i < tam; i++ ){
+           if (teste[i] == nome){
+               return 1;
+            } 
+         }    
     if ((tam == 0 )|| (tam <= 5)){
-        return 1;} 
-        /// essa parte é para ver se o usuário digitou algum número     
-     //for (int i = 0; i < tam; i++ ){
-           // if (teste[i] == nome){
-               // return 1;
-            //} 
-        // }    
-    return 0;
+        return 1;
+    }
+    else{
+        return 0;
+    }
     }
 
 //Valida Valores
-int validaValor (int valor){
+int validaValor (float valor){
     if (valor <= 0){
         return 1;
     }

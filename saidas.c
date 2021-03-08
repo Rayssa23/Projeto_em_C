@@ -7,7 +7,7 @@
 
 void cadastroSaidas(void){
     char nome[51];
-    int valor;
+    float valor;
     char tipo;
     char dest[51];
     int valida;
@@ -29,12 +29,12 @@ void cadastroSaidas(void){
 	            getchar();
             }    
         printf("|/////            Valor(apenas numeros): ");
-        scanf("%d", &valor);
+        scanf("%f", &valor);
             valida2 = validaValor(valor);
             while (valida2 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
-                scanf("%d", &valor);
+                scanf("%f", &valor);
              }
         printf("|/////                                                                     /////|\n");
         printf("|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
