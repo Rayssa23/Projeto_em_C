@@ -36,7 +36,6 @@ void cadastroSaidas(void){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
                 scanf("%f", &valor);
-                valida2 = validaValor(valor);
              }
         printf("|/////                                                                     /////|\n");
         printf("|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
@@ -48,7 +47,6 @@ void cadastroSaidas(void){
                 printf("|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
                 scanf("%c", &tipo);
                 getchar();
-                valida3 = validaTipo(tipo);
             }     
         printf("|/////                                                                     /////|\n");
         printf("|/////            Destino: ");
@@ -60,7 +58,6 @@ void cadastroSaidas(void){
                 printf("|/////            Destino: ");
                 scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", dest);
 	            getchar();
-                valida4 = validarNomes(dest);
             }    
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("Responsavel: %s\n", nome);
