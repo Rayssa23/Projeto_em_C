@@ -49,7 +49,6 @@ void consultaDependente(void){
 	    getchar();    
         printf("|/////        Idade(apenas numeros): ");
 	    scanf("%d", &idade);
-        getint();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -67,7 +66,6 @@ void excluiDependente(void){
 	    getchar();    
         printf("|/////        Idade(apenas numeros): ");
 	    scanf("%d", &idade);
-        getint();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -85,7 +83,6 @@ void atualizaDependente(void){
 	    getchar();    
         printf("|/////        Idade(apenas numeros): ");
 	    scanf("%d", &idade);
-        getint();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");

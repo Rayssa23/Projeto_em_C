@@ -51,7 +51,7 @@ void cadastroSaidas(void){
         printf("|/////            Destino: ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", dest);
 	        getchar();
-            valida4 = validaNomes(dest);
+            valida4 = validarNomes(dest);
             while (valida4 == 1){
                 printf("\n Destino Invalido! Tente novamente!\n");
                 printf("|/////            Destino: ");
