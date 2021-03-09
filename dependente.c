@@ -22,7 +22,7 @@ void cadastroDependente(void){
                 printf("|/////            Nome Completo: ");
                 scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
                 getchar();
-                valida = validarNomes(nome);                                                  
+                valida = 0;                                                 
             }    
         printf("|/////        Idade(apenas numeros): ");
 	    scanf("%d", &idade);                                            
@@ -31,7 +31,7 @@ void cadastroDependente(void){
                 printf("\n Idade Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
                scanf("%d", &idade);
-               valida2 = validaValor(idade);
+                valida = 0;
              }
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("Nome: %s\n", nome);

@@ -25,6 +25,7 @@ void cadastroEntradas(void){
                 printf("|/////            Responsavel(Nome Completo): ");
                 scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	            getchar();
+                valida = 0;
             }   
         printf("|/////            Valor(apenas numeros): ");
         scanf("%f", &valor);
@@ -33,6 +34,7 @@ void cadastroEntradas(void){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
                 scanf("%f", &valor);
+                valida = 0;  
              }
         printf("|/////            Tipo (Salario - S/Extras - E): ");
         scanf("%c", &tipo);
@@ -43,6 +45,7 @@ void cadastroEntradas(void){
                 printf("\n Tipo Invalido! Tente novamente!\n");
                 scanf("%c", &tipo);
                 getchar();
+                valida = 0;
             }   
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");

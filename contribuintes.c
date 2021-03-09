@@ -23,7 +23,7 @@ void cadastroContribuinte(void){
                 printf("|/////            Nome Completo: ");
                 scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	            getchar();
-                valida = validarNomes(nome);
+                valida = 0;
             } 
         printf("|/////        Profissao: ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
@@ -34,7 +34,7 @@ void cadastroContribuinte(void){
                 printf("|/////        Profissao: ");
                 scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
 	            getchar();
-                valida2 = validarNomes(profissao);
+                valida = 0;
             }        
         printf("|/////        Valor(apenas numeros): ");
         scanf("%f", &valor);        
@@ -43,7 +43,7 @@ void cadastroContribuinte(void){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
                 scanf("%f", &valor);
-                valida3 = validaValor(valor);
+                valida = 0;
              }
         printf("///                                                                        /////|\n");        
         getchar();      
