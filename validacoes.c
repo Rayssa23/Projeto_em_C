@@ -29,7 +29,7 @@ int validarNomes(char nome[]){
 
 //Valida Valores
 int validaValor (float valor){
-    if (valor <= 0){
+    if (valor <= 0.0){
         return 1;
     }
     else{
