@@ -33,7 +33,8 @@ void cadastroEntradas(void){
             while (valida2 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
-                scanf("%f", &valor); 
+                scanf("%f", &valor);
+                valida = 0; 
              }
         printf("|/////            Tipo (Salario - S/Extras - E): ");
         scanf("%c", &tipo);
