@@ -21,18 +21,18 @@ void cadastroContribuinte(void){
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("|/////            Nome Completo: ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+                scanf("%s", nome);
 	            getchar();
                 valida = validarNomes(nome);
             } 
         printf("|/////        Profissao: ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
+        scanf("%s", profissao);
         getchar();
         valida2 = validarNomes(profissao);
             while (valida2 == 1){
                 printf("\n Profissao Invalida! Tente novamente!\n");
                 printf("|/////        Profissao: ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", profissao);
+                scanf("%s", profissao);
 	            getchar();
                 valida = 0;
                 valida2 = validarNomes(profissao);

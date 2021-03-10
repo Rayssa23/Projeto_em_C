@@ -14,13 +14,13 @@ void cadastroDependente(void){
         printf("|/////                  Modulo Cadastrar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	    scanf("%s", nome);
 	    getchar();
             valida = validarNomes(nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("|/////            Nome Completo: ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+                scanf("%s", nome);
                 getchar();
                 valida = validarNomes(nome);                                                
             }    

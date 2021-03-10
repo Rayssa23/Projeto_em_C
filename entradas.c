@@ -22,19 +22,19 @@ void cadastroEntradas(void){
             valida = validarNomes(nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
-                printf("|/////            Responsavel(Nome Completo): ");
-                scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+                printf("\n|/////            Responsavel(Nome Completo): ");
+                scanf("%s", nome);
 	            getchar();
                 valida = validarNomes(nome);
             }   
         printf("|/////            Valor(apenas numeros): ");
         scanf("%f", &valor);
         getchar();
-        printf("%0.2f", valor);
+        printf("\n%0.2f", valor);
             valida2 = validaValor(valor);
             while (valida2 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
-                printf("|/////            Valor (apenas numeros): ");
+                printf("\n|/////            Valor (apenas numeros): ");
                 scanf("%f", &valor);
                 getchar();
                 valida2 = validaValor(valor);
@@ -44,8 +44,8 @@ void cadastroEntradas(void){
 	        getchar();
             valida3 = validaTipo(tipo);
             while (valida3 == 1){
-                printf("|/////            Tipo (Salario - S/Extras - E): ");
                 printf("\n Tipo Invalido! Tente novamente!\n");
+                printf("\n|/////            Tipo (Salario - S/Extras - E): ");
                 scanf("%c", &tipo);
                 getchar();
                 valida3 = validaTipo(tipo);
