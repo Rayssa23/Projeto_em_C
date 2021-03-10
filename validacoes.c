@@ -16,7 +16,7 @@ int validarNomes(char nome[]){
     int tam;
     tam = strlen (nome);     
     for (int i = 0; i < tam; i++ ){
-        if (nome[i] != "[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]"){
+        if (nome[i] != "[A-Z]"){
                return 1;
             }
     }     
