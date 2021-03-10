@@ -39,7 +39,7 @@ int validaValor (float valor){
 
 //Valida Tipos
 int validaTipo (char tipo){
-    if ((toupper(tipo)) != 'S' || (toupper(tipo)) != 'E'){ 
+    if ((toupper(tipo)) != 'S' && (toupper(tipo)) != 'E'){ 
         return 1;
     }else if((toupper(tipo)) != 'F'){
         return 1;

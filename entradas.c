@@ -29,6 +29,8 @@ void cadastroEntradas(void){
             }   
         printf("|/////            Valor(apenas numeros): ");
         scanf("%f", &valor);
+        getchar();
+        printf("%0.2f", valor);
             valida2 = validaValor(valor);
             while (valida2 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
