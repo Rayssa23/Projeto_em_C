@@ -21,16 +21,14 @@ int validarNomes(char nome[]){
             }
         else if (nome[i] >= 'a' && nome[i] <= 'z'){
             return 0;
-
-        }    
+            }
+        else if ((tam == 0 )|| (tam <= 5)){
+            return 1;
+            }
+        else{
+            return 0;
+            }        
     }     
-    if ((tam == 0 )|| (tam <= 5)){
-        return 1;
-    }
-    else{
-        return 0;
-    }
-    }
 /// Adaptado de : https://repl.it/@flgorgonio
 /// Fork : https://repl.it/@AlmeidaRayssa/mediaEVarianciaSemFuncoesc#main.c
 
