@@ -17,7 +17,6 @@ int validarNomes(char nome[]){
     tam = strlen (nome);     
     for (int i = 0; i < tam; i++ ){
         if (nome[i] >= 'A' && nome[i] <= 'Z'){
-               return 1;
                return 0;
             }
         else if (nome[i] >= 'a' && nome[i] <= 'z'){
