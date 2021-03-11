@@ -16,9 +16,14 @@ int validarNomes(char nome[]){
     int tam;
     tam = strlen (nome);     
     for (int i = 0; i < tam; i++ ){
-        if (nome[i] != "[A-Z]"){
+        if (nome[i] >= 'A' && nome[i] <= 'Z'){
                return 1;
+               return 0;
             }
+        else if (nome[i] >= 'a' && nome[i] <= 'z'){
+            return 0;
+
+        }    
     }     
     if ((tam == 0 )|| (tam <= 5)){
         return 1;
@@ -27,6 +32,8 @@ int validarNomes(char nome[]){
         return 0;
     }
     }
+/// Adaptado de : https://repl.it/@flgorgonio
+/// Fork : https://repl.it/@AlmeidaRayssa/mediaEVarianciaSemFuncoesc#main.c
 
 //Valida Valores
 int validaValor (float valor){
