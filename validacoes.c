@@ -28,7 +28,8 @@ int validarNomes(char nome[]){
         else{
             return 0;
             }        
-    }     
+    }
+}     
 /// Adaptado de : https://repl.it/@flgorgonio
 /// Fork : https://repl.it/@AlmeidaRayssa/mediaEVarianciaSemFuncoesc#main.c
 
