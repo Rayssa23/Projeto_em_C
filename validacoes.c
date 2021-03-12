@@ -14,20 +14,19 @@
 //Valida Nomes
 int validarNomes(char nome[]){
     int tam;
-    tam = strlen (nome);     
-    for (int i = 0; i < tam; i++ ){
-        if (nome[i] >= 'A' && nome[i] <= 'Z'){
-               return 0;
+    tam = strlen (nome);    
+    if ((tam == 0 )|| (tam <= 5)){
+                return 1;
             }
-        else if (nome[i] >= 'a' && nome[i] <= 'z'){
-            return 0;
-            }
-        else if ((tam == 0 )|| (tam <= 5)){
-            return 1;
-            }
-        else{
-            return 0;
-            }        
+    else{             
+        for (int i = 0; i < tam; i++ ){
+            if (nome[i] >= 'A' && nome[i] <= 'Z'){
+                return 0;
+                }
+            else if (nome[i] >= 'a' && nome[i] <= 'z'){
+                    return 0;
+                }    
+        }
     }
 }     
 /// Adaptado de : https://repl.it/@flgorgonio
