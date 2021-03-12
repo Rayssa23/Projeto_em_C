@@ -2,7 +2,6 @@
 //Subprograma
 #include "validacoes.h"
 #include <stdio.h>
-#include "passaTempo.h"
 #include "entradas.h"
 
 void cadastroEntradas(void){
@@ -39,13 +38,13 @@ void cadastroEntradas(void){
                 getchar();
                 valida2 = validaValor(valor);
              }
-        printf("|/////            Tipo (Salario - S/Extras - E): ");
+        printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
         scanf("%c", &tipo);
 	        getchar();
             valida3 = validaTipo(tipo);
             while (valida3 == 1){
                 printf("\n Tipo Invalido! Tente novamente!\n");
-                printf("\n|/////            Tipo (Salario - S/Extras - E): ");
+                printf("\n|/////            Tipo (Salario - 1 / Extras - 2): ");
                 scanf("%c", &tipo);
                 getchar();
                 valida3 = validaTipo(tipo);

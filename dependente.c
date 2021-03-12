@@ -1,7 +1,6 @@
 //Módulo Dependente
 //Subprograma
 #include <stdio.h>
-#include "passaTempo.h"
 #include "dependente.h"
 #include "validacoes.h"
 
@@ -37,6 +36,8 @@ void cadastroDependente(void){
     printf("Nome: %s\n", nome);
     printf("Idade: %d\n", idade);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+        delay(1);
 }
 
 
@@ -54,6 +55,7 @@ void consultaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
         delay(1);                                                 
 }
 
@@ -71,6 +73,7 @@ void excluiDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
         delay(1); 
 }
 
@@ -88,5 +91,6 @@ void atualizaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1); 
+        getchar();
+        delay(1);
 }

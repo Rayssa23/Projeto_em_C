@@ -10,25 +10,26 @@
 ////////// Funções de Validação ////////////
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 
 //Valida Nomes
 int validarNomes(char nome[]){
     int tam;
-    tam = strlen (nome);    
+    tam = strlen (nome);
     if ((tam == 0 )|| (tam <= 5)){
-                return 1;
-            }
-    else{             
+                return 1;}
+    else {
         for (int i = 0; i < tam; i++ ){
             if (nome[i] >= 'A' && nome[i] <= 'Z'){
-                return 0;
+                continue;
                 }
             else if (nome[i] >= 'a' && nome[i] <= 'z'){
-                    return 0;
-                }    
+                    continue;
+                }        
         }
+        return 0; 
     }
-}     
+}
 /// Adaptado de : https://repl.it/@flgorgonio
 /// Fork : https://repl.it/@AlmeidaRayssa/mediaEVarianciaSemFuncoesc#main.c
 
@@ -44,9 +45,7 @@ int validaValor (float valor){
 
 //Valida Tipos
 int validaTipo (char tipo){
-    if ((toupper(tipo)) == 'S' || (toupper(tipo)) == 'E'){ 
-        return 0;
-    }else if((toupper(tipo)) == 'F'){
+    if ((tipo) == '1' || (tipo) == '2'){ 
         return 0;
     }
     else{
@@ -54,6 +53,14 @@ int validaTipo (char tipo){
     }
 }
 
+// Funçao Delay
+void delay(int segundos) {
+    int tempo = 1000 * segundos;
+    clock_t inicio = clock();
+    while (clock() < inicio + tempo) {
+  }
+}
+// Criada por GitHub: @flgorgornio 
 
 //http://linguagemc.com.br/a-biblioteca-string-h/
 //Usado apenas para saber como é a função len em C

@@ -1,7 +1,6 @@
 //Modulo saidas
 //Subprograma
 #include <stdio.h>
-#include "passaTempo.h"
 #include "validacoes.h"
 #include "saidas.h"
 
@@ -38,14 +37,13 @@ void cadastroSaidas(void){
                 scanf("%f", &valor);
                 valida2 = validaValor(valor);
              }
-        printf("|/////                                                                     /////|\n");
-        printf("|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
+        printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
         scanf("%c", &tipo);
 	        getchar();
              valida3 = validaTipo(tipo);
             while (valida3 == 1){
-                printf("\n Valor Invalido! Tente novamente!\n");
-                printf("\n|/////            Tipo (Despesas Extras - E/ Despesas Fixas - F): ");
+                printf("\n Tipo Invalido! Tente novamente!\n");
+                printf("\n|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
                 scanf("%c", &tipo);
                 getchar();
                 valida3 = validaTipo(tipo);
@@ -67,9 +65,9 @@ void cadastroSaidas(void){
     printf("Valor: %f\n", valor);
     printf("Tipo: %c\n", tipo);
     printf("Destino: %s\n", dest);
-            delay(1);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            getchar();
+        getchar();
+        delay(1);
 }
 
 void consultaSaidas(void){

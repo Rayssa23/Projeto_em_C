@@ -19,3 +19,6 @@ int validaValor (float valor);
 
 //Valida Tipos
 int validaTipo (char tipo);
+
+// Funçao Delay
+void delay(int segundos);

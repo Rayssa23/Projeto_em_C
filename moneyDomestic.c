@@ -9,7 +9,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "passaTempo.h"
 #include "entradas.h"
 #include "saidas.h"
 #include "contribuinte.h"
@@ -133,7 +132,6 @@ void telaInicial(void) {
     printf("| BOA VIDA FINANCEIRA                                                      |\n");
     printf("|                                                                          |\n");
     printf("---------------------------------------------------------------------------|\n");
-    printf("\n");
   printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
@@ -166,8 +164,9 @@ char menuPrincipal(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        delay(1);
         return resp;
+        getchar();
+        delay(1);
 }
 
 
@@ -197,6 +196,8 @@ char moduloEntradas(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         return resp;
+        getchar();
+        delay(1);
 }
 
 void menuEntradas(void) {
@@ -240,6 +241,8 @@ char moduloSaidas(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         return resp;
+        getchar();
+        delay(1);
 }
 
 void menuSaidas(void) {
@@ -282,8 +285,10 @@ char moduloContribuinte(void){
         getchar(); 
         printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         return resp;
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+        delay(1);
 }
 
 void menuContribuinte(void) {
@@ -327,8 +332,10 @@ char moduloDependente(void){
         getchar(); 
         printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         return resp;
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+        delay(1);
 }
 
 
@@ -380,8 +387,10 @@ char moduloRelatorio(void){
         getchar(); 
         printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         return resp;
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+        delay(1);
 }
 void semanal(void){
     printf("|///////////////////////////////////////////////////////////////////////////////|\n");  

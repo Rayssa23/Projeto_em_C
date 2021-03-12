@@ -2,7 +2,6 @@
 //Subprograma
 
 #include <stdio.h>
-#include "passaTempo.h"
 #include "validacoes.h"
 void cadastroContribuinte(void){
     char nome[51];
@@ -72,6 +71,7 @@ void consultaContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
         delay(1);        
 }
 
@@ -92,6 +92,7 @@ void excluiContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
         delay(1);     
 }
 
@@ -112,5 +113,6 @@ void atualizaContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
         delay(1);     
 }
