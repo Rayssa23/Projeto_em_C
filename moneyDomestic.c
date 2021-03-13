@@ -392,26 +392,6 @@ char moduloRelatorio(void){
         getchar();
         delay(1);
 }
-void semanal(void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
-    printf("                                Em construcao                                      ");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-      printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-            getchar();
-}
-void mensal (void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
-    printf("                                Em construcao                                      ");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-}
-void anual (void){
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");  
-    printf("                                Em construcao                                      ");
-    printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar(); 
-}
+
 
 
