@@ -76,10 +76,10 @@ void consultaSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        printf("|/////            Informe o Responsavel(nome completo): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
-        printf("|/////            Informe o Valor:                                         /////|\n");
+        printf("|/////            Informe o Valor: ");
         scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
@@ -94,10 +94,10 @@ void excluiSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Saidas                              /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        printf("|/////            Informe o Responsavel(nome completo): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
-        printf("|/////            Informe o Valor:                                         /////|\n");
+        printf("|/////            Informe o Valor: ");
         scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
@@ -112,10 +112,10 @@ void atualizaSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        printf("|/////            Informe o Responsavel(nome completo): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
-        printf("|/////            Informe o Valor:                                         /////|\n");
+        printf("|/////            Informe o Valor: ");
         scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");

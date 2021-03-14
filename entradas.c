@@ -66,10 +66,10 @@ void consultaEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        printf("|/////            Informe o Responsavel(nome completo): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
-        printf("|/////            Informe o Valor:                                         /////|\n");
+        printf("|/////            Informe o Valor: ");
         scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
@@ -84,10 +84,10 @@ void excluiEntradas(void){
         printf("|/////                  Modulo Excluir Entradas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
 
-        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        printf("|/////            Informe o Responsavel(nome completo): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar(); 
-        printf("|/////            Informe o Valor:                                         /////|\n");
+        printf("|/////            Informe o Valor: ");
         scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
@@ -101,10 +101,10 @@ void atualizaEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Informe o Responsavel(nome completo):                    /////|\n");
+        printf("|/////            Informe o Responsavel(nome completo): ");
         scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
             getchar();
-        printf("|/////            Informe o Valor:                                         /////|\n");
+        printf("|/////            Informe o Valor: ");
         scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
