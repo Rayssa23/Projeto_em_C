@@ -48,7 +48,6 @@ void cadastroSaidas(void){
                 getchar();
                 valida3 = validaTipo(tipo);
             }     
-        printf("|/////                                                                     /////|\n");
         printf("|/////            Destino: ");
         scanf("%s", dest);
 	        getchar();
@@ -64,7 +63,9 @@ void cadastroSaidas(void){
     printf("Responsavel: %s\n", nome);
     printf("Valor: %f\n", valor);
     printf("Tipo: %c\n", tipo);
+    /////////////////////////////
     printf("Destino: %s\n", dest);
+    //////// CORRIGIR ESTE PRINT
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         delay(1);

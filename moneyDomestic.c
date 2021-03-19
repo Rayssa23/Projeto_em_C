@@ -13,6 +13,7 @@
 #include "saidas.h"
 #include "contribuinte.h"
 #include "dependente.h"
+#include "relatorios.h"
 ///
 ///Assinatura das funções
 ///
