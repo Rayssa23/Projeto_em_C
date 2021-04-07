@@ -69,3 +69,14 @@ void anual (void){
      printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar(); 
 }
+
+
+
+/////Incremente o módulo Relatórios do seu projeto incluindo alguns relatórios-modelo com dados fictícios. 
+//Cada relatório deve estar implementado em uma função em separado. Por exemplo, a função listaAlunosDaTurma() 
+//poderia solicitar que o usuário informasse o "codigoTurma", 
+//exibindo os campos: "matricula", "nomeCompleto", "curso" e "situacaoMatricula" de cada um dos alunos da turma.
+///Como ainda não há dados cadastrados no seu projeto, você pode preencher variáveis com dados fictícios apenas 
+//para simular a exibição dos relatórios (que serão implementados posteriormente). Por exemplo, 
+//você poderia preencher os dados de UM ALUNO e exibir os mesmos dados em várias linhas seguidas com uma 
+//estrutura de repetição.

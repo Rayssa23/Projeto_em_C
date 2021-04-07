@@ -62,5 +62,18 @@ void delay(int segundos) {
 }
 // Criada por GitHub: @flgorgornio 
 
+
+// Função Data e Hora
+  //char dataHora (void){
+  //time_t rawtime;
+  //struct tm * timeinfo;
+
+  //time ( &rawtime );
+  //timeinfo = localtime ( &rawtime );
+  //printf ( "Data atual do sistema é: %s", asctime (timeinfo) );
+
+  //return timeinfo;
+//}
+
 //http://linguagemc.com.br/a-biblioteca-string-h/
 //Usado apenas para saber como é a função len em C

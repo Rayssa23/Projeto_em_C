@@ -13,13 +13,13 @@ void cadastroDependente(void){
         printf("|/////                  Modulo Cadastrar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf("%s", nome);
+	    scanf(" %50[^\n]", nome);
 	    getchar();
             valida = validarNomes(nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("|/////            Nome Completo: ");
-                scanf("%s", nome);
+                scanf(" %50[^\n]", nome);
                 getchar();
                 valida = validarNomes(nome);                                                
             }    
@@ -48,7 +48,7 @@ void consultaDependente(void){
         printf("|/////                  Modulo Consultar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	    scanf(" %50[^\n]", nome);
 	    getchar();    
         printf("|/////        Idade(apenas numeros): ");
 	    scanf("%d", &idade);
@@ -66,7 +66,7 @@ void excluiDependente(void){
         printf("|/////                  Modulo Excluir Dependente                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	    scanf(" %50[^\n]", nome);
 	    getchar();    
         printf("|/////        Idade(apenas numeros): ");
 	    scanf("%d", &idade);
@@ -84,7 +84,7 @@ void atualizaDependente(void){
         printf("|/////                  Modulo Atualizar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	    scanf(" %50[^\n]", nome);
 	    getchar();    
         printf("|/////        Idade(apenas numeros): ");
 	    scanf("%d", &idade);

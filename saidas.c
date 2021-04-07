@@ -18,13 +18,13 @@ void cadastroSaidas(void){
         printf("|/////                  Modulo Cadastrar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Responsavel(Nome completo): ");
-        scanf("%s", nome);
+        scanf(" %50[^\n]", nome);
 	        getchar();
             valida = validarNomes(nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("\n|/////            Responsavel(Nome Completo): ");
-                scanf("%s", nome);
+                scanf(" %50[^\n]", nome);
 	            getchar();
                 valida = validarNomes(nome);
             }    
@@ -49,13 +49,13 @@ void cadastroSaidas(void){
                 valida3 = validaTipo(tipo);
             }     
         printf("|/////            Destino: ");
-        scanf("%s", dest);
+        scanf(" %50[^\n]", dest);
 	        getchar();
             valida4 = validarNomes(dest);
             while (valida4 == 1){
                 printf("\n Destino Invalido! Tente novamente!\n");
                 printf("\n|/////            Destino: ");
-                scanf("%s", dest);
+                scanf(" %50[^\n]", dest);
 	            getchar();
                 valida4 = validarNomes(dest);
             }    
@@ -78,7 +78,7 @@ void consultaSaidas(void){
         printf("|/////                  Modulo Consultar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Informe o Responsavel(nome completo): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        scanf(" %50[^\n]", nome);
             getchar();
         printf("|/////            Informe o Valor: ");
         scanf("%d", &valor);
@@ -96,7 +96,7 @@ void excluiSaidas(void){
         printf("|/////                  Modulo Excluir Saidas                              /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Informe o Responsavel(nome completo): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        scanf(" %50[^\n]", nome);
             getchar();
         printf("|/////            Informe o Valor: ");
         scanf("%d", &valor);
@@ -114,7 +114,7 @@ void atualizaSaidas(void){
         printf("|/////                  Modulo Atualizar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Informe o Responsavel(nome completo): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        scanf(" %50[^\n]", nome);
             getchar();
         printf("|/////            Informe o Valor: ");
         scanf("%d", &valor);

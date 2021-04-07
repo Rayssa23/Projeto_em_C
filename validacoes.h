@@ -22,3 +22,6 @@ int validaTipo (char tipo);
 
 // Funçao Delay
 void delay(int segundos);
+
+//Função Data e Hora
+//char dataHora (void);
