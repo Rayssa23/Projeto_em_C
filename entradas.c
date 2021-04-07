@@ -4,59 +4,65 @@
 #include <stdio.h>
 #include "entradas.h"
 #include <time.h>
+
+typedef struct entrada Entrada;
+
+struct entrada {
+   char nome[51];
+   float valor;
+   char tipo;
+};
+
+
 void cadastroEntradas(void){
-    char nome[51];
-    float valor;
-    char tipo;            
+    Entrada* ent;
     int valida;
     int valida2;
     int valida3;
-    int data;
 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Responsavel(Nome Completo): ");
-        scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+        scanf(" %50[^\n]", ent->nome);
 	        getchar();
-            valida = validarNomes(nome);
+            valida = validarNomes(ent->nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("\n|/////            Responsavel(Nome Completo): ");
-                scanf(" %50[^\n]", nome);
+                scanf(" %50[^\n]", ent->nome);
 	            getchar();
-                valida = validarNomes(nome);
+                valida = validarNomes(ent->nome);
             }  
         printf("|/////            Valor(apenas numeros): ");
-            scanf("%f", &valor);
-            valida2 = validaValor(valor);
+            scanf("%f", &ent->valor);
+            valida2 = validaValor(ent->valor);
             while (valida2 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("\n|/////            Valor (apenas numeros): ");
-                scanf("%f", &valor);
+                scanf("%f", &ent->valor);
                 getchar();
-                valida2 = validaValor(valor);
+                valida2 = validaValor(ent->valor);
              }
         
 
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-        scanf("%c", &tipo);
+        scanf("%c", ent->tipo);
 	        getchar();
-            valida3 = validaTipo(tipo);
+            valida3 = validaTipo(ent->tipo);
             while (valida3 == 1){
                 printf("\n Tipo Invalido! Tente novamente!\n");
                 printf("\n|/////            Tipo (Salario - 1 / Extras - 2): ");
-                scanf("%c", &tipo);
+                scanf("%c", ent->tipo);
                 getchar();
-                valida3 = validaTipo(tipo);
+                valida3 = validaTipo(ent->tipo);
 
             }
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
-    printf("Responsavel: %s\n",nome);
-    printf("Valor: %f\n", valor);
-    printf("Tipo: %c\n", tipo);
-    //printf("Data/Hora: %c\n", data);
+    printf("Responsavel: %s\n",ent->nome);
+    printf("Valor: %f\n", ent->valor);
+    printf("Tipo: %c\n", ent->tipo);
             delay(1);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     

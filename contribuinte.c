@@ -3,10 +3,18 @@
 
 #include <stdio.h>
 #include "validacoes.h"
+#include "contribuinte.h"
+
+typedef struct contribuinte Contribuinte;
+
+struct contribuinte {
+   char nome[51];
+   char profissao[51];
+   float valor;
+};
+
 void cadastroContribuinte(void){
-    char nome[51];
-    char profissao[51];
-    float valor;
+    Contribuinte* cont;
     int valida;
     int valida2;
     int valida3;
@@ -14,43 +22,43 @@ void cadastroContribuinte(void){
         printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	    scanf(" %50[^\n]", cont->nome);
 	    getchar();
-            valida = validarNomes(nome);
+            valida = validarNomes(cont->nome);
             while (valida == 1){
                 printf("\n Nome Invalido! Tente novamente!\n");
                 printf("|/////            Nome Completo: ");
-                scanf("%s", nome);
+                scanf("%s", cont->nome);
 	            getchar();
-                valida = validarNomes(nome);
+                valida = validarNomes(cont->nome);
             } 
         printf("|/////        Profissao: ");
-        scanf("%s", profissao);
+        scanf("%s", cont->profissao);
         getchar();
-        valida2 = validarNomes(profissao);
+        valida2 = validarNomes(cont->profissao);
             while (valida2 == 1){
                 printf("\n Profissao Invalida! Tente novamente!\n");
                 printf("|/////        Profissao: ");
-                scanf("%s", profissao);
+                scanf("%s",cont->profissao);
 	            getchar();
                 valida = 0;
-                valida2 = validarNomes(profissao);
+                valida2 = validarNomes(cont->profissao);
             }        
         printf("|/////        Valor(apenas numeros): ");
-        scanf("%f", &valor);        
-        valida3 = validaValor(valor);
+        scanf("%f", &cont->valor);        
+        valida3 = validaValor(cont->valor);
             while (valida3 == 1){
                 printf("\n Valor Invalido! Tente novamente!\n");
                 printf("|/////            Valor (apenas numeros): ");
-                scanf("%f", &valor);
-                valida3 = validaValor(valor);
+                scanf("%f", &cont->valor);
+                valida3 = validaValor(cont->valor);
              }
         printf("///                                                                        /////|\n");        
         getchar();      
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("Nome: %s\n", nome);
-    printf("Profissao: %s\n", profissao);
-    printf("Valor: %f\n", valor);
+    printf("Nome: %s\n", cont->nome);
+    printf("Profissao: %s\n", cont->profissao);
+    printf("Valor: %f\n", cont->valor);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 }
 
