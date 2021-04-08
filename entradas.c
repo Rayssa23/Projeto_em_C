@@ -11,8 +11,16 @@ struct entrada {
    char nome[51];
    float valor;
    char tipo;
+   struct tm *data;
 };
 
+struct tm {
+    int tm_mday;
+    int tm_mon;
+    int tm_year;
+    struct tm *data;
+
+};
 
 void cadastroEntradas(void){
     Entrada* ent;
@@ -58,11 +66,13 @@ void cadastroEntradas(void){
                 valida3 = validaTipo(ent->tipo);
 
             }
+            ent->data = localtime(&d);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("Responsavel: %s\n",ent->nome);
     printf("Valor: %f\n", ent->valor);
     printf("Tipo: %c\n", ent->tipo);
+    printf("%d/%d/%d", data->mday, data->mon, data->year);
             delay(1);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     
