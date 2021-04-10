@@ -15,7 +15,7 @@ typedef struct entrada Entrada;
 struct entrada {
    char nome[51];
    float valor;
-   char tipo[2];
+   int tipo;
    struct tm *data;
 };
 
@@ -64,13 +64,13 @@ void cadastroEntradas(void){
         
 
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-        scanf("%c", ent->tipo);
+        scanf("%d", &ent->tipo);
 	        getchar();
             valida3 = validaTipo(ent->tipo);
             while (valida3 == 1){
                 printf("\n Tipo Invalido! Tente novamente!\n");
                 printf("\n|/////            Tipo (Salario - 1 / Extras - 2): ");
-                scanf("%c", ent->tipo);
+                scanf("%d", &ent->tipo);
                 getchar();
                 valida3 = validaTipo(ent->tipo);
             }
@@ -78,9 +78,8 @@ void cadastroEntradas(void){
         printf("\n");
     printf("Responsavel: %s\n",ent->nome);
     printf("Valor: %f\n", ent->valor);
-    printf("Tipo: %c\n", ent->tipo);
+    printf("Tipo: %d\n", ent->tipo);
             delay(1);
-            return ent;
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     
 }

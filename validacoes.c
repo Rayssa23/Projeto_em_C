@@ -44,12 +44,13 @@ int validaValor (float valor){
 }
 
 //Valida Tipos
-int validaTipo (char tipo){
-    if ((tipo) == '1' || (tipo) == '2'){ 
+int validaTipo (int tipo){
+    if ((tipo) == 1 || (tipo) == 2){ 
         return 0;
     }
     else{
         return 1;
+        
     }
 }
 

@@ -12,7 +12,7 @@ typedef struct saida Saida;
 struct saida {
    char nome[51];
    float valor;
-   char tipo[2];
+   int tipo;
    char dest[51];
 };
 
@@ -51,13 +51,13 @@ void cadastroSaidas(void){
                 valida2 = validaValor(sai->valor);
              }
         printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-        scanf("%c", &sai->tipo);
+        scanf("%d", &sai->tipo);
 	        getchar();
              valida3 = validaTipo(sai->tipo);
             while (valida3 == 1){
                 printf("\n Tipo Invalido! Tente novamente!\n");
                 printf("\n|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-                scanf("%c", &sai->tipo);
+                scanf("%d", &sai->tipo);
                 getchar();
                 valida3 = validaTipo(sai->tipo);
             }     
@@ -75,7 +75,7 @@ void cadastroSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("Responsavel: %s\n", sai->nome);
     printf("Valor: %f\n", sai->valor);
-    printf("Tipo: %c\n", sai->tipo);
+    printf("Tipo: %d\n", sai->tipo);
     printf("Destino: %s\n", sai->dest);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
