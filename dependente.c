@@ -1,5 +1,6 @@
 //Módulo Dependente
 //Subprograma
+#include <stdlib.h>
 #include <stdio.h>
 #include "dependente.h"
 #include "validacoes.h"
@@ -11,8 +12,12 @@ struct dependente{
     int idade;
 };
 
+//Gravar Arquivo
+void gravaDependente(Dependente*);
+
 void cadastroDependente(void){
     Dependente* depen;
+    depen = (Dependente*) malloc(sizeof(Dependente));
     int valida;
     int valida2;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -99,4 +104,20 @@ void atualizaDependente(void){
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         delay(1);
+}
+
+
+////////////////////////////////////////////////////////////
+//////////Gravando Arquivo DEPENDENTE //////////////////////
+////////////////////////////////////////////////////////////
+void gravaDependente(Dependente* depend) {
+  FILE* fp;
+  fp = fopen("dependente.dat", "ab");
+  if (fp == NULL) {
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  fwrite(depend, sizeof(Dependente), 1, fp);
+  fclose(fp);
 }

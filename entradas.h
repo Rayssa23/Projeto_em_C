@@ -13,3 +13,4 @@ void excluiEntradas(void);
 
 //Atualizar
 void atualizaEntradas(void);
+

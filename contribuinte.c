@@ -1,6 +1,6 @@
 //Módulo Contribuinte
 //Subprograma
-
+#include <stdlib.h>
 #include <stdio.h>
 #include "validacoes.h"
 #include "contribuinte.h"
@@ -13,8 +13,13 @@ struct contribuinte {
    float valor;
 };
 
+
+//Gravar Arquivo
+void gravaContribuinte(Contribuinte*);
+
 void cadastroContribuinte(void){
     Contribuinte* cont;
+    cont = (Contribuinte*) malloc(sizeof(Contribuinte));
     int valida;
     int valida2;
     int valida3;
@@ -123,4 +128,20 @@ void atualizaContribuinte(void){
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         delay(1);     
+}
+
+
+////////////////////////////////////////////////////////////
+//////////Gravando Arquivo Contribuinte ////////////////////
+////////////////////////////////////////////////////////////
+void gravaContribuinte(Contribuinte* contr) {
+  FILE* fp;
+  fp = fopen("contribuinte.dat", "ab");
+  if (fp == NULL) {
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  fwrite(contr, sizeof(Contribuinte), 1, fp);
+  fclose(fp);
 }

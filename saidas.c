@@ -1,8 +1,11 @@
 //Modulo saidas
 //Subprograma
+#include <stdlib.h>
 #include <stdio.h>
 #include "validacoes.h"
 #include "saidas.h"
+
+
 
 typedef struct saida Saida;
 
@@ -13,8 +16,12 @@ struct saida {
    char dest[51];
 };
 
+//Gravar Arquivo
+void gravaSaidas(Saida*);
+
 void cadastroSaidas(void){
     Saida* sai;
+    sai = (Saida*) malloc(sizeof(Saida));
     int valida;
     int valida2;
     int valida3;
@@ -127,4 +134,20 @@ void atualizaSaidas(void){
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         delay(1);
+}
+
+
+////////////////////////////////////////////////////////////
+//////////Gravando Arquivo SAIDAS //////////////////////////
+////////////////////////////////////////////////////////////
+void gravaSaidas(Saida* sair) {
+  FILE* fp;
+  fp = fopen("saidas.dat", "ab");
+  if (fp == NULL) {
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  fwrite(sair, sizeof(Saida), 1, fp);
+  fclose(fp);
 }
