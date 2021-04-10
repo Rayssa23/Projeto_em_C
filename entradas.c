@@ -15,7 +15,7 @@ typedef struct entrada Entrada;
 struct entrada {
    char nome[51];
    float valor;
-   char tipo;
+   char tipo[2];
    struct tm *data;
 };
 
