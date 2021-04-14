@@ -2,24 +2,92 @@
 //Subprograma
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include <time.h>
 #include "validacoes.h"
 #include "saidas.h"
 
-
-
 typedef struct saida Saida;
 
-struct saida {
-   char nome[51];
-   float valor;
-   int tipo;
-   char dest[51];
-};
+void menuSaidas(void) {
+	char opcao ;
+	    do {
+		    opcao = moduloSaidas();
+		    switch (opcao) {
+			    case '1' : 	cadastroSaidas();
+						    break;
+			    case '2' : 	consultaSaidas();
+						    break;
+			    case '3' : 	excluiSaidas();
+						    break;
+			    case '4' : 	atualizaSaidas();
+						    break;
+		    }
+	    } while (opcao != '0');
+}
 
-//Gravar Arquivo
+////Gravar Arquivo
 void gravaSaidas(Saida*);
 
-void cadastroSaidas(void){
+//// CADASTRO
+void cadastrarSaida(void){
+    Saida* sai; 
+
+    //Ler dados de Entradas com a função telaCadastroSaidas()
+        sai = telaCadastroSaidas();
+
+    /// Gravar registro do arquivo Saidas
+       gravarSaidas(sai);
+
+    //Liberando o esáço da memória
+        free(sai);
+}
+
+//// PESQUISA
+void consultaSaidas(void){
+    Saida* sai;
+    float* valor;
+
+    //Exibir a tela
+    valor = telaConsultaSaidas();
+
+    //Pesquisar no arquivo
+    sai = consultarSaidas(valor);
+
+    // Exibir resultado da pesquisa de entradas
+
+    free(sai);
+}
+
+//// EXCLUSÃO
+void excluiSaida(void){
+
+    telaExcluiSaidas();
+}
+
+//// ATUALIZAÇÃO
+void atualizaSaida(void) {
+    Saida* sai;
+    char* nome;
+	// função ainda em desenvolvimento
+
+	// exibe a tela apenas para testes
+	nome = telaAtualizarSaidas();
+
+  // pesquisa o aluno no arquivo
+    sai = buscarSaidas(nome);
+
+  if (sai == NULL) {
+    printf("\n\nAluno não encontrado!\n\n");
+  } else {
+    regravarSaidas(sai, nome);
+  }
+
+
+}
+
+
+Saida* telaCadastroSaidas(void){
     Saida* sai;
     sai = (Saida*) malloc(sizeof(Saida));
     int valida;
@@ -73,24 +141,18 @@ void cadastroSaidas(void){
                 valida4 = validarNomes(sai->dest);
             }    
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("Responsavel: %s\n", sai->nome);
-    printf("Valor: %f\n", sai->valor);
-    printf("Tipo: %d\n", sai->tipo);
-    printf("Destino: %s\n", sai->dest);
-	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);
+        return sai;
+        printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+
 }
 
-void consultaSaidas(void){
-    char nome[51];
+float* telaConsultaSaidas(void){
     int valor;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Informe o Responsavel(nome completo): ");
-        scanf(" %50[^\n]", nome);
-            getchar();
         printf("|/////            Informe o Valor: ");
         scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
@@ -98,6 +160,7 @@ void consultaSaidas(void){
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         delay(1);
+        return valor;
 }
 
 void excluiSaidas(void){
@@ -127,13 +190,12 @@ void atualizaSaidas(void){
         printf("|/////            Informe o Responsavel(nome completo): ");
         scanf(" %50[^\n]", nome);
             getchar();
-        printf("|/////            Informe o Valor: ");
-        scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         delay(1);
+        return nome;
 }
 
 
@@ -150,4 +212,102 @@ void gravaSaidas(Saida* sair) {
   }
   fwrite(sair, sizeof(Saida), 1, fp);
   fclose(fp);
+}
+
+////////////////////////////////////////////////////////////
+//////////Consultar Arquivo ENTRADAS ///////////////////////
+////////////////////////////////////////////////////////////
+
+    Saida* pesquisaEntradas(float* valor) {
+        FILE* fp;
+        Saida* sai;
+
+        sai = (Saida*) malloc(sizeof(Saida));
+        fp = fopen("saidas.dat", "rb");
+        if (fp == NULL) {
+            printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+            printf("Não é possível continuar este programa...\n");
+            exit(1);
+        }
+        while(!feof(fp)) {
+            fread(sai, sizeof(Saida), 1, fp);
+            if ((sai->valor, sai) == 0) {
+            fclose(fp);
+            return sai;
+         }
+        }
+        fclose(fp);
+        return NULL;
+    }
+
+////////////////////////////////////////////////////////////
+//////////Excluir Arquivo ENTRADAS   ///////////////////////
+////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////
+//////////Atualizar Arquivo ENTRADAS ///////////////////////
+////////////////////////////////////////////////////////////
+
+
+
+
+
+////////////////////////////////////////////////////////////
+//////////Exibir Arquivo ENTRADAS    ///////////////////////
+////////////////////////////////////////////////////////////
+
+void exibirEntrada(Saida* sai) {
+
+  if (sai == NULL) {
+    printf("\n= = = Saída Inexistente = = =\n");
+  } else {
+    printf("\n= = = Saída Cadastrada = = =\n");
+    printf("Nome: %s\n", sai->nome);
+    printf("Valor: %f\n", sai->valor);
+    printf("Tipo (Salario - 1 / Extras - 2): %c\n", sai->tipo);
+    printf("Destino: %s\n", sai->dest);
+  }
+  printf("\n\nTecle ENTER para continuar!\n\n");
+  getchar();
+}
+
+////////////////////////////////////////////////////////////
+//////////Regravar Arquivo ENTRADAS  ///////////////////////
+////////////////////////////////////////////////////////////
+
+void regravarEntradas(Saida* ent, char* nome) {
+
+}
+
+
+
+
+
+char moduloSaidas(void){
+        char resp;
+    system("clear");
+        printf(".................................................................................\n");
+        printf(".................................................................................\n");
+        printf(".........................$   MoneyDomestic  $....................................\n");
+        printf(".................................................................................\n");
+        printf(".................................................................................\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+        printf("|/////                  Modulo Saidas                                      /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("|/////            1 - Registrar Saidas                                     /////|\n");
+        printf("|/////            2 - Consultar Saidas                                     /////|\n");
+        printf("|/////            3 - Excluir Saidas                                       /////|\n");
+        printf("|/////            4 - Atualizar Saidas                                     /////|\n");
+        printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("|/////            Escolha sua opcao: ");
+        scanf("%c", &resp);
+        getchar(); 
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        return resp;
+        getchar();
+        delay(1);
 }

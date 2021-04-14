@@ -22,12 +22,6 @@ void telaInicial(void);
 char menuPrincipal(void);
 
     //Módulo de Entradas
-void menuEntradas(void);
-char moduloEntradas(void);
-void cadastroEntradas(void);
-void consultaEntradas(void);
-void excluiEntradas(void);
-void atualizaEntradas(void);
 
     //Módulo de Saídas
 void menuSaidas(void);
@@ -171,97 +165,6 @@ char menuPrincipal(void){
 }
 
 
-
-
-char moduloEntradas(void){
-     char resp;
-    system("clear");
-        printf(".................................................................................\n");
-        printf(".................................................................................\n");
-        printf(".........................$   MoneyDomestic  $....................................\n");
-        printf(".................................................................................\n");
-        printf(".................................................................................\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Entradas                                    /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Registrar Entradas                                   /////|\n");
-        printf("|/////            2 - Consultar Entradas                                   /////|\n");
-        printf("|/////            3 - Excluir Entradas                                     /////|\n");
-        printf("|/////            4 - Atualizar Entradas                                   /////|\n");
-        printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao: ");
-        scanf("%c", &resp);
-        getchar(); 
-        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        return resp;
-        getchar();
-        delay(1);
-}
-
-void menuEntradas(void) {
-	char opcao;
-	    do {
-		    opcao = moduloEntradas();
-		    switch (opcao) {
-			    case '1' : 	cadastroEntradas();
-						    break;
-			    case '2' : 	consultaEntradas();
-						    break;
-			    case '3' : 	excluiEntradas();
-						    break;
-			    case '4' : 	atualizaEntradas();
-						    break;
-	    	}
-	    } while (opcao != '0');
-}
-
-char moduloSaidas(void){
-        char resp;
-    system("clear");
-        printf(".................................................................................\n");
-        printf(".................................................................................\n");
-        printf(".........................$   MoneyDomestic  $....................................\n");
-        printf(".................................................................................\n");
-        printf(".................................................................................\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Saidas                                      /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Registrar Saidas                                     /////|\n");
-        printf("|/////            2 - Consultar Saidas                                     /////|\n");
-        printf("|/////            3 - Excluir Saidas                                       /////|\n");
-        printf("|/////            4 - Atualizar Saidas                                     /////|\n");
-        printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao: ");
-        scanf("%c", &resp);
-        getchar(); 
-        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        return resp;
-        getchar();
-        delay(1);
-}
-
-void menuSaidas(void) {
-	char opcao ;
-	    do {
-		    opcao = moduloSaidas();
-		    switch (opcao) {
-			    case '1' : 	cadastroSaidas();
-						    break;
-			    case '2' : 	consultaSaidas();
-						    break;
-			    case '3' : 	excluiSaidas();
-						    break;
-			    case '4' : 	atualizaSaidas();
-						    break;
-		    }
-	    } while (opcao != '0');
-}
 
 
 char moduloContribuinte(void){
