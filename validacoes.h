@@ -18,7 +18,7 @@ int validarNomes(char []);
 int validaValor (float valor);
 
 //Valida Tipos
-int validaTipo (int tipo);
+int validaTipo (char tipo);
 
 // Funçao Delay
 void delay(int segundos);

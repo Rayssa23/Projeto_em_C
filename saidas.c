@@ -119,13 +119,13 @@ Saida* telaCadastroSaidas(void){
                 valida2 = validaValor(sai->valor);
              }
         printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-        scanf("%d", &sai->tipo);
+        scanf("%c", &sai->tipo);
 	        getchar();
              valida3 = validaTipo(sai->tipo);
             while (valida3 == 1){
                 printf("\n Tipo Invalido! Tente novamente!\n");
                 printf("\n|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-                scanf("%d", &sai->tipo);
+                scanf("%c", &sai->tipo);
                 getchar();
                 valida3 = validaTipo(sai->tipo);
             }     
@@ -202,23 +202,23 @@ void atualizaSaidas(void){
 ////////////////////////////////////////////////////////////
 //////////Gravando Arquivo SAIDAS //////////////////////////
 ////////////////////////////////////////////////////////////
-void gravaSaidas(Saida* sair) {
-  FILE* fp;
-  fp = fopen("saidas.dat", "ab");
-  if (fp == NULL) {
-    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-    printf("Não é possível continuar este programa...\n");
-    exit(1);
-  }
-  fwrite(sair, sizeof(Saida), 1, fp);
-  fclose(fp);
-}
+    void gravaSaidas(Saida* sair) {
+        FILE* fp;
+        fp = fopen("saidas.dat", "ab");
+        if (fp == NULL) {
+            printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+            printf("Não é possível continuar este programa...\n");
+            exit(1);
+        }
+        fwrite(sair, sizeof(Saida), 1, fp);
+        fclose(fp);
+    }
 
 ////////////////////////////////////////////////////////////
 //////////Consultar Arquivo ENTRADAS ///////////////////////
 ////////////////////////////////////////////////////////////
 
-    Saida* pesquisaEntradas(float* valor) {
+    Saida* pesquisaEntradas(char* tipo) {
         FILE* fp;
         Saida* sai;
 
@@ -229,15 +229,15 @@ void gravaSaidas(Saida* sair) {
             printf("Não é possível continuar este programa...\n");
             exit(1);
         }
-        while(!feof(fp)) {
+         while(!feof(fp)) {
             fread(sai, sizeof(Saida), 1, fp);
-            if ((sai->valor, sai) == 0) {
-            fclose(fp);
-            return sai;
-         }
+            if (strcmp(sai->tipo, tipo) == 0) {
+                fclose(fp);
+                return sai;
+            }
         }
         fclose(fp);
-        return NULL;
+        return NULL;    
     }
 
 ////////////////////////////////////////////////////////////
@@ -257,7 +257,7 @@ void gravaSaidas(Saida* sair) {
 //////////Exibir Arquivo ENTRADAS    ///////////////////////
 ////////////////////////////////////////////////////////////
 
-void exibirEntrada(Saida* sai) {
+void exibirSaida(Saida* sai) {
 
   if (sai == NULL) {
     printf("\n= = = Saída Inexistente = = =\n");
@@ -276,7 +276,7 @@ void exibirEntrada(Saida* sai) {
 //////////Regravar Arquivo ENTRADAS  ///////////////////////
 ////////////////////////////////////////////////////////////
 
-void regravarEntradas(Saida* ent, char* nome) {
+void regravarSaidas(Saida* ent, char* nome) {
 
 }
 

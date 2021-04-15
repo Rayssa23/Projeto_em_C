@@ -1,9 +1,12 @@
+
+///////////////////////////// FAZER PESQUISA PELO TIPO, UMA VARIÁVEL QUE NÃO SEJA MUTÁVEL,POIS SERÁ UMA CHAVE
+
 //Modulo entradas
 //Subprograma
-#include <stdlib.h>
+
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include <time.h>
 #include "validacoes.h"
 #include "entradas.h"
 
@@ -16,7 +19,7 @@ void menuEntradas(void) {
 		    switch (opcao) {
 			    case '1' : 	cadastrarEntradas();
 						    break;
-			    case '2' : 	consultarEntrada();
+			    case '2' : 	consultarEntradas();
 						    break;
 			    case '3' : 	excluiEntradas();
 						    break;
@@ -53,15 +56,15 @@ void cadastrarEntrada(void){
 }
 
 //// PESQUISA
-void consultaEntrada(void){
+void consultarEntradas(void){
     Entrada* ent;
-    float* valor;
+    char* tipo;
 
     //Exibir a tela
-    valor = telaConsultaEntradas();
+    tipo = telaConsultaEntradas();
 
     //Pesquisar no arquivo
-    ent = consultarEntradas(valor);
+    ent = pesquisaEntradas(tipo);
 
     // Exibir resultado da pesquisa de entradas
 
@@ -84,10 +87,10 @@ void atualizaEntrada(void) {
 	nome = telaAtualizarEntradas();
 
   // pesquisa o aluno no arquivo
-    ent = buscarEntradas(nome);
+    ent = pesquisaEntradas(nome);
 
   if (ent == NULL) {
-    printf("\n\nAluno não encontrado!\n\n");
+    printf("\n\nEntrada não encontrada!\n\n");
   } else {
     regravarEntradas(ent, nome);
   }
@@ -104,40 +107,24 @@ Entrada* telaCadastroEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+            ent = (Entrada*) malloc(sizeof(Entrada));
+        do {
         printf("|/////            Responsavel(Nome Completo): ");
         scanf(" %50[^\n]", ent->nome);
 	        getchar();
-            valida = validarNomes(ent->nome);
-            while (valida == 1){
-                printf("\n Nome Invalido! Tente novamente!\n");
-                printf("\n|/////            Responsavel(Nome Completo): ");
-                scanf(" %50[^\n]", ent->nome);
-	            getchar();
-                valida = validarNomes(ent->nome);
-            }  
-        printf("|/////            Valor(apenas numeros): ");
-            scanf("%f", &ent->valor);
-            valida2 = validaValor(ent->valor);
-            while (valida2 == 1){
-                printf("\n Valor Invalido! Tente novamente!\n");
-                printf("\n|/////            Valor (apenas numeros): ");
-                scanf("%f", &ent->valor);
-                getchar();
-                valida2 = validaValor(ent->valor);
-             }
-        
+        } 
+        while (!validarNomes(ent->nome));
 
+        do {
+        printf("|/////            Valor(apenas numeros): ");
+            scanf("%&f", &ent->valor);
+            } while (!validaValor(ent->valor));
+        
+        do {
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-        scanf("%d", &ent->tipo);
+        scanf("%c", &ent->tipo);
 	        getchar();
-            valida3 = validaTipo(ent->tipo);
-            while (valida3 == 1){
-                printf("\n Tipo Invalido! Tente novamente!\n");
-                printf("\n|/////            Tipo (Salario - 1 / Extras - 2): ");
-                scanf("%d", &ent->tipo);
-                getchar();
-                valida3 = validaTipo(ent->tipo);
-            }
+        }while (!validaTipo(ent->tipo));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
             delay(1);
@@ -146,20 +133,20 @@ Entrada* telaCadastroEntradas(void){
         getchar();    
 }
 
-float* telaConsultaEntradas(void){
-    float* valor;
-
-    valor = (float*) malloc(sizeof(float));
+char* telaConsultaEntradas(void){
+    char *tipo;
+    tipo = (char*) malloc(sizeof(char));
     	printf("\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Informe o Valor: ");
-        scanf("%f", &valor);
+        printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
+        scanf("%c",tipo);
+	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
-        return valor;
+    return tipo;
 }
 
 void telaExcluiEntradas(void){
@@ -181,7 +168,8 @@ void telaExcluiEntradas(void){
 }
 
 char* telaAtualizarEntradas(void){
-    char nome[51];
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -196,7 +184,7 @@ char* telaAtualizarEntradas(void){
 ////////////////////////////////////////////////////////////
 //////////Gravando Arquivo ENTRADAS ////////////////////////
 ////////////////////////////////////////////////////////////
-    void gravaEntradas(Entrada* entre) {
+    void gravaEntradas(Entrada* ent) {
     FILE* fp;
     
     fp = fopen("entradas.dat", "ab");
@@ -205,7 +193,7 @@ char* telaAtualizarEntradas(void){
         printf("Não é possível continuar este programa...\n");
         exit(1);
     }
-    fwrite(entre, sizeof(Entrada), 1, fp);
+    fwrite(ent, sizeof(Entrada), 1, fp);
     fclose(fp);
     }
 
@@ -213,7 +201,7 @@ char* telaAtualizarEntradas(void){
 //////////Consultar Arquivo ENTRADAS ///////////////////////
 ////////////////////////////////////////////////////////////
 
-    Entrada* pesquisaEntradas(float* valor) {
+    Entrada* pesquisaEntradas(char* tipo) {
         FILE* fp;
         Entrada* ent;
 
@@ -224,15 +212,14 @@ char* telaAtualizarEntradas(void){
             printf("Não é possível continuar este programa...\n");
             exit(1);
         }
-        while(!feof(fp)) {
-            fread(ent, sizeof(Entrada), 1, fp);
-            if ((ent->valor, ent) == 0) {
-            fclose(fp);
-            return ent;
-         }
+         while(fread(ent, sizeof(Entrada), 1, fp)) {
+            if (strcmp(ent->tipo, tipo) == 0) {
+                fclose(fp);
+                return ent;
+            }
         }
         fclose(fp);
-        return NULL;
+        return NULL;    
     }
 
 ////////////////////////////////////////////////////////////
