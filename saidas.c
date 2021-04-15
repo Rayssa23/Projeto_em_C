@@ -55,35 +55,47 @@ void consultaSaidas(void){
     sai = pesquisaSaidas(tipo);
 
     // Exibir resultado da pesquisa de entradas
-
+    exibirSaida(sai);
+    free(tipo);
     free(sai);
 }
 
 //// EXCLUSÃO
-void excluiSaida(void){
+    void excluiSaida(void){
+        Saida* sai;
+        char *nome;
 
-    telaExcluiSaidas();
+        nome = telaExcluiSaidas();
+        sai = (Saida*) malloc(sizeof(Saida));
+        sai = pesquisaSaidas(nome);
+            if (sai == NULL){
+                printf("\n\nSaída não encontrada!!!\n\n");
+            }else{
+                sai->status = False;
+                regravarSaidas(sai);
+                free(sai);
+            }
+        free(sai);
 }
 
 //// ATUALIZAÇÃO
-void atualizaSaida(void) {
-    Saida* sai;
-    char* nome;
-	// função ainda em desenvolvimento
-
-	// exibe a tela apenas para testes
-	nome = telaAtualizarSaidas();
-
+    void atualizaSaida(void) {
+        Saida* sai;
+        char* nome;
+	// exibe a tela 
+	    nome = telaAtualizarSaidas();
   // pesquisa o aluno no arquivo
-    sai = pesquisaSaidas(nome);
+        sai = pesquisaSaidas(nome);
 
-  if (sai == NULL) {
-    printf("\n\nAluno não encontrado!\n\n");
-  } else {
-    regravarSaidas(sai, nome);
+        if (sai == NULL) {
+            printf("\n\nAluno não encontrado!\n\n");
+        } else {
+            sai = telaCadastroSaidas;
+            strcpy(sai->nome, nome);
+            regravarSaidas(sai);
+            free(sai);
   }
-
-
+        free(nome);
 }
 
 
@@ -112,7 +124,8 @@ Saida* telaCadastroSaidas(void){
             printf("|/////            Destino: ");
                 scanf(" %50[^\n]", sai->dest);
 	            getchar();
-           }while (validarNomes(sai->dest)); 
+           }while (validarNomes(sai->dest));
+           sai->status = True; 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         delay(1);
         return sai;
@@ -138,22 +151,21 @@ char* telaConsultaSaidas(void){
         return tipo;
 }
 
-void telaExcluiSaidas(void){
-    char nome[51];
-    int valor;
+char* telaExcluiSaidas(void){
+    char* nome;
+    nome = (char*) malloc(sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Saidas                              /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Informe o Responsavel(nome completo): ");
         scanf(" %50[^\n]", nome);
             getchar();
-        printf("|/////            Informe o Valor: ");
-        scanf("%d", &valor);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         delay(1);
+        return nome;
 }
 
 char* telaAtualizaSaidas(void){
@@ -250,7 +262,7 @@ void exibirSaida(Saida* sai) {
 //////////Regravar Arquivo ENTRADAS  ///////////////////////
 ////////////////////////////////////////////////////////////
 
-void regravarSaidas(Saida* ent, char* nome) {
+void regravarSaidas(Saida* ent) {
 
 }
 

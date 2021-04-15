@@ -12,6 +12,7 @@
 #include <ctype.h>
 #include <time.h>
 
+
 //Valida Nomes
 int validarNomes(char nome[]){
     int tam;

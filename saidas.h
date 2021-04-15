@@ -8,6 +8,7 @@ struct saida {
    float valor;
    char tipo;
    char dest[51];
+   char status;
 };
 
 char moduloSaidas(void);
@@ -24,7 +25,7 @@ char* telaConsultaSaidas(void);
 
 //Excluir
 void excluiSaidas(void);
-void telaExcluiSaidas(void);
+char* telaExcluiSaidas(void);
 
 //Atualizar
 void atualizaSaidas(void);
@@ -32,6 +33,6 @@ char* telaAtualizarSaidas(void);
 
 
 
-void regravarSaidas(Saida* sai, char* nome);
+void regravarSaidas(Saida* sai);
 void exibirSaida(Saida* sai);
 void gravarSaidas(Saida* sai);
