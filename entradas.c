@@ -145,6 +145,8 @@ char* telaConsultaEntradas(void){
 	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
         delay(1);
     return tipo;
 }

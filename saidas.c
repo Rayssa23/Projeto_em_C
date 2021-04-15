@@ -46,13 +46,13 @@ void cadastrarSaida(void){
 //// PESQUISA
 void consultaSaidas(void){
     Saida* sai;
-    float* valor;
+    char* tipo;
 
     //Exibir a tela
-    valor = telaConsultaSaidas();
+    tipo = telaConsultaSaidas();
 
     //Pesquisar no arquivo
-    sai = consultarSaidas(valor);
+    sai = pesquisaSaidas(tipo);
 
     // Exibir resultado da pesquisa de entradas
 
@@ -75,7 +75,7 @@ void atualizaSaida(void) {
 	nome = telaAtualizarSaidas();
 
   // pesquisa o aluno no arquivo
-    sai = buscarSaidas(nome);
+    sai = pesquisaSaidas(nome);
 
   if (sai == NULL) {
     printf("\n\nAluno não encontrado!\n\n");
@@ -90,56 +90,29 @@ void atualizaSaida(void) {
 Saida* telaCadastroSaidas(void){
     Saida* sai;
     sai = (Saida*) malloc(sizeof(Saida));
-    int valida;
-    int valida2;
-    int valida3;
-    int valida4;
 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Responsavel(Nome completo): ");
-        scanf(" %50[^\n]", sai->nome);
-	        getchar();
-            valida = validarNomes(sai->nome);
-            while (valida == 1){
-                printf("\n Nome Invalido! Tente novamente!\n");
-                printf("\n|/////            Responsavel(Nome Completo): ");
-                scanf(" %50[^\n]",sai->nome );
+        do{
+            printf("|/////            Responsavel(Nome completo): ");
+            scanf(" %50[^\n]", sai->nome);
 	            getchar();
-                valida = validarNomes(sai->nome);
-            }    
-        printf("|/////            Valor(apenas numeros): ");
-        scanf("%f", &sai->valor);
-            valida2 = validaValor(sai->valor);
-            while (valida2 == 1){
-                printf("\n Valor Invalido! Tente novamente!\n");
-                printf("\n|/////            Valor (apenas numeros): ");
+            }while (!validarNomes(sai->nome));
+        do{    
+            printf("|/////            Valor(apenas numeros): ");
                 scanf("%f", &sai->valor);
-                valida2 = validaValor(sai->valor);
-             }
-        printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-        scanf("%c", &sai->tipo);
-	        getchar();
-             valida3 = validaTipo(sai->tipo);
-            while (valida3 == 1){
-                printf("\n Tipo Invalido! Tente novamente!\n");
-                printf("\n|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
+            }while(!validaValor(sai->valor));
+        do{
+            printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
                 scanf("%c", &sai->tipo);
-                getchar();
-                valida3 = validaTipo(sai->tipo);
-            }     
-        printf("|/////            Destino: ");
-        scanf(" %50[^\n]", sai->dest);
-	        getchar();
-            valida4 = validarNomes(sai->dest);
-            while (valida4 == 1){
-                printf("\n Destino Invalido! Tente novamente!\n");
-                printf("\n|/////            Destino: ");
+	            getchar();
+            }while (!validaTipo(sai->tipo));
+        do{
+            printf("|/////            Destino: ");
                 scanf(" %50[^\n]", sai->dest);
 	            getchar();
-                valida4 = validarNomes(sai->dest);
-            }    
+           }while (validarNomes(sai->dest)); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         delay(1);
         return sai;
@@ -148,22 +121,24 @@ Saida* telaCadastroSaidas(void){
 
 }
 
-float* telaConsultaSaidas(void){
-    int valor;
+char* telaConsultaSaidas(void){
+    char *tipo;
+    tipo = (char*) malloc(sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Informe o Valor: ");
-        scanf("%d", &valor);
+        printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
+        scanf("%c", tipo);
+	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         delay(1);
-        return valor;
+        return tipo;
 }
 
-void excluiSaidas(void){
+void telaExcluiSaidas(void){
     char nome[51];
     int valor;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -181,9 +156,9 @@ void excluiSaidas(void){
         delay(1);
 }
 
-void atualizaSaidas(void){
-    char nome[51];
-    int valor;
+char* telaAtualizaSaidas(void){
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -191,7 +166,6 @@ void atualizaSaidas(void){
         scanf(" %50[^\n]", nome);
             getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         delay(1);
@@ -202,7 +176,7 @@ void atualizaSaidas(void){
 ////////////////////////////////////////////////////////////
 //////////Gravando Arquivo SAIDAS //////////////////////////
 ////////////////////////////////////////////////////////////
-    void gravaSaidas(Saida* sair) {
+    void gravaSaidas(Saida* sai) {
         FILE* fp;
         fp = fopen("saidas.dat", "ab");
         if (fp == NULL) {
@@ -210,7 +184,7 @@ void atualizaSaidas(void){
             printf("Não é possível continuar este programa...\n");
             exit(1);
         }
-        fwrite(sair, sizeof(Saida), 1, fp);
+        fwrite(sai, sizeof(Saida), 1, fp);
         fclose(fp);
     }
 
@@ -279,8 +253,6 @@ void exibirSaida(Saida* sai) {
 void regravarSaidas(Saida* ent, char* nome) {
 
 }
-
-
 
 
 
