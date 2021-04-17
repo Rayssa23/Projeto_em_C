@@ -7,17 +7,97 @@
 
 typedef struct contribuinte Contribuinte;
 
-struct contribuinte {
-   char nome[51];
-   char profissao[51];
-   float valor;
-};
-
-
 //Gravar Arquivo
 void gravaContribuinte(Contribuinte*);
 
-void cadastroContribuinte(void){
+void menuContribuinte(void) {
+	char opcao;
+	    do {
+		    opcao = moduloContribuinte();
+		    switch (opcao) {
+			    case '1' : 	cadastroContribuinte();
+						    break;
+			    case '2' : 	consultaContribuinte();
+						    break;
+			    case '3' : 	excluiContribuinte();
+						    break;
+			    case '4' : 	atualizaContribuinte();
+						    break;
+		    }
+	    } while (opcao != '0');
+}
+
+//// CADASTRO
+void cadastrarContribuinte(void){
+    Contribuinte* cont; 
+
+    //Ler dados de Entradas com a função telaCadastroSaidas()
+        cont = telaCadastroContribuinte();
+
+    /// Gravar registro do arquivo Saidas
+       gravarContribuine(cont);
+
+    //Liberando o esáço da memória
+        free(cont);
+}
+
+//// PESQUISA
+void consultaContribuinte(void){
+    Contribuinte* cont;
+    char* nome;
+
+    //Exibir a tela
+    nome = telaConsultaContribuinte();
+
+    //Pesquisar no arquivo
+    cont = pesquisaSaidas(nome);
+
+    // Exibir resultado da pesquisa de entradas
+    exibirSaida(nome);
+    free(nome);
+    free(cont);
+}
+
+//// EXCLUSÃO
+    void excluiSaida(void){
+        Contribuinte* cont;
+        char *nome;
+
+        nome = telaExcluiSaidas();
+        cont = (Contribuinte*) malloc(sizeof(Contribuinte));
+        cont = pesquisaSaidas(nome);
+            if (cont == NULL){
+                printf("\n\nSaída não encontrada!!!\n\n");
+            }else{
+                cont->status = False;
+                regravarSaidas(cont);
+                free(cont);
+            }
+        free(cont);
+}
+
+//// ATUALIZAÇÃO
+    void atualizaSaida(void) {
+        Contribuinte* cont;
+        char* nome;
+	// exibe a tela 
+	    nome = telaAtualizarContribuinte();
+  // pesquisa o aluno no arquivo
+        cont = pesquisaContribuintes(nome);
+
+        if (cont == NULL) {
+            printf("\n\nAluno não encontrado!\n\n");
+        } else {
+            cont = telaCadastroContribuinte;
+            strcpy(cont->nome, nome);
+            regravarContribuinte(cont);
+            free(cont);
+  }
+        free(nome);
+}
+
+
+Contribuinte* telaCadastroContribuinte(void){
     Contribuinte* cont;
     cont = (Contribuinte*) malloc(sizeof(Contribuinte));
     int valida;
@@ -26,113 +106,83 @@ void cadastroContribuinte(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("///           Nome completo: ");
-	    scanf(" %50[^\n]", cont->nome);
-	    getchar();
-            valida = validarNomes(cont->nome);
-            while (valida == 1){
-                printf("\n Nome Invalido! Tente novamente!\n");
-                printf("|/////            Nome Completo: ");
-                scanf("%s", cont->nome);
+        do{
+            printf("|/////            Nome (Nome completo): ");
+            scanf(" %50[^\n]", cont->nome);
 	            getchar();
-                valida = validarNomes(cont->nome);
-            } 
-        printf("|/////        Profissao: ");
-        scanf("%s", cont->profissao);
-        getchar();
-        valida2 = validarNomes(cont->profissao);
-            while (valida2 == 1){
-                printf("\n Profissao Invalida! Tente novamente!\n");
-                printf("|/////        Profissao: ");
-                scanf("%s",cont->profissao);
-	            getchar();
-                valida = 0;
-                valida2 = validarNomes(cont->profissao);
-            }        
-        printf("|/////        Valor(apenas numeros): ");
-        scanf("%f", &cont->valor);        
-        valida3 = validaValor(cont->valor);
-            while (valida3 == 1){
-                printf("\n Valor Invalido! Tente novamente!\n");
-                printf("|/////            Valor (apenas numeros): ");
+            }while (!validarNomes(cont->nome));
+        do{    
+            printf("|/////            Valor(apenas numeros): ");
                 scanf("%f", &cont->valor);
-                valida3 = validaValor(cont->valor);
-             }
+            }while(!validaValor(cont->valor));
+        do{
+            printf("|/////            Profissao: ");
+                scanf(" %50[^\n]", cont->profissao);
+	            getchar();
+           }while (validarNomes(cont->profissao));
+             cont->status = True;
         printf("///                                                                        /////|\n");        
         getchar();      
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-    printf("Nome: %s\n", cont->nome);
-    printf("Profissao: %s\n", cont->profissao);
-    printf("Valor: %f\n", cont->valor);
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        return cont;
+        delay(1);
 }
 
-void consultaContribuinte(void){
-    char nome[51];
-    char profissao[51];
+char* telaConsultaContribuinte(void){
+    char *nome;
+    nome = (char*) malloc(sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf(" %50[^\n]", nome);
-        printf("///                                                                        /////|\n");        
+	    scanf(" %50[^\n]", nome);        
 	    getchar();
-        printf("|/////        Profissao: ");
-        scanf(" %50[^\n]", profissao);
-        printf("///                                                                        /////|\n");        
-        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
+        return nome;
         delay(1);        
 }
 
-void excluiContribuinte(void){
-    char nome[51];
-    char profissao[51];
+char* telaExcluiContribuinte(void){
+    char* nome;
+    nome = (char*) malloc(sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Excluirr Contribuinte                       /////|\n");
+        printf("|/////                  Modulo Excluir Conribuinte                         /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf(" %50[^\n]", nome);
-        printf("///                                                                        /////|\n");        
-	    getchar();
-        printf("|/////        Profissao: ");
-        scanf(" %50[^\n]", profissao);
-        printf("///                                                                        /////|\n");        
-        getchar();
+        scanf(" %50[^\n]", nome);
+            getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        delay(1);     
+        delay(1);
+        return nome;
 }
 
-void atualizaContribuinte(void){
-   char nome[51];
-   char profissao[51];
+char* telaAtualizaContribuinte(void){
+   char* nome;
+    nome = (char*) malloc(sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Atualizar Contribuinte                      /////|\n");
+        printf("|/////                  Modulo Excluir Contribuinte                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("///           Nome completo: ");
-	    scanf(" %50[^\n]", nome);
-        printf("///                                                                        /////|\n");        
-	    getchar();
-        printf("|/////        Profissao: ");
-        scanf(" %50[^\n]", profissao);
-        printf("///                                                                        /////|\n");        
-        getchar();
+        printf("|/////            Informe o Responsavel(nome completo): ");
+        scanf(" %50[^\n]", nome);
+            getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        delay(1);     
+        delay(1);
+        return nome;
 }
 
 
 ////////////////////////////////////////////////////////////
-//////////Gravando Arquivo Contribuinte ////////////////////
+//////////Gravando Arquivo CONTRIBUINTE ////////////////////
 ////////////////////////////////////////////////////////////
 void gravaContribuinte(Contribuinte* contr) {
   FILE* fp;
@@ -145,3 +195,99 @@ void gravaContribuinte(Contribuinte* contr) {
   fwrite(contr, sizeof(Contribuinte), 1, fp);
   fclose(fp);
 }
+
+
+////////////////////////////////////////////////////////////
+//////////Consultar Arquivo CONTRIBUINTE ///////////////////
+////////////////////////////////////////////////////////////
+
+    Contribuinte* pesquisaContribuinte(char* nome) {
+        FILE* fp;
+        Contribuinte* cont;
+
+        cont = (Contribuinte*) malloc(sizeof(Contribuinte));
+        fp = fopen("contribuintes.dat", "rb");
+        if (fp == NULL) {
+            printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+            printf("Não é possível continuar este programa...\n");
+            exit(1);
+        }
+         while(!feof(fp)) {
+            fread(cont, sizeof(Contribuinte), 1, fp);
+            if (strcmp(cont->nome, nome) == 0) {
+                fclose(fp);
+                return cont;
+            }
+        }
+        fclose(fp);
+        return NULL;    
+    }
+
+////////////////////////////////////////////////////////////
+//////////Excluir Arquivo CONTRIBUINTE  ////////////////////
+////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////
+//////////Atualizar Arquivo CONTRIBUINTE ///////////////////
+////////////////////////////////////////////////////////////
+
+
+
+
+
+////////////////////////////////////////////////////////////
+//////////Exibir Arquivo CONTRIBUINTE  /////////////////////
+////////////////////////////////////////////////////////////
+
+void exibirSaida(Contribuinte* cont) {
+
+  if (cont = NULL) {
+    printf("\n= = = Contribuinte Inexistente = = =\n");
+  } else {
+    printf("\n= = = CONTRIBUINTE Cadastrado = = =\n");
+    printf("Nome: %s\n", cont->nome);
+    printf("Destino: %s\n", cont->profissao);
+    printf("Valor: %f\n", cont->valor);
+
+  }
+  printf("\n\nTecle ENTER para continuar!\n\n");
+  getchar();
+}
+
+////////////////////////////////////////////////////////////
+//////////Regravar Arquivo CONTRIBUINTE ////////////////////
+////////////////////////////////////////////////////////////
+
+void regravarContribuinte(Contribuinte* cont) {
+
+}
+
+char moduloContribuinte(void){
+        char resp;
+    system("clear");
+        printf(".................................................................................\n");
+        printf(".................................................................................\n");
+        printf(".........................$   MoneyDomestic  $....................................\n");
+        printf(".................................................................................\n");
+        printf(".................................................................................\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+        printf("|/////                  Modulo Contribuintes                               /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("|/////            1 - Cadastrar Contribuinte                               /////|\n");
+        printf("|/////            2 - Consultar Contribuintes                              /////|\n");
+        printf("|/////            3 - Excluir Contribuinte                                 /////|\n");
+        printf("|/////            4 - Atualizar Contribuinte                               /////|\n");
+        printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("|/////            Escolha sua opcao: ");
+        scanf("%c", &resp);
+        getchar(); 
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
+        return resp;
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+        delay(1);
+}
+

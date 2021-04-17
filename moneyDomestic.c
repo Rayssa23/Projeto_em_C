@@ -165,55 +165,6 @@ char menuPrincipal(void){
 }
 
 
-
-
-char moduloContribuinte(void){
-        char resp;
-    system("clear");
-        printf(".................................................................................\n");
-        printf(".................................................................................\n");
-        printf(".........................$   MoneyDomestic  $....................................\n");
-        printf(".................................................................................\n");
-        printf(".................................................................................\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Contribuintes                               /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Cadastrar Contribuinte                               /////|\n");
-        printf("|/////            2 - Consultar Contribuintes                              /////|\n");
-        printf("|/////            3 - Excluir Contribuinte                                 /////|\n");
-        printf("|/////            4 - Atualizar Contribuinte                               /////|\n");
-        printf("|/////            0 - Voltar ao menu Principal                             /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao: ");
-        scanf("%c", &resp);
-        getchar(); 
-        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("\n");
-        return resp;
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-        delay(1);
-}
-
-void menuContribuinte(void) {
-	char opcao;
-	    do {
-		    opcao = moduloContribuinte();
-		    switch (opcao) {
-			    case '1' : 	cadastroContribuinte();
-						    break;
-			    case '2' : 	consultaContribuinte();
-						    break;
-			    case '3' : 	excluiContribuinte();
-						    break;
-			    case '4' : 	atualizaContribuinte();
-						    break;
-		    }
-	    } while (opcao != '0');
-}
-
-
-
 char moduloDependente(void){
     char resp;
     system("clear");
