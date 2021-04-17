@@ -46,6 +46,17 @@ int validaValor (float valor){
         return 0;
     }
 }
+int validaIdade (int idade){
+    //valor for apenas dígitos
+    if (idade <= 0){
+        if (!isdigit(idade)){
+        return 1;
+    }
+    }
+    else{
+        return 0;
+    }
+}
 
 //Valida Tipos
 int validaTipo (char tipo){

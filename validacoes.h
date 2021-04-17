@@ -22,6 +22,10 @@ int validaValor (float valor);
 //Valida Tipos
 int validaTipo (char tipo);
 
+
+//Valida Idade
+int validaIdade (int idade);
+
 // Funçao Delay
 void delay(int segundos);
 
