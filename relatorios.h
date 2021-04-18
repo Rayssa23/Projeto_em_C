@@ -1,4 +1,8 @@
+typedef struct relatorio Relatorio;
+//Gravar Arquivo
+void gravaRelatorio(Relatorio* depend);
 
+char moduloRelatorio(void);
 
 // Relatório semanal
 

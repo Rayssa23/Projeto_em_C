@@ -69,7 +69,7 @@ void consultaSaidas(void){
         sai = (Saida*) malloc(sizeof(Saida));
         sai = pesquisaSaidas(nome);
             if (sai == NULL){
-                printf("\n\nSaída não encontrada!!!\n\n");
+                printf("\n\nSaida não encontrada!!!\n\n");
             }else{
                 sai->status = False;
                 regravarSaidas(sai);
@@ -88,7 +88,7 @@ void consultaSaidas(void){
         sai = pesquisaSaidas(nome);
 
         if (sai == NULL) {
-            printf("\n\nAluno não encontrado!\n\n");
+            printf("\n\nSaida não encontrado!\n\n");
         } else {
             sai = telaCadastroSaidas;
             strcpy(sai->nome, nome);
@@ -226,18 +226,6 @@ char* telaAtualizaSaidas(void){
         return NULL;    
     }
 
-////////////////////////////////////////////////////////////
-//////////Excluir Arquivo SAIDAS     ///////////////////////
-////////////////////////////////////////////////////////////
-
-
-////////////////////////////////////////////////////////////
-//////////Atualizar Arquivo SAIDAS   ///////////////////////
-////////////////////////////////////////////////////////////
-
-
-
-
 
 ////////////////////////////////////////////////////////////
 //////////Exibir Arquivo SAIDAS      ///////////////////////
@@ -245,10 +233,10 @@ char* telaAtualizaSaidas(void){
 
 void exibirSaida(Saida* sai) {
 
-  if (sai == NULL) {
-    printf("\n= = = Saída Inexistente = = =\n");
+  if ((sai == NULL) && (sai->status == False)) {
+    printf("\n= = = Saida Inexistente = = =\n");
   } else {
-    printf("\n= = = Saída Cadastrada = = =\n");
+    printf("\n= = = Saida Cadastrada = = =\n");
     printf("Nome: %s\n", sai->nome);
     printf("Valor: %f\n", sai->valor);
     printf("Tipo (Salario - 1 / Extras - 2): %c\n", sai->tipo);
@@ -262,7 +250,29 @@ void exibirSaida(Saida* sai) {
 //////////Regravar Arquivo SAIDAS    ///////////////////////
 ////////////////////////////////////////////////////////////
 
-void regravarSaidas(Saida* ent) {
+void regravarSaidas(Saida* sai) {
+    int achou;
+	FILE* fp;
+	Saida* saiLido;
+
+	saiLido = (Saida*) malloc(sizeof(Saida));
+	fp = fopen("saidas.dat", "r+b");
+	if (fp == NULL) {
+		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar este programa...\n");
+        exit(1);
+	}
+	achou = False;
+	while(fread(saiLido, sizeof(Saida), 1, fp) && !achou) {
+		if (strcmp(saiLido->nome, sai->nome) == 0) {
+			achou = True;
+			fseek(fp, -1*sizeof(Saida), SEEK_CUR);
+        	fwrite(sai, sizeof(Saida), 1, fp);
+			//break;
+		}
+	}
+	fclose(fp);
+	free(saiLido);
 
 }
 

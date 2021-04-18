@@ -94,3 +94,43 @@ void gravaEntradas(Relatorio* relat) {
   fwrite(relat, sizeof(Relatorio), 1, fp);
   fclose(fp);
 }
+
+void menuRelatorio(void) {
+	char opcao;
+	do {
+	        opcao = moduloRelatorio();
+		switch (opcao) {
+			case '1' : semanal();
+				break;
+			case '2' : mensal();
+				break;
+			case '3' : anual();
+				break;
+	        } 
+        }while (opcao != '0');
+}
+
+char moduloRelatorio(void){
+    char resp;
+    system("clear");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+        printf("|/////                       Modulo Relatorio                              /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("|/////            1 - Semanal                                              /////|\n");
+        printf("|/////            2 - Mensal                                               /////|\n");
+        printf("|/////            3 - Anual                                                /////|\n");
+        printf("|/////            0 - Sair                                                 /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("|/////            Escolha sua opcao: ");
+        scanf("%c", &resp);
+        getchar(); 
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
+        return resp;
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+        delay(1);
+}
+
+
+

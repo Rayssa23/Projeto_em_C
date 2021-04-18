@@ -21,39 +21,6 @@
 void telaInicial(void);
 char menuPrincipal(void);
 
-    //Módulo de Entradas
-
-    //Módulo de Saídas
-void menuSaidas(void);
-char moduloSaidas(void);
-void cadastroSaidas(void);
-void consultaSaidas(void);
-void excluiSaidas(void);
-void atualizaSaidas(void);
-
-    //Módulo Contribuinte
-void menuContribuinte(void);
-char moduloContribuinte(void);
-void cadastroContribuinte(void);
-void consultaContribuinte(void);
-void excluiContribuinte(void);
-void atualizaContribuinte(void);
-
-    //Módulo Dpendente
-void menuDependente(void);
-char moduloDependente(void);
-void cadastroDependente(void);
-void consultaDependente(void);
-void excluiDependente(void);
-void atualizaDependente(void);
-
-    //Módulo Relatório
-void menuRelatorio(void);
-char moduloRelatorio(void);
-void semanal (void);
-void mensal (void);
-void anual (void);
-
     //Módulo de Informações do Sistema
 void menuSobre(void);    
 void delay (int);
@@ -132,43 +99,4 @@ void telaInicial(void) {
 }
 
 //Módulos e telas CRUD
-
-void menuRelatorio(void) {
-	char opcao;
-	    do {
-		opcao = moduloRelatorio();
-		    switch (opcao) {
-			    case '1' : 	semanal();
-						    break;
-			    case '2' : 	mensal();
-						    break;
-			    case '3' : 	anual();
-						    break;
-	        } 
-        }while (opcao != '0');
-}
-
-char moduloRelatorio(void){
-    char resp;
-    system("clear");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                       Modulo Relatorio                              /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            1 - Semanal                                              /////|\n");
-        printf("|/////            2 - Mensal                                               /////|\n");
-        printf("|/////            3 - Anual                                                /////|\n");
-        printf("|/////            0 - Sair                                                 /////|\n");
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("|/////            Escolha sua opcao: ");
-        scanf("%c", &resp);
-        getchar(); 
-        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("\n");
-        return resp;
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-        delay(1);
-}
-
-
 

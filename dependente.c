@@ -2,6 +2,7 @@
 //Subprograma
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "dependente.h"
 #include "validacoes.h"
 
@@ -47,7 +48,7 @@ void consultaDependente(void){
     nome = telaConsultaDependente();
 
     //Pesquisar no arquivo
-    depend = pesquisaSaidas(nome);
+    depend = pesquisaDependente(nome);
 
     // Exibir resultado da pesquisa de entradas
     exibirDependente(nome);
@@ -80,7 +81,7 @@ void consultaDependente(void){
 	// exibe a tela 
 	    depend = telaAtualizarDependente();
   // pesquisa o aluno no arquivo
-        depend = pesquisaDependentes(nome);
+        depend = pesquisaDependente(nome);
 
         if (depend == NULL) {
             printf("\n\nAluno não encontrado!\n\n");
@@ -119,13 +120,14 @@ Dependente* telaCadastroDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
+        return depend;
         delay(1);
 }
 
 
 char* telaConsultaDependente(void){
-    char nome[51];
-    int idade;
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -134,42 +136,41 @@ char* telaConsultaDependente(void){
 	    getchar();    
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
+        return nome;
         delay(1);                                                 
 }
 
 char* telaExcluiDependente(void){
-    char nome[51];
-    int idade;
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Dependente                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
 	    scanf(" %50[^\n]", nome);
 	    getchar();    
-        printf("|/////        Idade(apenas numeros): ");
-	    scanf("%d", &idade);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
+        return nome;
         delay(1); 
 }
 
 char* telaAtualizaDependente(void){
-    char nome[51];
-    int idade;
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
 	    scanf(" %50[^\n]", nome);
 	    getchar();    
-        printf("|/////        Idade(apenas numeros): ");
-	    scanf("%d", &idade);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
+        return nome;
         delay(1);
 }
 
@@ -189,8 +190,82 @@ void gravaDependente(Dependente* depend) {
   fclose(fp);
 }
 
+////////////////////////////////////////////////////////////
+//////////Consultar Arquivo DEPENDENTE   ///////////////////
+////////////////////////////////////////////////////////////
+
+    Dependente* pesquisaDependente(char* nome) {
+        FILE* fp;
+        Dependente* depend;
+
+        depend = (Dependente*) malloc(sizeof(Dependente));
+        fp = fopen("dependentes.dat", "rb");
+        if (fp == NULL) {
+            printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+            printf("Não é possível continuar este programa...\n");
+            exit(1);
+        }
+         while(!feof(fp)) {
+            fread(depend, sizeof(Dependente), 1, fp);
+            if (strcmp(depend->nome, nome) == 0) {
+                fclose(fp);
+                return depend;
+            }
+        }
+        fclose(fp);
+        return NULL;    
+    }
 
 
+
+
+
+////////////////////////////////////////////////////////////
+//////////Exibir Arquivo DEPENDENTE    /////////////////////
+////////////////////////////////////////////////////////////
+
+void exibirDependente(Dependente* depend) {
+
+  if ((depend = NULL) && (depend->status == False)){
+    printf("\n= = = Dependente Inexistente = = =\n");
+  } else {
+    printf("\n= = = Dependente Cadastrado = = =\n");
+    printf("Nome: %s\n", depend->nome);
+    printf("Idade: %d\n", depend->idade);
+
+  }
+  printf("\n\nTecle ENTER para continuar!\n\n");
+  getchar();
+}
+
+////////////////////////////////////////////////////////////
+//////////Regravar Arquivo DEPENDENTE   ////////////////////
+////////////////////////////////////////////////////////////
+
+void regravarDependente(Dependente* depend) {
+    int achou;
+	FILE* fp;
+	Dependente* dependLido;
+
+	dependLido = (Dependente*) malloc(sizeof(Dependente));
+	fp = fopen("dependentes.dat", "r+b");
+	if (fp == NULL) {
+		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar este programa...\n");
+        exit(1);
+	}
+	achou = False;
+	while(fread(dependLido, sizeof(Dependente), 1, fp) && !achou) {
+		if (strcmp(dependLido->nome, depend->nome) == 0) {
+			achou = True;
+			fseek(fp, -1*sizeof(Dependente), SEEK_CUR);
+        	fwrite(depend, sizeof(Dependente), 1, fp);
+		}
+	}
+	fclose(fp);
+	free(dependLido);
+
+}
 
 
 char moduloDependente(void){

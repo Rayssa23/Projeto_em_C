@@ -7,6 +7,7 @@ struct entrada {
    char nome[51];
    float valor ;
    char tipo;
+   char status;
    struct tm *data;
 };
 
@@ -22,7 +23,7 @@ Entrada* pesquisaEntradas(char*);
 
 
 //Excluir
-void telaExcluiEntradas(void);
+char* telaExcluiEntradas(void);
 void excluiEntradas(void);
 
 //Atualizar
@@ -33,6 +34,7 @@ char moduloEntradas(void);
 void menuEntradas(void);
 
 
-void regravarEntradas(Entrada*, char*);
+////Gravar Arquivo
+void regravarEntradas(Entrada*);
 void exibirEntrada(Entrada*);
 void gravarEntradas(Entrada*);

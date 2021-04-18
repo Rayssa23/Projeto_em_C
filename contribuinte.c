@@ -2,6 +2,7 @@
 //Subprograma
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "validacoes.h"
 #include "contribuinte.h"
 
@@ -50,7 +51,7 @@ void consultaContribuinte(void){
     nome = telaConsultaContribuinte();
 
     //Pesquisar no arquivo
-    cont = pesquisaSaidas(nome);
+    cont = pesquisaContribuinte(nome);
 
     // Exibir resultado da pesquisa de entradas
     exibirSaida(nome);
@@ -59,18 +60,18 @@ void consultaContribuinte(void){
 }
 
 //// EXCLUSÃO
-    void excluiSaida(void){
+    void excluiContribuinte(void){
         Contribuinte* cont;
         char *nome;
 
-        nome = telaExcluiSaidas();
+        nome = telaExcluiContribuinte();
         cont = (Contribuinte*) malloc(sizeof(Contribuinte));
         cont = pesquisaSaidas(nome);
             if (cont == NULL){
-                printf("\n\nSaída não encontrada!!!\n\n");
+                printf("\n\nContribuinte não encontrado!!!\n\n");
             }else{
                 cont->status = False;
-                regravarSaidas(cont);
+                regravarContribuinte(cont);
                 free(cont);
             }
         free(cont);
@@ -83,7 +84,7 @@ void consultaContribuinte(void){
 	// exibe a tela 
 	    nome = telaAtualizarContribuinte();
   // pesquisa o aluno no arquivo
-        cont = pesquisaContribuintes(nome);
+        cont = pesquisaContribuinte(nome);
 
         if (cont == NULL) {
             printf("\n\nAluno não encontrado!\n\n");
@@ -100,9 +101,6 @@ void consultaContribuinte(void){
 Contribuinte* telaCadastroContribuinte(void){
     Contribuinte* cont;
     cont = (Contribuinte*) malloc(sizeof(Contribuinte));
-    int valida;
-    int valida2;
-    int valida3;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -184,7 +182,7 @@ char* telaAtualizaContribuinte(void){
 ////////////////////////////////////////////////////////////
 //////////Gravando Arquivo CONTRIBUINTE ////////////////////
 ////////////////////////////////////////////////////////////
-void gravaContribuinte(Contribuinte* contr) {
+void gravarContribuinte(Contribuinte* contr) {
   FILE* fp;
   fp = fopen("contribuinte.dat", "ab");
   if (fp == NULL) {
@@ -223,26 +221,15 @@ void gravaContribuinte(Contribuinte* contr) {
         return NULL;    
     }
 
-////////////////////////////////////////////////////////////
-//////////Excluir Arquivo CONTRIBUINTE  ////////////////////
-////////////////////////////////////////////////////////////
-
-
-////////////////////////////////////////////////////////////
-//////////Atualizar Arquivo CONTRIBUINTE ///////////////////
-////////////////////////////////////////////////////////////
-
-
-
 
 
 ////////////////////////////////////////////////////////////
 //////////Exibir Arquivo CONTRIBUINTE  /////////////////////
 ////////////////////////////////////////////////////////////
 
-void exibirSaida(Contribuinte* cont) {
+void exibirContribuinte(Contribuinte* cont) {
 
-  if (cont = NULL) {
+  if ((cont = NULL) && (cont->status == False)) {
     printf("\n= = = Contribuinte Inexistente = = =\n");
   } else {
     printf("\n= = = CONTRIBUINTE Cadastrado = = =\n");
@@ -260,6 +247,27 @@ void exibirSaida(Contribuinte* cont) {
 ////////////////////////////////////////////////////////////
 
 void regravarContribuinte(Contribuinte* cont) {
+    int achou;
+	FILE* fp;
+	Contribuinte* contLido;
+
+	contLido = (Contribuinte*) malloc(sizeof(Contribuinte));
+	fp = fopen("contribuintes.dat", "r+b");
+	if (fp == NULL) {
+		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar este programa...\n");
+        exit(1);
+	}
+	achou = False;
+	while(fread(contLido, sizeof(Contribuinte), 1, fp) && !achou) {
+		if (strcmp(contLido->nome, cont->nome) == 0) {
+			achou = True;
+			fseek(fp, -1*sizeof(Contribuinte), SEEK_CUR);
+        	fwrite(cont, sizeof(Contribuinte), 1, fp);
+		}
+	}
+	fclose(fp);
+	free(contLido);
 
 }
 

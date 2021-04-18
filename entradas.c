@@ -38,8 +38,7 @@ void menuEntradas(void) {
 
 //};
 
-////Gravar Arquivo
-void gravaEntradas(Entrada*);
+
 
 //// CADASTRO
 void cadastrarEntrada(void){
@@ -67,42 +66,49 @@ void consultarEntradas(void){
     ent = pesquisaEntradas(tipo);
 
     // Exibir resultado da pesquisa de entradas
-
     free(ent);
 }
 
 //// EXCLUSÃO
 void excluiEntrada(void){
+    Entrada* ent;
+	char *tipo;
 
-    telaExcluiEntradas();
+	tipo = telaExcluirEntrada();
+	ent = (Entrada*) malloc(sizeof(Entrada));
+	ent = pesquisaEntradas(tipo);
+	if (ent == NULL) {
+    	printf("\n\nEntrada não encontrado!\n\n");
+  	} else {
+		  ent->status = False;
+		  regravarEntradas(ent);
+		  free(ent);
+	}
+	free(tipo);
 }
 
 //// ATUALIZAÇÃO
 void atualizaEntrada(void) {
     Entrada* ent;
     char* nome;
-	// função ainda em desenvolvimento
 
-	// exibe a tela apenas para testes
 	nome = telaAtualizarEntradas();
-
-  // pesquisa o aluno no arquivo
-    ent = pesquisaEntradas(nome);
-
-  if (ent == NULL) {
-    printf("\n\nEntrada não encontrada!\n\n");
-  } else {
-    regravarEntradas(ent, nome);
-  }
+	ent = pesquisaEntradas(nome);
+	if (ent == NULL) {
+    	printf("\n\nEntrada não encontrada!\n\n");
+  	} else {
+		  ent = telaCadastroEntradas();
+		  strcpy(ent->nome, nome);
+		  regravarEntradas(ent);
+		  free(ent);
+	}
+	free(nome);
 
 
 }
 
 Entrada* telaCadastroEntradas(void){
     Entrada* ent;
-    int valida;
-    int valida2;
-    int valida3;
     ent = (Entrada*) malloc(sizeof(Entrada));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Entradas                          /////|\n");
@@ -117,7 +123,7 @@ Entrada* telaCadastroEntradas(void){
 
         do {
         printf("|/////            Valor(apenas numeros): ");
-            scanf("%&f", &ent->valor);
+            scanf("%f", &ent->valor);
             } while (!validaValor(ent->valor));
         
         do {
@@ -125,6 +131,7 @@ Entrada* telaCadastroEntradas(void){
         scanf("%c", &ent->tipo);
 	        getchar();
         }while (!validaTipo(ent->tipo));
+        ent->status = True;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
             delay(1);
@@ -151,21 +158,21 @@ char* telaConsultaEntradas(void){
     return tipo;
 }
 
-void telaExcluiEntradas(void){
-    char nome[51];
-    int valor;
+char* telaExcluiEntradas(void){
+    char *tipo;
+    tipo = (char*) malloc(sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Entradas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-
-        printf("|/////            Informe o Responsavel(nome completo): ");
-        scanf(" %50[^\n]", nome);
-            getchar(); 
-        printf("|/////            Informe o Valor: ");
-        scanf("%d", &valor);
+        do {
+            printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
+            scanf("%c", tipo);
+	        getchar();
+        }while (!validaTipo(tipo));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        return tipo;
         delay(1);
 }
 
@@ -215,7 +222,7 @@ char* telaAtualizarEntradas(void){
             exit(1);
         }
          while(fread(ent, sizeof(Entrada), 1, fp)) {
-            if (strcmp(ent->tipo, tipo) == 0) {
+            if ((strcmp(ent->tipo, tipo) == 0)&& (ent->status == True)) {
                 fclose(fp);
                 return ent;
             }
@@ -225,25 +232,12 @@ char* telaAtualizarEntradas(void){
     }
 
 ////////////////////////////////////////////////////////////
-//////////Excluir Arquivo ENTRADAS   ///////////////////////
-////////////////////////////////////////////////////////////
-
-
-////////////////////////////////////////////////////////////
-//////////Atualizar Arquivo ENTRADAS ///////////////////////
-////////////////////////////////////////////////////////////
-
-
-
-
-
-////////////////////////////////////////////////////////////
 //////////Exibir Arquivo ENTRADAS    ///////////////////////
 ////////////////////////////////////////////////////////////
 
 void exibirEntrada(Entrada* ent) {
 
-  if (ent == NULL) {
+  if ((ent == NULL)&& (ent->status == False)) {
     printf("\n= = = Entrada Inexistente = = =\n");
   } else {
     printf("\n= = = Entrada Cadastrada = = =\n");
@@ -259,7 +253,28 @@ void exibirEntrada(Entrada* ent) {
 //////////Regravar Arquivo ENTRADAS  ///////////////////////
 ////////////////////////////////////////////////////////////
 
-void regravarEntradas(Entrada* ent, char* nome) {
+void regravarEntradas(Entrada* ent) {
+    int achou;
+	FILE* fp;
+	Entrada* entLido;
+
+	entLido = (Entrada*) malloc(sizeof(Entrada));
+	fp = fopen("entradas.dat", "r+b");
+	if (fp == NULL) {
+		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar este programa...\n");
+        exit(1);
+	}
+	achou = False;
+	while(fread(entLido, sizeof(Entrada), 1, fp) && !achou) {
+		if (strcmp(entLido->nome, ent->nome) == 0) {
+			achou = True;
+			fseek(fp, -1*sizeof(Entrada), SEEK_CUR);
+        	fwrite(ent, sizeof(Entrada), 1, fp);
+		}
+	}
+	fclose(fp);
+	free(entLido);
 
 }
 
