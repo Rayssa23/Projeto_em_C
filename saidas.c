@@ -32,13 +32,10 @@ void gravaSaidas(Saida*);
 //// CADASTRO
 void cadastrarSaida(void){
     Saida* sai; 
-
     //Ler dados de Entradas com a função telaCadastroSaidas()
         sai = telaCadastroSaidas();
-
     /// Gravar registro do arquivo Saidas
        gravarSaidas(sai);
-
     //Liberando o esáço da memória
         free(sai);
 }

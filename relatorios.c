@@ -6,8 +6,7 @@
 
 typedef struct relatorio Relatorio;
 
-struct relatorio{
-};
+
 //Gravar Arquivo
 void gravaRelatorio(Relatorio* depend);
 

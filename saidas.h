@@ -6,7 +6,7 @@ typedef struct saida Saida;
 struct saida {
    char nome[51];
    float valor;
-   char tipo;
+   char tipo[2];
    char dest[51];
    char status;
 };

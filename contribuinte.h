@@ -34,6 +34,6 @@ char* telaAtualizarContribuinte(void);
 
 
 
-void regravarContribuinte(Contribuinte* cont );
-void exibirContribuinte(Contribuinte* cont);
-void gravarContribuinte(Contribuinte* cont);
+void regravarContribuinte(Contribuinte* contr );
+void exibirContribuinte(Contribuinte* contr);
+void gravarContribuinte(Contribuinte* contr);

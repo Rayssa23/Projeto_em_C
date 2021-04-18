@@ -36,7 +36,7 @@ void cadastrarContribuinte(void){
         cont = telaCadastroContribuinte();
 
     /// Gravar registro do arquivo Saidas
-       gravarContribuine(cont);
+       gravarContribuinte(cont);
 
     //Liberando o esáço da memória
         free(cont);
@@ -54,7 +54,7 @@ void consultaContribuinte(void){
     cont = pesquisaContribuinte(nome);
 
     // Exibir resultado da pesquisa de entradas
-    exibirSaida(nome);
+    exibirContribuinte(nome);
     free(nome);
     free(cont);
 }
@@ -66,7 +66,7 @@ void consultaContribuinte(void){
 
         nome = telaExcluiContribuinte();
         cont = (Contribuinte*) malloc(sizeof(Contribuinte));
-        cont = pesquisaSaidas(nome);
+        cont = pesquisaContribuinte(nome);
             if (cont == NULL){
                 printf("\n\nContribuinte não encontrado!!!\n\n");
             }else{
@@ -99,31 +99,31 @@ void consultaContribuinte(void){
 
 
 Contribuinte* telaCadastroContribuinte(void){
-    Contribuinte* cont;
-    cont = (Contribuinte*) malloc(sizeof(Contribuinte));
+    Contribuinte* contr;
+    contr = (Contribuinte*) malloc(sizeof(Contribuinte));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         do{
             printf("|/////            Nome (Nome completo): ");
-            scanf(" %50[^\n]", cont->nome);
+            scanf(" %50[^\n]", contr->nome);
 	            getchar();
-            }while (!validarNomes(cont->nome));
+            }while (!validarNomes(contr->nome));
         do{    
             printf("|/////            Valor(apenas numeros): ");
-                scanf("%f", &cont->valor);
-            }while(!validaValor(cont->valor));
+                scanf("%f", &contr->valor);
+            }while(!validaValor(contr->valor));
         do{
             printf("|/////            Profissao: ");
-                scanf(" %50[^\n]", cont->profissao);
+                scanf(" %50[^\n]", contr->profissao);
 	            getchar();
-           }while (validarNomes(cont->profissao));
-             cont->status = True;
+           }while (validarNomes(contr->profissao));
+             contr->status = True;
         printf("///                                                                        /////|\n");        
         getchar();      
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        return cont;
+        return contr;
         delay(1);
 }
 
@@ -201,9 +201,9 @@ void gravarContribuinte(Contribuinte* contr) {
 
     Contribuinte* pesquisaContribuinte(char* nome) {
         FILE* fp;
-        Contribuinte* cont;
+        Contribuinte* contr;
 
-        cont = (Contribuinte*) malloc(sizeof(Contribuinte));
+        contr = (Contribuinte*) malloc(sizeof(Contribuinte));
         fp = fopen("contribuintes.dat", "rb");
         if (fp == NULL) {
             printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
@@ -211,10 +211,10 @@ void gravarContribuinte(Contribuinte* contr) {
             exit(1);
         }
          while(!feof(fp)) {
-            fread(cont, sizeof(Contribuinte), 1, fp);
-            if (strcmp(cont->nome, nome) == 0) {
+            fread(contr, sizeof(Contribuinte), 1, fp);
+            if (strcmp(contr->nome, nome) == 0) {
                 fclose(fp);
-                return cont;
+                return contr;
             }
         }
         fclose(fp);
@@ -227,15 +227,15 @@ void gravarContribuinte(Contribuinte* contr) {
 //////////Exibir Arquivo CONTRIBUINTE  /////////////////////
 ////////////////////////////////////////////////////////////
 
-void exibirContribuinte(Contribuinte* cont) {
+void exibirContribuinte(Contribuinte* contr) {
 
-  if ((cont = NULL) && (cont->status == False)) {
+  if ((contr = NULL) && (contr->status == False)) {
     printf("\n= = = Contribuinte Inexistente = = =\n");
   } else {
     printf("\n= = = CONTRIBUINTE Cadastrado = = =\n");
-    printf("Nome: %s\n", cont->nome);
-    printf("Destino: %s\n", cont->profissao);
-    printf("Valor: %f\n", cont->valor);
+    printf("Nome: %s\n", contr->nome);
+    printf("Destino: %s\n", contr->profissao);
+    printf("Valor: %f\n", contr->valor);
 
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
@@ -246,7 +246,7 @@ void exibirContribuinte(Contribuinte* cont) {
 //////////Regravar Arquivo CONTRIBUINTE ////////////////////
 ////////////////////////////////////////////////////////////
 
-void regravarContribuinte(Contribuinte* cont) {
+void regravarContribuinte(Contribuinte* contr) {
     int achou;
 	FILE* fp;
 	Contribuinte* contLido;
@@ -260,10 +260,10 @@ void regravarContribuinte(Contribuinte* cont) {
 	}
 	achou = False;
 	while(fread(contLido, sizeof(Contribuinte), 1, fp) && !achou) {
-		if (strcmp(contLido->nome, cont->nome) == 0) {
+		if (strcmp(contLido->nome, contr->nome) == 0) {
 			achou = True;
 			fseek(fp, -1*sizeof(Contribuinte), SEEK_CUR);
-        	fwrite(cont, sizeof(Contribuinte), 1, fp);
+        	fwrite(contr, sizeof(Contribuinte), 1, fp);
 		}
 	}
 	fclose(fp);

@@ -1,7 +1,9 @@
 
-///////////////////////////// FAZER PESQUISA PELO TIPO, UMA VARIÁVEL QUE NÃO SEJA MUTÁVEL,POIS SERÁ UMA CHAVE
+                        ///////////////////////////////////////////////////////////
+                        /////////////////////Modulo entradas///////////////////////
+                        ///////////////////////////////////////////////////////////
 
-//Modulo entradas
+
 //Subprograma
 
 #include <stdio.h>
@@ -17,9 +19,9 @@ void menuEntradas(void) {
 	    do {
 		    opcao = moduloEntradas();
 		    switch (opcao) {
-			    case '1' : 	cadastrarEntradas();
+			    case '1' : 	cadastroDeEntradas();
 						    break;
-			    case '2' : 	consultarEntradas();
+			    case '2' : 	consultaDeEntradas();
 						    break;
 			    case '3' : 	excluiEntradas();
 						    break;
@@ -41,30 +43,24 @@ void menuEntradas(void) {
 
 
 //// CADASTRO
-void cadastrarEntrada(void){
+void cadastroDeEntradas(void){
     Entrada* ent; 
-
     //Ler dados de Entradas com a função telaCadastroEntradas()
         ent = telaCadastroEntradas();
-
     /// Gravar registro do arquivo Entradas
        gravarEntradas(ent);
-
     //Liberando o esáço da memória
         free(ent);
 }
 
 //// PESQUISA
-void consultarEntradas(void){
+void consultaDeEntradas(void){
     Entrada* ent;
     char* tipo;
-
     //Exibir a tela
     tipo = telaConsultaEntradas();
-
     //Pesquisar no arquivo
-    ent = pesquisaEntradas(tipo);
-
+    ent = pesquisaDeEntradas(tipo);
     // Exibir resultado da pesquisa de entradas
     free(ent);
 }
@@ -74,9 +70,9 @@ void excluiEntrada(void){
     Entrada* ent;
 	char *tipo;
 
-	tipo = telaExcluirEntrada();
+	tipo = telaExcluiEntrada();
 	ent = (Entrada*) malloc(sizeof(Entrada));
-	ent = pesquisaEntradas(tipo);
+	ent = pesquisaDeEntradas(tipo);
 	if (ent == NULL) {
     	printf("\n\nEntrada não encontrado!\n\n");
   	} else {
@@ -93,7 +89,7 @@ void atualizaEntrada(void) {
     char* nome;
 
 	nome = telaAtualizarEntradas();
-	ent = pesquisaEntradas(nome);
+	ent = pesquisaDeEntradas(nome);
 	if (ent == NULL) {
     	printf("\n\nEntrada não encontrada!\n\n");
   	} else {
@@ -164,11 +160,9 @@ char* telaExcluiEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Entradas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        do {
             printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
             scanf("%c", tipo);
 	        getchar();
-        }while (!validaTipo(tipo));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -210,7 +204,7 @@ char* telaAtualizarEntradas(void){
 //////////Consultar Arquivo ENTRADAS ///////////////////////
 ////////////////////////////////////////////////////////////
 
-    Entrada* pesquisaEntradas(char* tipo) {
+    Entrada* pesquisaDeEntradas(char* tipo) {
         FILE* fp;
         Entrada* ent;
 
@@ -222,7 +216,7 @@ char* telaAtualizarEntradas(void){
             exit(1);
         }
          while(fread(ent, sizeof(Entrada), 1, fp)) {
-            if ((strcmp(ent->tipo, tipo) == 0)&& (ent->status == True)) {
+            if ((strcmp(ent->tipo, tipo) == 0) && (ent->status == True)) {
                 fclose(fp);
                 return ent;
             }
