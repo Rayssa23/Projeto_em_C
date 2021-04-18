@@ -30,69 +30,63 @@ void menuContribuinte(void) {
 
 //// CADASTRO
 void cadastrarContribuinte(void){
-    Contribuinte* cont; 
+    Contribuinte* contr; 
+        contr = telaCadastroContribuinte();
 
-    //Ler dados de Entradas com a função telaCadastroSaidas()
-        cont = telaCadastroContribuinte();
-
-    /// Gravar registro do arquivo Saidas
-       gravarContribuinte(cont);
+       gravarContribuinte(contr);
 
     //Liberando o esáço da memória
-        free(cont);
+        free(contr);
 }
 
 //// PESQUISA
 void consultaContribuinte(void){
-    Contribuinte* cont;
+    Contribuinte* contr;
     char* nome;
 
     //Exibir a tela
     nome = telaConsultaContribuinte();
 
     //Pesquisar no arquivo
-    cont = pesquisaContribuinte(nome);
-
-    // Exibir resultado da pesquisa de entradas
-    exibirContribuinte(nome);
+    contr = pesquisaContribuinte(nome);
+    exibirContribuinte(contr);
     free(nome);
-    free(cont);
+    free(contr);
 }
 
 //// EXCLUSÃO
     void excluiContribuinte(void){
-        Contribuinte* cont;
+        Contribuinte* contr;
         char *nome;
 
         nome = telaExcluiContribuinte();
-        cont = (Contribuinte*) malloc(sizeof(Contribuinte));
-        cont = pesquisaContribuinte(nome);
-            if (cont == NULL){
+        contr = (Contribuinte*) malloc(sizeof(Contribuinte));
+        contr = pesquisaContribuinte(nome);
+            if (contr == NULL){
                 printf("\n\nContribuinte não encontrado!!!\n\n");
             }else{
-                cont->status = False;
-                regravarContribuinte(cont);
-                free(cont);
+                contr->status = False;
+                regravarContribuinte(contr);
+                free(contr);
             }
-        free(cont);
+        free(contr);
 }
 
 //// ATUALIZAÇÃO
-    void atualizaSaida(void) {
-        Contribuinte* cont;
+    void atualizaContribuinte(void) {
+        Contribuinte* contr;
         char* nome;
 	// exibe a tela 
 	    nome = telaAtualizarContribuinte();
-  // pesquisa o aluno no arquivo
-        cont = pesquisaContribuinte(nome);
+        contr = pesquisaContribuinte(nome);
 
-        if (cont == NULL) {
-            printf("\n\nAluno não encontrado!\n\n");
+        if (contr == NULL) {
+            printf("\n\nContribuinte não encontrado!\n\n");
         } else {
-            cont = telaCadastroContribuinte;
-            strcpy(cont->nome, nome);
-            regravarContribuinte(cont);
-            free(cont);
+            contr = telaCadastroContribuinte;
+            strcpy(contr->nome, nome);
+            regravarContribuinte(contr);
+            free(contr);
   }
         free(nome);
 }
@@ -122,10 +116,13 @@ Contribuinte* telaCadastroContribuinte(void){
         printf("///                                                                        /////|\n");        
         getchar();      
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+	    printf("\n");
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        return contr;
+        getchar();
         delay(1);
+        return contr;
 }
+
 
 char* telaConsultaContribuinte(void){
     char *nome;

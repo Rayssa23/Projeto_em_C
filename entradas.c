@@ -62,6 +62,7 @@ void consultaDeEntradas(void){
     //Pesquisar no arquivo
     ent = pesquisaDeEntradas(tipo);
     // Exibir resultado da pesquisa de entradas
+    exibirEntrada(ent);
     free(ent);
 }
 
@@ -70,7 +71,7 @@ void excluiEntrada(void){
     Entrada* ent;
 	char *tipo;
 
-	tipo = telaExcluiEntrada();
+	tipo = telaExcluiEntradas();
 	ent = (Entrada*) malloc(sizeof(Entrada));
 	ent = pesquisaDeEntradas(tipo);
 	if (ent == NULL) {
@@ -138,7 +139,7 @@ Entrada* telaCadastroEntradas(void){
 
 char* telaConsultaEntradas(void){
     char *tipo;
-    tipo = (char*) malloc(sizeof(char));
+    tipo = (char*) malloc(2*sizeof(char));
     	printf("\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Entradas                          /////|\n");
@@ -156,7 +157,7 @@ char* telaConsultaEntradas(void){
 
 char* telaExcluiEntradas(void){
     char *tipo;
-    tipo = (char*) malloc(sizeof(char));
+    tipo = (char*) malloc(2*sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Entradas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");

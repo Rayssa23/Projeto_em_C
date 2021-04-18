@@ -14,7 +14,7 @@ void menuSaidas(void) {
 	    do {
 		    opcao = moduloSaidas();
 		    switch (opcao) {
-			    case '1' : 	cadastroSaidas();
+			    case '1' : 	cadastrarSaida();
 						    break;
 			    case '2' : 	consultaSaidas();
 						    break;
@@ -79,13 +79,12 @@ void consultaSaidas(void){
     void atualizaSaida(void) {
         Saida* sai;
         char* nome;
-	// exibe a tela 
+
 	    nome = telaAtualizarSaidas();
-  // pesquisa o aluno no arquivo
         sai = pesquisaSaidas(nome);
 
         if (sai == NULL) {
-            printf("\n\nSaida não encontrado!\n\n");
+            printf("\n\nSaida não encontrada!\n\n");
         } else {
             sai = telaCadastroSaidas;
             strcpy(sai->nome, nome);
@@ -103,6 +102,7 @@ Saida* telaCadastroSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        sai = (Saida*) malloc(sizeof(Saida));
         do{
             printf("|/////            Responsavel(Nome completo): ");
             scanf(" %50[^\n]", sai->nome);
@@ -124,10 +124,11 @@ Saida* telaCadastroSaidas(void){
            }while (validarNomes(sai->dest));
            sai->status = True; 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        printf("\n");
+	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return sai;
         delay(1);
+        return sai;
 
 }
 
