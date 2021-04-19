@@ -18,6 +18,7 @@ void menuContribuinte(void);
 //Cadastro
 Contribuinte* telaCadastroContribuinte(void);
 void cadastroContribuinte(void);
+void cadastrarContribuinte(void);
 
 //Consulta
 void consultaContribuinte(void);

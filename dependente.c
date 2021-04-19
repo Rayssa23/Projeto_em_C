@@ -88,8 +88,6 @@ void consultaDependente(void){
 }
 
 
-//Gravar Arquivo
-void gravaDependente(Dependente*);
 
 Dependente* telaCadastroDependente(void){
     Dependente* depend;

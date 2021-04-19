@@ -8,8 +8,6 @@
 
 typedef struct contribuinte Contribuinte;
 
-//Gravar Arquivo
-void gravaContribuinte(Contribuinte*);
 
 void menuContribuinte(void) {
 	char opcao;
@@ -223,6 +221,7 @@ void gravarContribuinte(Contribuinte* contr) {
 ////////////////////////////////////////////////////////////
 //////////Exibir Arquivo CONTRIBUINTE  /////////////////////
 ////////////////////////////////////////////////////////////
+
 
 void exibirContribuinte(Contribuinte* contr) {
 

@@ -24,10 +24,10 @@ Entrada* pesquisaDeEntradas(char*);
 
 //Excluir
 char* telaExcluiEntradas(void);
-void excluiEntradas(void);
+void excluiEntrada(void);
 
 //Atualizar
-void atualizaEntradas(void);
+void atualizaEntrada(void);
 char* telaAtualizarEntradas(void);
 
 char moduloEntradas(void);
@@ -37,4 +37,4 @@ void menuEntradas(void);
 ////Gravar Arquivo
 void regravarEntradas(Entrada*);
 void exibirEntrada(Entrada*);
-void gravarEntradas(Entrada*);
+void gravaEntradas(Entrada*);

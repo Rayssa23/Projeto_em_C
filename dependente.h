@@ -15,6 +15,7 @@ void menuDependente(void);
 //Cadastro
 Dependente* telaCadastroDependente(void);
 void cadastroDependente(void);
+void cadastrarDependente(void);
 
 //Consulta
 void consultaDependente(void);
@@ -33,4 +34,4 @@ char* telaAtualizaDependente(void);
 
 void regravarDependente(Dependente* depend );
 void exibirDependente(Dependente* depend);
-void gravarDependente(Dependente* depend);
+void gravaDependente(Dependente* depend);

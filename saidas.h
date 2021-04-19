@@ -24,15 +24,15 @@ Saida* pesquisaSaidas(char*);
 char* telaConsultaSaidas(void);
 
 //Excluir
-void excluiSaidas(void);
+void excluiSaida(void);
 char* telaExcluiSaidas(void);
 
 //Atualizar
-void atualizaSaidas(void);
-char* telaAtualizarSaidas(void);
+void atualizaSaida(void);
+char* telaAtualizaSaidas(void);
 
 
 
 void regravarSaidas(Saida* sai);
 void exibirSaida(Saida* sai);
-void gravarSaidas(Saida* sai);
+void gravaSaidas(Saida* sai);
