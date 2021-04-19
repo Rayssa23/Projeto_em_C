@@ -30,7 +30,7 @@ void cadastrarDependente(void){
     Dependente* depend; 
 
         depend = telaCadastroDependente();
-       gravarDependente(depend);
+       gravaDependente(depend);
         free(depend);
 }
 

@@ -18,9 +18,9 @@ void menuSaidas(void) {
 						    break;
 			    case '2' : 	consultaSaidas();
 						    break;
-			    case '3' : 	excluiSaidas();
+			    case '3' : 	excluiSaida();
 						    break;
-			    case '4' : 	atualizaSaidas();
+			    case '4' : 	atualizaSaida();
 						    break;
 		    }
 	    } while (opcao != '0');
@@ -76,7 +76,7 @@ void consultaSaidas(void){
         Saida* sai;
         char* nome;
 
-	    nome = telaAtualizarSaidas();
+	    nome = telaAtualizaSaidas();
         sai = pesquisaSaidas(nome);
 
         if (sai == NULL) {
