@@ -23,9 +23,9 @@ void menuEntradas(void) {
 						    break;
 			    case '2' : 	consultaDeEntradas();
 						    break;
-			    case '3' : 	excluiEntradas();
+			    case '3' : 	excluiEntrada();
 						    break;
-			    case '4' : 	atualizaEntradas();
+			    case '4' : 	atualizaEntrada();
 						    break;
 	    	}
 	    } while (opcao != '0');
@@ -48,7 +48,7 @@ void cadastroDeEntradas(void){
     //Ler dados de Entradas com a função telaCadastroEntradas()
         ent = telaCadastroEntradas();
     /// Gravar registro do arquivo Entradas
-       gravarEntradas(ent);
+       gravaEntradas(ent);
     //Liberando o esáço da memória
         free(ent);
 }
