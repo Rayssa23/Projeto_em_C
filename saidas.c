@@ -14,7 +14,7 @@ void menuSaidas(void) {
 	    do {
 		    opcao = moduloSaidas();
 		    switch (opcao) {
-			    case '1' : 	cadastrarSaida();
+			    case '1' : 	cadastroSaidas();
 						    break;
 			    case '2' : 	consultaSaidas();
 						    break;
@@ -26,17 +26,13 @@ void menuSaidas(void) {
 	    } while (opcao != '0');
 }
 
-////Gravar Arquivo
-void gravaSaidas(Saida*);
 
 //// CADASTRO
-void cadastrarSaida(void){
+void cadastroSaidas(void){
     Saida* sai; 
-    //Ler dados de Entradas com a função telaCadastroSaidas()
+
         sai = telaCadastroSaidas();
-    /// Gravar registro do arquivo Saidas
        gravarSaidas(sai);
-    //Liberando o esáço da memória
         free(sai);
 }
 
@@ -86,7 +82,7 @@ void consultaSaidas(void){
         if (sai == NULL) {
             printf("\n\nSaida não encontrada!\n\n");
         } else {
-            sai = telaCadastroSaidas;
+            sai = telaCadastroSaidas();
             strcpy(sai->nome, nome);
             regravarSaidas(sai);
             free(sai);
@@ -102,7 +98,6 @@ Saida* telaCadastroSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        sai = (Saida*) malloc(sizeof(Saida));
         do{
             printf("|/////            Responsavel(Nome completo): ");
             scanf(" %50[^\n]", sai->nome);
@@ -123,12 +118,12 @@ Saida* telaCadastroSaidas(void){
 	            getchar();
            }while (validarNomes(sai->dest));
            sai->status = True; 
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+       printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
+            delay(1);
+            return sai;
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        delay(1);
-        return sai;
 
 }
 

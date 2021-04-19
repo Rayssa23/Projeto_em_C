@@ -14,7 +14,7 @@
 
 
 //Valida Nomes
-int validarNomes(char* nome[]){
+int validarNomes(char nome[]){
     int tam;
     tam = strlen (nome);
     if ((tam == 0 )|| (tam <= 5)){
@@ -48,10 +48,8 @@ int validaValor (float valor){
 }
 int validaIdade (int idade){
     //valor for apenas dígitos
-    if (idade <= 0){
-        if (!isdigit(idade)){
+    if ((idade <= 0) &&(!isdigit(idade))){
         return 1;
-    }
     }
     else{
         return 0;
@@ -59,7 +57,7 @@ int validaIdade (int idade){
 }
 
 //Valida Tipos
-int validaTipo (char* tipo){
+int validaTipo (char tipo){
     if ((tipo) == '1' || (tipo) == '2'){ 
         return 0;
     }

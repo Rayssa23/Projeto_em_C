@@ -27,7 +27,7 @@ char* telaExcluiDependente(void);
 
 //Atualizar
 void atualizaDependente(void);
-char* telaAtualizarDependente(void);
+char* telaAtualizaDependente(void);
 
 
 

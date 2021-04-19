@@ -14,17 +14,17 @@
 ////////// Assinaturas ////////////
 
 //Valida Nomes
-int validarNomes(char* nome);
+int validarNomes(char);
 
 //Valida Valores
-int validaValor (float valor);
+int validaValor (float);
 
 //Valida Tipos
-int validaTipo (char* tipo);
+int validaTipo (char);
 
 
 //Valida Idade
-int validaIdade (int idade);
+int validaIdade (int);
 
 // Funçao Delay
 void delay(int segundos);

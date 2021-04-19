@@ -29,13 +29,8 @@ void menuDependente(void) {
 void cadastrarDependente(void){
     Dependente* depend; 
 
-    //Ler dados de Entradas com a função telaCadastroSaidas()
         depend = telaCadastroDependente();
-
-    /// Gravar registro do arquivo Saidas
        gravarDependente(depend);
-
-    //Liberando o esáço da memória
         free(depend);
 }
 
@@ -50,8 +45,7 @@ void consultaDependente(void){
     //Pesquisar no arquivo
     depend = pesquisaDependente(nome);
 
-    // Exibir resultado da pesquisa de entradas
-    exibirDependente(nome);
+    exibirDependente(depend);
     free(nome);
     free(depend);
 }
@@ -78,15 +72,14 @@ void consultaDependente(void){
     void atualizaDependente(void) {
         Dependente* depend;
         char* nome;
-	// exibe a tela 
-	    depend = telaAtualizarDependente();
-  // pesquisa o aluno no arquivo
+
+	    nome = telaAtualizaDependente();
         depend = pesquisaDependente(nome);
 
         if (depend == NULL) {
-            printf("\n\nAluno não encontrado!\n\n");
+            printf("\n\nSaida não encontrada!\n\n");
         } else {
-            depend = telaCadastroDependente;
+            depend = telaCadastroDependente();
             strcpy(depend->nome, nome);
             regravarDependente(depend);
             free(depend);
@@ -165,13 +158,12 @@ char* telaAtualizaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
 	    scanf(" %50[^\n]", nome);
-	    getchar();    
+	        getchar();    
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return nome;
         delay(1);
+        return nome;
 }
 
 

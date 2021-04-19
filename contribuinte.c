@@ -83,7 +83,7 @@ void consultaContribuinte(void){
         if (contr == NULL) {
             printf("\n\nContribuinte não encontrado!\n\n");
         } else {
-            contr = telaCadastroContribuinte;
+            contr = telaCadastroContribuinte();
             strcpy(contr->nome, nome);
             regravarContribuinte(contr);
             free(contr);

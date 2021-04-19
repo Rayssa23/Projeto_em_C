@@ -63,6 +63,7 @@ void consultaDeEntradas(void){
     ent = pesquisaDeEntradas(tipo);
     // Exibir resultado da pesquisa de entradas
     exibirEntrada(ent);
+    free(tipo);
     free(ent);
 }
 
@@ -110,7 +111,6 @@ Entrada* telaCadastroEntradas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-            ent = (Entrada*) malloc(sizeof(Entrada));
         do {
         printf("|/////            Responsavel(Nome Completo): ");
         scanf(" %50[^\n]", ent->nome);
