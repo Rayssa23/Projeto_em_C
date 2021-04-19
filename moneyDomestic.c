@@ -98,5 +98,3 @@ void telaInicial(void) {
 	getchar();
 }
 
-//Módulos e telas CRUD
-
