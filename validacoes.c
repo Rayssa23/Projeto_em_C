@@ -37,10 +37,8 @@ int validarNomes(char nome[]){
 //Valida Valores
 int validaValor (float valor){
     //valor for apenas dígitos
-    if (valor <= 0.0){
-        if (!isdigit(valor)){
+    if ((valor <= 0.0) && (!isdigit(valor))){
         return 1;
-    }
     }
     else{
         return 0;
@@ -57,7 +55,7 @@ int validaIdade (int idade){
 }
 
 //Valida Tipos
-int validaTipo (char tipo){
+int validaTipo (char tipo[]){
     if ((tipo) == '1' || (tipo) == '2'){ 
         return 0;
     }

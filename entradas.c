@@ -125,7 +125,7 @@ Entrada* telaCadastroEntradas(void){
         
         do {
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-        scanf("%c", &ent->tipo);
+        scanf(" %s", ent->tipo);
 	        getchar();
         }while (!validaTipo(ent->tipo));
         ent->status = True;
@@ -145,7 +145,7 @@ char* telaConsultaEntradas(void){
         printf("|/////                  Modulo Consultar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-        scanf("%c",tipo);
+        scanf("%s",tipo);
 	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
@@ -162,7 +162,7 @@ char* telaExcluiEntradas(void){
         printf("|/////                  Modulo Excluir Entradas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
             printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-            scanf("%c", tipo);
+            scanf("%s", tipo);
 	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
@@ -238,7 +238,7 @@ void exibirEntrada(Entrada* ent) {
     printf("\n= = = Entrada Cadastrada = = =\n");
     printf("Nome: %s\n", ent->nome);
     printf("Valor: %f\n", ent->valor);
-    printf("Tipo (Salario - 1 / Extras - 2): %c\n", ent->tipo);
+    printf("Tipo (Salario - 1 / Extras - 2): %s\n", ent->tipo);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();

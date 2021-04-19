@@ -109,7 +109,7 @@ Saida* telaCadastroSaidas(void){
             }while(!validaValor(sai->valor));
         do{
             printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-                scanf("%c", &sai->tipo);
+                scanf("%s", sai->tipo);
 	            getchar();
             }while (!validaTipo(sai->tipo));
         do{
@@ -134,7 +134,7 @@ char* telaConsultaSaidas(void){
         printf("|/////                  Modulo Consultar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-        scanf("%c", tipo);
+        scanf("%s", tipo);
 	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
@@ -232,7 +232,7 @@ void exibirSaida(Saida* sai) {
     printf("\n= = = Saida Cadastrada = = =\n");
     printf("Nome: %s\n", sai->nome);
     printf("Valor: %f\n", sai->valor);
-    printf("Tipo (Salario - 1 / Extras - 2): %c\n", sai->tipo);
+    printf("Tipo (Salario - 1 / Extras - 2): %s\n", sai->tipo);
     printf("Destino: %s\n", sai->dest);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
