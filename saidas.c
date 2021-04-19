@@ -32,7 +32,7 @@ void cadastroSaidas(void){
     Saida* sai; 
 
         sai = telaCadastroSaidas();
-       gravarSaidas(sai);
+       gravaSaidas(sai);
         free(sai);
 }
 
