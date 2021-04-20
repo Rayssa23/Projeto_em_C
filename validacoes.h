@@ -14,13 +14,13 @@
 ////////// Assinaturas ////////////
 
 //Valida Nomes
-int validarNomes(char);
+int validarNomes(char[]);
 
 //Valida Valores
 int validaValor (float);
 
 //Valida Tipos
-int validaTipo (char);
+int validaTipo (char[]);
 
 
 //Valida Idade

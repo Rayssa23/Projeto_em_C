@@ -125,7 +125,7 @@ Entrada* telaCadastroEntradas(void){
         
         do {
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-        scanf(" %s", ent->tipo);
+        scanf("%s", ent->tipo);
 	        getchar();
         }while (!validaTipo(ent->tipo));
         ent->status = True;
