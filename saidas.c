@@ -82,7 +82,7 @@ void consultaSaidas(void){
             printf("\n\nSaida não encontrada!\n\n");
         } else {
             sai = telaCadastroSaidas();
-            if(sai->tipo == tipo);{
+            if(sai->tipo == tipo){
             regravarSaidas(sai);
             free(sai);
             }
