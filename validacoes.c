@@ -26,7 +26,10 @@ int validarNomes(char nome[]){
                 }
             else if (nome[i] >= 'a' && nome[i] <= 'z'){
                     continue;
-                }        
+                }
+            else{
+              return 1;  
+            }        
         }
         return 0; 
     }
@@ -36,7 +39,7 @@ int validarNomes(char nome[]){
 
 //Valida Valores
 int validaValor (float valor){
-    //valor for apenas dígitos
+    //valor apenas dígitos
     if ((valor <= 0.0) && (!isdigit(valor))){
         return 1;
     }
@@ -45,7 +48,7 @@ int validaValor (float valor){
     }
 }
 int validaIdade (int idade){
-    //valor for apenas dígitos
+    //idade apenas dígitos
     if ((idade <= 0) &&(!isdigit(idade))){
         return 1;
     }
@@ -55,12 +58,12 @@ int validaIdade (int idade){
 }
 
 //Valida Tipos
-int validaTipo (char tipo[]){
-    if ((tipo) == '1' || (tipo) == '2'){ 
-        return 0;
+int validaTipo (char tipo){
+    if ((tipo) !='1' || (tipo) != '2'){ 
+        return 1;
     }
     else{
-        return 1;
+        return 0;
         
     }
 }

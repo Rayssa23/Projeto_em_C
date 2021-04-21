@@ -18,8 +18,8 @@
 ///Assinatura das funções
 ///
 
+char moduloPrincipal(void);
 void telaInicial(void);
-char menuPrincipal(void);
 
     //Módulo de Informações do Sistema
 void menuSobre(void);    
@@ -29,31 +29,31 @@ void delay (int);
 ///
 
 int main(void) {
-        char opcao;
-
+       
     telaInicial();
-
+    char opcao;
     do{
-        opcao = menuPrincipal();
-        switch (opcao){
-        case '1':     menuEntradas();
+            opcao = moduloPrincipal();
+            switch (opcao){
+            case '1':     menuEntradas();
                                 break;
-        case '2':     menuSaidas();
+            case '2':     menuSaidas();
                                 break;
-        case '3':     menuContribuinte();
+            case '3':     menuContribuinte();
                                 break;
-        case '4':     menuDependente();
+            case '4':     menuDependente();
                                 break;
-        case '5':     menuRelatorio();
+            case '5':     menuRelatorio();
                                 break;
-        case '6':     menuSobre();
+            case '6':     menuSobre();
                                 break;                
-        }
+            }
         } while (opcao != '0');
 
     return 0;
 
 }
+
 
 // Menu e Tela inicial
 void menuSobre(void) {
@@ -98,3 +98,32 @@ void telaInicial(void) {
 	getchar();
 }
 
+char moduloPrincipal(void){
+     char resp;
+    system("clear");
+        printf(".................................................................................\n");
+        printf(".................................................................................\n");
+        printf(".........................$   MoneyDomestic  $....................................\n");
+        printf(".................................................................................\n");
+        printf(".................................................................................\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
+        printf("|/////                  Escolha dos Modulos                                /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("|/////            1 - Modulo Entradas                                      /////|\n");
+        printf("|/////            2 - Modulo Saidas                                        /////|\n");
+        printf("|/////            3 - Modulo Contribuinte                                  /////|\n");
+        printf("|/////            4 - Modulo Dependente                                    /////|\n");
+        printf("|/////            5 - Modulo Relatorio                                     /////|\n");
+        printf("|/////            6 - Modulo Informaçoes do Sistema                        /////|\n");
+        printf("|/////            0 - Sair                                                 /////|\n");
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("|/////            Escolha sua opcao: ");
+        scanf("%c", &resp);
+        getchar(); 
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
+        return resp;
+        printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+        
+    }

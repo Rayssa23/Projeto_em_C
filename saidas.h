@@ -6,7 +6,7 @@ typedef struct saida Saida;
 struct saida {
    char nome[51];
    float valor;
-   char tipo[2];
+   char tipo;
    char dest[51];
    char status;
 };
@@ -20,16 +20,16 @@ void cadastroSaidas(void);
 
 //Consulta
 void consultaSaidas(void);
-Saida* pesquisaSaidas(char*);
-char* telaConsultaSaidas(void);
+Saida* pesquisaSaidas(char);
+char telaConsultaSaidas(void);
 
 //Excluir
 void excluiSaida(void);
-char* telaExcluiSaidas(void);
+char telaExcluiSaidas(void);
 
 //Atualizar
 void atualizaSaida(void);
-char* telaAtualizaSaidas(void);
+char telaAtualizaSaidas(void);
 
 
 

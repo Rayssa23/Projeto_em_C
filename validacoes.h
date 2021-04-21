@@ -20,7 +20,7 @@ int validarNomes(char[]);
 int validaValor (float);
 
 //Valida Tipos
-int validaTipo (char[]);
+int validaTipo (char);
 
 
 //Valida Idade

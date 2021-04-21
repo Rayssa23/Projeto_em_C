@@ -14,9 +14,9 @@ void menuContribuinte(void) {
 	    do {
 		    opcao = moduloContribuinte();
 		    switch (opcao) {
-			    case '1' : 	cadastroContribuinte();
+			    case '1' : 	cadastroDeContribuinte();
 						    break;
-			    case '2' : 	consultaContribuinte();
+			    case '2' : 	consultaDeContribuinte();
 						    break;
 			    case '3' : 	excluiContribuinte();
 						    break;
@@ -27,18 +27,18 @@ void menuContribuinte(void) {
 }
 
 //// CADASTRO
-void cadastrarContribuinte(void){
+void cadastroDeContribuinte(void){
     Contribuinte* contr; 
         contr = telaCadastroContribuinte();
 
-       gravarContribuinte(contr);
+       gravaContribuinte(contr);
 
     //Liberando o esáço da memória
         free(contr);
 }
 
 //// PESQUISA
-void consultaContribuinte(void){
+void consultaDeContribuinte(void){
     Contribuinte* contr;
     char* nome;
 
@@ -47,7 +47,7 @@ void consultaContribuinte(void){
 
     //Pesquisar no arquivo
     contr = pesquisaContribuinte(nome);
-    exibirContribuinte(contr);
+    exibeContribuinte(contr);
     free(nome);
     free(contr);
 }
@@ -75,7 +75,7 @@ void consultaContribuinte(void){
         Contribuinte* contr;
         char* nome;
 	// exibe a tela 
-	    nome = telaAtualizarContribuinte();
+	    nome = telaAtualizaContribuinte();
         contr = pesquisaContribuinte(nome);
 
         if (contr == NULL) {
@@ -88,6 +88,7 @@ void consultaContribuinte(void){
   }
         free(nome);
 }
+
 
 
 Contribuinte* telaCadastroContribuinte(void){
@@ -177,7 +178,7 @@ char* telaAtualizaContribuinte(void){
 ////////////////////////////////////////////////////////////
 //////////Gravando Arquivo CONTRIBUINTE ////////////////////
 ////////////////////////////////////////////////////////////
-void gravarContribuinte(Contribuinte* contr) {
+void gravaContribuinte(Contribuinte* contr) {
   FILE* fp;
   fp = fopen("contribuinte.dat", "ab");
   if (fp == NULL) {
@@ -223,7 +224,7 @@ void gravarContribuinte(Contribuinte* contr) {
 ////////////////////////////////////////////////////////////
 
 
-void exibirContribuinte(Contribuinte* contr) {
+void exibeContribuinte(Contribuinte* contr) {
 
   if ((contr = NULL) && (contr->status == False)) {
     printf("\n= = = Contribuinte Inexistente = = =\n");

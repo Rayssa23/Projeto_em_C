@@ -13,9 +13,9 @@ void menuDependente(void) {
 	    do {
 		opcao = moduloDependente();
 		    switch (opcao) {
-			    case '1' : 	cadastroDependente();
+			    case '1' : 	cadastroDeDependente();
 						    break;
-			    case '2' : 	consultaDependente();
+			    case '2' : 	consultaDeDependente();
 						    break;
 			    case '3' : 	excluiDependente();
 						    break;
@@ -26,7 +26,7 @@ void menuDependente(void) {
 }
 
 //// CADASTRO
-void cadastrarDependente(void){
+void cadastroDeDependente(void){
     Dependente* depend; 
 
         depend = telaCadastroDependente();
@@ -35,7 +35,7 @@ void cadastrarDependente(void){
 }
 
 //// PESQUISA
-void consultaDependente(void){
+void consultaDeDependente(void){
     Dependente* depend;
     char* nome;
 
@@ -45,13 +45,13 @@ void consultaDependente(void){
     //Pesquisar no arquivo
     depend = pesquisaDependente(nome);
 
-    exibirDependente(depend);
+    exibeDependente(depend);
     free(nome);
     free(depend);
 }
 
 //// EXCLUSÃO
-    void excluiDependente(void){
+void excluiDependente(void){
         Dependente* depend;
         char *nome;
 
@@ -69,7 +69,7 @@ void consultaDependente(void){
 }
 
 //// ATUALIZAÇÃO
-    void atualizaDependente(void) {
+void atualizaDependente(void) {
         Dependente* depend;
         char* nome;
 
@@ -214,7 +214,7 @@ void gravaDependente(Dependente* depend) {
 //////////Exibir Arquivo DEPENDENTE    /////////////////////
 ////////////////////////////////////////////////////////////
 
-void exibirDependente(Dependente* depend) {
+void exibeDependente(Dependente* depend) {
 
   if ((depend = NULL) && (depend->status == False)){
     printf("\n= = = Dependente Inexistente = = =\n");

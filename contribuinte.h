@@ -17,11 +17,11 @@ void menuContribuinte(void);
 
 //Cadastro
 Contribuinte* telaCadastroContribuinte(void);
-void cadastroContribuinte(void);
-void cadastrarContribuinte(void);
+void cadastroDeContribuinte(void);
+void cadastroDeContribuinte(void);
 
 //Consulta
-void consultaContribuinte(void);
+void consultaDeContribuinte(void);
 Contribuinte* pesquisaContribuinte(char*);
 char* telaConsultaContribuinte(void);
 
@@ -31,10 +31,10 @@ char* telaExcluiContribuinte(void);
 
 //Atualizar
 void atualizaContribuinte(void);
-char* telaAtualizarContribuinte(void);
+char* telaAtualizaContribuinte(void);
 
 
 
 void regravarContribuinte(Contribuinte* contr );
-void exibirContribuinte(Contribuinte* contr);
-void gravarContribuinte(Contribuinte* contr);
+void exibeContribuinte(Contribuinte* contr);
+void gravaContribuinte(Contribuinte* contr);
