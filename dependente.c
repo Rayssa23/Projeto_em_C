@@ -160,8 +160,8 @@ char* telaAtualizaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        delay(1);
         return nome;
+        delay(1);
 }
 
 
@@ -222,6 +222,7 @@ void exibeDependente(Dependente* depend) {
     printf("\n= = = Dependente Cadastrado = = =\n");
     printf("Nome: %s\n", depend->nome);
     printf("Idade: %d\n", depend->idade);
+    delay(1);
 
   }
   printf("\n\nTecle ENTER para continuar!\n\n");

@@ -26,10 +26,7 @@ int validarNomes(char nome[]){
                 }
             else if (nome[i] >= 'a' && nome[i] <= 'z'){
                     continue;
-                }
-            else{
-              return 1;  
-            }        
+                }   
         }
         return 0; 
     }
@@ -38,9 +35,10 @@ int validarNomes(char nome[]){
 /// Fork : https://repl.it/@AlmeidaRayssa/mediaEVarianciaSemFuncoesc#main.c
 
 //Valida Valores
-int validaValor (float valor){
+int validaValor (float *valor){
     //valor apenas dígitos
-    if ((valor <= 0.0) && (!isdigit(valor))){
+    float zero = 0;
+    if ((*valor <= zero) && (!isdigit(*valor))){
         return 1;
     }
     else{
@@ -50,6 +48,7 @@ int validaValor (float valor){
 int validaIdade (int idade){
     //idade apenas dígitos
     if ((idade <= 0) &&(!isdigit(idade))){
+        
         return 1;
     }
     else{

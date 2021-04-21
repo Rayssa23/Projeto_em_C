@@ -105,7 +105,7 @@ Contribuinte* telaCadastroContribuinte(void){
         do{    
             printf("|/////            Valor(apenas numeros): ");
                 scanf("%f", &contr->valor);
-            }while(!validaValor(contr->valor));
+            }while(!validaValor(&contr->valor));
         do{
             printf("|/////            Profissao: ");
                 scanf(" %50[^\n]", contr->profissao);
@@ -118,8 +118,8 @@ Contribuinte* telaCadastroContribuinte(void){
 	    printf("\n");
 	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        delay(1);
         return contr;
+        delay(1);
 }
 
 
@@ -153,8 +153,8 @@ char* telaExcluiContribuinte(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        delay(1);
         return nome;
+        delay(1);
 }
 
 char* telaAtualizaContribuinte(void){
@@ -170,8 +170,8 @@ char* telaAtualizaContribuinte(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        delay(1);
         return nome;
+        delay(1);
 }
 
 
@@ -233,6 +233,7 @@ void exibeContribuinte(Contribuinte* contr) {
     printf("Nome: %s\n", contr->nome);
     printf("Destino: %s\n", contr->profissao);
     printf("Valor: %f\n", contr->valor);
+    delay(1);
 
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
@@ -290,9 +291,9 @@ char moduloContribuinte(void){
         getchar(); 
         printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
-        return resp;
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
+        return resp;
         delay(1);
 }
 

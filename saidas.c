@@ -105,7 +105,7 @@ Saida* telaCadastroSaidas(void){
         do{    
             printf("|/////            Valor(apenas numeros): ");
                 scanf("%f", &sai->valor);
-            }while(!validaValor(sai->valor));
+            }while(!validaValor(&sai->valor));
         do{
             printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
                 scanf("%c", &sai->tipo);
@@ -138,8 +138,8 @@ char telaConsultaSaidas(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        delay(1);
         return tipo;
+        delay(1);
 }
 
 char telaExcluiSaidas(void){
@@ -154,8 +154,8 @@ char telaExcluiSaidas(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        delay(1);
         return tipo;
+        delay(1);
 }
 
 char telaAtualizaSaidas(void){
@@ -230,6 +230,7 @@ void exibirSaida(Saida* sai) {
     printf("Valor: %f\n", sai->valor);
     printf("Tipo (Salario - 1 / Extras - 2): %c\n", sai->tipo);
     printf("Destino: %s\n", sai->dest);
+    delay(1);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();
@@ -290,7 +291,7 @@ char moduloSaidas(void){
         printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        return resp;
         getchar();
+        return resp;
         delay(1);
 }

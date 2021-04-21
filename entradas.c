@@ -118,7 +118,7 @@ Entrada* telaCadastroEntradas(void){
         do {
         printf("|/////            Valor(apenas numeros): ");
             scanf("%f", &ent->valor);
-            } while (!validaValor(ent->valor));
+            } while (!validaValor(&ent->valor));
         
         do {
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
@@ -128,10 +128,11 @@ Entrada* telaCadastroEntradas(void){
         ent->status = True;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
-            delay(1);
+        getchar();
+        printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
             return ent;
-	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();    
+            delay(1); 
 }
 
 char telaConsultaEntradas(void){
@@ -147,8 +148,8 @@ char telaConsultaEntradas(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
+        return tipo;
         delay(1);
-    return tipo;
 }
 
 char telaExcluiEntradas(void){
@@ -175,8 +176,8 @@ char telaAtualizaEntradas(void){
         scanf(" %c", &tipo);
             getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        delay(1);
         return tipo;
+        delay(1);
 }
 
 ////////////////////////////////////////////////////////////
@@ -233,6 +234,7 @@ void exibeEntradas(Entrada* ent) {
     printf("Nome: %s\n", ent->nome);
     printf("Valor: %f\n", ent->valor);
     printf("Tipo (Salario - 1 / Extras - 2): %c\n", ent->tipo);
+    delay(1);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();
@@ -291,7 +293,7 @@ char moduloEntradas(void){
         printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        return resp;
         getchar();
+        return resp;
         delay(1);
 }
