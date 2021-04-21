@@ -232,7 +232,7 @@ void exibeEntradas(Entrada* ent) {
     printf("\n= = = Entrada Cadastrada = = =\n");
     printf("Nome: %s\n", ent->nome);
     printf("Valor: %f\n", ent->valor);
-    printf("Tipo (Salario - 1 / Extras - 2): %s\n", ent->tipo);
+    printf("Tipo (Salario - 1 / Extras - 2): %c\n", ent->tipo);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();
