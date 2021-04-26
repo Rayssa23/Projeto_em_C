@@ -21,16 +21,24 @@ int validarNomes(char nome[]){
                 return 1;}
     else {
         for (int i = 0; i < tam; i++ ){
-            if (nome[i] >= 'A' && nome[i] <= 'Z'){
-                continue;
-                }
-            else if (nome[i] >= 'a' && nome[i] <= 'z'){
-                    continue;
-                }   
+            if((!isalpha(nome[i]) || (!isspace(nome[i])))){
+                return 1;
+            }
         }
-        return 0; 
-    }
-}
+    } 
+    return 0;
+    }     
+    //else {
+        //for (int i = 0; i < tam; i++ ){
+            //if (nome[i] >= 'A' && nome[i] <= 'Z'){
+                //continue;
+                //}
+            //else if (nome[i] >= 'a' && nome[i] <= 'z'){
+                    //continue;
+                //}   
+        //}
+        //return 0; 
+    //}
 /// Adaptado de : https://repl.it/@flgorgonio
 /// Fork : https://repl.it/@AlmeidaRayssa/mediaEVarianciaSemFuncoesc#main.c
 
