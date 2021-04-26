@@ -222,7 +222,7 @@ char telaAtualizaSaidas(void){
 
 void exibirSaida(Saida* sai) {
 
-  if ((sai == NULL) && (sai->status == False)) {
+  if ((sai == NULL)) {
     printf("\n= = = Saida Inexistente = = =\n");
   } else {
     printf("\n= = = Saida Cadastrada = = =\n");

@@ -57,11 +57,8 @@ void cadastroDeEntradas(void){
 void consultaDeEntradas(void){
     Entrada* ent;
     char tipo;
-    //Exibir a tela
     tipo = telaConsultaEntradas();
-    //Pesquisar no arquivo
     ent = pesquisaDeEntradas(tipo);
-    // Exibir resultado da pesquisa de entradas
     exibeEntradas(ent);
     free(ent);
 }
@@ -227,12 +224,12 @@ char telaAtualizaEntradas(void){
 
 void exibeEntradas(Entrada* ent) {
 
-  if ((ent == NULL)&& (ent->status == False)) {
+  if ((ent == NULL)) {
     printf("\n= = = Entrada Inexistente = = =\n");
   } else {
     printf("\n= = = Entrada Cadastrada = = =\n");
     printf("Nome: %s\n", ent->nome);
-    printf("Valor: %f\n", ent->valor);
+    printf("Valor: %f\n", &ent->valor);
     printf("Tipo (Salario - 1 / Extras - 2): %c\n", ent->tipo);
     delay(1);
   }

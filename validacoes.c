@@ -37,14 +37,23 @@ int validarNomes(char nome[]){
 //Valida Valores
 int validaValor (float *valor){
     //valor apenas dígitos
-    float zero = 0;
-    if ((*valor <= zero) && (!isdigit(*valor))){
-        return 1;
+    int tam;
+    tam = sizeof(valor);
+    for (int i = 0; i < tam; i++) {
+        if (!isdigit(valor[i]) || (valor[i] != '.')){
+            return 1;
+
+            }
+    }
+    if(valor <= 0){     
+     return 1;
     }
     else{
         return 0;
     }
 }
+
+
 int validaIdade (int idade){
     //idade apenas dígitos
     if ((idade <= 0) &&(!isdigit(idade))){
@@ -58,7 +67,7 @@ int validaIdade (int idade){
 
 //Valida Tipos
 int validaTipo (char tipo){
-    if ((tipo) !='1' || (tipo) != '2'){ 
+    if ((tipo) !='1' && (tipo) != '2'){ 
         return 1;
     }
     else{

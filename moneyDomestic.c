@@ -114,16 +114,16 @@ char moduloPrincipal(void){
         printf("|/////            3 - Modulo Contribuinte                                  /////|\n");
         printf("|/////            4 - Modulo Dependente                                    /////|\n");
         printf("|/////            5 - Modulo Relatorio                                     /////|\n");
-        printf("|/////            6 - Modulo Informaçoes do Sistema                        /////|\n");
+        printf("|/////            6 - Modulo Informacoes do Sistema                        /////|\n");
         printf("|/////            0 - Sair                                                 /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("|/////            Escolha sua opcao: ");
         scanf("%c", &resp);
-        getchar(); 
+        getchar();
         printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
-        return resp;
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
+        return resp;
         
     }
