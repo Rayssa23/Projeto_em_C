@@ -6,8 +6,8 @@ typedef struct entrada Entrada;
 struct entrada {
    char nome[51];
    float valor;
-   char tipo;
-   char status;
+   int tipo;
+   int status;
    struct tm *data;
 };
 
@@ -18,17 +18,17 @@ void cadastroDeEntradas(void);
 
 //Consulta
 void consultaDeEntradas(void);
-char telaConsultaEntradas(void);
-Entrada* pesquisaDeEntradas(char);
+int telaConsultaEntradas(void);
+Entrada* pesquisaDeEntradas(int);
 
 
 //Excluir
-char telaExcluiEntradas(void);
+int telaExcluiEntradas(void);
 void excluiEntrada(void);
 
 //Atualizar
 void atualizaEntrada(void);
-char telaAtualizaEntradas(void);
+int telaAtualizaEntradas(void);
 
 char moduloEntradas(void);
 void menuEntradas(void);

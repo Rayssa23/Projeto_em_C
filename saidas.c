@@ -37,9 +37,9 @@ void cadastroSaidas(void){
 }
 
 //// PESQUISA
-void consultaSaidas(void){
+    void consultaSaidas(void){
     Saida* sai;
-    char tipo;
+    int tipo;
 
     //Exibir a tela
     tipo = telaConsultaSaidas();
@@ -55,7 +55,7 @@ void consultaSaidas(void){
 //// EXCLUSÃO
     void excluiSaida(void){
         Saida* sai;
-        char tipo;
+        int tipo;
 
         tipo = telaExcluiSaidas();
         sai = (Saida*) malloc(sizeof(Saida));
@@ -67,13 +67,12 @@ void consultaSaidas(void){
                 regravarSaidas(sai);
                 free(sai);
             }
-        free(sai);
 }
 
 //// ATUALIZAÇÃO
     void atualizaSaida(void) {
         Saida* sai;
-        char tipo;
+        int tipo;
 
 	    tipo = telaAtualizaSaidas();
         sai = pesquisaSaidas(tipo);
@@ -108,14 +107,13 @@ Saida* telaCadastroSaidas(void){
             }while(!validaValor(&sai->valor));
         do{
             printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-                scanf("%c", &sai->tipo);
-	            getchar();
+                scanf("%d", &sai->tipo);
             }while (!validaTipo(sai->tipo));
         do{
             printf("|/////            Destino: ");
                 scanf(" %50[^\n]", sai->dest);
 	            getchar();
-           }while (validarNomes(sai->dest));
+           }while (!validarNomes(sai->dest));
            sai->status = True; 
        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
@@ -126,14 +124,13 @@ Saida* telaCadastroSaidas(void){
 
 }
 
-char telaConsultaSaidas(void){
-    char tipo;
+int telaConsultaSaidas(void){
+    int tipo;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-        scanf("%c", &tipo);
-	        getchar();
+        scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -142,14 +139,13 @@ char telaConsultaSaidas(void){
         delay(1);
 }
 
-char telaExcluiSaidas(void){
-    char tipo;
+int telaExcluiSaidas(void){
+    int tipo;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Saidas                              /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-            scanf("%c", &tipo);
-            getchar();
+            scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -158,14 +154,13 @@ char telaExcluiSaidas(void){
         delay(1);
 }
 
-char telaAtualizaSaidas(void){
-    char tipo;
+int telaAtualizaSaidas(void){
+    int tipo;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-            scanf("%c", &tipo);
-            getchar();
+            scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
@@ -193,7 +188,7 @@ char telaAtualizaSaidas(void){
 //////////Consultar Arquivo SAIDAS   ///////////////////////
 ////////////////////////////////////////////////////////////
 
-    Saida* pesquisaSaidas(char tipo) {
+    Saida* pesquisaSaidas(int tipo) {
         FILE* fp;
         Saida* sai;
 
@@ -228,7 +223,7 @@ void exibirSaida(Saida* sai) {
     printf("\n= = = Saida Cadastrada = = =\n");
     printf("Nome: %s\n", sai->nome);
     printf("Valor: %f\n", sai->valor);
-    printf("Tipo (Salario - 1 / Extras - 2): %c\n", sai->tipo);
+    printf("Tipo (Salario - 1 / Extras - 2): %d\n", sai->tipo);
     printf("Destino: %s\n", sai->dest);
     delay(1);
   }

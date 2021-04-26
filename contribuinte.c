@@ -110,7 +110,7 @@ Contribuinte* telaCadastroContribuinte(void){
             printf("|/////            Profissao: ");
                 scanf(" %50[^\n]", contr->profissao);
 	            getchar();
-           }while (validarNomes(contr->profissao));
+           }while (!validarNomes(contr->profissao));
              contr->status = True;
         printf("///                                                                        /////|\n");        
         getchar();      

@@ -6,7 +6,7 @@ typedef struct dependente Dependente;
 struct dependente{
     char nome[51];
     int idade;
-    char status;
+    int status;
 };
 
 char moduloDependente(void);

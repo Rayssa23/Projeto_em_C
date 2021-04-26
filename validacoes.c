@@ -74,8 +74,8 @@ int validaIdade (int idade){
 }
 
 //Valida Tipos
-int validaTipo (char tipo){
-    if ((tipo) !='1' && (tipo) != '2'){ 
+int validaTipo (int tipo){
+    if ((tipo) != 1 || (tipo) != 2 ){ 
         return 1;
     }
     else{

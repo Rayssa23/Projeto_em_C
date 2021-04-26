@@ -56,7 +56,7 @@ void cadastroDeEntradas(void){
 //// PESQUISA
 void consultaDeEntradas(void){
     Entrada* ent;
-    char tipo;
+    int tipo;
     tipo = telaConsultaEntradas();
     ent = pesquisaDeEntradas(tipo);
     exibeEntradas(ent);
@@ -66,7 +66,7 @@ void consultaDeEntradas(void){
 //// EXCLUSÃO
 void excluiEntrada(void){
     Entrada* ent;
-	char tipo;
+	int tipo;
 
 	tipo = telaExcluiEntradas();
 	ent = (Entrada*) malloc(sizeof(Entrada));
@@ -83,7 +83,7 @@ void excluiEntrada(void){
 //// ATUALIZAÇÃO
 void atualizaEntrada(void) {
     Entrada* ent;
-    char tipo;
+    int tipo;
 
 	tipo = telaAtualizaEntradas();
 	ent = pesquisaDeEntradas(tipo);
@@ -119,9 +119,9 @@ Entrada* telaCadastroEntradas(void){
         
         do {
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-        scanf("%c", &ent->tipo);
-	        getchar();
+            scanf("%d", &ent->tipo);
         }while (!validaTipo(ent->tipo));
+
         ent->status = True;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
@@ -132,15 +132,14 @@ Entrada* telaCadastroEntradas(void){
             delay(1); 
 }
 
-char telaConsultaEntradas(void){
-    char tipo;
+int telaConsultaEntradas(void){
+    int tipo;
     	printf("\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-        scanf("%c",&tipo);
-	        getchar();
+            scanf("%d",&tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -149,14 +148,13 @@ char telaConsultaEntradas(void){
         delay(1);
 }
 
-char telaExcluiEntradas(void){
-    char tipo;
+int telaExcluiEntradas(void){
+    int tipo;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Entradas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
             printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-            scanf("%c", &tipo);
-	        getchar();
+            scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -164,14 +162,13 @@ char telaExcluiEntradas(void){
         delay(1);
 }
 
-char telaAtualizaEntradas(void){
-    char tipo;
+int telaAtualizaEntradas(void){
+    int tipo;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-        scanf(" %c", &tipo);
-            getchar();
+        scanf(" %d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         return tipo;
         delay(1);
@@ -197,7 +194,7 @@ char telaAtualizaEntradas(void){
 //////////Consultar Arquivo ENTRADAS ///////////////////////
 ////////////////////////////////////////////////////////////
 
-    Entrada* pesquisaDeEntradas(char tipo) {
+    Entrada* pesquisaDeEntradas(int tipo) {
         FILE* fp;
         Entrada* ent;
 
@@ -230,7 +227,7 @@ void exibeEntradas(Entrada* ent) {
     printf("\n= = = Entrada Cadastrada = = =\n");
     printf("Nome: %s\n", ent->nome);
     printf("Valor: %f\n", ent->valor);
-    printf("Tipo (Salario - 1 / Extras - 2): %c\n", ent->tipo);
+    printf("Tipo (Salario - 1 / Extras - 2): %d\n", ent->tipo);
     delay(1);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");

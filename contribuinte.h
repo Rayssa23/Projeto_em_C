@@ -9,7 +9,7 @@ struct contribuinte {
    char nome[51];
    char profissao[51];
    float valor;
-   char status;
+   int status;
 };
 
 char moduloContribuinte(void);
