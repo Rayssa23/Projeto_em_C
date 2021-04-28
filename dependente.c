@@ -28,44 +28,37 @@ void menuDependente(void) {
 //// CADASTRO
 void cadastroDeDependente(void){
     Dependente* depend; 
-
-        depend = telaCadastroDependente();
-       gravaDependente(depend);
-        free(depend);
+    depend = telaCadastroDependente();
+    gravaDependente(depend);
+    free(depend);
 }
 
 //// PESQUISA
 void consultaDeDependente(void){
     Dependente* depend;
     char* nome;
-
-    //Exibir a tela
     nome = telaConsultaDependente();
-
-    //Pesquisar no arquivo
     depend = pesquisaDependente(nome);
-
     exibeDependente(depend);
-    free(nome);
     free(depend);
+    free(nome);
 }
 
 //// EXCLUSÃO
 void excluiDependente(void){
         Dependente* depend;
         char *nome;
-
         nome = telaExcluiDependente();
         depend = (Dependente*) malloc(sizeof(Dependente));
         depend = pesquisaDependente(nome);
             if (depend == NULL){
-                printf("\n\nSaída não encontrada!!!\n\n");
+                printf("\n\nDependente não encontrado!!!\n\n");
             }else{
                 depend->status = False;
                 regravarDependente(depend);
                 free(depend);
             }
-        free(depend);
+        free(nome);
 }
 
 //// ATUALIZAÇÃO
@@ -77,7 +70,7 @@ void atualizaDependente(void) {
         depend = pesquisaDependente(nome);
 
         if (depend == NULL) {
-            printf("\n\nSaida não encontrada!\n\n");
+            printf("\n\nDependente não encontrado!\n\n");
         } else {
             depend = telaCadastroDependente();
             strcpy(depend->nome, nome);
@@ -122,7 +115,7 @@ char* telaConsultaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("///           Nome completo: ");
+        printf("|///           Nome completo: ");
 	    scanf(" %50[^\n]", nome);
 	    getchar();    
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -137,7 +130,7 @@ char* telaExcluiDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Dependente                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("///           Nome completo: ");
+        printf("|///           Nome completo: ");
 	    scanf(" %50[^\n]", nome);
 	    getchar();    
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
@@ -154,7 +147,7 @@ char* telaAtualizaDependente(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("///           Nome completo: ");
+        printf("|///           Nome completo: ");
 	    scanf(" %50[^\n]", nome);
 	        getchar();    
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
@@ -170,7 +163,7 @@ char* telaAtualizaDependente(void){
 ////////////////////////////////////////////////////////////
 void gravaDependente(Dependente* depend) {
   FILE* fp;
-  fp = fopen("dependente.dat", "ab");
+  fp = fopen("dependentes.dat", "ab");
   if (fp == NULL) {
     printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
     printf("Não é possível continuar este programa...\n");
@@ -216,7 +209,7 @@ void gravaDependente(Dependente* depend) {
 
 void exibeDependente(Dependente* depend) {
 
-  if ((depend = NULL) && (depend->status == False)){
+  if ((depend = NULL)){
     printf("\n= = = Dependente Inexistente = = =\n");
   } else {
     printf("\n= = = Dependente Cadastrado = = =\n");

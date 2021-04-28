@@ -30,24 +30,17 @@ void menuSaidas(void) {
 //// CADASTRO
 void cadastroSaidas(void){
     Saida* sai; 
-
-        sai = telaCadastroSaidas();
-       gravaSaidas(sai);
-        free(sai);
+    sai = telaCadastroSaidas();
+    gravaSaidas(sai);
+    free(sai);
 }
 
 //// PESQUISA
     void consultaSaidas(void){
     Saida* sai;
     int tipo;
-
-    //Exibir a tela
     tipo = telaConsultaSaidas();
-
-    //Pesquisar no arquivo
     sai = pesquisaSaidas(tipo);
-
-    // Exibir resultado da pesquisa de entradas
     exibirSaida(sai);
     free(sai);
 }
@@ -60,9 +53,9 @@ void cadastroSaidas(void){
         tipo = telaExcluiSaidas();
         sai = (Saida*) malloc(sizeof(Saida));
         sai = pesquisaSaidas(tipo);
-            if (sai == NULL){
-                printf("\n\nSaida não encontrada!!!\n\n");
-            }else{
+        if (sai == NULL){
+            printf("\n\nSaida não encontrada!!!\n\n");
+        }else{
                 sai->status = False;
                 regravarSaidas(sai);
                 free(sai);
@@ -222,8 +215,8 @@ void exibirSaida(Saida* sai) {
   } else {
     printf("\n= = = Saida Cadastrada = = =\n");
     printf("Nome: %s\n", sai->nome);
-    printf("Valor: %f\n", sai->valor);
-    printf("Tipo (Salario - 1 / Extras - 2): %d\n", sai->tipo);
+    printf("Valor: %5.2f\n", sai->valor);
+    printf("Tipo (Despesas Extras - 1 / Despesas Fixas - 2): %d\n", sai->tipo);
     printf("Destino: %s\n", sai->dest);
     delay(1);
   }

@@ -226,7 +226,7 @@ void exibeEntradas(Entrada* ent) {
   } else {
     printf("\n= = = Entrada Cadastrada = = =\n");
     printf("Nome: %s\n", ent->nome);
-    printf("Valor: %f\n", ent->valor);
+    printf("Valor: %5.2f\n", ent->valor);
     printf("Tipo (Salario - 1 / Extras - 2): %d\n", ent->tipo);
     delay(1);
   }

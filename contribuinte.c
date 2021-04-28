@@ -29,27 +29,20 @@ void menuContribuinte(void) {
 //// CADASTRO
 void cadastroDeContribuinte(void){
     Contribuinte* contr; 
-        contr = telaCadastroContribuinte();
-
-       gravaContribuinte(contr);
-
-    //Liberando o esáço da memória
-        free(contr);
+    contr = telaCadastroContribuinte();
+    gravaContribuinte(contr);
+    free(contr);
 }
 
 //// PESQUISA
 void consultaDeContribuinte(void){
     Contribuinte* contr;
     char* nome;
-
-    //Exibir a tela
     nome = telaConsultaContribuinte();
-
-    //Pesquisar no arquivo
     contr = pesquisaContribuinte(nome);
     exibeContribuinte(contr);
-    free(nome);
     free(contr);
+    free(nome);
 }
 
 //// EXCLUSÃO
@@ -67,17 +60,17 @@ void consultaDeContribuinte(void){
                 regravarContribuinte(contr);
                 free(contr);
             }
-        free(contr);
+        free(nome);
 }
 
 //// ATUALIZAÇÃO
     void atualizaContribuinte(void) {
         Contribuinte* contr;
         char* nome;
-	// exibe a tela 
+
 	    nome = telaAtualizaContribuinte();
         contr = pesquisaContribuinte(nome);
-
+        
         if (contr == NULL) {
             printf("\n\nContribuinte não encontrado!\n\n");
         } else {
@@ -101,6 +94,7 @@ Contribuinte* telaCadastroContribuinte(void){
             printf("|/////            Nome (Nome completo): ");
             scanf(" %50[^\n]", contr->nome);
 	            getchar();
+                //Preciso colocar 50 no scanf???
             }while (!validarNomes(contr->nome));
         do{    
             printf("|/////            Valor(apenas numeros): ");
@@ -157,7 +151,7 @@ char* telaExcluiContribuinte(void){
         delay(1);
 }
 
-char* telaAtualizaContribuinte(void){
+char *telaAtualizaContribuinte(void){
    char* nome;
     nome = (char*) malloc(sizeof(char));
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -226,13 +220,13 @@ void gravaContribuinte(Contribuinte* contr) {
 
 void exibeContribuinte(Contribuinte* contr) {
 
-  if ((contr = NULL) && (contr->status == False)) {
+  if ((contr = NULL)) {
     printf("\n= = = Contribuinte Inexistente = = =\n");
   } else {
     printf("\n= = = CONTRIBUINTE Cadastrado = = =\n");
     printf("Nome: %s\n", contr->nome);
     printf("Destino: %s\n", contr->profissao);
-    printf("Valor: %f\n", contr->valor);
+    printf("Valor: %5.2f\n", contr->valor);
     delay(1);
 
   }
