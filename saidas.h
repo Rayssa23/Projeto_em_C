@@ -23,6 +23,7 @@ void consultaSaidas(void);
 Saida* pesquisaSaidas(int);
 int telaConsultaSaidas(void);
 
+
 //Excluir
 void excluiSaida(void);
 int telaExcluiSaidas(void);
@@ -30,8 +31,8 @@ int telaExcluiSaidas(void);
 //Atualizar
 void atualizaSaida(void);
 int telaAtualizaSaidas(void);
-Saida* telaAtualizandoSaidas(void);
-
+char telaAtualizacao(void);
+void menuAtualizaSaidas(void);
 
 
 void regravarSaidas(Saida* sai);

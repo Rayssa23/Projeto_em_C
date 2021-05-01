@@ -27,7 +27,6 @@ void menuSaidas(void) {
 	    } while (opcao != '0');
 }
 
-
 //// CADASTRO
 void cadastroSaidas(void){
     Saida* sai; 
@@ -57,6 +56,7 @@ void cadastroSaidas(void){
         if (sai == NULL){
             printf("\n\nSaida não encontrada!!!\n\n");
         }else{
+                exibirSaida(sai);
                 sai->status = False;
                 regravarSaidas(sai);
                 free(sai);
@@ -71,11 +71,10 @@ void cadastroSaidas(void){
 
 	    tipo = telaAtualizaSaidas();
         sai = pesquisaSaidas(tipo);
-
+        exibirSaida(sai);
         if (sai == NULL) {
             printf("\n\nSaida não encontrada!\n\n");
         } else {
-            sai = telaAtualizandoSaidas(); 
             if(sai->tipo == tipo){
             regravarSaidas(sai);
             free(sai);
@@ -156,65 +155,13 @@ int telaAtualizaSaidas(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
             scanf("%d", &tipo);
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
         delay(1);
         return tipo;
 }
 
-Saida* telaAtualizandoSaidas(void){
-    Saida* sai;
-    sai = (Saida*) malloc(sizeof(Saida));
-        char op;         
-        printf("\n________________________________________________________________________________");
-        printf("                               Responsavel - r    ");
-        printf("                               Valor - v          ");
-        printf("                               Tipo - t           ");
-        printf("                               Destino - d        ");
-        printf(" _________________________________________________________________________________");
-        printf("                             O que deseja ATUALIZAR?   ");
-            scanf("%c", &op);
-	        getchar();
-        printf(" _________________________________________________________________________________");
-        return op;
-        op = tolower(op);
-	    do {
-		    switch (op) {
-			    case 'r' : do{
-                                printf("|/////            Responsavel(Nome completo): ");
-                                    scanf(" %50[^\n]", sai->nome);
-	                                getchar();
-                            }while (!validarNomes(sai->nome));
-						        break;
-
-			    case 'v' : do{    
-                                printf("|/////            Valor(apenas numeros): ");
-                                    scanf("%f", &sai->valor);
-                            }while(!validaValor(&sai->valor));
-						        break;
-			    case 'd' : do{
-                                printf("|/////            Destino: ");
-                                    scanf(" %50[^\n]", sai->dest);
-	                                getchar();
-                            }while (!validarNomes(sai->dest));
-						        break;
-			    case 't' : do{
-                                printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-                                    scanf("%d", &sai->tipo);
-                                }while (!validaTipo(sai->tipo));
-						            break;
-		                        }
-	    } while ( op != 's');
-           sai->status = True; 
-       printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("\n");
-            delay(1);
-            return sai;
-	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-
-}
 
 ////////////////////////////////////////////////////////////
 //////////Gravando Arquivo SAIDAS //////////////////////////
@@ -245,13 +192,14 @@ Saida* telaAtualizandoSaidas(void){
             printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
             printf("Não é possível continuar este programa...\n");
             exit(1);
-        }
+        }else{
          while(!feof(fp)) {
             fread(sai, sizeof(Saida), 1, fp);
             if ((sai->tipo == tipo) ) {
                 fclose(fp);
                 return sai;
             }
+        }
         }
         fclose(fp);
         return NULL;    

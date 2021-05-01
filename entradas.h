@@ -31,7 +31,6 @@ void excluiEntrada(void);
 //Atualizar
 void atualizaEntrada(void);
 int telaAtualizaEntradas(void);
-Entrada* telaAtualizandoEntradas(void);
 
 char moduloEntradas(void);
 void menuEntradas(void);
@@ -43,7 +42,3 @@ void exibeEntradas(Entrada*);
 void gravaEntradas(Entrada*);
 
 ///INCLUIR LISTA
-
-//void incluirEntrada(Entrada **lista);
-
-void incluirEntradaNoFinal(Entrada **lista);

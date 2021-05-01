@@ -14,7 +14,6 @@
 #include "entradas.h"
 
 typedef struct entrada Entrada;
-typedef struct receitas Receitas;
 
 void menuEntradas(void) {	
 
@@ -74,6 +73,7 @@ void excluiEntrada(void){
 	if (ent == NULL) {
     	printf("\n\nEntrada não encontrado!\n\n");
   	} else {
+          exibeEntradas(ent);
 		  ent->status = False;
 		  regravarEntradas(ent);
 		  free(ent);
@@ -87,10 +87,10 @@ void atualizaEntrada(void) {
 
 	tipo = telaAtualizaEntradas();
 	ent = pesquisaDeEntradas(tipo);
+    exibeEntradas(ent);
 	if (ent == NULL) {
     	printf("\n\nEntrada não encontrada!\n\n");
   	} else {
-		  ent = telaAtualizandoEntradas();
 		  if(ent->tipo == tipo){
 		  regravarEntradas(ent);
 		  free(ent);
@@ -175,51 +175,6 @@ int telaAtualizaEntradas(void){
 }
 
 
-Entrada* telaAtualizandoEntradas(void){
-    Entrada* ent;
-    ent = (Entrada*) malloc(sizeof(Entrada));
-        char op;         
-        printf("\n________________________________________________________________________________");
-        printf("                               Responsavel - r    ");
-        printf("                               Valor - v          ");
-        printf("                               Tipo - t           ");
-        printf(" _________________________________________________________________________________");
-        printf("                             O que deseja ATUALIZAR?   ");
-            scanf("%c", &op);
-	        getchar();
-        printf(" _________________________________________________________________________________");
-        return op;
-        op = tolower(op);
-	    do {
-		    switch (op) {
-			    case 'r' : do{
-                                printf("|/////            Responsavel(Nome completo): ");
-                                    scanf(" %50[^\n]", ent->nome);
-	                                getchar();
-                            }while (!validarNomes(ent->nome));
-						        break;
-
-			    case 'v' : do{    
-                                printf("|/////            Valor(apenas numeros): ");
-                                    scanf("%f", &ent->valor);
-                            }while(!validaValor(&ent->valor));
-						        break;
-			    case 't' : do{
-                                printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-                                    scanf("%d", &ent->tipo);
-                                }while (!validaTipo(ent->tipo));
-						            break;
-		                        }
-	    } while ( op != 's');
-           ent->status = True; 
-       printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("\n");
-            delay(1);
-            return ent;
-	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-        }
-
 ////////////////////////////////////////////////////////////
 //////////Gravando Arquivo ENTRADAS ////////////////////////
 ////////////////////////////////////////////////////////////
@@ -251,15 +206,22 @@ Entrada* telaAtualizandoEntradas(void){
             printf("Não é possível continuar este programa...\n");
             exit(1);
         }
-         while(fread(ent, sizeof(Entrada), 1, fp)) {
+         else{
+            while(fread(ent, sizeof(Entrada), 1, fp)) {
             if ((ent->tipo == tipo) && (ent->status == True)) {
                 fclose(fp);
                 return ent;
             }
         }
+    }
         fclose(fp);
         return NULL;    
-    }
+}
+
+////////////////////////////////////////////////////////////
+////////// Atualizando ENTRADAS ////////////////////////////
+////////////////////////////////////////////////////////////
+
 
 ////////////////////////////////////////////////////////////
 //////////Exibir Arquivo ENTRADAS    ///////////////////////
