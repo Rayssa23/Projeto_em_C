@@ -199,16 +199,15 @@ void gravaContribuinte(Contribuinte* contr) {
             printf("Não é possível continuar este programa...\n");
             exit(1);
         }
-         while(!feof(fp)) {
-            fread(contr, sizeof(Contribuinte), 1, fp);
-            if (strcmp(contr->nome, nome) == 0) {
-                fclose(fp);
-                return contr;
-            }
-        }
-        fclose(fp);
-        return NULL;    
-    }
+        while(fread(contr, sizeof(Contribuinte), 1, fp)) {
+		if ((strcmp(contr->nome, nome) == 0) && (contr->status == True)) {
+			fclose(fp);
+			return contr;
+		}
+	}
+	fclose(fp);
+	return NULL;
+}
 
 
 

@@ -188,16 +188,15 @@ void gravaDependente(Dependente* depend) {
             printf("Não é possível continuar este programa...\n");
             exit(1);
         }
-         while(!feof(fp)) {
-            fread(depend, sizeof(Dependente), 1, fp);
-            if (strcmp(depend->nome, nome) == 0) {
-                fclose(fp);
-                return depend;
-            }
-        }
-        fclose(fp);
-        return NULL;    
-    }
+        while(fread(depend, sizeof(Dependente), 1, fp)) {
+		if ((strcmp(depend->nome, nome) == 0) && (depend->status == True)) {
+			fclose(fp);
+			return depend;
+		}
+	}
+	fclose(fp);
+	return NULL;
+}
 
 
 
