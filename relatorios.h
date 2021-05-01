@@ -6,6 +6,8 @@
 typedef struct relatorio Relatorio;
 
 struct relatorio{
+    
+
 };
 
 //Gravar Arquivo

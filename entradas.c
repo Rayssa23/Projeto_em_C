@@ -9,12 +9,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "validacoes.h"
 #include "entradas.h"
 
 typedef struct entrada Entrada;
+typedef struct receitas Receitas;
 
-void menuEntradas(void) {
+void menuEntradas(void) {	
+
 	char opcao;
 	    do {
 		    opcao = moduloEntradas();
@@ -41,16 +44,13 @@ void menuEntradas(void) {
 //};
 
 
-
 //// CADASTRO
 void cadastroDeEntradas(void){
+    
     Entrada* ent; 
-    //Ler dados de Entradas com a função telaCadastroEntradas()
-        ent = telaCadastroEntradas();
-    /// Gravar registro do arquivo Entradas
-       gravaEntradas(ent);
-    //Liberando o esáço da memória
-        free(ent);
+    ent = telaCadastroEntradas();
+    gravaEntradas(ent);
+    free(ent);
 }
 
 //// PESQUISA
@@ -90,7 +90,7 @@ void atualizaEntrada(void) {
 	if (ent == NULL) {
     	printf("\n\nEntrada não encontrada!\n\n");
   	} else {
-		  ent = telaCadastroEntradas();
+		  ent = telaAtualizandoEntradas();
 		  if(ent->tipo == tipo){
 		  regravarEntradas(ent);
 		  free(ent);
@@ -173,6 +173,50 @@ int telaAtualizaEntradas(void){
         return tipo;
         delay(1);
 }
+
+
+Entrada* telaAtualizandoEntradas(void){
+    Entrada* ent;
+    ent = (Entrada*) malloc(sizeof(Entrada));
+        char op;         
+        printf("********************** O que deseja ATUALIZAR? **********************************");
+        printf("*********************************************************************************");
+        printf("************ Responsavel - r ***************** Valor - v ************************");
+        printf("************ Tipo - t  **********************************************************");
+        printf("************ Sair - s ***********************************************************");
+        printf("*********************************************************************************");
+        scanf("%c", &op);
+	        getchar();
+        op = tolower(op);
+	    do {
+		    switch (op) {
+			    case 'r' : do{
+                                printf("|/////            Responsavel(Nome completo): ");
+                                    scanf(" %50[^\n]", ent->nome);
+	                                getchar();
+                            }while (!validarNomes(ent->nome));
+						        break;
+
+			    case 'v' : do{    
+                                printf("|/////            Valor(apenas numeros): ");
+                                    scanf("%f", &ent->valor);
+                            }while(!validaValor(&ent->valor));
+						        break;
+			    case 't' : do{
+                                printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
+                                    scanf("%d", &ent->tipo);
+                                }while (!validaTipo(ent->tipo));
+						            break;
+		                        }
+	    } while ( op != 's');
+           ent->status = True; 
+       printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
+            delay(1);
+            return ent;
+	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+        }
 
 ////////////////////////////////////////////////////////////
 //////////Gravando Arquivo ENTRADAS ////////////////////////

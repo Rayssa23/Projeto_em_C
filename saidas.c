@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 #include "validacoes.h"
 #include "saidas.h"
 
@@ -60,6 +61,7 @@ void cadastroSaidas(void){
                 regravarSaidas(sai);
                 free(sai);
             }
+
 }
 
 //// ATUALIZAÇÃO
@@ -73,7 +75,7 @@ void cadastroSaidas(void){
         if (sai == NULL) {
             printf("\n\nSaida não encontrada!\n\n");
         } else {
-            sai = telaCadastroSaidas();
+            sai = telaAtualizandoSaidas(); 
             if(sai->tipo == tipo){
             regravarSaidas(sai);
             free(sai);
@@ -161,6 +163,55 @@ int telaAtualizaSaidas(void){
         return tipo;
 }
 
+Saida* telaAtualizandoSaidas(void){
+    Saida* sai;
+    sai = (Saida*) malloc(sizeof(Saida));
+        char op;         
+        printf("********************** O que deseja ATUALIZAR? **********************************");
+        printf("*********************************************************************************");
+        printf("************ Responsavel - r ***************** Valor - v ************************");
+        printf("************ Destino - d ********************* Tipo - t  ************************");
+        printf("************ Sair - s ***********************************************************");
+        printf("*********************************************************************************");
+        scanf("%c", &op);
+	        getchar();
+        op = tolower(op);
+	    do {
+		    switch (op) {
+			    case 'r' : do{
+                                printf("|/////            Responsavel(Nome completo): ");
+                                    scanf(" %50[^\n]", sai->nome);
+	                                getchar();
+                            }while (!validarNomes(sai->nome));
+						        break;
+
+			    case 'v' : do{    
+                                printf("|/////            Valor(apenas numeros): ");
+                                    scanf("%f", &sai->valor);
+                            }while(!validaValor(&sai->valor));
+						        break;
+			    case 'd' : do{
+                                printf("|/////            Destino: ");
+                                    scanf(" %50[^\n]", sai->dest);
+	                                getchar();
+                            }while (!validarNomes(sai->dest));
+						        break;
+			    case 't' : do{
+                                printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
+                                    scanf("%d", &sai->tipo);
+                                }while (!validaTipo(sai->tipo));
+						            break;
+		                        }
+	    } while ( op != 's');
+           sai->status = True; 
+       printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        printf("\n");
+            delay(1);
+            return sai;
+	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+
+}
 
 ////////////////////////////////////////////////////////////
 //////////Gravando Arquivo SAIDAS //////////////////////////
@@ -223,6 +274,7 @@ void exibirSaida(Saida* sai) {
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();
 }
+   
 
 ////////////////////////////////////////////////////////////
 //////////Regravar Arquivo SAIDAS    ///////////////////////
@@ -246,7 +298,6 @@ void regravarSaidas(Saida* sai) {
 			achou = True;
 			fseek(fp, -1*sizeof(Saida), SEEK_CUR);
         	fwrite(sai, sizeof(Saida), 1, fp);
-			//break;
 		}
 	}
 	fclose(fp);

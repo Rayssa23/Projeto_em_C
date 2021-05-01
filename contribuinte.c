@@ -94,7 +94,6 @@ Contribuinte* telaCadastroContribuinte(void){
             printf("|/////            Nome (Nome completo): ");
             scanf(" %50[^\n]", contr->nome);
 	            getchar();
-                //Preciso colocar 50 no scanf???
             }while (!validarNomes(contr->nome));
         do{    
             printf("|/////            Valor(apenas numeros): ");

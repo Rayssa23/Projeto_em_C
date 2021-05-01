@@ -30,6 +30,7 @@ int telaExcluiSaidas(void);
 //Atualizar
 void atualizaSaida(void);
 int telaAtualizaSaidas(void);
+Saida* telaAtualizandoSaidas(void);
 
 
 

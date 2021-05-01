@@ -8,8 +8,10 @@ struct entrada {
    float valor;
    int tipo;
    int status;
-   struct tm *data;
+   //struct tm *data;
+	struct entradas *prox;
 };
+
 
 //Cadastro
 Entrada* telaCadastroEntradas(void);
@@ -29,6 +31,7 @@ void excluiEntrada(void);
 //Atualizar
 void atualizaEntrada(void);
 int telaAtualizaEntradas(void);
+Entrada* telaAtualizandoEntradas(void);
 
 char moduloEntradas(void);
 void menuEntradas(void);
@@ -38,3 +41,9 @@ void menuEntradas(void);
 void regravarEntradas(Entrada*);
 void exibeEntradas(Entrada*);
 void gravaEntradas(Entrada*);
+
+///INCLUIR LISTA
+
+//void incluirEntrada(Entrada **lista);
+
+void incluirEntradaNoFinal(Entrada **lista);

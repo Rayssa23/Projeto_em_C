@@ -7,9 +7,9 @@
 
 typedef struct relatorio Relatorio;
 
-
 //Gravar Arquivo
 void gravaRelatorio(Relatorio* depend);
+
 
 void semanal(void){
         printf("|=================================================================================|");  
