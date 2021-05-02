@@ -16,14 +16,47 @@ void gravaRelatorio(Relatorio* depend);
 char moduloRelatorio(void);
 void menuRelatorio(void);
 
-// Relatório semanal
+// Receitas por Nome
 
-void semanal(void);
+void receitasPorNome(void);
+char* telaReceitasPorNome(void);
 
-// Relatório mensal 
+// Contribuintes Por Profissao
 
-void mensal (void);
+void contribuintesPorProfissao(void);
+char* telaContribuintesProfissao(void);
 
-// Relatório mensal
+// Dependentes PorIdade
 
-void anual (void);
+void dependentesPorIdade(void);
+char* telaDependentesIdade(void);
+
+// Receitas mensal 
+
+void receitasMensais(void);
+char* telaReceitasMensais(void);
+
+// Receitas anual
+
+void receitasAnuais(void);
+char* telaReceitasAnuais(void);
+
+// Despesas mensal 
+
+void despesasMensais(void);
+char* telaDespesasMensais(void);
+
+// Despesas anual
+
+void despesasAnuais(void);
+char* telaDespesasAnuais(void);
+
+// Funções Relat
+
+void relatReceitasPorNome(char* nome);
+void relatReceitasMensais(char* mes);
+void relatReceitasAnuais(char* ano);
+void relatDespesasMensais(char* mes);
+void relatDespesasAnuais(char* ano);
+void relatContribuintesProfissao(char* profissao);
+void relatDependentesIdade(char* idade);
