@@ -9,6 +9,7 @@ struct saida {
    int tipo;
    char dest[51];
    int status;
+   char data[12];
 };
 
 char moduloSaidas(void);

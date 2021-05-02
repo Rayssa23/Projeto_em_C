@@ -8,7 +8,7 @@ struct entrada {
    float valor;
    int tipo;
    int status;
-   //struct tm *data;
+   char data[12];
 	struct entradas *prox;
 };
 

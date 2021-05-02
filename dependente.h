@@ -7,6 +7,7 @@ struct dependente{
     char nome[51];
     int idade;
     int status;
+    char Dtnasc[12];
 };
 
 char moduloDependente(void);
@@ -31,6 +32,6 @@ char* telaAtualizaDependente(void);
 
 
 
-void regravarDependente(Dependente* depend );
-void exibeDependente(Dependente* depend);
-void gravaDependente(Dependente* depend);
+void regravarDependente(Dependente*);
+void exibeDependente(Dependente*);
+void gravaDependente(Dependente*);

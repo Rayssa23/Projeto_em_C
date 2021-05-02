@@ -1,5 +1,9 @@
-//Módulo Contribuinte
-//Subprograma
+
+//======== MÓDULO COONTRIBUINTE =========
+//=========== Subprograma ===============
+
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -29,6 +33,7 @@ void menuContribuinte(void) {
 //// CADASTRO
 void cadastroDeContribuinte(void){
     Contribuinte* contr; 
+
     contr = telaCadastroContribuinte();
     gravaContribuinte(contr);
     free(contr);
@@ -38,6 +43,7 @@ void cadastroDeContribuinte(void){
 void consultaDeContribuinte(void){
     Contribuinte* contr;
     char* nome;
+    
     nome = telaConsultaContribuinte();
     contr = pesquisaContribuinte(nome);
     exibeContribuinte(contr);
@@ -56,6 +62,7 @@ void consultaDeContribuinte(void){
             if (contr == NULL){
                 printf("\n\nContribuinte não encontrado!!!\n\n");
             }else{
+                exibeContribuinte(contr);
                 contr->status = False;
                 regravarContribuinte(contr);
                 free(contr);
@@ -70,7 +77,8 @@ void consultaDeContribuinte(void){
 
 	    nome = telaAtualizaContribuinte();
         contr = pesquisaContribuinte(nome);
-        
+        exibeContribuinte(contr);
+
         if (contr == NULL) {
             printf("\n\nContribuinte não encontrado!\n\n");
         } else {
@@ -87,6 +95,8 @@ void consultaDeContribuinte(void){
 Contribuinte* telaCadastroContribuinte(void){
     Contribuinte* contr;
     contr = (Contribuinte*) malloc(sizeof(Contribuinte));
+        
+        system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -109,16 +119,16 @@ Contribuinte* telaCadastroContribuinte(void){
         getchar();      
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
 	    printf("\n");
-	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-        return contr;
         delay(1);
+        return contr;
 }
 
 
 char* telaConsultaContribuinte(void){
     char *nome;
-    nome = (char*) malloc(sizeof(char));
+    nome = (char*) malloc(51*sizeof(char));
+    
+    system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -127,15 +137,14 @@ char* telaConsultaContribuinte(void){
 	    getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-        return nome;
-        delay(1);        
+        delay(1);
+        return nome;        
 }
 
 char* telaExcluiContribuinte(void){
     char* nome;
-    nome = (char*) malloc(sizeof(char));
+    nome = (char*) malloc(51*sizeof(char));
+    system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Conribuinte                         /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -144,15 +153,14 @@ char* telaExcluiContribuinte(void){
             getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-        return nome;
         delay(1);
+        return nome;
 }
 
 char *telaAtualizaContribuinte(void){
    char* nome;
-    nome = (char*) malloc(sizeof(char));
+    nome = (char*) malloc(51*sizeof(char));
+    system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Contribuinte                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -161,10 +169,8 @@ char *telaAtualizaContribuinte(void){
             getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-        return nome;
         delay(1);
+        return nome;
 }
 
 
@@ -172,15 +178,18 @@ char *telaAtualizaContribuinte(void){
 //////////Gravando Arquivo CONTRIBUINTE ////////////////////
 ////////////////////////////////////////////////////////////
 void gravaContribuinte(Contribuinte* contr) {
-  FILE* fp;
-  fp = fopen("contribuinte.dat", "ab");
-  if (fp == NULL) {
-    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-    printf("Não é possível continuar este programa...\n");
-    exit(1);
-  }
-  fwrite(contr, sizeof(Contribuinte), 1, fp);
-  fclose(fp);
+    FILE* fp;
+
+    fp = fopen("contribuinte.dat", "ab");
+    if (fp == NULL) {
+            printf("======== ERRO NO ARQUIVO ========= ");
+            printf("======= Lamentamos Informar ======= ");
+        exit(1);
+    }
+    else{
+        fwrite(contr, sizeof(Contribuinte), 1, fp);
+        fclose(fp);
+    }
 }
 
 
@@ -195,8 +204,8 @@ void gravaContribuinte(Contribuinte* contr) {
         contr = (Contribuinte*) malloc(sizeof(Contribuinte));
         fp = fopen("contribuintes.dat", "rb");
         if (fp == NULL) {
-            printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-            printf("Não é possível continuar este programa...\n");
+            printf("======== ERRO NO ARQUIVO ========= ");
+            printf("======= Lamentamos Informar ======= ");
             exit(1);
         }
         while(fread(contr, sizeof(Contribuinte), 1, fp)) {
@@ -244,8 +253,8 @@ void regravarContribuinte(Contribuinte* contr) {
 	contLido = (Contribuinte*) malloc(sizeof(Contribuinte));
 	fp = fopen("contribuintes.dat", "r+b");
 	if (fp == NULL) {
-		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-        printf("Não é possível continuar este programa...\n");
+		    printf("======== ERRO NO ARQUIVO ========= ");
+            printf("======= Lamentamos Informar ======= ");
         exit(1);
 	}
 	achou = False;
@@ -285,7 +294,8 @@ char moduloContribuinte(void){
         printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
-        return resp;
         delay(1);
+        return resp;
+       
 }
 

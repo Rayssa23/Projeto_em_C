@@ -1,9 +1,11 @@
-//Modulo saidas
-//Subprograma
+
+  //======== MÓDULO SAÍDAS ===========
+//=========== Subprograma ===============
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
 #include <ctype.h>
 #include "validacoes.h"
 #include "saidas.h"
@@ -29,64 +31,70 @@ void menuSaidas(void) {
 
 //// CADASTRO
 void cadastroSaidas(void){
-    Saida* sai; 
+    Saida* sai;
+
     sai = telaCadastroSaidas();
     gravaSaidas(sai);
     free(sai);
 }
 
 //// PESQUISA
-    void consultaSaidas(void){
+void consultaSaidas(void){
     Saida* sai;
     int tipo;
+
     tipo = telaConsultaSaidas();
     sai = pesquisaSaidas(tipo);
     exibirSaida(sai);
     free(sai);
+    free(tipo);
 }
 
 //// EXCLUSÃO
-    void excluiSaida(void){
-        Saida* sai;
-        int tipo;
+void excluiSaida(void){
+    Saida* sai;
+    int tipo;
 
-        tipo = telaExcluiSaidas();
-        sai = (Saida*) malloc(sizeof(Saida));
-        sai = pesquisaSaidas(tipo);
+    tipo = telaExcluiSaidas();
+    sai = (Saida*) malloc(sizeof(Saida));
+    sai = pesquisaSaidas(tipo);
         if (sai == NULL){
             printf("\n\nSaida não encontrada!!!\n\n");
         }else{
-                exibirSaida(sai);
-                sai->status = False;
-                regravarSaidas(sai);
-                free(sai);
-            }
+            exibirSaida(sai);
+            sai->status = False;
+            regravarSaidas(sai);
+            free(sai);
+        }
+    free (tipo);    
 
 }
 
 //// ATUALIZAÇÃO
-    void atualizaSaida(void) {
-        Saida* sai;
-        int tipo;
+void atualizaSaida(void) {
+    Saida* sai;
+    int tipo;
 
-	    tipo = telaAtualizaSaidas();
-        sai = pesquisaSaidas(tipo);
+	tipo = telaAtualizaSaidas();
+    sai = pesquisaSaidas(tipo);
+// Se houver varias saidas do mesmo tipo, vai atualizar todas??? Pesquisar pelonome e depois escolher qual atualizar???
+    if (sai == NULL) {
+        printf("\n\nSaida não encontrada!\n\n");
+    } else {
         exibirSaida(sai);
-        if (sai == NULL) {
-            printf("\n\nSaida não encontrada!\n\n");
-        } else {
-            if(sai->tipo == tipo){
-            regravarSaidas(sai);
-            free(sai);
-            }
-        }
+        regravarSaidas(sai);
+        free(sai);
+            
     }
+    free(tipo);
+}
 
 
 Saida* telaCadastroSaidas(void){
     Saida* sai;
     sai = (Saida*) malloc(sizeof(Saida));
 
+        system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -108,33 +116,39 @@ Saida* telaCadastroSaidas(void){
                 scanf(" %50[^\n]", sai->dest);
 	            getchar();
            }while (!validarNomes(sai->dest));
+        printf("///           Data de Registro (dd/mm/aaaa):  ");
+	        scanf("%[0-9/]", sai->data);
+	            getchar();
+
            sai->status = True; 
        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("\n");
-            delay(1);
+       printf("\n");
+       delay(1);
             return sai;
-	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
 
 }
 
 int telaConsultaSaidas(void){
     int tipo;
+    tipo = (int) malloc(sizeof(int));
+
+        system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-        scanf("%d", &tipo);
+            scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-        return tipo;
         delay(1);
+        return tipo;
 }
 
 int telaExcluiSaidas(void){
     int tipo;
+    tipo = (int) malloc(sizeof(int));
+
+        system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Saidas                              /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -142,22 +156,21 @@ int telaExcluiSaidas(void){
             scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
-        return tipo;
         delay(1);
+        return tipo;
 }
 
 int telaAtualizaSaidas(void){
     int tipo;
+    tipo = (int) malloc(sizeof(int));
+
+        system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
             scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);
         return tipo;
 }
@@ -170,14 +183,15 @@ int telaAtualizaSaidas(void){
         FILE* fp;
         fp = fopen("saidas.dat", "ab");
         if (fp == NULL) {
-            printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-            printf("Não é possível continuar este programa...\n");
+            printf("======== ERRO NO ARQUIVO ========= ");
+            printf("======= Lamentamos Informar ======= ");
             exit(1);
         }
+        else{   
         fwrite(sai, sizeof(Saida), 1, fp);
         fclose(fp);
+        }
     }
-
 ////////////////////////////////////////////////////////////
 //////////Consultar Arquivo SAIDAS   ///////////////////////
 ////////////////////////////////////////////////////////////
@@ -189,16 +203,14 @@ int telaAtualizaSaidas(void){
         sai = (Saida*) malloc(sizeof(Saida));
         fp = fopen("saidas.dat", "rb");
         if (fp == NULL) {
-            printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-            printf("Não é possível continuar este programa...\n");
+            printf("======== ERRO NO ARQUIVO ========= ");
+            printf("======= Lamentamos Informar ======= ");
             exit(1);
-        }else{
-         while(!feof(fp)) {
-            fread(sai, sizeof(Saida), 1, fp);
-            if ((sai->tipo == tipo) ) {
-                fclose(fp);
-                return sai;
-            }
+        }
+        while(fread(sai, sizeof(Saida), 1, fp)) {
+        if ((sai->tipo == tipo) && (sai->status == True)) {
+            fclose(fp);
+            return sai;
         }
         }
         fclose(fp);
@@ -239,8 +251,8 @@ void regravarSaidas(Saida* sai) {
 	saiLido = (Saida*) malloc(sizeof(Saida));
 	fp = fopen("saidas.dat", "r+b");
 	if (fp == NULL) {
-		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-        printf("Não é possível continuar este programa...\n");
+		printf("======== ERRO NO ARQUIVO ========= ");
+        printf("======= Lamentamos Informar ======= ");
         exit(1);
 	}
 	achou = False;
