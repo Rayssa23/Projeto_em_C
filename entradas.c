@@ -48,7 +48,6 @@ void consultaDeEntradas(void){
     ent = pesquisaDeEntradas(tipo);
     exibeEntradas(ent);
     free(ent);
-    free(tipo);
 }
 
 //// EXCLUSÃO
@@ -67,8 +66,6 @@ void excluiEntrada(void){
 		    regravarEntradas(ent);
 		    free(ent);
 	    }
-    free(tipo);
-
 }
 
 //// ATUALIZAÇÃO
@@ -88,7 +85,6 @@ void atualizaEntrada(void) {
 		  free(ent);
           
 	}
-    free(tipo);
 }
 
 
@@ -239,7 +235,6 @@ void exibeEntradas(Entrada* ent) {
     printf("Nome: %s\n", ent->nome);
     printf("Valor: %5.2f\n", ent->valor);
     printf("Tipo (Salario - 1 / Extras - 2): %d\n", ent->tipo);
-    delay(1);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();

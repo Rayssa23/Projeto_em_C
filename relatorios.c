@@ -289,7 +289,7 @@ void relatContribuintesProfissao(char* profissao){
 
 }
 
-void relatDespendentesIdade(char* idade){
+void relatDependentesIdade(char* idade){
 
         printf("|=================================================================================|");  
         printf("|                        Dependentes por Idade                                    |");

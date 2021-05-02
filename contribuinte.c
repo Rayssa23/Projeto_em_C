@@ -234,7 +234,6 @@ void exibeContribuinte(Contribuinte* contr) {
     printf("Nome: %s\n", contr->nome);
     printf("Destino: %s\n", contr->profissao);
     printf("Valor: %5.2f\n", contr->valor);
-    delay(1);
 
   }
   printf("\n\nTecle ENTER para continuar!\n\n");

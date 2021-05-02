@@ -47,7 +47,6 @@ void consultaSaidas(void){
     sai = pesquisaSaidas(tipo);
     exibirSaida(sai);
     free(sai);
-    free(tipo);
 }
 
 //// EXCLUSÃO
@@ -65,8 +64,7 @@ void excluiSaida(void){
             sai->status = False;
             regravarSaidas(sai);
             free(sai);
-        }
-    free (tipo);    
+        }    
 
 }
 
@@ -86,7 +84,6 @@ void atualizaSaida(void) {
         free(sai);
             
     }
-    free(tipo);
 }
 
 
@@ -232,7 +229,6 @@ void exibirSaida(Saida* sai) {
     printf("Valor: %5.2f\n", sai->valor);
     printf("Tipo (Despesas Extras - 1 / Despesas Fixas - 2): %d\n", sai->tipo);
     printf("Destino: %s\n", sai->dest);
-    delay(1);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();
