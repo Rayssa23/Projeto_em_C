@@ -9,9 +9,11 @@ struct saida {
    int tipo;
    char dest[51];
    int status;
-   char data[12];
+   char dia[3];
+   char mes[3];
+   char ano[5];
    float despesas;
-	struct saidas *prox;
+
 };
 
 char moduloSaidas(void);

@@ -8,9 +8,10 @@ struct entrada {
    float valor;
    int tipo;
    int status;
-   char data[12];
+   char dia[3];
+   char mes[3];
+   char ano[5];
    float subtotal;
-	struct entradas *prox;
 };
 
 
@@ -21,17 +22,18 @@ void cadastroDeEntradas(void);
 
 //Consulta
 void consultaDeEntradas(void);
-int telaConsultaEntradas(void);
-Entrada* pesquisaDeEntradas(int);
+char* telaConsultaEntradas(void);
+Entrada* pesquisaDeEntradas(char* nome);
+
 
 
 //Excluir
-int telaExcluiEntradas(void);
+char* telaExcluiEntradas(void);
 void excluiEntrada(void);
 
 //Atualizar
 void atualizaEntrada(void);
-int telaAtualizaEntradas(void);
+char* telaAtualizaEntradas(void);
 
 char moduloEntradas(void);
 void menuEntradas(void);

@@ -114,10 +114,17 @@ Saida* telaCadastroSaidas(void){
                 scanf(" %50[^\n]", sai->dest);
 	            getchar();
            }while (!validarNomes(sai->dest));
-           //
-        printf("///           Data de Registro (dd/mm/aaaa):  ");
-	        scanf("%[0-9/]", sai->data);
+            printf("|////            Data de Registro (dd/mm/aaaa)  /n");
+            printf("|////            Dia(dd): "   );
+	            scanf("%[0-9/]", sai->dia);
 	            getchar();
+            printf("|////            Mes(mm): "   );
+	            scanf("%[0-9/]", sai->mes);
+	            getchar();
+            printf("|////            Ano(aa): "   );
+	            scanf("%[0-9/]", sai->ano);
+	            getchar();
+        
            sai->despesas = sai->despesas + sai->valorDespesa;
            sai->status = True; 
        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -226,7 +233,7 @@ void exibirSaida(Saida* sai) {
     printf("Valor: %5.2f\n", sai->valorDespesa);
     printf("Tipo (Despesas Extras - 1 / Despesas Fixas - 2): %d\n", sai->tipo);
     printf("Destino: %s\n", sai->dest);
-    printf("Data de Registro: %s\n", sai->data);
+    printf("Data de Registro: %s/%s/%s\n", sai->dia,sai->mes,sai->ano);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();

@@ -39,60 +39,64 @@ void cadastroDeEntradas(void){
     free(ent);
 }
 
+
 //// PESQUISA
 void consultaDeEntradas(void){
     Entrada* ent;
-    int tipo;
+    char* nome;
 
-    tipo = telaConsultaEntradas();
-    ent = pesquisaDeEntradas(tipo);
+    nome = telaConsultaEntradas();
+    ent = pesquisaDeEntradas(nome);
     exibeEntradas(ent);
     free(ent);
+    free(nome);
 }
 
 //// EXCLUSÃO
 void excluiEntrada(void){
     Entrada* ent;
-	int tipo;
+	char* nome;
 
-	tipo = telaExcluiEntradas();
+	nome = telaExcluiEntradas();
 	ent = (Entrada*) malloc(sizeof(Entrada));
-	ent = pesquisaDeEntradas(tipo);
+	ent = pesquisaDeEntradas(nome);
 	    if (ent == NULL) {
     	    printf("\n\nEntrada não encontrado!\n\n");
   	    } else {
-            exibeEntradas(ent);
 		    ent->status = False;
 		    regravarEntradas(ent);
 		    free(ent);
 	    }
+        free(nome);
 }
 
 //// ATUALIZAÇÃO
 void atualizaEntrada(void) {
     Entrada* ent;
-    int tipo;
+    char* nome;
 
-	tipo = telaAtualizaEntradas();
-	ent = pesquisaDeEntradas(tipo);
+	nome = telaAtualizaEntradas();
+	ent = pesquisaDeEntradas(nome);
 // Se houver varias entradas do mesmo tipo, vai atualizar todas??? Pesquisar pelo nome e depois escolher qual atualizar???
 	if (ent == NULL) {
     	printf("\n\nEntrada não encontrada!\n\n");
   	} else {
           exibeEntradas(ent);
           ent = telaCadastroEntradas();
+          strcpy(ent->nome, nome);
 		  regravarEntradas(ent);
 		  free(ent);
           
 	}
+    free(nome);
 }
-
 
 Entrada* telaCadastroEntradas(void){
     Entrada* ent;
     ent = (Entrada*) malloc(sizeof(Entrada));
 
         system("clear");
+        printf("\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -110,10 +114,19 @@ Entrada* telaCadastroEntradas(void){
         do {
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
             scanf("%d", &ent->tipo);
-        }while (!validaTipo(ent->tipo));
-        ///
-        printf("|////            Data de Registro (dd/mm/aaaa):  ");
-	        scanf("%[0-9/]", ent->data);
+        }
+        while (!validaTipo(ent->tipo));
+
+        ////
+        printf("|////            Data de Registro (dd/mm/aaaa)  \n");
+        printf("|////            Dia(dd): "   );
+	        scanf("%[0-9/]", ent->dia);
+	            getchar();
+        printf("|////            Mes(mm): "   );
+	        scanf("%[0-9/]", ent->mes);
+	            getchar();
+        printf("|////            Ano(aa): "   );
+	        scanf("%[0-9/]", ent->ano);
 	            getchar();
         ent->subtotal = ent->subtotal + ent->valor;
         ent->status = True;        
@@ -123,48 +136,55 @@ Entrada* telaCadastroEntradas(void){
             return ent;
 }
 
-int telaConsultaEntradas(void){
-    int tipo;
+char* telaConsultaEntradas(void){
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
 
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-            scanf("%d",&tipo);
+        printf("|///           Nome completo: ");
+	        scanf(" %50[^\n]", nome);
+	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("\n");
-        delay(1);
-            return tipo;
+        printf("\n");    
+        delay(1); 
+        return nome;  
 }
 
-int telaExcluiEntradas(void){
-    int tipo;
+char* telaExcluiEntradas(void){
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
 
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Entradas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-            printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-            scanf("%d", &tipo);
+        printf("|///           Nome completo: ");
+	        scanf(" %50[^\n]", nome);
+	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("\n");
-        delay(1);
-            return tipo;
+        printf("\n");    
+        delay(1); 
+        return nome;  
 }
 
-int telaAtualizaEntradas(void){
-    int tipo;
+char* telaAtualizaEntradas(void){
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
 
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Entradas                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
-        scanf(" %d", &tipo);
+        printf("|///           Nome completo: ");
+	        scanf(" %50[^\n]", nome);
+	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        delay(1);
-            return tipo;
+        printf("\n");    
+        delay(1); 
+        return nome;  
 }
 
 
@@ -188,7 +208,7 @@ int telaAtualizaEntradas(void){
 //////////Consultar Arquivo ENTRADAS ///////////////////////
 ////////////////////////////////////////////////////////////
 
-    Entrada* pesquisaDeEntradas(int tipo) {
+    Entrada* pesquisaDeEntradas(char* nome) {
         FILE* fp;
         Entrada* ent;
 
@@ -200,7 +220,7 @@ int telaAtualizaEntradas(void){
             exit(1);
         }
         while(fread(ent, sizeof(Entrada), 1, fp)) {
-        if ((ent->tipo == tipo) && (ent->status == True)) {
+        if ((strcmp(ent->nome, nome) == 0) && (ent->status == True)){
             fclose(fp);
             return ent;
         }
@@ -213,7 +233,6 @@ int telaAtualizaEntradas(void){
 ////////////////////////////////////////////////////////////
 ////////// Atualizando ENTRADAS ////////////////////////////
 ////////////////////////////////////////////////////////////
-
 
 ////////////////////////////////////////////////////////////
 //////////Exibir Arquivo ENTRADAS    ///////////////////////
@@ -228,7 +247,7 @@ void exibeEntradas(Entrada* ent) {
     printf("Nome: %s\n", ent->nome);
     printf("Valor: %5.2f\n", ent->valor);
     printf("Tipo (Salario - 1 / Extras - 2): %d\n", ent->tipo);
-    printf("Data de Registro: %s\n", ent->data);
+    printf("Data de Registro: %s/%s/%s\n", ent->dia,ent->mes,ent->ano);
     delay(1);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
@@ -253,7 +272,7 @@ void regravarEntradas(Entrada* ent) {
 	}
 	achou = False;
 	while(fread(entLido, sizeof(Entrada), 1, fp) && !achou) {
-		if ((entLido->tipo == ent->tipo)) {
+		if ((strcmp(entLido->nome, ent->nome)==0)) {
 			achou = True;
 			fseek(fp, -1*sizeof(Entrada), SEEK_CUR);
         	fwrite(ent, sizeof(Entrada), 1, fp);
