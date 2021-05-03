@@ -80,6 +80,7 @@ void atualizaSaida(void) {
         printf("\n\nSaida não encontrada!\n\n");
     } else {
         exibirSaida(sai);
+        sai = telaCadastroSaidas();
         regravarSaidas(sai);
         free(sai);
             
@@ -102,8 +103,8 @@ Saida* telaCadastroSaidas(void){
             }while (!validarNomes(sai->nome));
         do{    
             printf("|/////            Valor(apenas numeros): ");
-                scanf("%f", &sai->valor);
-            }while(!validaValor(&sai->valor));
+                scanf("%f", &sai->valorDespesa);
+            }while(!validaValor(&sai->valorDespesa));
         do{
             printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
                 scanf("%d", &sai->tipo);
@@ -113,10 +114,11 @@ Saida* telaCadastroSaidas(void){
                 scanf(" %50[^\n]", sai->dest);
 	            getchar();
            }while (!validarNomes(sai->dest));
+           //
         printf("///           Data de Registro (dd/mm/aaaa):  ");
 	        scanf("%[0-9/]", sai->data);
 	            getchar();
-
+           sai->despesas = sai->despesas + sai->valorDespesa;
            sai->status = True; 
        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
        printf("\n");
@@ -127,7 +129,6 @@ Saida* telaCadastroSaidas(void){
 
 int telaConsultaSaidas(void){
     int tipo;
-    tipo = (int) malloc(sizeof(int));
 
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -143,7 +144,6 @@ int telaConsultaSaidas(void){
 
 int telaExcluiSaidas(void){
     int tipo;
-    tipo = (int) malloc(sizeof(int));
 
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -159,7 +159,6 @@ int telaExcluiSaidas(void){
 
 int telaAtualizaSaidas(void){
     int tipo;
-    tipo = (int) malloc(sizeof(int));
 
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -183,11 +182,9 @@ int telaAtualizaSaidas(void){
             printf("======== ERRO NO ARQUIVO ========= ");
             printf("======= Lamentamos Informar ======= ");
             exit(1);
-        }
-        else{   
+        } 
         fwrite(sai, sizeof(Saida), 1, fp);
         fclose(fp);
-        }
     }
 ////////////////////////////////////////////////////////////
 //////////Consultar Arquivo SAIDAS   ///////////////////////
@@ -226,9 +223,10 @@ void exibirSaida(Saida* sai) {
   } else {
     printf("\n= = = Saida Cadastrada = = =\n");
     printf("Nome: %s\n", sai->nome);
-    printf("Valor: %5.2f\n", sai->valor);
+    printf("Valor: %5.2f\n", sai->valorDespesa);
     printf("Tipo (Despesas Extras - 1 / Despesas Fixas - 2): %d\n", sai->tipo);
     printf("Destino: %s\n", sai->dest);
+    printf("Data de Registro: %s\n", sai->data);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();

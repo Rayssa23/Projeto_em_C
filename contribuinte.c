@@ -186,10 +186,8 @@ void gravaContribuinte(Contribuinte* contr) {
             printf("======= Lamentamos Informar ======= ");
         exit(1);
     }
-    else{
         fwrite(contr, sizeof(Contribuinte), 1, fp);
         fclose(fp);
-    }
 }
 
 

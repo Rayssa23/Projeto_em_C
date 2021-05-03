@@ -114,8 +114,6 @@ Dependente* telaCadastroDependente(void){
                                                  
             depend->status = True;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-	    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-        getchar();
         delay(1);
         return depend;
 }
@@ -124,7 +122,6 @@ Dependente* telaCadastroDependente(void){
 char* telaConsultaDependente(void){
     char* nome;
     nome = (char*) malloc(51*sizeof(char));
-
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Dependente                        /////|\n");
@@ -141,7 +138,6 @@ char* telaConsultaDependente(void){
 char* telaExcluiDependente(void){
     char* nome;
     nome = (char*) malloc(51*sizeof(char));
-
         system("clear");    
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Dependente                          /////|\n");
@@ -158,7 +154,6 @@ char* telaExcluiDependente(void){
 char* telaAtualizaDependente(void){
     char* nome;
     nome = (char*) malloc(51*sizeof(char));
-
         system("clear"); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Dependente                        /////|\n");
@@ -180,16 +175,15 @@ char* telaAtualizaDependente(void){
 ////////////////////////////////////////////////////////////
 void gravaDependente(Dependente* depend) {
     FILE* fp;
-
+ 
     fp = fopen("dependentes.dat", "ab");
     if (fp == NULL) {
         printf("======== ERRO NO ARQUIVO ========= ");
         printf("======= Lamentamos Informar ======= ");
         exit(1);
-  }else{
+  }
     fwrite(depend, sizeof(Dependente), 1, fp);
     fclose(fp);
-    }
 }
 
 ////////////////////////////////////////////////////////////
@@ -232,6 +226,7 @@ void exibeDependente(Dependente* depend) {
     } else {
         printf("\n= = = Dependente Cadastrado = = =\n");
         printf("Nome: %s\n", depend->nome);
+        printf("Data de Nascimento: %s\n", depend->Dtnasc);
         printf("Idade: %d\n", depend->idade);
 
      }

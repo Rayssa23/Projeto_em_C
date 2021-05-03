@@ -29,5 +29,6 @@ int validaIdade (int);
 // Funçao Delay
 void delay(int segundos);
 
-//Função Data e Hora
-//char dataHora (void);
+//Função Data
+int bissexto(int aa);
+int testaData(int dd, int mm, int aa);

@@ -9,6 +9,7 @@ struct entrada {
    int tipo;
    int status;
    char data[12];
+   float subtotal;
 	struct entradas *prox;
 };
 

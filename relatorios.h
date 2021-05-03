@@ -6,7 +6,17 @@
 typedef struct relatorio Relatorio;
 
 struct relatorio{
-    
+    char nome[51];//retirar depois
+    float valor;//retirar depois
+    int tipo;//retirar depois
+    int status;//retirar depois
+    char data[12];//retirar depois
+    float subtotal;
+    float valorDespesa;
+    float despesas;
+
+
+    struct relatorio *prox;//retirar depois
 
 };
 
@@ -18,45 +28,43 @@ void menuRelatorio(void);
 
 // Receitas por Nome
 
-void receitasPorNome(void);
+void receitasPorNome(Relatorio* lista);
 char* telaReceitasPorNome(void);
-
-// Contribuintes Por Profissao
-
-void contribuintesPorProfissao(void);
-char* telaContribuintesProfissao(void);
-
-// Dependentes PorIdade
-
-void dependentesPorIdade(void);
-char* telaDependentesIdade(void);
 
 // Receitas mensal 
 
-void receitasMensais(void);
+void receitasMensais(Relatorio* lista);
 char* telaReceitasMensais(void);
 
 // Receitas anual
 
-void receitasAnuais(void);
+void receitasAnuais(Relatorio* lista);
 char* telaReceitasAnuais(void);
 
 // Despesas mensal 
 
-void despesasMensais(void);
+void despesasMensais(Relatorio* lista);
 char* telaDespesasMensais(void);
 
 // Despesas anual
 
-void despesasAnuais(void);
+void despesasAnuais(Relatorio* lista);
 char* telaDespesasAnuais(void);
 
 // Funções Relat
 
-void relatReceitasPorNome(char* nome);
-void relatReceitasMensais(char* mes);
-void relatReceitasAnuais(char* ano);
-void relatDespesasMensais(char* mes);
-void relatDespesasAnuais(char* ano);
+void relatReceitasPorNome(char* nome,Relatorio *lista);
+void relatReceitasMensais(char* mes,Relatorio *lista);
+void relatReceitasAnuais(char* ano,Relatorio *lista);
+void relatDespesasMensais(char* mes, Relatorio* lista);
+void relatDespesasAnuais(char* ano, Relatorio* lista);
 void relatContribuintesProfissao(char* profissao);
 void relatDependentesIdade(char* idade);
+
+//retirardepois
+// Parte lista relatorio
+Relatorio *listaVazia(void);
+void printarLista(Relatorio *lista);
+int tamanhoLista(Relatorio *lista);
+void liberarLista(Relatorio *lista);
+void lerArquivo(Relatorio **lista);

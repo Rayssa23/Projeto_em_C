@@ -75,7 +75,7 @@ void atualizaEntrada(void) {
 
 	tipo = telaAtualizaEntradas();
 	ent = pesquisaDeEntradas(tipo);
-// Se houver varias entradas do mesmo tipo, vai atualizar todas??? Pesquisar pelonome e depois escolher qual atualizar???
+// Se houver varias entradas do mesmo tipo, vai atualizar todas??? Pesquisar pelo nome e depois escolher qual atualizar???
 	if (ent == NULL) {
     	printf("\n\nEntrada não encontrada!\n\n");
   	} else {
@@ -107,19 +107,17 @@ Entrada* telaCadastroEntradas(void){
         printf("|/////            Valor(apenas numeros): ");
             scanf("%f", &ent->valor);
             } while (!validaValor(&ent->valor));
-        
         do {
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
             scanf("%d", &ent->tipo);
         }while (!validaTipo(ent->tipo));
-
-        printf("///           Data de Registro (dd/mm/aaaa):  ");
+        ///
+        printf("|////            Data de Registro (dd/mm/aaaa):  ");
 	        scanf("%[0-9/]", ent->data);
 	            getchar();
-
-        ent->status = True;
-        getchar();
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
+        ent->subtotal = ent->subtotal + ent->valor;
+        ent->status = True;        
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");
         delay(1); 
             return ent;
@@ -127,7 +125,6 @@ Entrada* telaCadastroEntradas(void){
 
 int telaConsultaEntradas(void){
     int tipo;
-    tipo = (int) malloc(sizeof(int));
 
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -143,7 +140,6 @@ int telaConsultaEntradas(void){
 
 int telaExcluiEntradas(void){
     int tipo;
-    tipo = (int) malloc(sizeof(int));
 
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -159,7 +155,6 @@ int telaExcluiEntradas(void){
 
 int telaAtualizaEntradas(void){
     int tipo;
-    tipo = (int) malloc(sizeof(int));
 
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
@@ -185,10 +180,8 @@ int telaAtualizaEntradas(void){
             printf("======= Lamentamos Informar ======= ");
         exit(1);
     }
-    else{
         fwrite(ent, sizeof(Entrada), 1, fp);
         fclose(fp);
-    }
 }
 
 ////////////////////////////////////////////////////////////
@@ -235,6 +228,8 @@ void exibeEntradas(Entrada* ent) {
     printf("Nome: %s\n", ent->nome);
     printf("Valor: %5.2f\n", ent->valor);
     printf("Tipo (Salario - 1 / Extras - 2): %d\n", ent->tipo);
+    printf("Data de Registro: %s\n", ent->data);
+    delay(1);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();

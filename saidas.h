@@ -5,11 +5,13 @@ typedef struct saida Saida;
 
 struct saida {
    char nome[51];
-   float valor;
+   float valorDespesa;
    int tipo;
    char dest[51];
    int status;
    char data[12];
+   float despesas;
+	struct saidas *prox;
 };
 
 char moduloSaidas(void);
