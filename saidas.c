@@ -114,7 +114,7 @@ Saida* telaCadastroSaidas(void){
                 scanf(" %50[^\n]", sai->dest);
 	            getchar();
            }while (!validarNomes(sai->dest));
-            printf("|////            Data de Registro (dd/mm/aaaa)  /n");
+            printf("|////            Data de Registro (dd/mm/aaaa)  \n");
             printf("|////            Dia(dd): "   );
 	            scanf("%[0-9/]", sai->dia);
 	            getchar();

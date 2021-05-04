@@ -8,8 +8,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "dependente.h"
+#include <ctype.h>
 #include "validacoes.h"
+#include "dependente.h"
+
 
 typedef struct dependente Dependente;
 
@@ -80,6 +82,7 @@ void atualizaDependente(void) {
         if (depend == NULL) {
             printf("\n\nDependente não encontrado!\n\n");
         } else {
+            exibeDependente(depend);
             depend = telaCadastroDependente();
             strcpy(depend->nome, nome);
             regravarDependente(depend);
@@ -103,17 +106,17 @@ Dependente* telaCadastroDependente(void){
             scanf(" %50[^\n]", depend->nome);
 	            getchar();
             }while (!validarNomes(depend->nome));
-        // Fazer validação????
             printf("///           Data de Nascimento (dd/mm/aaaa):  ");
 	        scanf("%[0-9/]", depend->Dtnasc);
 	            getchar();
         do{ 
             printf("|/////        Idade(apenas numeros): ");
-	    scanf("%d", &depend->idade);      
+	        scanf("%d", &depend->idade);      
             }while(!validaIdade(depend->idade));
                                                  
             depend->status = True;
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("\n");
         delay(1);
         return depend;
 }
@@ -127,8 +130,8 @@ char* telaConsultaDependente(void){
         printf("|/////                  Modulo Consultar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|///           Nome completo: ");
-	    scanf(" %50[^\n]", nome);
-	    getchar();
+	        scanf(" %50[^\n]", nome);
+	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");    
         delay(1); 
@@ -143,8 +146,8 @@ char* telaExcluiDependente(void){
         printf("|/////                  Modulo Excluir Dependente                          /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|///           Nome completo: ");
-	    scanf(" %50[^\n]", nome);
-	    getchar();    
+	        scanf(" %50[^\n]", nome);
+	        getchar();    
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1); 
@@ -159,7 +162,7 @@ char* telaAtualizaDependente(void){
         printf("|/////                  Modulo Atualizar Dependente                        /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|///           Nome completo: ");
-	    scanf(" %50[^\n]", nome);
+	        scanf(" %50[^\n]", nome);
 	        getchar();    
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
@@ -228,6 +231,7 @@ void exibeDependente(Dependente* depend) {
         printf("Nome: %s\n", depend->nome);
         printf("Data de Nascimento: %s\n", depend->Dtnasc);
         printf("Idade: %d\n", depend->idade);
+        delay(1);
 
      }
     printf("\n\nTecle ENTER para continuar!\n\n");

@@ -91,6 +91,11 @@ void atualizaEntrada(void) {
     free(nome);
 }
 
+
+//////////////////////////////////////////
+///////////////// TELAS //////////////////
+/////////////////////////////////////////
+
 Entrada* telaCadastroEntradas(void){
     Entrada* ent;
     ent = (Entrada*) malloc(sizeof(Entrada));
@@ -116,18 +121,18 @@ Entrada* telaCadastroEntradas(void){
             scanf("%d", &ent->tipo);
         }
         while (!validaTipo(ent->tipo));
-
-        ////
+        getchar();
         printf("|////            Data de Registro (dd/mm/aaaa)  \n");
         printf("|////            Dia(dd): "   );
 	        scanf("%[0-9/]", ent->dia);
-	            getchar();
+	        getchar();
         printf("|////            Mes(mm): "   );
 	        scanf("%[0-9/]", ent->mes);
-	            getchar();
+	        getchar();
         printf("|////            Ano(aa): "   );
 	        scanf("%[0-9/]", ent->ano);
-	            getchar();
+	        getchar();
+
         ent->subtotal = ent->subtotal + ent->valor;
         ent->status = True;        
         printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");

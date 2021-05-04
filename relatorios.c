@@ -168,86 +168,86 @@ char* telaDespesasAnuais(void){
 
 /// RELATÓRIOS RECEITAS E DESPESAS
 void relatReceitasPorNome(char* nome){
-            printf("|=================================================================================|");  
-            printf("|                               Receitas Por Nome                                 |");
-            printf("|=================================================================================|");
-            printf("|> Nome:                                                           %s             |",nome);
-            printf("|=================================================================================|");
+            printf("|=======================================|");  
+            printf("|         Receitas Por Nome             |");
+            printf("|=======================================|");
+            printf("|> Nome:                 %s             |",nome);
+            printf("|=======================================|");
             listaReceitasNome(nome);
-            printf("|> Receitas variaveis:                                                   R$       |");
-            printf("|=================================================================================|");
-            printf("|> Receitas fixas:                                                       R$       |");
-            printf("|=================================================================================|");
-            printf("|   >> Subtotal:                                                         R$       |");
-            printf("|=================================================================================|");
+            printf("|> Receitas variaveis:     R$           |");
+            printf("|=======================================|");
+            printf("|> Receitas fixas:         R$           |");
+            printf("|=======================================|");
+            printf("|   >> Subtotal:           R$           |");
+            printf("|=======================================|");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
 
 void relatReceitasMensais(char* mes){
-            printf("|=================================================================================|");  
-            printf("|                               Receitas Por Mes                                  |");
-            printf("|=================================================================================|");
-            printf("|> Mes:                                                           %s              |",mes);
-            printf("|=================================================================================|");
+            printf("|=======================================|");  
+            printf("|         Receitas Por Mes              |");
+            printf("|=======================================|");
+            printf("|> Mes:                 %s              |",mes);
+            printf("|=======================================|");
             listaReceitasMes(mes);
-            printf("|> Receitas variaveis:                                                   R$       |");
-            printf("|=================================================================================|");
-            printf("|> Receitas fixas:                                                       R$       |");
-            printf("|=================================================================================|");
-            printf("|   >> Subtotal:                                                         R$       |");
-            printf("|=================================================================================|");
+            printf("|> Receitas variaveis:     R$           |");
+            printf("|=======================================|");
+            printf("|> Receitas fixas:         R$           |");
+            printf("|=======================================|");
+            printf("|   >> Subtotal:           R$           |");
+            printf("|=======================================|");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
 
 void relatReceitasAnuais(char* ano){
-            printf("|=================================================================================|");  
-            printf("|                               Receitas Por Ano                                  |");
-            printf("|=================================================================================|");
-            printf("|> Ano:                                                           %s              |",ano);
-            printf("|=================================================================================|");
+            printf("|=======================================|");  
+            printf("|         Receitas Por Ano              |");
+            printf("|=======================================|");
+            printf("|> Mes:                 %s              |",ano);
+            printf("|=======================================|");
             listaReceitasAno(ano);
-            printf("|> Receitas variaveis:                                                   R$       |");
-            printf("|=================================================================================|");
-            printf("|> Receitas fixas:                                                       R$       |");
-            printf("|=================================================================================|");
-            printf("|   >> Subtotal:                                                         R$       |");
-            printf("|=================================================================================|");
+            printf("|> Receitas variaveis:     R$           |");
+            printf("|=======================================|");
+            printf("|> Receitas fixas:         R$           |");
+            printf("|=======================================|");
+            printf("|   >> Subtotal:           R$           |");
+            printf("|=======================================|");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
 
 void relatDespesasMensais(char* mes){
-            printf("|=================================================================================|");  
-            printf("|                               Receitas Por Mes                                  |");
-            printf("|=================================================================================|");
-            printf("|> Mes:                                                           %s              |",mes);
-            printf("|=================================================================================|");
+            printf("|=======================================|");  
+            printf("|         Despesas Por Mes              |");
+            printf("|=======================================|");
+            printf("|> Mes:                 %s              |",mes);
+            printf("|=======================================|");
             listaDespesasMes(mes);
-            printf("|> Despesas variaveis:                                                   R$       |");
-            printf("|=================================================================================|");
-            printf("|> Despesas fixas:                                                       R$       |");
-            printf("|=================================================================================|");
-            printf("|   >> Subtotal:                                                         R$       |");
-            printf("|=================================================================================|");
+            printf("|> Despesas variaveis:     R$           |");
+            printf("|=======================================|");
+            printf("|> Despesas fixas:         R$           |");
+            printf("|=======================================|");
+            printf("|   >> Subtotal:           R$           |");
+            printf("|=======================================|");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
 
 void relatDespesasAnuais(char* ano){
-            printf("|=================================================================================|");  
-            printf("|                               Despesas Por Ano                                  |");
-            printf("|=================================================================================|");
-            printf("|> Ano:                                                           %s              |",ano);
-            printf("|=================================================================================|");
+            printf("|=======================================|");  
+            printf("|         Despesas Por Ano              |");
+            printf("|=======================================|");
+            printf("|> Ano:                 %s              |",ano);
+            printf("|=======================================|");
             listaDespesasAno(ano);
-            printf("|> Receitas variaveis:                                                   R$       |");
-            printf("|=================================================================================|");
-            printf("|> Receitas fixas:                                                       R$       |");
-            printf("|=================================================================================|");
-            printf("|   >> Subtotal:                                                         R$       |");
-            printf("|=================================================================================|");
+            printf("|> Despesas variaveis:     R$           |");
+            printf("|=======================================|");
+            printf("|> Despesas fixas:         R$           |");
+            printf("|=======================================|");
+            printf("|   >> Subtotal:           R$           |");
+            printf("|=======================================|");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
@@ -272,7 +272,14 @@ void listaReceitasNome(char* nome) {
                 nomeEnt[i] = ' ';
             }
             nomeEnt[50] = '\0';
-            printf("///           ||     %-3d     ||     %-3d     || %-26f ||             ///\n",(ent->tipo == 1),(ent->tipo == 2),ent->subtotal);
+            if (ent->tipo == 1){
+                printf("%-30d", ent->tipo );
+            }
+            if (ent->tipo == 2){
+                printf("%-30d", ent->tipo );
+            }
+            printf("%-30f", ent->subtotal );
+            
         }
     }
     fclose(fp);
@@ -295,7 +302,13 @@ void listaReceitasMes(char* mes) {
                 mesEnt[i] = ' ';
             }
             mesEnt[2] = '\0';
-            printf("///           ||     %-3d     ||     %-3d     || %-26f ||             ///\n",(ent->tipo == 1),(ent->tipo == 2),ent->subtotal);
+            if (ent->tipo == 1){
+                printf("%-30d", ent->tipo );
+            }
+            if (ent->tipo == 2){
+                printf("%-30d", ent->tipo );
+            }
+            printf("%-30f", ent->subtotal );
         }
     }
     fclose(fp);
@@ -318,7 +331,7 @@ void listaReceitasAno(char* ano) {
                 anoEnt[i] = ' ';
             }
             anoEnt[4] = '\0';
-            printf("///           ||     %-3d     ||     %-3d     || %-26f ||             ///\n",(ent->tipo == 1),(ent->tipo == 2),ent->subtotal);
+            printf("///           ||     %-30d     ||     %-30d     || %-30f ||             ///\n",(ent->tipo == 2),(ent->tipo == 1),ent->subtotal);
         }
     }
     fclose(fp);
@@ -341,7 +354,13 @@ void listaDespesasMes(char* mes) {
                 mesSai[i] = ' ';
             }
             mesSai[2] = '\0';
-            printf("///           ||     %-3d     ||     %-3d     || %-26f ||             ///\n",(sai->tipo == 1),(sai->tipo == 2),sai->despesas);
+            if (sai->tipo == 1){
+                printf("%-30d", sai->tipo );
+            }
+            if (sai->tipo == 2){
+                printf("%-30d", sai->tipo );
+            }
+            printf("%-30f", sai->despesas );
         }
     }
     fclose(fp);
@@ -364,18 +383,18 @@ void listaDespesasAno(char* ano) {
                 anoSai[i] = ' ';
             }
             anoSai[4] = '\0';
-            printf("///           ||     %-3d     ||     %-3d     || %-26f ||             ///\n",(sai->tipo == 1),(sai->tipo == 2),sai->despesas);
+            if (sai->tipo == 1){
+                printf("%-30d", sai->tipo );
+            }
+            if (sai->tipo == 2){
+                printf("%-30d", sai->tipo );
+            }
+            printf("%-30f", sai->despesas );
         }
     }
     fclose(fp);
     free(sai);
 }
-
-
-
-
-
-
 
 
 

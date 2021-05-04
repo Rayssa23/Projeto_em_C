@@ -3,10 +3,10 @@
 //=========== Subprograma ===============
 
 
-
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "validacoes.h"
 #include "contribuinte.h"
 
@@ -62,7 +62,6 @@ void consultaDeContribuinte(void){
             if (contr == NULL){
                 printf("\n\nContribuinte não encontrado!!!\n\n");
             }else{
-                exibeContribuinte(contr);
                 contr->status = False;
                 regravarContribuinte(contr);
                 free(contr);
@@ -82,6 +81,7 @@ void consultaDeContribuinte(void){
         if (contr == NULL) {
             printf("\n\nContribuinte não encontrado!\n\n");
         } else {
+            exibeContribuinte(contr);
             contr = telaCadastroContribuinte();
             strcpy(contr->nome, nome);
             regravarContribuinte(contr);
@@ -97,6 +97,7 @@ Contribuinte* telaCadastroContribuinte(void){
     contr = (Contribuinte*) malloc(sizeof(Contribuinte));
         
         system("clear");
+        printf("\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Cadastrar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
@@ -133,8 +134,8 @@ char* telaConsultaContribuinte(void){
         printf("|/////                  Modulo Consultar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("///           Nome completo: ");
-	    scanf(" %50[^\n]", nome);        
-	    getchar();
+	        scanf(" %50[^\n]", nome);        
+	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
@@ -157,12 +158,12 @@ char* telaExcluiContribuinte(void){
         return nome;
 }
 
-char *telaAtualizaContribuinte(void){
+char* telaAtualizaContribuinte(void){
    char* nome;
     nome = (char*) malloc(51*sizeof(char));
     system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
-        printf("|/////                  Modulo Excluir Contribuinte                        /////|\n");
+        printf("|/////                  Modulo Atualizar Contribuinte                      /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Informe o Responsavel(nome completo): ");
         scanf(" %50[^\n]", nome);
@@ -180,7 +181,7 @@ char *telaAtualizaContribuinte(void){
 void gravaContribuinte(Contribuinte* contr) {
     FILE* fp;
 
-    fp = fopen("contribuinte.dat", "ab");
+    fp = fopen("contribuintes.dat", "ab");
     if (fp == NULL) {
             printf("======== ERRO NO ARQUIVO ========= ");
             printf("======= Lamentamos Informar ======= ");
@@ -232,7 +233,7 @@ void exibeContribuinte(Contribuinte* contr) {
     printf("Nome: %s\n", contr->nome);
     printf("Destino: %s\n", contr->profissao);
     printf("Valor: %5.2f\n", contr->valor);
-
+    delay(1);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();
