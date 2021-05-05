@@ -12,7 +12,6 @@ struct saida {
    char dia[3];
    char mes[3];
    char ano[5];
-   float despesas;
 
 };
 
@@ -25,18 +24,17 @@ void cadastroSaidas(void);
 
 //Consulta
 void consultaSaidas(void);
-Saida* pesquisaSaidas(int);
-int telaConsultaSaidas(void);
+Saida* pesquisaSaidas(char*);
+char* telaConsultaSaidas(void);
 
 
 //Excluir
 void excluiSaida(void);
-int telaExcluiSaidas(void);
+char* telaExcluiSaidas(void);
 
 //Atualizar
 void atualizaSaida(void);
-int telaAtualizaSaidas(void);
-char telaAtualizacao(void);
+char* telaAtualizaSaidas(void);
 void menuAtualizaSaidas(void);
 
 

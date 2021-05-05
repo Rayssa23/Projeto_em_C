@@ -76,7 +76,6 @@ void consultaDeContribuinte(void){
 
 	    nome = telaAtualizaContribuinte();
         contr = pesquisaContribuinte(nome);
-        exibeContribuinte(contr);
 
         if (contr == NULL) {
             printf("\n\nContribuinte não encontrado!\n\n");
@@ -115,9 +114,7 @@ Contribuinte* telaCadastroContribuinte(void){
                 scanf(" %50[^\n]", contr->profissao);
 	            getchar();
            }while (!validarNomes(contr->profissao));
-             contr->status = True;
-        printf("///                                                                        /////|\n");        
-        getchar();      
+             contr->status = True;            
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
 	    printf("\n");
         delay(1);
@@ -233,7 +230,7 @@ void exibeContribuinte(Contribuinte* contr) {
     printf("Nome: %s\n", contr->nome);
     printf("Destino: %s\n", contr->profissao);
     printf("Valor: %5.2f\n", contr->valor);
-    delay(1);
+
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();

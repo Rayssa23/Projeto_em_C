@@ -35,15 +35,23 @@ char* telaDespesasAnuais(void);
 
 // Listas Relatórios
 void listaReceitasNome(char* nome);
-void listaReceitasMes(char* mes);
-void listaReceitasAno(char* ano);
-void listaDespesasMes(char* mes);
-void listaDespesasAno(char* ano);
+void listaReceitasMes(char* mes, char* ano, int tipo);
+void listaReceitasAno(char* ano, int tipo);
+void listaDespesasMes(char* mes, char* ano, int tipo);
+void listaDespesasAno(char* ano, int tipo);
 
 // Funções Relat
 
 void relatReceitasPorNome(char* nome);
-void relatReceitasMensais(char* mes);
-void relatReceitasAnuais(char* ano);
-void relatDespesasMensais(char* mes);
-void relatDespesasAnuais(char* ano);
+void relatReceitasMensais(char* mes, char* ano, int tipo);
+void relatReceitasAnuais(char* ano, int tipo);
+void relatDespesasMensais(char* mes, char* ano, int tipo);
+void relatDespesasAnuais(char* ano, int tipo);
+
+
+/// Funções Cálculos
+
+float calculaReceitaMes(char* mes, char* ano, int tipo);
+float calculaReceitaAno(char* ano, int tipo);
+float calculaDespesaMes(char* mes, char* ano, int tipo);
+float calculaDespesaAno(char* ano, int tipo);

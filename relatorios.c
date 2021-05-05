@@ -43,33 +43,39 @@ void receitasPorNome(void){
 
 void receitasMensais(void){
         char* mes;
+        char* ano;
+        int tipo;
 
         mes = telaReceitasMensais();
-        relatReceitasMensais(mes);
+        relatReceitasMensais(mes,ano,tipo);
         free(mes);
 }
 
 void receitasAnuais(void){
         char* ano;
+        int tipo;
 
         ano = telaReceitasAnuais();
-        relatReceitasAnuais(ano);
+        relatReceitasAnuais(ano,tipo);
         free(ano);
 }
 
 void despesasMensais(void){
         char* mes;
+        char* ano;
+        int tipo;
 
         mes = telaDespesasMensais();
-        relatDespesasMensais(mes);
+        relatDespesasMensais(mes,ano,tipo);
         free(mes);
 }
 
 void despesasAnuais(void){
         char* ano;
+        int tipo;
 
         ano = telaDespesasAnuais();
-        relatDespesasAnuais(ano);
+        relatDespesasAnuais(ano, tipo);
         free(ano);
 }
 
@@ -78,6 +84,7 @@ void despesasAnuais(void){
 char* telaReceitasPorNome(void){
         char* nome;
         nome = (char*) malloc(51*sizeof(char));
+        system("clear");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
         printf(".........................$   MoneyDomestic  $....................................\n");
@@ -95,7 +102,11 @@ char* telaReceitasPorNome(void){
 
 char* telaReceitasMensais(void){
         char* mes;
+        char* ano;
+        int tipo;
         mes = (char*) malloc(3*sizeof(char));
+        ano = (char*) malloc(5*sizeof(char));
+        system("clear");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
         printf(".........................$   MoneyDomestic  $....................................\n");
@@ -105,15 +116,22 @@ char* telaReceitasMensais(void){
         printf("|/////            Informe o Mes(mm): ");
         scanf(" %c", mes);
             getchar();
+        printf("|/////            Informe o Ano(aaaa): ");
+        scanf(" %c", ano);
+            getchar();
+        printf("|/////            Informe o Tipo(1- Salarios/ 2- Extras): ");
+        scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
-        return mes;
+        return mes,ano,tipo;
 }
 
 char* telaReceitasAnuais(void){
+        int tipo;
         char* ano;
         ano = (char*) malloc(4*sizeof(char));
+        system("clear");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
         printf(".........................$   MoneyDomestic  $....................................\n");
@@ -123,15 +141,21 @@ char* telaReceitasAnuais(void){
         printf("|/////            Informe o Ano(aa): ");
         scanf(" %c", ano);
             getchar();
+        printf("|/////            Informe o Tipo(1- Salarios/ 2- Extras): ");
+        scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
-        return ano;
+        return ano,tipo;
 }
 
 char* telaDespesasMensais(void){
         char* mes;
+        int tipo;
+        char* ano;
         mes = (char*) malloc(3*sizeof(char));
+        ano = (char*) malloc(5*sizeof(char));
+        system("clear");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
         printf(".........................$   MoneyDomestic  $....................................\n");
@@ -141,15 +165,22 @@ char* telaDespesasMensais(void){
         printf("|/////            Informe o Mes(mm): ");
         scanf(" %c", mes);
             getchar();
+        printf("|/////            Informe o Ano(aaaa): ");
+        scanf(" %c", ano);
+            getchar();
+        printf("|/////            Informe o Tipo(1- Salarios/ 2- Extras): ");
+        scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
-        return mes;
+        return mes,ano,tipo;
 }
 
 char* telaDespesasAnuais(void){
         char* ano;
+        int tipo;
         ano = (char*) malloc(4*sizeof(char));
+        system("clear");
         printf(".................................................................................\n");
         printf(".................................................................................\n");
         printf(".........................$   MoneyDomestic  $....................................\n");
@@ -159,95 +190,95 @@ char* telaDespesasAnuais(void){
         printf("|/////            Informe o Ano(aa): ");
         scanf(" %c", ano);
             getchar();
+        printf("|/////            Informe o Tipo(1- Salarios/ 2- Extras): ");
+        scanf("%d", &tipo);
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
-        return ano;
+        return ano,tipo;
 }
 
 
 /// RELATÓRIOS RECEITAS E DESPESAS
 void relatReceitasPorNome(char* nome){
-            printf("|=======================================|");  
-            printf("|         Receitas Por Nome             |");
-            printf("|=======================================|");
-            printf("|> Nome:                 %s             |",nome);
-            printf("|=======================================|");
+            printf("|=======================================|\n");  
+            printf("|         Receitas Por Nome             |\n");
+            printf("|=======================================|\n");
+            printf("|> Nome:                 %s             |\n",nome);
+            printf("|=======================================|\n");
             listaReceitasNome(nome);
-            printf("|> Receitas variaveis:     R$           |");
-            printf("|=======================================|");
-            printf("|> Receitas fixas:         R$           |");
-            printf("|=======================================|");
-            printf("|   >> Subtotal:           R$           |");
-            printf("|=======================================|");
+            printf("|> Receitas variaveis:     R$           |\n");
+            printf("|=======================================|\n");
+            printf("|> Receitas fixas:         R$           |\n");
+            printf("|=======================================|\n");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
 
-void relatReceitasMensais(char* mes){
-            printf("|=======================================|");  
-            printf("|         Receitas Por Mes              |");
-            printf("|=======================================|");
-            printf("|> Mes:                 %s              |",mes);
-            printf("|=======================================|");
-            listaReceitasMes(mes);
-            printf("|> Receitas variaveis:     R$           |");
-            printf("|=======================================|");
-            printf("|> Receitas fixas:         R$           |");
-            printf("|=======================================|");
-            printf("|   >> Subtotal:           R$           |");
-            printf("|=======================================|");
+void relatReceitasMensais(char* mes, char* ano, int tipo){
+            printf("|=======================================|\n");  
+            printf("|         Receitas Por Mes              |\n");
+            printf("|=======================================|\n");
+            printf("|> Mes:                 %s              |\n",mes);
+            printf("|=======================================|\n");
+            listaReceitasMes(mes,ano,tipo);
+            printf("|> Receitas variaveis:     R$           |\n");
+            printf("|=======================================|\n");
+            printf("|> Receitas fixas:         R$           |\n");
+            printf("|=======================================|\n");
+            printf("|   >> Subtotal:           R$           |\n");
+            printf("|=======================================|\n");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
 
-void relatReceitasAnuais(char* ano){
-            printf("|=======================================|");  
-            printf("|         Receitas Por Ano              |");
-            printf("|=======================================|");
-            printf("|> Mes:                 %s              |",ano);
-            printf("|=======================================|");
-            listaReceitasAno(ano);
-            printf("|> Receitas variaveis:     R$           |");
-            printf("|=======================================|");
-            printf("|> Receitas fixas:         R$           |");
-            printf("|=======================================|");
-            printf("|   >> Subtotal:           R$           |");
-            printf("|=======================================|");
+void relatReceitasAnuais(char* ano, int tipo){
+            printf("|=======================================|\n");  
+            printf("|         Receitas Por Ano              |\n");
+            printf("|=======================================|\n");
+            printf("|> Mes:                 %s              |\n",ano);
+            printf("|=======================================|\n");
+            listaReceitasAno(ano,tipo);
+            printf("|> Receitas variaveis:     R$           |\n");
+            printf("|=======================================|\n");
+            printf("|> Receitas fixas:         R$           |\n");
+            printf("|=======================================|\n");
+            printf("|   >> Subtotal:           R$           |\n");
+            printf("|=======================================|\n");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
 
-void relatDespesasMensais(char* mes){
-            printf("|=======================================|");  
-            printf("|         Despesas Por Mes              |");
-            printf("|=======================================|");
-            printf("|> Mes:                 %s              |",mes);
-            printf("|=======================================|");
-            listaDespesasMes(mes);
-            printf("|> Despesas variaveis:     R$           |");
-            printf("|=======================================|");
-            printf("|> Despesas fixas:         R$           |");
-            printf("|=======================================|");
-            printf("|   >> Subtotal:           R$           |");
-            printf("|=======================================|");
+void relatDespesasMensais(char* mes, char* ano, int tipo){
+            printf("|=======================================|\n");  
+            printf("|         Despesas Por Mes              |\n");
+            printf("|=======================================|\n");
+            printf("|> Mes:                 %s              |\n",mes);
+            printf("|=======================================|\n");
+            listaDespesasMes(mes,ano,tipo);
+            printf("|> Despesas variaveis:     R$           |\n");
+            printf("|=======================================|\n");
+            printf("|> Despesas fixas:         R$           |\n");
+            printf("|=======================================|\n");
+            printf("|   >> Subtotal:           R$           |\n");
+            printf("|=======================================|\n");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
 
-void relatDespesasAnuais(char* ano){
-            printf("|=======================================|");  
-            printf("|         Despesas Por Ano              |");
-            printf("|=======================================|");
-            printf("|> Ano:                 %s              |",ano);
-            printf("|=======================================|");
-            listaDespesasAno(ano);
-            printf("|> Despesas variaveis:     R$           |");
-            printf("|=======================================|");
-            printf("|> Despesas fixas:         R$           |");
-            printf("|=======================================|");
-            printf("|   >> Subtotal:           R$           |");
-            printf("|=======================================|");
+void relatDespesasAnuais(char* ano, int tipo){
+            printf("|=======================================|\n");  
+            printf("|         Despesas Por Ano              |\n");
+            printf("|=======================================|\n");
+            printf("|> Ano:                 %s              |\n",ano);
+            printf("|=======================================|\n");
+            listaDespesasAno(ano,tipo);
+            printf("|> Despesas variaveis:     R$           |\n");
+            printf("|=======================================|\n");
+            printf("|> Despesas fixas:         R$           |\n");
+            printf("|=======================================|\n");
+            printf("|   >> Subtotal:           R$           |\n");
+            printf("|=======================================|\n");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
@@ -261,7 +292,7 @@ void listaReceitasNome(char* nome) {
     Entrada* ent;
     char nomeEnt[51];
     int tam;
-
+    
     ent = (Entrada*) malloc(sizeof(Entrada));
     fp = fopen("entradas.dat", "rb");
     while (fread(ent, sizeof(Entrada), 1, fp)) {
@@ -273,12 +304,15 @@ void listaReceitasNome(char* nome) {
             }
             nomeEnt[50] = '\0';
             if (ent->tipo == 1){
-                printf("%-30d", ent->tipo );
+                printf("\n");
+                printf("%-30f", ent->valor );
+                printf("\n");
             }
-            if (ent->tipo == 2){
-                printf("%-30d", ent->tipo );
+            else if (ent->tipo == 2){
+                printf("\n");
+                printf("%-30f", ent->valor );
+                printf("\n");
             }
-            printf("%-30f", ent->subtotal );
             
         }
     }
@@ -286,11 +320,12 @@ void listaReceitasNome(char* nome) {
     free(ent);
 }
 
-void listaReceitasMes(char* mes) {
+void listaReceitasMes(char* mes, char* ano, int tipo) {
     FILE* fp;
     Entrada* ent;
     char mesEnt[3];
     int tam;
+    float sub;
 
     ent = (Entrada*) malloc(sizeof(Entrada));
     fp = fopen("entradas.dat", "rb");
@@ -302,24 +337,30 @@ void listaReceitasMes(char* mes) {
                 mesEnt[i] = ' ';
             }
             mesEnt[2] = '\0';
+        sub = calculaReceitaMes(ent->mes, ent->ano, ent->tipo);
             if (ent->tipo == 1){
-                printf("%-30d", ent->tipo );
+                printf("\n");
+                printf("%-30f", ent->valor );
+                printf("\n");
             }
             if (ent->tipo == 2){
-                printf("%-30d", ent->tipo );
+                printf("\n");
+                printf("%-30f", ent->valor );
+                printf("\n");
             }
-            printf("%-30f", ent->subtotal );
+            printf("%-30f", sub );
         }
     }
     fclose(fp);
     free(ent);
 }
 
-void listaReceitasAno(char* ano) {
+void listaReceitasAno(char* ano, int tipo) {
     FILE* fp;
     Entrada* ent;
     char anoEnt[5];
     int tam;
+    float sub;
 
     ent = (Entrada*) malloc(sizeof(Entrada));
     fp = fopen("entradas.dat", "rb");
@@ -331,18 +372,30 @@ void listaReceitasAno(char* ano) {
                 anoEnt[i] = ' ';
             }
             anoEnt[4] = '\0';
-            printf("///           ||     %-30d     ||     %-30d     || %-30f ||             ///\n",(ent->tipo == 2),(ent->tipo == 1),ent->subtotal);
+            sub = calculaReceitaAno(ent->ano, ent->tipo);
+            if (ent->tipo == 1){
+                printf("\n");
+                printf("%-30f", ent->valor );
+                printf("\n");
+            }
+            if (ent->tipo == 2){
+                printf("\n");
+                printf("%-30f", ent->valor );
+                printf("\n");
+            }
+            printf("%-30f", sub );
         }
     }
     fclose(fp);
     free(ent);
 }
 
-void listaDespesasMes(char* mes) {
+void listaDespesasMes(char* mes, char* ano, int tipo) {
     FILE* fp;
     Saida* sai;
     char mesSai[3];
     int tam;
+    float sub;
 
     sai = (Saida*) malloc(sizeof(Saida));
     fp = fopen("saidas.dat", "rb");
@@ -354,24 +407,30 @@ void listaDespesasMes(char* mes) {
                 mesSai[i] = ' ';
             }
             mesSai[2] = '\0';
+            sub = calculaReceitaMes(sai->mes, sai->ano, sai->tipo);
             if (sai->tipo == 1){
-                printf("%-30d", sai->tipo );
+                printf("\n");
+                printf("%-30f", sai->valorDespesa );
+                printf("\n");
             }
             if (sai->tipo == 2){
-                printf("%-30d", sai->tipo );
+                printf("\n");
+                printf("%-30f", sai->valorDespesa );
+                printf("\n");
             }
-            printf("%-30f", sai->despesas );
+            printf("%-30f", sub );
         }
     }
     fclose(fp);
     free(sai);
 }
 
-void listaDespesasAno(char* ano) {
+void listaDespesasAno(char* ano, int tipo) {
     FILE* fp;
     Saida* sai;
     char anoSai[5];
     int tam;
+    float sub;
 
     sai = (Saida*) malloc(sizeof(Saida));
     fp = fopen("saidas.dat", "rb");
@@ -383,18 +442,143 @@ void listaDespesasAno(char* ano) {
                 anoSai[i] = ' ';
             }
             anoSai[4] = '\0';
+             sub = calculaReceitaAno(sai->ano, sai->tipo);
             if (sai->tipo == 1){
-                printf("%-30d", sai->tipo );
+                printf("\n");
+                printf("%-30f", sai->valorDespesa );
+                printf("\n");
             }
             if (sai->tipo == 2){
-                printf("%-30d", sai->tipo );
+                printf("\n");
+                printf("%-30f", sai->valorDespesa );
+                printf("\n");
             }
-            printf("%-30f", sai->despesas );
+            printf("%-30f", sub );
         }
     }
     fclose(fp);
     free(sai);
 }
+
+
+// FUNÇÕES DE CÁLCULO
+
+float calculaReceitaMes(char* mes, char* ano, int tipo){
+
+    FILE* fp;
+    Entrada* ent;
+
+    float sub = 0;
+    float valor = 0;
+    float variaveis = 0;
+    float fixas = 0;
+
+    ent = (Entrada*) malloc(sizeof(Entrada));
+    fp = fopen("entradas.dat", "rb");
+    while (fread(ent, sizeof(Entrada), 1, fp)) {
+        if (((strcmp(ent->mes, mes) == 0) && (strcmp(ent->ano, ano) == 0)) && (ent->tipo == tipo)) {
+            if(tipo == 1){
+                fixas += valor;
+                sub += fixas;
+            }
+            else{
+                variaveis += valor;
+                sub += variaveis;
+            }
+        }
+    }
+    return sub;
+}
+
+
+float calculaReceitaAno(char* ano, int tipo){
+
+    FILE* fp;
+    Entrada* ent;
+
+    float sub = 0;
+    float valor = 0;
+    float variaveis = 0;
+    float fixas = 0;
+
+    ent = (Entrada*) malloc(sizeof(Entrada));
+    fp = fopen("entradas.dat", "rb");
+    while (fread(ent, sizeof(Entrada), 1, fp)) {
+        if ((strcmp(ent->ano, ano) == 0) && (ent->tipo == tipo)) {
+            if(tipo == 1){
+                fixas += valor;
+            }
+            else{
+                variaveis += valor;
+            }
+
+            sub += fixas;
+            sub += variaveis;
+        }
+    }
+    return sub;
+}
+
+
+float calculaDespesaMes(char* mes, char* ano, int tipo){
+
+    FILE* fp;
+    Saida* sai;
+
+    float sub = 0;
+    float valor = 0;
+    float variaveis = 0;
+    float fixas = 0;
+
+    sai = (Saida*) malloc(sizeof(Saida));
+    fp = fopen("saidas.dat", "rb");
+    while (fread(sai, sizeof(Saida), 1, fp)) {
+        if (((strcmp(sai->mes, mes) == 0) && (strcmp(sai->ano, ano) == 0)) && (sai->tipo == tipo)) {
+            if(tipo == 1){
+                fixas += valor;
+                sub += fixas;
+            }
+            else{
+                variaveis += valor;
+                sub += variaveis;
+            }
+
+        }
+    }
+    return sub;
+}
+
+
+float calculaDespesaAno(char* ano, int tipo){
+
+    FILE* fp;
+    Saida* sai;
+
+    float sub = 0;
+    float valor = 0;
+    float variaveis = 0;
+    float fixas = 0;
+
+    sai = (Saida*) malloc(sizeof(Saida));
+    fp = fopen("saidas.dat", "rb");
+    while (fread(sai, sizeof(Saida), 1, fp)) {
+        if ((strcmp(sai->ano, ano) == 0) && (sai->tipo == tipo)) {
+            if(tipo == 1){
+                fixas += valor;
+                sub += fixas;
+            }
+            else{
+                variaveis += valor;
+                sub += variaveis;
+            }
+        }
+    }
+    return sub;
+}
+
+
+
+
 
 
 

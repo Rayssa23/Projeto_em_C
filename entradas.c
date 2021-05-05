@@ -77,7 +77,7 @@ void atualizaEntrada(void) {
 
 	nome = telaAtualizaEntradas();
 	ent = pesquisaDeEntradas(nome);
-// Se houver varias entradas do mesmo tipo, vai atualizar todas??? Pesquisar pelo nome e depois escolher qual atualizar???
+    
 	if (ent == NULL) {
     	printf("\n\nEntrada não encontrada!\n\n");
   	} else {
@@ -133,7 +133,6 @@ Entrada* telaCadastroEntradas(void){
 	        scanf("%[0-9/]", ent->ano);
 	        getchar();
 
-        ent->subtotal = ent->subtotal + ent->valor;
         ent->status = True;        
         printf("\n|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("\n");

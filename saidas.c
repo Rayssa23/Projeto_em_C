@@ -41,50 +41,52 @@ void cadastroSaidas(void){
 //// PESQUISA
 void consultaSaidas(void){
     Saida* sai;
-    int tipo;
+    char* nome;
 
-    tipo = telaConsultaSaidas();
-    sai = pesquisaSaidas(tipo);
+    nome = telaConsultaSaidas();
+    sai = pesquisaSaidas(nome);
     exibirSaida(sai);
     free(sai);
+    free(nome);
 }
 
 //// EXCLUSÃO
 void excluiSaida(void){
     Saida* sai;
-    int tipo;
+    char* nome;
 
-    tipo = telaExcluiSaidas();
+    nome = telaExcluiSaidas();
     sai = (Saida*) malloc(sizeof(Saida));
-    sai = pesquisaSaidas(tipo);
+    sai = pesquisaSaidas(nome);
         if (sai == NULL){
             printf("\n\nSaida não encontrada!!!\n\n");
         }else{
-            exibirSaida(sai);
             sai->status = False;
             regravarSaidas(sai);
             free(sai);
         }    
-
+        free(nome);
 }
 
 //// ATUALIZAÇÃO
 void atualizaSaida(void) {
     Saida* sai;
-    int tipo;
+    char* nome;
 
-	tipo = telaAtualizaSaidas();
-    sai = pesquisaSaidas(tipo);
-// Se houver varias saidas do mesmo tipo, vai atualizar todas??? Pesquisar pelonome e depois escolher qual atualizar???
+	nome = telaAtualizaSaidas();
+    sai = pesquisaSaidas(nome);
+
     if (sai == NULL) {
         printf("\n\nSaida não encontrada!\n\n");
     } else {
         exibirSaida(sai);
         sai = telaCadastroSaidas();
+        strcpy(sai->nome, nome);
         regravarSaidas(sai);
         free(sai);
             
     }
+    free(nome);
 }
 
 
@@ -125,7 +127,6 @@ Saida* telaCadastroSaidas(void){
 	            scanf("%[0-9/]", sai->ano);
 	            getchar();
         
-           sai->despesas = sai->despesas + sai->valorDespesa;
            sai->status = True; 
        printf("|///////////////////////////////////////////////////////////////////////////////|\n");
        printf("\n");
@@ -134,48 +135,51 @@ Saida* telaCadastroSaidas(void){
 
 }
 
-int telaConsultaSaidas(void){
-    int tipo;
-
+char* telaConsultaSaidas(void){
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Consultar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-            scanf("%d", &tipo);
+        printf("|///           Nome completo: ");
+	        scanf(" %50[^\n]", nome);
+	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
-        return tipo;
+        return nome;
 }
 
-int telaExcluiSaidas(void){
-    int tipo;
-
+char* telaExcluiSaidas(void){
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Excluir Saidas                              /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-            scanf("%d", &tipo);
+        printf("|///           Nome completo: ");
+	        scanf(" %50[^\n]", nome);
+	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
-        return tipo;
+        return nome;
 }
 
-int telaAtualizaSaidas(void){
-    int tipo;
-
+char* telaAtualizaSaidas(void){
+    char* nome;
+    nome = (char*) malloc(51*sizeof(char));
         system("clear");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");    
         printf("|/////                  Modulo Atualizar Saidas                            /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Tipo (Despesas Extras - 1 / Despesas Fixas - 2): ");
-            scanf("%d", &tipo);
+        printf("|///           Nome completo: ");
+	        scanf(" %50[^\n]", nome);
+	        getchar();
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         delay(1);
-        return tipo;
+        return nome;
 }
 
 
@@ -197,7 +201,7 @@ int telaAtualizaSaidas(void){
 //////////Consultar Arquivo SAIDAS   ///////////////////////
 ////////////////////////////////////////////////////////////
 
-    Saida* pesquisaSaidas(int tipo) {
+    Saida* pesquisaSaidas(char* nome) {
         FILE* fp;
         Saida* sai;
 
@@ -209,7 +213,7 @@ int telaAtualizaSaidas(void){
             exit(1);
         }
         while(fread(sai, sizeof(Saida), 1, fp)) {
-        if ((sai->tipo == tipo) && (sai->status == True)) {
+        if ((strcmp(sai->nome, nome) == 0) && (sai->status == True)) {
             fclose(fp);
             return sai;
         }

@@ -11,7 +11,6 @@ struct entrada {
    char dia[3];
    char mes[3];
    char ano[5];
-   float subtotal;
 };
 
 
