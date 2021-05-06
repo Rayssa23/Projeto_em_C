@@ -295,35 +295,34 @@ void listaReceitasNome(char* nome) {
 void listaReceitasMes(char* mes, char* ano, int tipo) {
     FILE* fp;
     Entrada* ent;
-    char mesEnt[3];
-    int tam;
-    float sub;
+    
+    float sub = 0;
+    float valor = 0;
+    float variaveis = 0;
+    float fixas = 0;
 
     ent = (Entrada*) malloc(sizeof(Entrada));
     fp = fopen("entradas.dat", "rb");
     while (fread(ent, sizeof(Entrada), 1, fp)) {
         if (strcmp(ent->mes, mes) == 0) {
-            if(strcmp(ent->ano, ano) == 0){
-                tam = strlen(ent->nome);
-                strncpy(mesEnt, ent->mes, tam);
-                for (int i = tam; i < 2; i++) {
-                    mesEnt[i] = ' ';
+            if((strcmp(ent->ano, ano) == 0) && (ent->tipo == tipo)){
+                if ( tipo == 2){
+                    variaveis += valor;
+                    sub += variaveis;
+                    printf("|> Receitas variaveis: R$ %5.2f         |\n", ent->valor );
+                    printf("|=======================================|\n");
                 }
-                mesEnt[2] = '\0';
-        sub = calculaReceitaMes(ent->mes, ent->ano, ent->tipo);
-            if ((ent->tipo == tipo) && (tipo == 2)){
-                printf("|> Receitas variaveis: R$ %5.2f         |\n", ent->valor );
-                printf("|=======================================|\n");
-            }
-            if ((ent->tipo == tipo) && (tipo == 1)){
-                printf("|> Receitas fixas: R$ %5.2f             |\n", ent->valor );
-                printf("|=======================================|\n");
-            }
-                printf("|   >> Subtotal:           R$ %5.2f     |\n",sub);
-                printf("|=======================================|\n");
+                else if (tipo == 1){
+                    fixas += valor;
+                    sub += fixas;
+                    printf("|> Receitas fixas: R$ %5.2f             |\n", ent->valor );
+                    printf("|=======================================|\n");
+                }
+                    printf("|   >> Subtotal:           R$ %5.2f     |\n",sub);
+                    printf("|=======================================|\n");
+                }
             }
         }
-    }
     fclose(fp);
     free(ent);
 }
@@ -331,26 +330,25 @@ void listaReceitasMes(char* mes, char* ano, int tipo) {
 void listaReceitasAno(char* ano, int tipo) {
     FILE* fp;
     Entrada* ent;
-    char anoEnt[5];
-    int tam;
-    float sub;
+    
+    float sub = 0;
+    float valor = 0;
+    float variaveis = 0;
+    float fixas = 0;
 
     ent = (Entrada*) malloc(sizeof(Entrada));
     fp = fopen("entradas.dat", "rb");
     while (fread(ent, sizeof(Entrada), 1, fp)) {
-        if (strcmp(ent->ano, ano) == 0) {
-            tam = strlen(ent->ano);
-            strncpy(anoEnt, ent->ano, tam);
-            for (int i = tam; i < 4; i++) {
-                anoEnt[i] = ' ';
-            }
-            anoEnt[4] = '\0';
-            sub = calculaReceitaAno(ent->ano, ent->tipo);
-            if ((ent->tipo == tipo) && (tipo == 2)){
+        if ((strcmp(ent->ano, ano) == 0) && (ent->tipo == tipo)) {
+            if (tipo == 2){
+                    variaveis += valor;
+                    sub += variaveis;
                 printf("|> Receitas variaveis: R$ %5.2f         |\n", ent->valor );
                 printf("|=======================================|\n");
             }
-            if ((ent->tipo == tipo) && (tipo == 1)){
+            else if (tipo == 1){
+                    fixas += valor;
+                    sub += fixas;
                 printf("|> Receitas fixas: R$ %5.2f             |\n", ent->valor );
                 printf("|=======================================|\n");
             }
@@ -365,27 +363,26 @@ void listaReceitasAno(char* ano, int tipo) {
 void listaDespesasMes(char* mes, char* ano, int tipo) {
     FILE* fp;
     Saida* sai;
-    char mesSai[3];
-    int tam;
-    float sub;
+    
+    float sub = 0;
+    float valor = 0;
+    float variaveis = 0;
+    float fixas = 0;
 
     sai = (Saida*) malloc(sizeof(Saida));
     fp = fopen("saidas.dat", "rb");
     while (fread(sai, sizeof(Saida), 1, fp)) {
         if (strcmp(sai->mes, mes) == 0) {
-            if (strcmp(sai->ano, ano) == 0) {
-                tam = strlen(sai->nome);
-                strncpy(mesSai, sai->mes, tam);
-                for (int i = tam; i < 2; i++) {
-                    mesSai[i] = ' ';
-                }
-                    mesSai[2] = '\0';
-                    sub = calculaDespesaMes(sai->mes, sai->ano, sai->tipo);
-                    if ((sai->tipo == tipo) && (tipo == 1)){
+                if((strcmp(sai->ano, ano) == 0) && (sai->tipo == tipo)){
+                    if (tipo == 1){
+                        variaveis += valor;
+                        sub += variaveis;
                         printf("|> Despesas variaveis:       R$ %5.2f   |\n",sai->valorDespesa );
                         printf("|=======================================|\n"); 
                     }
-                    if ((sai->tipo == tipo)&& (tipo == 2)){
+                    else if (tipo == 2){
+                        fixas += valor;
+                        sub += fixas;
                         printf("|> Despesas fixas:           R$ %5.2f   |\n",sai->valorDespesa );
                         printf("|=======================================|\n"); 
                     }
@@ -401,26 +398,26 @@ void listaDespesasMes(char* mes, char* ano, int tipo) {
 void listaDespesasAno(char* ano, int tipo) {
     FILE* fp;
     Saida* sai;
-    char anoSai[5];
-    int tam;
-    float sub;
+    
+    float sub = 0;
+    float valor = 0;
+    float variaveis = 0;
+    float fixas = 0;
+
 
     sai = (Saida*) malloc(sizeof(Saida));
     fp = fopen("saidas.dat", "rb");
     while (fread(sai, sizeof(Entrada), 1, fp)) {
-        if (strcmp(sai->ano, ano) == 0) {
-            tam = strlen(sai->ano);
-            strncpy(anoSai, sai->ano, tam);
-            for (int i = tam; i < 4; i++) {
-                anoSai[i] = ' ';
-            }
-            anoSai[4] = '\0';
-             sub = calculaDespesaAno(sai->ano, sai->tipo);
-            if ((sai->tipo == tipo) && (tipo == 1)){
+        if ((strcmp(sai->ano, ano) == 0) && (sai->tipo == tipo))  {
+            if ( (tipo == 1)){
+                    variaveis += valor;
+                    sub += variaveis;
                 printf("|> Despesas variaveis:       R$ %5.2f   |\n",sai->valorDespesa );
                 printf("|=======================================|\n");
             }
-            if ((sai->tipo == tipo) && (tipo == 2)){
+            else if (tipo == 2){
+                    fixas += valor;
+                    sub += fixas;
                 printf("|> Despesas fixas:           R$ %5.2f   |\n",sai->valorDespesa );
                 printf("|=======================================|\n"); 
             }
@@ -430,122 +427,6 @@ void listaDespesasAno(char* ano, int tipo) {
     }
     fclose(fp);
     free(sai);
-}
-
-
-// FUNÇÕES DE CÁLCULO
-
-float calculaReceitaMes(char* mes, char* ano, int tipo){
-
-    FILE* fp;
-    Entrada* ent;
-
-    float sub = 0;
-    float valor = 0;
-    float variaveis = 0;
-    float fixas = 0;
-
-    ent = (Entrada*) malloc(sizeof(Entrada));
-    fp = fopen("entradas.dat", "rb");
-    while (fread(ent, sizeof(Entrada), 1, fp)) {
-        if (((strcmp(ent->mes, mes) == 0) && (strcmp(ent->ano, ano) == 0)) && (ent->tipo == tipo)) {
-            if(tipo == 1){
-                fixas += valor;
-                sub += fixas;
-            }
-            else{
-                variaveis += valor;
-                sub += variaveis;
-            }
-        }
-    }
-    return sub;
-}
-
-
-float calculaReceitaAno(char* ano, int tipo){
-
-    FILE* fp;
-    Entrada* ent;
-
-    float sub = 0;
-    float valor = 0;
-    float variaveis = 0;
-    float fixas = 0;
-
-    ent = (Entrada*) malloc(sizeof(Entrada));
-    fp = fopen("entradas.dat", "rb");
-    while (fread(ent, sizeof(Entrada), 1, fp)) {
-        if ((strcmp(ent->ano, ano) == 0) && (ent->tipo == tipo)) {
-            if(tipo == 1){
-                fixas += valor;
-            }
-            else{
-                variaveis += valor;
-            }
-
-            sub += fixas;
-            sub += variaveis;
-        }
-    }
-    return sub;
-}
-
-
-float calculaDespesaMes(char* mes, char* ano, int tipo){
-
-    FILE* fp;
-    Saida* sai;
-
-    float sub = 0;
-    float valor = 0;
-    float variaveis = 0;
-    float fixas = 0;
-
-    sai = (Saida*) malloc(sizeof(Saida));
-    fp = fopen("saidas.dat", "rb");
-    while (fread(sai, sizeof(Saida), 1, fp)) {
-        if (((strcmp(sai->mes, mes) == 0) && (strcmp(sai->ano, ano) == 0)) && (sai->tipo == tipo)) {
-            if(tipo == 1){
-                fixas += valor;
-                sub += fixas;
-            }
-            else{
-                variaveis += valor;
-                sub += variaveis;
-            }
-
-        }
-    }
-    return sub;
-}
-
-
-float calculaDespesaAno(char* ano, int tipo){
-
-    FILE* fp;
-    Saida* sai;
-
-    float sub = 0;
-    float valor = 0;
-    float variaveis = 0;
-    float fixas = 0;
-
-    sai = (Saida*) malloc(sizeof(Saida));
-    fp = fopen("saidas.dat", "rb");
-    while (fread(sai, sizeof(Saida), 1, fp)) {
-        if ((strcmp(sai->ano, ano) == 0) && (sai->tipo == tipo)) {
-            if(tipo == 1){
-                fixas += valor;
-                sub += fixas;
-            }
-            else{
-                variaveis += valor;
-                sub += variaveis;
-            }
-        }
-    }
-    return sub;
 }
 
 

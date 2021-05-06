@@ -51,10 +51,3 @@ void relatReceitasAnuais(char* ano, int tipo);
 void relatDespesasMensais(char* mes, char* ano, int tipo);
 void relatDespesasAnuais(char* ano, int tipo);
 
-
-/// Funções Cálculos
-
-float calculaReceitaMes(char* mes, char* ano, int tipo);
-float calculaReceitaAno(char* ano, int tipo);
-float calculaDespesaMes(char* mes, char* ano, int tipo);
-float calculaDespesaAno(char* ano, int tipo);
