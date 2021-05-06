@@ -62,11 +62,14 @@ void consultaDeContribuinte(void){
             if (contr == NULL){
                 printf("\n\nContribuinte não encontrado!!!\n\n");
             }else{
+                exibeContribuinte(contr);
                 contr->status = False;
                 regravarContribuinte(contr);
                 free(contr);
             }
         free(nome);
+        printf("=== Contribuinte Excluido ===");
+        delay(1);
 }
 
 //// ATUALIZAÇÃO
@@ -225,7 +228,10 @@ void exibeContribuinte(Contribuinte* contr) {
 
   if ((contr = NULL)) {
     printf("\n= = = Contribuinte Inexistente = = =\n");
-  } else {
+  } else if ( (contr->status == False)){
+    printf("\n= = = Contribuinte Inexistente = = =\n");
+    } 
+  else {
     printf("\n= = = CONTRIBUINTE Cadastrado = = =\n");
     printf("Nome: %s\n", contr->nome);
     printf("Destino: %s\n", contr->profissao);

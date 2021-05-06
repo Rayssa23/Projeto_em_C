@@ -1,6 +1,7 @@
 
 //Assinaturas das funções do Módulo Dependente
 
+
 typedef struct dependente Dependente;
 
 struct dependente{

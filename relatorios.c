@@ -193,10 +193,10 @@ int telaTipo(void){
         printf(".................................................................................\n");
         printf(".................................................................................\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
-        printf("|/////            Informe o Tipo(1- Salarios/ 2- Extras): ");
-        scanf("%d", &tipo);
+        printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
+            scanf("%d", &tipo); 
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
-        printf("\n");
+        printf("\n");    
         delay(1);
         return tipo;
 }
@@ -305,11 +305,11 @@ void listaReceitasNome(char* nome) {
                 nomeEnt[i] = ' ';
             }
             nomeEnt[50] = '\0';
-            if (ent->tipo == 1){
-                printf("-30%5.2f", ent->valor );
+            if (ent->tipo == 2){
+                printf("%5.2f", ent->valor );
             }
-            else if (ent->tipo == 2){
-                printf("-30%-5.2f", ent->valor );
+            else if (ent->tipo == 1){
+                printf("%5.2f", ent->valor );
             }
             
         }
@@ -329,20 +329,22 @@ void listaReceitasMes(char* mes, char* ano, int tipo) {
     fp = fopen("entradas.dat", "rb");
     while (fread(ent, sizeof(Entrada), 1, fp)) {
         if (strcmp(ent->mes, mes) == 0) {
-            tam = strlen(ent->nome);
-            strncpy(mesEnt, ent->mes, tam);
-            for (int i = tam; i < 2; i++) {
-                mesEnt[i] = ' ';
-            }
-            mesEnt[2] = '\0';
+            if(strcmp(ent->ano, ano) == 0){
+                tam = strlen(ent->nome);
+                strncpy(mesEnt, ent->mes, tam);
+                for (int i = tam; i < 2; i++) {
+                    mesEnt[i] = ' ';
+                }
+                mesEnt[2] = '\0';
         sub = calculaReceitaMes(ent->mes, ent->ano, ent->tipo);
-            if ((ent->tipo == tipo) && (tipo == 1)){
-                printf("-30%5.2f", ent->valor );
+            if ((ent->tipo == tipo) && (tipo == 2)){
+                printf("%5.2f", ent->valor );
             }
             if ((ent->tipo == tipo) && (tipo == 1)){
-                printf("-30%5.2f", ent->valor );
+                printf("%5.2f", ent->valor );
             }
-            printf("-30%5.2f", sub );
+            printf(" %5.2f", sub );
+            }
         }
     }
     fclose(fp);
@@ -367,13 +369,13 @@ void listaReceitasAno(char* ano, int tipo) {
             }
             anoEnt[4] = '\0';
             sub = calculaReceitaAno(ent->ano, ent->tipo);
-            if ((ent->tipo == tipo) && (tipo == 1)){
-                printf("-30%5.2f", ent->valor );
+            if ((ent->tipo == tipo) && (tipo == 2)){
+                printf(" %5.2f", ent->valor );
             }
             if ((ent->tipo == tipo) && (tipo == 1)){
-                printf("-30%5.2f", ent->valor );
+                printf(" %5.2f", ent->valor );
             }
-            printf("-30%5.2f", sub );
+            printf(" %5.2f", sub );
         }
     }
     fclose(fp);
@@ -391,22 +393,24 @@ void listaDespesasMes(char* mes, char* ano, int tipo) {
     fp = fopen("saidas.dat", "rb");
     while (fread(sai, sizeof(Saida), 1, fp)) {
         if (strcmp(sai->mes, mes) == 0) {
-            tam = strlen(sai->nome);
-            strncpy(mesSai, sai->mes, tam);
-            for (int i = tam; i < 2; i++) {
-                mesSai[i] = ' ';
+            if (strcmp(sai->ano, ano) == 0) {
+                tam = strlen(sai->nome);
+                strncpy(mesSai, sai->mes, tam);
+                for (int i = tam; i < 2; i++) {
+                    mesSai[i] = ' ';
+                }
+                    mesSai[2] = '\0';
+                    sub = calculaDespesaMes(sai->mes, sai->ano, sai->tipo);
+                    if ((sai->tipo == tipo) && (tipo == 1)){
+                        printf(" %5.2f", sai->valorDespesa );
+                    }
+                    if ((sai->tipo == tipo)&& (tipo == 2)){
+                        printf(" %5.2f", sai->valorDespesa );
+                    }
+                    printf(" %5.2f", sub );
+                }
             }
-            mesSai[2] = '\0';
-            sub = calculaReceitaMes(sai->mes, sai->ano, sai->tipo);
-            if ((sai->tipo == tipo) && (tipo == 1)){
-                printf("-30%5.2f", sai->valorDespesa );
-            }
-            if ((sai->tipo == tipo)&& (tipo == 2)){
-                printf("-30%5.2f", sai->valorDespesa );
-            }
-            printf("-30%5.2f", sub );
         }
-    }
     fclose(fp);
     free(sai);
 }
@@ -428,14 +432,14 @@ void listaDespesasAno(char* ano, int tipo) {
                 anoSai[i] = ' ';
             }
             anoSai[4] = '\0';
-             sub = calculaReceitaAno(sai->ano, sai->tipo);
+             sub = calculaDespesaAno(sai->ano, sai->tipo);
             if ((sai->tipo == tipo) && (tipo == 1)){
-                printf("-30%5.2f", sai->valorDespesa );
+                printf(" %5.2f", sai->valorDespesa );
             }
             if ((sai->tipo == tipo) && (tipo == 2)){
-                printf("-30%5.2f", sai->valorDespesa );
+                printf(" %5.2f", sai->valorDespesa );
             }
-            printf("-30%5.2f", sub );
+            printf(" %5.2f", sub );
         }
     }
     fclose(fp);

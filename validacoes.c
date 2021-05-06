@@ -17,17 +17,17 @@
 int validarNomes(char nome[]){
     int tam;
     tam = strlen (nome);
-    if ((tam == 0 )|| (tam <= 5)){
-                return 1;
+    if ((tam == 0 ) || (tam <= 5)){
+            return 0;
                 }
     else {
         for (int i = 0; i < tam; i++ ){
-            if((!isalpha(nome[i]) || (!isspace(nome[i])))){
-                return 1;
+            if((!isalpha(nome[i])) && (!isspace(nome[i]))){
+                return 0;
             }
         }
     } 
-    return 0;
+    return 1;
     }     
 
 //Valida Valores
@@ -54,20 +54,20 @@ int validaIdade (int idade){
     //idade apenas dígitos
     if ((idade <= 0) || (!isdigit(idade))){
         
-        return 1;
+        return 0;
     }
     else{
-        return 0;
+        return 1;
     }
 }
 
 //Valida Tipos
 int validaTipo (int tipo){
-    if ((tipo != 1) || (tipo != 2 )){ 
-        return 1;
+    if ((tipo != 1) && (tipo != 2 )){ 
+        return 0;
     }
     else{
-        return 0;
+        return 1;
         
     }
 }

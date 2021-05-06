@@ -1,4 +1,5 @@
 
+
 //Assinaturas das funções do Módulo Entradas
 
 typedef struct entrada Entrada;

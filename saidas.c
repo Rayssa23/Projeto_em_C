@@ -61,11 +61,14 @@ void excluiSaida(void){
         if (sai == NULL){
             printf("\n\nSaida não encontrada!!!\n\n");
         }else{
+            exibirSaida(sai);
             sai->status = False;
             regravarSaidas(sai);
             free(sai);
         }    
         free(nome);
+        printf("=== Saida Excluida ===");
+        delay(1);
 }
 
 //// ATUALIZAÇÃO
@@ -231,7 +234,10 @@ void exibirSaida(Saida* sai) {
 
   if ((sai == NULL)) {
     printf("\n= = = Saida Inexistente = = =\n");
-  } else {
+  } else if ( (sai->status == False)){
+    printf("\n= = = Entrada Inexistente = = =\n");
+    } 
+  else {
     printf("\n= = = Saida Cadastrada = = =\n");
     printf("Nome: %s\n", sai->nome);
     printf("Valor: %5.2f\n", sai->valorDespesa);
@@ -262,7 +268,7 @@ void regravarSaidas(Saida* sai) {
 	}
 	achou = False;
 	while(fread(saiLido, sizeof(Saida), 1, fp) && !achou) {
-		if ((saiLido->tipo == sai->tipo)) {
+		 if ((strcmp(saiLido->nome, sai->nome) == 0)) {
 			achou = True;
 			fseek(fp, -1*sizeof(Saida), SEEK_CUR);
         	fwrite(sai, sizeof(Saida), 1, fp);

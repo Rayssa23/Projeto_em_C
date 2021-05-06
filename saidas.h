@@ -1,5 +1,7 @@
 
+
 //Assinaturas das funções do Módulo Saidas
+
 
 typedef struct saida Saida;
 

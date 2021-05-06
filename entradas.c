@@ -61,13 +61,15 @@ void excluiEntrada(void){
 	ent = (Entrada*) malloc(sizeof(Entrada));
 	ent = pesquisaDeEntradas(nome);
 	    if (ent == NULL) {
-    	    printf("\n\nEntrada não encontrado!\n\n");
+    	    printf("\n\nEntrada não encontrada!\n\n");
   	    } else {
+            exibeEntradas(ent);
 		    ent->status = False;
 		    regravarEntradas(ent);
 		    free(ent);
 	    }
         free(nome);
+        printf("\n==== Entrada Excluida ===\n");
 }
 
 //// ATUALIZAÇÃO
@@ -246,7 +248,11 @@ void exibeEntradas(Entrada* ent) {
 
   if ((ent == NULL)) {
     printf("\n= = = Entrada Inexistente = = =\n");
-  } else {
+    }
+  else if ( (ent->status == False)){
+    printf("\n= = = Entrada Inexistente = = =\n");
+    }
+  else {
     printf("\n= = = Entrada Cadastrada = = =\n");
     printf("Nome: %s\n", ent->nome);
     printf("Valor: %5.2f\n", ent->valor);

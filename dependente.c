@@ -48,6 +48,7 @@ void consultaDeDependente(void){
     
         nome = telaConsultaDependente();
         depend = pesquisaDependente(nome);
+
         exibeDependente(depend);
         free(depend);
         free(nome);
@@ -64,11 +65,14 @@ void excluiDependente(void){
             if (depend == NULL){
                 printf("\n\nDependente não encontrado!!!\n\n");
             }else{
+                exibeDependente(depend);
                 depend->status = False;
                 regravarDependente(depend);
                 free(depend);
             }
         free(nome);
+        printf("=== Dependente Excluido ===");
+        delay(1);
 }
 
 //// ATUALIZAÇÃO
@@ -226,7 +230,10 @@ void exibeDependente(Dependente* depend) {
 
     if ((depend = NULL)){
         printf("\n= = = Dependente Inexistente = = =\n");
-    } else {
+    } else if ( (depend->status == False)){
+    printf("\n= = = Dependente Inexistente = = =\n");
+    } 
+    else {
         printf("\n= = = Dependente Cadastrado = = =\n");
         printf("Nome: %s\n", depend->nome);
         printf("Data de Nascimento: %s\n", depend->Dtnasc);
