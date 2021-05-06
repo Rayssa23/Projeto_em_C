@@ -7,6 +7,7 @@
 ///                Developed by  @AlmeidaRayssa - Jan, 2021                 ///
 ///////////////////////////////////////////////////////////////////////////////
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "entradas.h"

@@ -140,7 +140,7 @@ char* telaReceitasAnuais(void){
         printf("|/////            Informe o Ano(aa): ");
         scanf(" %c", ano);
             getchar();
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
         return ano;
@@ -159,7 +159,7 @@ char* telaDespesasMensais(void){
         printf("|/////            Informe o Mes(mm): ");
         scanf(" %c", mes);
             getchar();
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
         return mes;
@@ -178,7 +178,7 @@ char* telaDespesasAnuais(void){
         printf("|/////            Informe o Ano(aa): ");
         scanf(" %c", ano);
             getchar();
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");
         delay(1);
         return ano;
@@ -195,7 +195,7 @@ int telaTipo(void){
         printf("|///////////////////////////////////////////////////////////////////////////////|\n");
         printf("|/////            Tipo (Salario - 1 / Extras - 2): ");
             scanf("%d", &tipo); 
-        printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+        printf("\n|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("\n");    
         delay(1);
         return tipo;
@@ -209,10 +209,6 @@ void relatReceitasPorNome(char* nome){
             printf("|> Nome:                 %s             |\n",nome);
             printf("|=======================================|\n");
             listaReceitasNome(nome);
-            printf("|> Receitas variaveis:     R$           |\n");
-            printf("|=======================================|\n");
-            printf("|> Receitas fixas:         R$           |\n");
-            printf("|=======================================|\n");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
@@ -224,12 +220,6 @@ void relatReceitasMensais(char* mes, char* ano, int tipo){
             printf("|> Mes:                 %s              |\n",mes);
             printf("|=======================================|\n");
             listaReceitasMes(mes,ano,tipo);
-            printf("|> Receitas variaveis:     R$           |\n");
-            printf("|=======================================|\n");
-            printf("|> Receitas fixas:         R$           |\n");
-            printf("|=======================================|\n");
-            printf("|   >> Subtotal:           R$           |\n");
-            printf("|=======================================|\n");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
@@ -241,12 +231,6 @@ void relatReceitasAnuais(char* ano, int tipo){
             printf("|> Mes:                 %s              |\n",ano);
             printf("|=======================================|\n");
             listaReceitasAno(ano,tipo);
-            printf("|> Receitas variaveis:     R$           |\n");
-            printf("|=======================================|\n");
-            printf("|> Receitas fixas:         R$           |\n");
-            printf("|=======================================|\n");
-            printf("|   >> Subtotal:           R$           |\n");
-            printf("|=======================================|\n");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
@@ -258,12 +242,6 @@ void relatDespesasMensais(char* mes, char* ano, int tipo){
             printf("|> Mes:                 %s              |\n",mes);
             printf("|=======================================|\n");
             listaDespesasMes(mes,ano,tipo);
-            printf("|> Despesas variaveis:     R$           |\n");
-            printf("|=======================================|\n");
-            printf("|> Despesas fixas:         R$           |\n");
-            printf("|=======================================|\n");
-            printf("|   >> Subtotal:           R$           |\n");
-            printf("|=======================================|\n");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
@@ -275,12 +253,6 @@ void relatDespesasAnuais(char* ano, int tipo){
             printf("|> Ano:                 %s              |\n",ano);
             printf("|=======================================|\n");
             listaDespesasAno(ano,tipo);
-            printf("|> Despesas variaveis:     R$           |\n");
-            printf("|=======================================|\n");
-            printf("|> Despesas fixas:         R$           |\n");
-            printf("|=======================================|\n");
-            printf("|   >> Subtotal:           R$           |\n");
-            printf("|=======================================|\n");
         printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
         getchar();
 }
@@ -306,10 +278,12 @@ void listaReceitasNome(char* nome) {
             }
             nomeEnt[50] = '\0';
             if (ent->tipo == 2){
-                printf("%5.2f", ent->valor );
+                printf("|> Receitas variaveis: R$ %5.2f         |\n", ent->valor );
+                printf("|=======================================|\n");
             }
             else if (ent->tipo == 1){
-                printf("%5.2f", ent->valor );
+                printf("|> Receitas fixas: R$ %5.2f             |\n", ent->valor );
+                printf("|=======================================|\n");
             }
             
         }
@@ -338,12 +312,15 @@ void listaReceitasMes(char* mes, char* ano, int tipo) {
                 mesEnt[2] = '\0';
         sub = calculaReceitaMes(ent->mes, ent->ano, ent->tipo);
             if ((ent->tipo == tipo) && (tipo == 2)){
-                printf("%5.2f", ent->valor );
+                printf("|> Receitas variaveis: R$ %5.2f         |\n", ent->valor );
+                printf("|=======================================|\n");
             }
             if ((ent->tipo == tipo) && (tipo == 1)){
-                printf("%5.2f", ent->valor );
+                printf("|> Receitas fixas: R$ %5.2f             |\n", ent->valor );
+                printf("|=======================================|\n");
             }
-            printf(" %5.2f", sub );
+                printf("|   >> Subtotal:           R$ %5.2f     |\n",sub);
+                printf("|=======================================|\n");
             }
         }
     }
@@ -370,12 +347,15 @@ void listaReceitasAno(char* ano, int tipo) {
             anoEnt[4] = '\0';
             sub = calculaReceitaAno(ent->ano, ent->tipo);
             if ((ent->tipo == tipo) && (tipo == 2)){
-                printf(" %5.2f", ent->valor );
+                printf("|> Receitas variaveis: R$ %5.2f         |\n", ent->valor );
+                printf("|=======================================|\n");
             }
             if ((ent->tipo == tipo) && (tipo == 1)){
-                printf(" %5.2f", ent->valor );
+                printf("|> Receitas fixas: R$ %5.2f             |\n", ent->valor );
+                printf("|=======================================|\n");
             }
-            printf(" %5.2f", sub );
+                printf("|   >> Subtotal:           R$ %5.2f     |\n",sub);
+                printf("|=======================================|\n");
         }
     }
     fclose(fp);
@@ -402,12 +382,15 @@ void listaDespesasMes(char* mes, char* ano, int tipo) {
                     mesSai[2] = '\0';
                     sub = calculaDespesaMes(sai->mes, sai->ano, sai->tipo);
                     if ((sai->tipo == tipo) && (tipo == 1)){
-                        printf(" %5.2f", sai->valorDespesa );
+                        printf("|> Despesas variaveis:       R$ %5.2f   |\n",sai->valorDespesa );
+                        printf("|=======================================|\n"); 
                     }
                     if ((sai->tipo == tipo)&& (tipo == 2)){
-                        printf(" %5.2f", sai->valorDespesa );
+                        printf("|> Despesas fixas:           R$ %5.2f   |\n",sai->valorDespesa );
+                        printf("|=======================================|\n"); 
                     }
-                    printf(" %5.2f", sub );
+                        printf("|   >> Subtotal:           R$ %5.2f     |\n",sub);
+                        printf("|=======================================|\n");
                 }
             }
         }
@@ -434,12 +417,15 @@ void listaDespesasAno(char* ano, int tipo) {
             anoSai[4] = '\0';
              sub = calculaDespesaAno(sai->ano, sai->tipo);
             if ((sai->tipo == tipo) && (tipo == 1)){
-                printf(" %5.2f", sai->valorDespesa );
+                printf("|> Despesas variaveis:       R$ %5.2f   |\n",sai->valorDespesa );
+                printf("|=======================================|\n");
             }
             if ((sai->tipo == tipo) && (tipo == 2)){
-                printf(" %5.2f", sai->valorDespesa );
+                printf("|> Despesas fixas:           R$ %5.2f   |\n",sai->valorDespesa );
+                printf("|=======================================|\n"); 
             }
-            printf(" %5.2f", sub );
+               printf("|   >> Subtotal:           R$ %5.2f     |\n",sub);
+               printf("|=======================================|\n");
         }
     }
     fclose(fp);

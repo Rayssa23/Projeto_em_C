@@ -3,6 +3,7 @@
 
 
 
+
 typedef struct contribuinte Contribuinte;
 
 struct contribuinte {
