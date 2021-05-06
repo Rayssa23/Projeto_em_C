@@ -8,6 +8,8 @@
 char moduloRelatorio(void);
 void menuRelatorio(void);
 
+int telaTipo(void);
+
 // Receitas por Nome
 
 void receitasPorNome(void);
