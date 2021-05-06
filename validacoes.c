@@ -52,7 +52,7 @@ int validaValor (float *valor){
 
 int validaIdade (int idade){
     //idade apenas dígitos
-    if ((idade <= 0) || (!isdigit(idade))){
+    if (idade <= 0){
         
         return 0;
     }
