@@ -570,7 +570,6 @@ char moduloRelatorio(void){
         printf("|/////            3 - Receitas Anuais                                      /////|\n");
         printf("|/////            4 - Despesas Mensais                                     /////|\n");
         printf("|/////            5 - Despesas Anuais                                      /////|\n");
-        printf("|/////            6 - Exibir Tudo                                          /////|\n");
         printf("|/////            0 - Sair                                                 /////|\n");
         printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
         printf("|/////            Escolha sua opcao: ");
